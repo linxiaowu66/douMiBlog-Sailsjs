@@ -1,0 +1,29 @@
+{
+  "name": "douMiBlog",
+  "version": "0.0.1",
+  "homepage": "http://blog.5udou.cn",
+  "authors": [
+    "linxiaowu <linguang661990@126.com>"
+  ],
+  "description": "A Easy Blog Based on Sails Web Framework",
+  "keywords": [
+    "Blog",
+    "Front-End",
+    "Sails"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "jquery": "~2.1.4",
+    "marked": "^0.3.5",
+    "highlightjs": "^9.2.0"
+  }
+}
