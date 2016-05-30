@@ -118,8 +118,6 @@ nbproject
 .node_history
 
 assets/vender
-assets/images/*
-assets/.sass-cache
 
 ####################################################
 #
@@ -127,5 +125,6 @@ assets/.sass-cache
 #
 ####################################################
 gem
-
+assets/styles/
+.sass-cache/
 

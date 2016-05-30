@@ -19,8 +19,8 @@
     <header class="htmleaf-header">
       <h1>豆米的博客 <span>有趣、五味杂陈的前端生活博客</span></h1>
       <div class="htmleaf-links">
-        <a class="htmleaf-icon icon-htmleaf-home-outline" href="/" title="博客首页"><span> 豆米的博客</span></a>
-        <a class="htmleaf-icon icon-htmleaf-arrow-forward-outline" href="/" title="返回文章"><span> 返回文章</span></a>
+        <a class="icon" href="/" title="博客首页"><span class="glyphicon glyphicon-home"></span></a>
+        <a class="icon" href="/" title="返回文章"><span class="glyphicon glyphicon-share-alt"></span></a>
       </div>
     </header>
     <div class="cont_join  ">

@@ -15,7 +15,7 @@ module.exports = function(grunt) {
   grunt.registerTask('compileAssets', [
     'clean:dev',
     'jst:dev',
-    'compass',
+    'compass:dist',
     'copy:dev',
     'coffee:dev'
   ]);

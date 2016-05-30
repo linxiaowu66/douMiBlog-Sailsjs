@@ -22,13 +22,13 @@ module.exports = function(grunt) {
       dest: '.tmp/public/min/production.min.css'
     },
     modules: {
-			files:[{
-				expand: true,
-				cwd: '.tmp/public/styles',
-				src: '**/*.css',
-				dest: '.tmp/public/styles'
-			}]
-		}
+	    files:[{
+        expand: true,
+        cwd: '.tmp/public/styles',
+        src: '**/*.css',
+        dest: '.tmp/public/styles'
+      }]
+	  }
   });
 
   grunt.loadNpmTasks('grunt-contrib-cssmin');

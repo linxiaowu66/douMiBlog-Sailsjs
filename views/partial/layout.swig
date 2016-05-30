@@ -1,21 +1,19 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html>
 <head>
-    <title>{% block title -%}{%- endblock %}</title>
-    {# 引入常用css文件 #}
-    {% include "stylesheets.swig" -%}
-    {% block stylesheets -%}{%- endblock %}
+  <meta charset="utf-8">
+  <title>{% block title %}{% endblock %}</title>
+
+  {% block style %}
+  <link rel="stylesheet" href="./vender/bootstrap/dist/css/bootstrap.min.css">
+  {% endblock %}
 </head>
 <body>
-    {# 引入导航栏 #}
-    {% include "header.swig" -%}
-    {# ???????,????????? #}
-    <div class="mainContainer">
-        {% block content -%}
-        {%- endblock %}
-    </div>
-    {# 引入常用脚本 #}
+  {% block content %}{% endblock %}
 
-    {% include "scripts.swig" %}
+    {% block script %}
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery" src="./vender/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bootstrap" src="./vender/bootstrap/dist/js/bootstrap.min.js"></script>
+    {% endblock %}
 </body>
 </html>

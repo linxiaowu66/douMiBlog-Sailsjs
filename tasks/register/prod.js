@@ -16,9 +16,9 @@ module.exports = function(grunt) {
     'compileAssets',
     'concat',
     'uglify:dist',
-    'uglify:modules',
+    'uglify:modules', //压缩自定义模块
     'cssmin:dist',
-    'cssmin:modules'
+    'cssmin:modules', // 压缩自定义css
     'sails-linker:prodJs',
     'sails-linker:prodStyles',
     'sails-linker:devTpl',

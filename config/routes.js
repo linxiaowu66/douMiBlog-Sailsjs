@@ -33,9 +33,24 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
-    view: 'index'
-  }
+    view: 'index',
+  },
 
+  'GET /login': {
+    view: 'login',
+  },
+
+  'GET /management': {
+    view: 'blog-management',
+  },
+
+  'GET /management/blog-creation': {
+    view: 'blog-creation',
+  },
+
+  'GET /blog': {
+    view: 'blog-overview',
+  }
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
