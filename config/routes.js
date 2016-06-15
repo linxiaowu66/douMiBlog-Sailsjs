@@ -37,20 +37,55 @@ module.exports.routes = {
   },
 
   'GET /login': {
-    view: 'login',
+    controller: 'Auth',
+    action: 'toLogin'
+  },
+
+  'POST /login': {
+    controller: 'Auth',
+    action: 'processLogin'
+  },
+
+  'GET /register': {
+    controller: 'Auth',
+    action: 'toRegister'
+  },
+
+  'POST /register': {
+    controller: 'Auth',
+    action: 'processRegister'
+  },
+
+  'POST /logout': {
+    controller: 'Auth',
+    action: 'logout'
   },
 
   'GET /management': {
-    view: 'blog-management',
+    controller: 'Mgmt',
+    action: 'index'
+  },
+
+  'POST /management': {
+    controller: 'Mgmt',
+    action: 'show'
   },
 
   'GET /management/blog-creation': {
-    view: 'blog-creation',
+    controller: 'Mgmt',
+    action: 'doCreate'
   },
 
   'GET /blog': {
     view: 'blog-overview',
-  }
+  },
+
+  'GET /aboutDouMi': {
+    view: 'aboutDouMi',
+  },
+
+
+
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

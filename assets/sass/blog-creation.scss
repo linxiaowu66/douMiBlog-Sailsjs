@@ -90,6 +90,28 @@ textarea {
   }
 }
 
+
+.post-settings {
+  position: relative;
+  display: inline-block;
+  padding: 15px;
+  color: #7d878a;
+  transition: all .15s ease-out 0s;
+
+  span{
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    line-height: 16px;
+  }
+}
+button.post-settings{
+  outline: 0;
+  border: none;
+  background: 0 0;
+  box-shadow: none;
+}
+
 .blog-content-header {
   display: block;
   padding: 8px 10px;
@@ -230,4 +252,382 @@ textarea {
   }
 }
 
+.settings-menu-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 500;
+  overflow: hidden;
+  max-width: 100%;
+  width: 350px;
+  border-left: #dfe1e3 1px solid;
+  background: #fff;
+  transition: -webkit-transform .4s cubic-bezier(0.1, .7, .1, 1);
+  transition: transform .4s cubic-bezier(0.1, .7, .1, 1);
+  -webkit-transform: translate3d(350px, 0, 0);
+  transform: translate3d(350px, 0, 0);
+}
+
+.settings-menu-expanded .settings-menu-container {
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+.settings-menu-container .settings-menu-pane.settings-menu-pane-in {
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+@media (min-width: 901px){
+  .settings-menu-container .settings-menu-pane {
+    transition: -webkit-transform .4s cubic-bezier(0.1,.7,.1,1);
+    transition: transform .4s cubic-bezier(0.1,.7,.1,1);
+  }
+}
+.settings-menu-container .settings-menu-pane {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  opacity: 1;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+.settings-menu-header {
+  position: relative;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 15px 24px;
+}
+
+.settings-menu-header h4 {
+  margin: 0;
+  font-size: 1.6rem;
+  line-height: 1.375;
+  font-weight: 400;
+}
+
+.settings-menu-header .close {
+  margin-right: -15px;
+  padding: 10px 15px;
+  font-size: 27px;
+  line-height: 27px;
+}
+
+.settings-menu-content {
+  padding: 0 24px 24px;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 1.6em;
+  max-width: 500px;
+  width: 100%;
+}
+
+.form-group label {
+  margin-bottom: 4px;
+}
+form label {
+  display: block;
+  color: #242628;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.input-icon[class*=glyphicon-] {
+  position: relative;
+  display: block;
+}
+.input-icon[class*=glyphicon-]:before {
+  position: absolute;
+  top: 50%;
+  left: 1.1rem;
+  z-index: 100;
+  font-size: 1.3rem;
+  -webkit-transform: translateY(-52%);
+  transform: translateY(-52%);
+}
+.input-icon[class*=icon-] .gh-select select, .input-icon[class*=icon-] input[type=date], .input-icon[class*=icon-] input[type=email], .input-icon[class*=icon-] input[type=number], .input-icon[class*=icon-] input[type=password], .input-icon[class*=icon-] input[type=search], .input-icon[class*=icon-] input[type=tel], .input-icon[class*=icon-] input[type=text], .input-icon[class*=icon-] input[type=url] {
+  padding-left: 3.2rem;
+}
+.post-setting-date, #category {
+  display: block;
+  padding: 8px 10px;
+  width: 100%;
+  border: 1px solid #dfe1e3;
+  border-radius: 4px;
+  color: #666;
+  font-size: 1.4rem;
+  font-weight: 400;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  transition: border-color .15s linear;
+  -webkit-appearance: none;
+}
+
+#tags {
+  position: absolute;
+  z-index: 101;
+  float: left;
+  left: 4px;
+  top: 26px;
+}
+
+#tags span {
+  cursor: default;
+  display: inline-block;
+  border: solid 1px #ccc;
+  background-color: #ffffcc;
+  border-radius: 5px;
+  padding: 2px 4px;
+  margin-right: 4px;
+}
+
+input[type=text] {
+  border: solid 1px #ccc;
+  padding-left: 4px;
+  border-radius: 4px;
+}
+
+#tag2box {
+  width: 300px;
+  border: solid 1px #ffcccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: 1px;
+}
+
+#tag2box th {
+  width: 80px;
+  font-weight: normal;
+  vertical-align: top;
+  padding-top: 4px;
+}
+
+#tag2box a {
+  float: left;
+  display: block;
+  cursor: pointer;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  padding: 4px 6px;
+  margin: 0 10px 10px 0;
+}
+
+.selectize-control {
+  position: relative;
+}
+
+.selectize-dropdown, .selectize-input, .selectize-input input {
+  color: #303030;
+  font-family: inherit;
+  font-size: 1.4rem;
+}
+.selectize-control.single .selectize-input.input-active, .selectize-input {
+  display: inline-block;
+  background: #fff;
+  cursor: text;
+}
+.selectize-control.multi .selectize-input.has-items {
+  padding: 5px 8px 2px;
+  height: auto;
+}
+
+.selectize-control.multi .selectize-input.has-items {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.selectize-input {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  width: 100%;
+  height: 37px;
+  border: 1px solid #dfe1e3;
+  border-radius: 4px;
+  color: #666;
+  transition: border-color .15s linear;
+}
+
+
+.selectize-control.multi .selectize-input [data-value] {
+  background: #5ba4e5;
+  border-radius: 3px;
+}
+
+.selectize-control.multi .selectize-input>div {
+  margin: 0 3px 3px 0;
+  padding: 1px 4px;
+  background: #5ba4e5;
+  color: #fff;
+  cursor: pointer;
+}
+.selectize-control.plugin-remove_button [data-value] {
+  position: relative;
+  padding-right: 20px!important;
+}
+.selectize-input>* {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: baseline;
+  zoom: 1;
+}
+
+.selectize-control.plugin-remove_button [data-value] .remove {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 17px;
+  border-radius: 0 2px 2px 0;
+  color: inherit;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.selectize-input.focus{
+  border-color: #b1b1b1;
+}
+.selectize-input.dropdown-active{
+  border-radius: 4px 4px 0 0;
+}
+
+.selectize-input>input {
+  display: inline-block!important;
+  margin: 0 1px!important;
+  padding: 0!important;
+  min-height: 0!important;
+  max-width: 100%!important;
+  max-height: none!important;
+  border: 0!important;
+  background: none!important;
+  box-shadow: none!important;
+  text-indent: 0!important;
+  line-height: inherit!important;
+}
+.selectize-input>input:-ms-clear {
+  display: none
+}
+
+.selectize-input>input:focus {
+  outline: 0 !important
+}
+
+.selectize-input:after {
+  content: " ";
+  display: block;
+  clear: left
+}
+
+.selectize-input .dropdown-active:before {
+  content: " ";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  height: 1px;
+  background: #f0f0f0
+}
+
+.selectize-dropdown {
+  position: absolute;
+  z-index: 1000;
+  box-sizing: border-box;
+  margin: -1px 0 0;
+  border: 1px solid #b1b1b1;
+  border-top: 0 none;
+  background: #fff;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 3px 6px rgba(0,0,0,.1);
+}
+
+.selectize-dropdown [data-selectable] {
+  overflow: hidden;
+  cursor: pointer
+}
+
+.selectize-dropdown [data-selectable] .highlight {
+  background: #fff3b8;
+  border-radius: 1px
+}
+
+.selectize-dropdown .dropdown-empty-message,.selectize-dropdown .optgroup-header,.selectize-dropdown [data-selectable] {
+  padding: 7px 8px
+}
+
+.selectize-dropdown .optgroup-header {
+  cursor: default
+}
+
+.selectize-dropdown .active {
+  background: rgba(91,164,229,.15000000000000002);
+  color: #242628
+}
+
+.selectize-dropdown .active .create {
+  color: #666
+}
+
+.selectize-dropdown .create {
+  color: rgba(48,48,48,.5)
+}
+
+
+.selectize-dropdown-content {
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+.selectize-dropdown .create {
+  color: rgba(48,48,48,.5);
+}
+.selectize-dropdown .dropdown-empty-message, .selectize-dropdown .optgroup-header, .selectize-dropdown [data-selectable] {
+  padding: 7px 8px;
+}
+.selectize-dropdown [data-selectable] {
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.selectize-control.plugin-remove_button [data-value] {
+  position: relative;
+  padding-right: 20px!important;
+}
+
+.selectize-dropdown .option {
+  line-height: 1.35em;
+}
 

@@ -1,3 +1,8 @@
+a:hover, a:focus, a:active{
+  text-decoration: none;
+  outline: none;
+}
+
 .content-viwer{
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -118,6 +123,11 @@
     }
 
   }
+
+  .post-list li.active{
+    border-left: #119d55 3px solid;
+  }
+
 
   .blog-content{
     position: absolute;

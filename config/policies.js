@@ -16,7 +16,6 @@
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.policies.html
  */
 
-
 module.exports.policies = {
 
   /***************************************************************************
@@ -25,8 +24,25 @@ module.exports.policies = {
   * access)                                                                  *
   *                                                                          *
   ***************************************************************************/
+ '*': true,
 
-  // '*': true,
+  /*1.Only we permit to create two users, so if the user want to
+  * jump to register page, it will to check the users number in the database;
+  * 2.when the blog system initial, the user number is empty, so when user jump to
+  * login page, it will redirect to the register page to reminder the user to register.*/
+  AuthController: {
+    logout: ['isAuthenticated'],
+    toRegister: ['userIsFull'],
+    toLogin: ['userIsExisting']
+  },
+
+  MgmtController: {
+    createBlog: ['isAuthenticated'],
+    updateBlog: ['isAuthenticated'],
+    deleteBlog: ['isAuthenticated'],
+    updateUser: ['isAuthenticated'],
+    updatePwd: ['isAuthenticated']
+  },
 
   /***************************************************************************
   *                                                                          *

@@ -232,9 +232,9 @@ body>.dm-blog {
   cursor:pointer;
   display:none;
 }
-.dm-left-nav li { font-weight: 300; }
-.dm-left-nav a.active,
-.dm-left-nav a:hover {
+.dm-left-nav li { font-weight: 300; margin-bottom: 3px;}
+.dm-left-nav li.active,
+.dm-left-nav li:hover {
   background: #FFB5C5;
   border-left: 10px solid rgba(0,234,233,0.2);
 }

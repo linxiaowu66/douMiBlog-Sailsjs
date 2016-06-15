@@ -13,5 +13,19 @@ module.exports.bootstrap = function(cb) {
 
   // It's very important to trigger this callback method when you are finished
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
-  cb();
+  // 启动时刷新站点信息
+  User.find().exec(function(err,users){
+    if(users.length > 0){
+      for (var i = 0; i < users.length; i++){
+        if (users.email === "linguang661990@126.com"){
+          sails.config.douMi.miMiName = users[i].fullname;
+          sails.config.douMi.miMiDesc = users[i].description;
+        }else{
+          sails.config.douMi.douDouName = users[i].fullname;
+          sails.config.douMi.douDouDesc = users[i].description;
+        }
+      }
+    }
+    cb();
+  });
 };

@@ -1,5 +1,5 @@
 {% extends 'partial/layout.swig' %}
-
+{% set module='login' %}
 {% block title %}豆米的博客{% endblock %}
 
 {% block style %}
@@ -23,38 +23,42 @@
         <a class="icon" href="/" title="返回文章"><span class="glyphicon glyphicon-share-alt"></span></a>
       </div>
     </header>
-    <div class="cont_join  ">
-      <div class="cont_letras">
-        <p>We</p>
-        <p>LOVE</p>
-        <p>LIFE</p>
+    <form id="login-form" action="/login" method="post">
+      <div class="cont_join  ">
+        <div class="cont_letras">
+          <p>We</p>
+          <p>LOVE</p>
+          <p>LIFE</p>
+        </div>
+
+        <div class="cont_form_join">
+          <h2>JOIN</h2>
+
+          <p>邮箱:</p>
+          <input type="text" class="input_text" name="email" id="email"/>
+
+          <p>密码:</p>
+          <input type="password" class="input_text" name="password" id="password" />
+
+          <div class="login_error">
+            <h2>邮箱或密码不正确</h2>
+          </div>
+        </div>
+
+        <div class="cont_join_form_finish">
+          <h2>登录成功 <i class="material-icons">&#xE5CA;</i></h2>
+        </div>
+
+        <div class="cont_btn_join" id="login_btn">
+          <a href="#">登录</a>
+        </div>
       </div>
-
-      <div class="cont_form_join">
-        <h2>JOIN</h2>
-
-        <p>用户名:</p>
-        <input type="text" class="input_text" />
-
-        <p>密　码:</p>
-        <input type="text" class="input_text" />
-
-        <p>验证码:</p>
-        <input type="password" class="input_text" />
-      </div>
-
-      <div class="cont_join_form_finish">
-        <h2>Finish <i class="material-icons">&#xE5CA;</i></h2>
-      </div>
-
-      <div class="cont_btn_join">
-        <a href="#" onclick='join_1()'>JOIN</a>
-      </div>
-    </div>
+    </form>
   </div>
 </div>
 {% endblock %}
 
 {% block script %}
+{% parent %}
 <script type="text/javascript" src="js/index.js"></script>
 {% endblock %}
