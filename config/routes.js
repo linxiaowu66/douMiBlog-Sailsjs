@@ -76,6 +76,11 @@ module.exports.routes = {
     action: 'doCreate'
   },
 
+  'POST /management/saveDraft': {
+    controller: 'Mgmt',
+    action: 'createBlog'
+  },
+
   'GET /blog': {
     view: 'blog-overview',
   },

@@ -14,48 +14,52 @@ module.exports = {
     newArticle.name = req.param('Name');
     newArticle.content = req.param('text');
     newArticle.owner = req.session.user;
-
+    newArticle,createTime = req.param('publishTime');
     tags = req.param('tags');
     category = req.param('cat');
 
-    console.log(newArticle.name);
-    console.log(newArticle.content);
-    console.log(newArticle.owner);
-    console.log(tags);
-
     /*transfer the tags string to array*/
-    var tagsArray = tags.split(";");
+    var tagsArray = tags.split("&");
 
     for (var index = 0; index < tagsArray.length; index++){
       Tags.findOrCreate({name: tagsArray[index]}, {name: tagsArray[index]}).exec(function createFindCB(error, createdOrFoundRecords){
-        console.log('Create a tag named = ' + createdOrFoundRecords.name);
+        console.log('Create a tag id = ' + createdOrFoundRecords.id);
       });
     }
 
-    Category.findOrCreate({name: category}, {name: category}).exec(function createFindCB(error, createdOrFoundRecords){
-      console.log('Create a Category named = ' + createdOrFoundRecords.name);
-    });
-
     async.waterfall([
-      function(callback){
+      function createNewBlog(callback){
         Blog.create(newArticle, callback);
       },
 
-      function(newBlog, callback){
+      function addOwnerToBlog(newBlog, callback){
         newBlog.user.add(req.session.user);
-        newBlog.category.add(req.param('category'));
-        newBlog.archive.add(newBlog.createdAt);
-        for (var index = 0; index < tagsArray.length; index++) {
-          newBlog.tags.add(tagsArray[index]);
-        }
+        //newBlog.category.add(req.param('category'));
+        //newBlog.archive.add(newBlog.createdAt);
+        //for (var index = 0; index < tagsArray.length; index++) {
+        //  newBlog.tags.add(tagsArray[index]);
+        //}
         newBlog.save(callback);
+      },
+
+      function addCategoryToDb(newBlog, callback){
+        async.map(newBlog, function (blog, callback){
+          
+        })
+        Category.findOrCreate({name: category}, {name: category}).exec(callback(newBlog,error, createdOrFoundRecords));
+      },
+
+      function sssss(newBlog, error, createdOrFoundRecords){
+        console.log('Create a Category id = ' + createdOrFoundRecords.id);
+        console.log('Create a Category id = ' + newBlog.name);
       }
+
     ], function(err, createdBlog){
       if(err){
         sails.log.error(err);
         return res.negotiate(err);
       }else{
-          return res.redirect('/blog-management');
+          //return res.redirect('/blog-management');
       }
 
     });

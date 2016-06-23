@@ -27,6 +27,11 @@ module.exports = {
       unique: true
     },
     content: 'string',
+    createTime: 'datetime',
+    blogStatus: {
+      type: 'string',
+      enum: ['draft', 'publish']
+    },
     owner: {
       model: 'user'
     },

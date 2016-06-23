@@ -37,6 +37,9 @@ module.exports.policies = {
   },
 
   MgmtController: {
+    index: ['isAuthenticated'],
+    doCreate:['isAuthenticated'],
+    show:['isAuthenticated'],
     createBlog: ['isAuthenticated'],
     updateBlog: ['isAuthenticated'],
     deleteBlog: ['isAuthenticated'],

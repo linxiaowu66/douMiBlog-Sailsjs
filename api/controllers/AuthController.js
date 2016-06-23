@@ -46,6 +46,7 @@ module.exports = {
          user: user
          });*/
       }
+      req.session.user = user;
       req.logIn(user, function(err) {
         if (err) return res.json(200, {error: err});
         return res.json(200, {user: user});
