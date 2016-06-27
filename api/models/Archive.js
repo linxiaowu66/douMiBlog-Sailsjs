@@ -8,8 +8,8 @@
 module.exports = {
 
   attributes: {
-    name: {
-      type: 'datetime',
+    archiveTime: {
+      type: 'string',
       unique: true
     },
     blog: {

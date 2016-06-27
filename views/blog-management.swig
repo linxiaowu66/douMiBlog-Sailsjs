@@ -43,7 +43,7 @@
           <a href="#" title="编辑此博文" class="blog-edit"><span class="glyphicon glyphicon-pencil"></span></a>
         </section>
         <section class="content-preview">
-          {{  blogList[0].text }}
+          {% if blogList.length %}{{ blogList[0].text }}{% endif %}
         </section>
       </section>
     </div>
