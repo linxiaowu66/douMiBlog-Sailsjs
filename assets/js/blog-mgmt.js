@@ -9,10 +9,10 @@ window.onload = function(){
     blogIndex = $(this).attr("data-set");
 
     $.ajax({
-      type: "POST",
-      url: "/management/",
+      type: "GET",
+      url: "/douMi/" + blogIndex,
       data: {
-        reqIndex: blogIndex
+
       },
       dataType: "json",
       success: function(data){

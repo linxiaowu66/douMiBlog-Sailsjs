@@ -122,6 +122,6 @@
 
 {% block script %}
 {% parent %}
-<script type="text/javascript" src="../js/blog-creation.js"></script>
+<script type="text/javascript" src="../../js/blog-creation.js"></script>
 {% endblock %}
 

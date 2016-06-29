@@ -61,27 +61,36 @@ module.exports.routes = {
     action: 'logout'
   },
 
-  'GET /management': {
+  'GET /douMi': {
     controller: 'Mgmt',
     action: 'index'
   },
 
-  'POST /management': {
+  'GET /douMi/editor': {
+    view: 'blog-creation',
+  },
+
+  'GET /douMi/:id': {
     controller: 'Mgmt',
     action: 'show'
   },
 
-  'GET /management/blog-creation': {
+  'GET /douMi/editor/:id': {
     controller: 'Mgmt',
-    action: 'doCreate'
+    action: 'update'
   },
 
-  'POST /management/saveDraft': {
+  'POST /douMi/saveDraft': {
     controller: 'Mgmt',
     action: 'saveDraft'
   },
 
-  'GET /blog': {
+  'POST /douMi/doPublish': {
+    controller: 'Mgmt',
+    action: 'publish'
+  },
+
+  'GET /home': {
     view: 'blog-overview',
   },
 

@@ -21,7 +21,7 @@
           </header>
           <section class="dm-nav-body">
             <div class="profile-photo-container">
-              <img src="../images/blog-img.jpg" alt="Profile Photo" class="img-responsive">
+              <img src="../../images/blog-img.jpg" alt="Profile Photo" class="img-responsive">
               <div class="profile-photo-overlay"></div>
             </div>
             <!-- Search box -->
@@ -35,9 +35,9 @@
               <i class="glyphicon glyphicon-align-justify icon"></i>
             </div>
             <ul class="dm-left-nav">
-              <li {% if (navIndex == 0) %}class="active"{% endif %}><a href="/management/blog-creation"><i class="glyphicon glyphicon-pencil icon"></i>新建博文</a></li>
-              <li {% if (navIndex == 1) %}class="active"{% endif %}><a href="/management" ><i class="glyphicon glyphicon-list icon"></i>博文列表</a></li>
-              <li {% if (navIndex == 2) %}class="active"{% endif %}><a href="/management/users"><i class="glyphicon glyphicon-user icon"></i>用户管理</a></li>
+              <li {% if (navIndex == 0) %}class="active"{% endif %}><a href="/douMi/editor"><i class="glyphicon glyphicon-pencil icon"></i>新建博文</a></li>
+              <li {% if (navIndex == 1) %}class="active"{% endif %}><a href="/douMi" ><i class="glyphicon glyphicon-list icon"></i>博文列表</a></li>
+              <li {% if (navIndex == 2) %}class="active"{% endif %}><a href="/douMi/users"><i class="glyphicon glyphicon-user icon"></i>用户管理</a></li>
               <li {% if (navIndex == 3) %}class="active"{% endif %}><a href="/logout"><i class="glyphicon glyphicon-eject icon"></i>退出</a></li>
             </ul>
           </section>

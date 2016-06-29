@@ -120,6 +120,10 @@ a:hover, a:focus, a:active{
     .media{
       padding: 19px 20px 22px 24px;
       color: rgba(0,0,0,.5);
+
+      .media-body span{
+        color: #e25440;
+      }
     }
 
   }

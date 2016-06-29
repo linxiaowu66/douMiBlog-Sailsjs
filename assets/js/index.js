@@ -39,7 +39,7 @@ $(document).ready(function(){
             //auth sucessfully
             document.querySelector('.cont_form_join').style.bottom = '-420px';
             document.querySelector('.cont_join').className = 'cont_join cont_join_form_act cont_join_finish';
-            setTimeout(function(){location.href = '/management';},1500);
+            setTimeout(function(){location.href = '/douMi';},1500);
           }
         })
         .fail(function (){

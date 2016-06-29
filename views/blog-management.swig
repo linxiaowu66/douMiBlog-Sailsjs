@@ -13,7 +13,7 @@
     <header class="view-header">
       <h2 class="view-title">博文列表</h2>
       <section class="new-btn">
-        <a class="btn btn-success" href="/blog-creation">新建博文</a>
+        <a class="btn btn-success" href="/douMi/editor">新建博文</a>
       </section>
     </header>
     <div class = "content-wrapper">
@@ -21,7 +21,7 @@
         <section class="content-scroll">
           <ol class="post-list">
             {% for blog in blogList %}
-            <a href="#" data-set="{{ blog.id }}" class="blogIndex">
+            <a href="/douMi/{{ blog.id }}" data-set="{{ blog.id }}" class="blogIndex">
               <li {% if loop.first %}class="active"{% endif %}>
                 <div class="media">
                   <div class="media-left">
@@ -29,7 +29,9 @@
                   </div>
                   <div class="media-body">
                     <h4 class="media-heading">{{ blog.name }}</h4>
-                    发布于 {{ blog.timeDescription }}
+                    {% if blog.status == "publish" %}发布于 {{ blog.timeDescription }}
+                    {% else %} <span>草稿</span>
+                    {% endif %}
                   </div>
                 </div>
               </li>
@@ -40,7 +42,7 @@
       </section>
       <section class="blog-content">
         <section class="post-controls">
-          <a href="#" title="编辑此博文" class="blog-edit"><span class="glyphicon glyphicon-pencil"></span></a>
+          <a {% if blogList.length %}href="/douMi/editor/{{ blogList[0].id }}" {% endif %} title="编辑此博文" class="blog-edit"><span class="glyphicon glyphicon-pencil"></span></a>
         </section>
         <section class="content-preview">
           {% if blogList.length %}{{ blogList[0].text }}{% endif %}
@@ -54,6 +56,6 @@
 
 {% block script %}
 {% parent %}
-<script type="text/javascript" src="js/blog-mgmt.js"></script>
+<script type="text/javascript" src="../js/blog-mgmt.js"></script>
 {% endblock %}
 

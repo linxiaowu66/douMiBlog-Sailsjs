@@ -14,7 +14,7 @@
         <div class = "second-title">有趣、五味杂陈的前端生活博客</div>
     </div>
     <div id = "action">
-        <a href="/blog">博客</a>
+        <a href="/home">博客</a>
         <a href="/aboutDouMi" class = "detail">关于豆米</a>
     </div>
 </div>

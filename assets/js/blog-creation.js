@@ -2,6 +2,8 @@
 
 window.onload = function(){
 
+  currentArticleId = ~0;
+
   $('.post-settings').click(function(){
     $('.blog-realview').addClass('settings-menu-expanded');
   });
@@ -221,7 +223,7 @@ window.onload = function(){
         tags = tags + '&' + $("#tags").children().eq(index).html();
       }
     }
-    console.log(tags);
+
     $.ajax({
       type: "POST",
       url: "/management/saveDraft/",
@@ -230,11 +232,14 @@ window.onload = function(){
         text: $(".markdown-realtext").val(),
         publishTime: $("#post-setting-date").val(),
         tags: tags,
-        cat: $("#item").children().eq(0).html()
+        cat: $("#item").children().eq(0).html(),
+        id: currentArticleId
       },
       dataType: "json",
       success: function(data){
         console.log('send ok');
+        currentArticleId = data.articleidx;
+        history.replaceState("","","/douMi/editor/" + currentArticleId);
       },
       error: function(jqXHR){
         alert("发生错误：" + jqXHR.status);
