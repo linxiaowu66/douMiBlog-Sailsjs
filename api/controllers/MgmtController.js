@@ -240,6 +240,69 @@ module.exports = {
   },
 
   update: function(req, res){
+    var articleId = req.param("id");
+    
+    if (articleId !== undefined){
 
+    async.parallel([
+        function(callback){Blog.find({id:articleId}).exec(callback)},
+        function(callback){Blog.find({id:articleId}).populate('category').exec(callback)},
+        function(callback){Blog.find({id:articleId}).populate('tags').exec(callback)},
+        function(callback){Tags.find().exec(callback)},
+        function(callback){Category.find().exec(callback)}
+    ],function(error, results){
+       var tagsCount = results[2][0].tags.length;
+       console.log(tagsCount);
+       console.log(results[3]);
+        console.log(results[0]);
+        /*
+       for (var index = 0; index < tagsCount; index++){
+        tagsArray.push(results[2][0].tags[index].name);
+       }
+       for (var index = 0; index < tagsCount; index++){
+        allTagsArray.push(results[3][0].tags[index].name);
+       }*/
+        
+        var article = {
+          title: results[0][0].name,
+          content: results[0][0].content,
+          archive: results[0][0].createTime,
+          category: results[1][0].category[0].name,
+          tags: results[2][0].tags,
+          allTags: results[3],
+          allCats: results[4]   
+        }
+        return res.view("blog-creation", {
+            article: article
+        });
+    });
+  }else{
+      async.waterfall([
+        function(callback){
+          Tags.find().exec(callback);
+        },
+
+        function(tags, callback){
+          Category.find().exec(function(error, cats){
+          callback(null, tags, cats);
+        });
+                         }
+        ], function(err, tags, cats){
+          if(err){
+            sails.log.error(err);
+            return res.negotiate(err);
+          }else{
+            console.log(tags.length);
+            console.log(cats.length);
+            var article = {
+              allTags: tags,
+              allCats: cats
+            }
+            return res.view('blog-creation', {
+              article: article
+            });
+       }
+    });
+  }
   }
 };

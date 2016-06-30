@@ -67,7 +67,8 @@ module.exports.routes = {
   },
 
   'GET /douMi/editor': {
-    view: 'blog-creation',
+    controller: 'Mgmt',
+    action: 'update'
   },
 
   'GET /douMi/:id': {

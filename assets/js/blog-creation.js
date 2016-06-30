@@ -160,6 +160,14 @@ window.onload = function(){
     $('#all-cats').css('display','none');
   });
 
+  $('#txtTag2').focus(function(){
+    updatePadding($('#tags'), $('#txtTag2'));
+  });
+
+  $('#cat-input').focus(function(){
+     updatePadding($('#item'), $('#cat-input'));
+  });
+
   $('#txtTag2').blur(function(){
 
     var input = $(this).val();
@@ -226,7 +234,7 @@ window.onload = function(){
 
     $.ajax({
       type: "POST",
-      url: "/management/saveDraft/",
+      url: "/douMi/saveDraft/",
       data: {
         Name: $("#entry-title").val(),
         text: $(".markdown-realtext").val(),

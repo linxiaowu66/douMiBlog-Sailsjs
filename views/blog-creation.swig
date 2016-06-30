@@ -13,7 +13,7 @@
   <section class="dm-blog content-container">
     <header class="view-header">
       <h2 class="view-title">
-        <input id="entry-title" autofocus="" placeholder="博文标题" tabindex="1" type="text" class="blog-content-header">
+        <input id="entry-title" autofocus="" placeholder="博文标题" tabindex="1" type="text" class="blog-content-header" {% if article.title !== undefined%}value="{{ article.title }}" {% endif %}>
       </h2>
       <button type="button" class="post-settings" title="博文设置">
         <span class="glyphicon glyphicon-cog"></span>
@@ -36,7 +36,7 @@
     <section class="blog-editor">
       <section class="edit-textarea">
         <section id="markdown-content" class="markdown-content">
-          <textarea  spellcheck="true" tabindex="1" class="markdown-realtext"></textarea>
+          <textarea  spellcheck="true" tabindex="1" class="markdown-realtext">{% if article.content !== undefined %}{{ article.content }} {% endif %}</textarea>
         </section>
       </section>
 
@@ -67,11 +67,11 @@
         </button>
       </div>
     <div class="settings-menu-content">
-      <form action="/management/saveDraft">
+      <form action="/douMi/saveDraft">
         <div class="form-group">
           <label for="post-setting-date">发布日期</label>
             <span class="input-icon glyphicon glyphicon-calendar">
-              <input id="post-setting-date" name="post-setting-date" type="text" class="post-setting-date">
+              <input id="post-setting-date" name="post-setting-date" type="text" class="post-setting-date" {% if article.archive !== undefined %}value="{{ article.archive }}"{% endif %}>
             </span>
             <p class="response" style="display: none;"><!----></p>
         </div>
@@ -79,6 +79,7 @@
           <div style="position:relative;">
             <label for="tags">标签</label>
             <div id="tags">
+{% if article.tags !== undefined %}{% for tag in article.tags %}<span title="单击删除该标签">tag</span>{% endfor %}{% endif %}
             </div>
             <input type="text" id="txtTag2" style="width: 300px; height: 35px; padding-left: 2px;" maxlength="100">（最多添加3个标签，多个标签之间用“,”分隔）
             <div id="tag2box" style="display: block;">
@@ -87,12 +88,12 @@
                   <tr>
                     <th>常用标签</th>
                     <td id="td_tag21" class="tracking-ad" data-mod="">
-                      {% for tag in tags %}
+                      {% for tag in article.allTags %}
                         <a class="existingTag">{{ tag.name }}</a>
                       {% endfor %}
                     </td>
                   </tr>
-                </tbody>
+                </tbody
               </table>
             </div>
           </div>
@@ -102,11 +103,13 @@
             <label for="category">分类</label>
             <select id="category" autocomplete="off" style="display: none;">
             </select>
-            <div id="item"></div>
+            <div id="item">
+{% if article.category !== undefined %}<span title="单击删除该分类">{{ article.category }}</span>{% endif %}
+            </div>
             <input type="text" id="cat-input" style="width: 300px; height: 35px; padding-left: 2px;" maxlength="100">(最多添加1个分类)
             <div id="all-cats" style="display:none">
               <div class="cat-dropdown">
-                {% for cat in cats %}
+                {% for cat in article.allCats %}
                 <div class="option">{{ cat.name }}</div>
                 {% endfor %}
               </div>
