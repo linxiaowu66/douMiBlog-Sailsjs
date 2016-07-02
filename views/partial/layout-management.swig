@@ -8,6 +8,10 @@
   <link rel="stylesheet" href="../../vender/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../styles/management-nav.css">
   {% endblock %}
+
+  <script type="text/javascript"  src="../../js/requirejs/require.min.js"></script>
+  <script type="text/javascript"  src="../../js/config.js"></script>
+
 </head>
 <body>
   <div class="dm-blog">
@@ -43,7 +47,7 @@
           </section>
           <footer class="dm-nav-footer">
             <p>Copyright &copy; 2016
-              | Designed by <a href="#" target="_parent">豆米</a></p>
+              | Designed by <a href="/home" target="_parent">豆米博客</a></p>
           </footer>
         </nav>
         <!-- Main content -->
@@ -52,11 +56,6 @@
       </div>
     </div>
   </div>
-
-{% block script %}
-<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery" src="../../vender/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bootstrap" src="../../vender/bootstrap/dist/js/bootstrap.min.js"></script>
-{% endblock %}
 </body>
 </html>
 

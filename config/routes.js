@@ -56,7 +56,7 @@ module.exports.routes = {
     action: 'processRegister'
   },
 
-  'POST /logout': {
+  'GET /logout': {
     controller: 'Auth',
     action: 'logout'
   },
@@ -89,6 +89,21 @@ module.exports.routes = {
   'POST /douMi/doPublish': {
     controller: 'Mgmt',
     action: 'publish'
+  },
+
+  'GET /douMi/delete/:id': {
+    controller: 'Mgmt',
+    action: 'delete'
+  },
+
+  'POST /douMi/updatePub': {
+    controller: 'Mgmt',
+    action: 'updatePub'
+  },
+
+  'POST /douMi/undoPublish': {
+    controller: 'Mgmt',
+    action: 'undoPub'
   },
 
   'GET /home': {

@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="./vender/bootstrap/dist/css/bootstrap.min.css">
 
   {% endblock %}
+  <script type="text/javascript"  src="/js/requirejs/require.min.js"></script>
+  <script type="text/javascript"  src="/js/config.js"></script>
 </head>
 <body>
 <div id="wrapper">

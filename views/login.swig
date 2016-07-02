@@ -56,9 +56,7 @@
     </form>
   </div>
 </div>
-{% endblock %}
-
-{% block script %}
-{% parent %}
-<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+  require(['../js/index']);
+</script>
 {% endblock %}

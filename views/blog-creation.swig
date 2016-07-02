@@ -6,10 +6,11 @@
 {% parent %}
 <link href="../../vender/highlightjs/styles/solarized_dark.css" type="text/css" rel="stylesheet"/>
 <link rel="stylesheet" href="../../styles/blog-creation.css">
+<link rel="stylesheet" href="../../styles/jquery.datetimepicker.css">
 {% endblock %}
 
 {% block content %}
-<main class="dm-blog content-viwer">
+<main class="dm-blog content-viwer" {% if article.id !== undefined %} data-set = "{{ article.id }}" {% endif %} >
   <section class="dm-blog content-container">
     <header class="view-header">
       <h2 class="view-title">
@@ -21,14 +22,21 @@
       <section class="blog-actions">
         <div class="dropdown">
           <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            保存草稿
+            {% if article.status === undefined || article.status === 'draft' %}保存草稿{% else %}更新博文{% endif %}
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider" >
+            {% if article.status === undefined || article.status === 'draft' %}
             <li><a id="save" href="#">保存草稿</a></li>
             <li><a id="publish" href="#">立即发布</a></li>
+            {% else %}
+            <li><a id="update" href="#">更新博文</a></li>
+            <li><a id="undoPublish" href="#">撤销发布</a></li>
+            {% endif %}
+            {% if article.status !== undefined %}
             <li role="separator" class="divider"></li>
-            <li><a id="delete" href="#">删除博文</a></li>
+            <li><a id="delete" href="/douMi/delete/{{ article.id }}">删除博文</a></li>
+            {% endif %}
           </ul>
         </div>
       </section>
@@ -71,7 +79,7 @@
         <div class="form-group">
           <label for="post-setting-date">发布日期</label>
             <span class="input-icon glyphicon glyphicon-calendar">
-              <input id="post-setting-date" name="post-setting-date" type="text" class="post-setting-date" {% if article.archive !== undefined %}value="{{ article.archive }}"{% endif %}>
+              <input id="articleTime" name="post-setting-date" type="text" class="post-setting-date" {% if article.archive !== undefined %}value="{{ article.archive }}"{% endif %}>
             </span>
             <p class="response" style="display: none;"><!----></p>
         </div>
@@ -79,7 +87,7 @@
           <div style="position:relative;">
             <label for="tags">标签</label>
             <div id="tags">
-{% if article.tags !== undefined %}{% for tag in article.tags %}<span title="单击删除该标签">tag</span>{% endfor %}{% endif %}
+{% if article.tags !== undefined %}{% for tag in article.tags %}<span title="单击删除该标签">{{ tag.name }}</span>{% endfor %}{% endif %}
             </div>
             <input type="text" id="txtTag2" style="width: 300px; height: 35px; padding-left: 2px;" maxlength="100">（最多添加3个标签，多个标签之间用“,”分隔）
             <div id="tag2box" style="display: block;">
@@ -88,12 +96,21 @@
                   <tr>
                     <th>常用标签</th>
                     <td id="td_tag21" class="tracking-ad" data-mod="">
-                      {% for tag in article.allTags %}
-                        <a class="existingTag">{{ tag.name }}</a>
+                      {% for alltag in article.allTags %}
+                        {% set isMatch = 0 %}
+                        {% for tag in article.tags %}
+                          {% if alltag.name === tag.name %}
+                            <a class="existingTag act">{{ alltag.name }}</a>
+                            {% set isMatch = 1 %}
+                          {% endif %}
+                        {% endfor %}
+                        {% if isMatch === 0%}
+                          <a class="existingTag">{{ alltag.name }}</a>
+                        {% endif %}
                       {% endfor %}
                     </td>
                   </tr>
-                </tbody
+                </tbody>
               </table>
             </div>
           </div>
@@ -121,10 +138,10 @@
   </div>
 </div>
 </div>
+<script type="text/javascript">
+  require(['../js/blog-creation']);
+</script>
 {% endblock %}
 
-{% block script %}
-{% parent %}
-<script type="text/javascript" src="../../js/blog-creation.js"></script>
-{% endblock %}
+
 

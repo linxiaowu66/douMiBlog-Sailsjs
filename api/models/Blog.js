@@ -28,6 +28,7 @@ module.exports = {
     },
     content: 'string',
     createTime: 'string',
+    url: "string",
     blogStatus: {
       type: 'string',
       enum: ['draft', 'publish']

@@ -345,6 +345,13 @@ form label {
   font-size: 1.3rem;
   font-weight: 700;
 }
+
+input[type=text] {
+  border: solid 1px #ccc;
+  padding-left: 4px;
+  border-radius: 4px;
+}
+
 .input-icon[class*=glyphicon-] {
   position: relative;
   display: block;
@@ -358,12 +365,10 @@ form label {
   -webkit-transform: translateY(-52%);
   transform: translateY(-52%);
 }
-.input-icon[class*=icon-] .gh-select select, .input-icon[class*=icon-] input[type=date], .input-icon[class*=icon-] input[type=email], .input-icon[class*=icon-] input[type=number], .input-icon[class*=icon-] input[type=password], .input-icon[class*=icon-] input[type=search], .input-icon[class*=icon-] input[type=tel], .input-icon[class*=icon-] input[type=text], .input-icon[class*=icon-] input[type=url] {
-  padding-left: 3.2rem;
-}
+
 .post-setting-date, #category {
   display: block;
-  padding: 8px 10px;
+  padding: 8px 30px 8px !important;
   width: 100%;
   border: 1px solid #dfe1e3;
   border-radius: 4px;
@@ -394,12 +399,6 @@ form label {
   border-radius: 5px;
   padding: 2px 4px;
   margin-right: 4px;
-}
-
-input[type=text] {
-  border: solid 1px #ccc;
-  padding-left: 4px;
-  border-radius: 4px;
 }
 
 #tag2box {

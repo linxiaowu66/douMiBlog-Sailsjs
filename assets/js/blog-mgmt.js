@@ -1,31 +1,44 @@
-window.onload = function(){
+'use strict';
 
-  var activeElement = $("li.active");
-  var currClickElement;
+define(['jquery','bootstrap', 'markdown','highlight'], function($, bs, marked, hljs){
+  
+  marked.setOptions({
+    highlight: function (code) {
+      return hljs.highlightAuto(code).value;
+    }
+  });
 
-  $(document).on("click",".blogIndex",function(){
-    var blogIndex = 0;
-    currClickElement = $(this);
-    blogIndex = $(this).attr("data-set");
+  $(document).ready(function(){
+    var activeElement = $(".post-list li.active");
+    var currClickElement;
 
-    $.ajax({
-      type: "GET",
-      url: "/douMi/" + blogIndex,
-      data: {
+    $(document).on("click",".blogIndex",function(){
+      var blogIndex = 0;
+      currClickElement = $(this);
+      blogIndex = $(this).attr("data-set");
 
-      },
-      dataType: "json",
-      success: function(data){
-        activeElement.removeClass("active");
-        currClickElement.children("li:eq(0)").addClass("active");
+      $.ajax({
+        type: "GET",
+        url: "/douMi/" + blogIndex,
+        data: {
 
-        activeElement = $("li.active");
+        },
+        dataType: "json",
+        success: function(data){
+          activeElement.removeClass("active");
+          currClickElement.children("li:eq(0)").addClass("active");
 
-        $(".content-preview").html(data.content);
-      },
-      error: function(jqXHR){
-        alert("发生错误：" + jqXHR.status);
-      },
+          activeElement = $(".post-list li.active");
+
+          $(".content-preview").html(marked(data.content));
+
+          $('.blog-edit').attr("href", "/douMi/editor/" + blogIndex);
+        },
+        error: function(jqXHR){
+          alert("发生错误：" + jqXHR.status);
+        },
+      });
     });
   });
-}
+});
+

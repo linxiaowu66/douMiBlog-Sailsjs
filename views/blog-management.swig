@@ -5,6 +5,7 @@
 {% block style %}
 {% parent %}
 <link rel="stylesheet" href="../styles/blog-management.css">
+<link href="../vender/highlightjs/styles/monokai-sublime.css" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
@@ -21,7 +22,7 @@
         <section class="content-scroll">
           <ol class="post-list">
             {% for blog in blogList %}
-            <a href="/douMi/{{ blog.id }}" data-set="{{ blog.id }}" class="blogIndex">
+            <a href="#{{ blog.id }}" data-set="{{ blog.id }}" class="blogIndex">
               <li {% if loop.first %}class="active"{% endif %}>
                 <div class="media">
                   <div class="media-left">
@@ -51,11 +52,8 @@
     </div>
   </section>
 </main>
-{% endblock %}
-
-
-{% block script %}
-{% parent %}
-<script type="text/javascript" src="../js/blog-mgmt.js"></script>
+<script type="text/javascript">
+  require(['../js/blog-mgmt']);
+</script>
 {% endblock %}
 
