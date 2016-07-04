@@ -1,6 +1,6 @@
 'use strict';
 
-define(['jquery','bootstrap', 'datePicker', 'markdown','highlight','convertToPinYin'], function($, bs, date, marked, hljs, toPinYin){
+define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], function($, date, marked, hljs, toPinYin){
 
   marked.setOptions({
     highlight: function (code) {
@@ -8,15 +8,19 @@ define(['jquery','bootstrap', 'datePicker', 'markdown','highlight','convertToPin
     }
   });
 
+  var  articleHasPosted = false;
+
   $(document).ready(function(){
 
-    $('.post-settings').click(function(){
-      $('.blog-realview').addClass('settings-menu-expanded');
+    $('#articleTime').datetimepicker({
+      yearOffset:0,
+      lang:'ch',
+      timepicker:false,
+      format:'Y-m-d',
+      formatDate:'Y/m/d',
+      minDate:'-1970/01/02', // yesterday is minimum date
+      maxDate:'+1970/01/02' // and tommorow is maximum date calendar
     });
-
-    $('.close').click(function (){
-      $('.blog-realview').removeClass('settings-menu-expanded');
-    })
 
     function updatePadding(srcObj, inputObj){
       /*Calculate the padding left value*/
@@ -26,7 +30,7 @@ define(['jquery','bootstrap', 'datePicker', 'markdown','highlight','convertToPin
         paddingRight = 0,
         marginRight = 0,
         borderRight = 0;
-      for (index = 0; index < spanNum; index++){
+      for (var index = 0; index < spanNum; index++){
         totalWidth += srcObj.children().eq(index).width();
       }
 
@@ -47,7 +51,13 @@ define(['jquery','bootstrap', 'datePicker', 'markdown','highlight','convertToPin
       $('#all-cats').css('display','block');
     });
 
+    $('.post-settings').click(function(){
+      $('.blog-realview').addClass('settings-menu-expanded');
+    });
 
+    $('.close').click(function (){
+      $('.blog-realview').removeClass('settings-menu-expanded');
+    });
 
     var categories = [];
     var originalArrLength = 0;
@@ -241,141 +251,112 @@ define(['jquery','bootstrap', 'datePicker', 'markdown','highlight','convertToPin
       return tags;
     };
 
-    $('#save').click(function(){
+    function draftSuccessAction(data){
+      console.log('send ok');
+      history.replaceState("","","/douMi/editor/" + data.articleIdx);
+      $(".dm-blog .content-viwer").attr("data-set", data.articleIdx);
+      if (articleHasPosted === false){
+        var appendElements = "<li role=\"separator\" class=\"divider\"></li><li><a id=\"delete\" href=\"/douMi/delete/"+ data.articleIdx + "\">删除博文</a></li>"
+        $('.dropdown-menu').append(appendElements);
+        articleHasPosted = true;
+      }
+    }
 
+    function publishSuccessAction(data){
+      console.log('publish ok');
+      $('#dropdownMenu1').html("更新博文 <span class=\"caret\"></span>");
+      $('#save').html("更新博文");
+      $('#save').attr('id', 'update');
+      $('#publish').html("撤销发布");
+      $('#publish').attr('id', 'undoPublish');
+    }
+
+    function updatePubSuccessAction(data){
+      console.log('updating Publish ok');
+    }
+
+    function undoPubSuccessAction(data){
+      $('#dropdownMenu1').html("保存草稿 <span class=\"caret\"></span>");
+      $('#save').html("保存草稿");
+      $('#save').attr('id', 'save');
+      $('#publish').html("立即发布");
+      $('#publish').attr('id', 'publish');
+    }
+
+    function failureAction(jqXHR){
+      alert("发生错误：" + jqXHR.status);
+    }
+
+    function articleCommonAction(postUrl,successCallback, failureCallback){
       var articleId = ~0;
       var articleName = $("#entry-title").val();
+      var date = new Date();
+      var dateString = "";
+      var content = $(".markdown-realtext").val();
+      var description = "";
 
       if ($(".dm-blog .content-viwer").attr("data-set") !== undefined){
         articleId = parseInt($(".dm-blog .content-viwer").attr("data-set"));
       }
+      if ($("#articleTime").val() === ""){
+        dateString += date.getFullYear();
+        dateString += "-" + (date.getMonth() + 1);
+        dateString += "-" + date.getDate();
 
+        $("#articleTime").val(dateString);
+      }else{
+        dateString = $("#articleTime").val();
+      }
+
+      description = content.substr(0, 100);
+      description = marked(description);
+      /*Remove the html tags*/
+      description = description.replace(/<\/?.+?>/g,"");
+      /*Remove the whitespaces*/
+      description = description.replace(/[\r\n]/g, "");
+      description += "......";
+      
       $.ajax({
         type: "POST",
-        url: "/douMi/saveDraft/",
+        url: postUrl,
         data: {
           Name: articleName,
-          text: $(".markdown-realtext").val(),
-          publishTime: $("#articleTime").val(),
+          text: content,
+          publishTime: dateString,
           tags: collectAllTags(),
           cat: $("#item").children().eq(0).html(),
           id: articleId,
-          url: toPinYin.ConvertPinyin(articleName)
+          url: toPinYin.ConvertPinyin(articleName),
+          description: description
         },
         dataType: "json",
-        success: function(data){
-          console.log('send ok');
-          history.replaceState("","","/douMi/editor/" + data.articleIdx);
-        },
-        error: function(jqXHR){
-          alert("发生错误：" + jqXHR.status);
-        },
+        success: function(data){successCallback(data)},
+        error: function(jqXHR){failureCallback(jqXHR)},
       });
-    });
+    }
 
-    $('#articleTime').datetimepicker({
-      mask:'9999/19/39 29:59'
+    $('#save').click(function(){
+      articleCommonAction("/douMi/saveDraft/", draftSuccessAction, failureAction);
+
     });
 
     $('#publish').click(function(){
-      var articleId = ~0;
-
-      if ($(".dm-blog .content-viwer").attr("data-set") !== undefined){
-        articleId = parseInt($(".dm-blog .content-viwer").attr("data-set"));
-      }
-
-      $.ajax({
-        type: "POST",
-        url: "/douMi/doPublish/",
-        data: {
-          Name: $("#entry-title").val(),
-          text: $(".markdown-realtext").val(),
-          publishTime: $("#articleTime").val(),
-          tags: collectAllTags(),
-          cat: $("#item").children().eq(0).html(),
-          id: articleId
-        },
-        dataType: "json",
-        success: function(data){
-          console.log('publish ok');
-          $('#dropdownMenu1').html("更新博文 <span class=\"caret\"></span>");
-          $('#save').html("更新博文");
-          $('#save').attr('id', 'update');
-          $('#publish').html("撤销发布");
-          $('#publish').attr('id', 'undoPublish');
-        },
-        error: function(jqXHR){
-          alert("发生错误：" + jqXHR.status);
-        },
-      });
+      articleCommonAction("/douMi/doPublish/", publishSuccessAction, failureAction);
     });
 
     $('.markdown-realtext').bind('input propertychange', function() {
         $('.preview-text').html(marked($(this).val()));
 
-        $('.entry-word-count').html($('.markdown-realtext').val().length + " 个字")
+        $('.entry-word-count').html($('.markdown-realtext').val().length + " 个字");
+
     });
 
     $('#update').click(function(){
-
-      var articleId = ~0;
-
-      if ($(".dm-blog .content-viwer").attr("data-set") !== undefined){
-        articleId = parseInt($(".dm-blog .content-viwer").attr("data-set"));
-      }
-
-      $.ajax({
-        type: "POST",
-        url: "/douMi/updatePub/",
-        data: {
-          Name: $("#entry-title").val(),
-          text: $(".markdown-realtext").val(),
-          publishTime: $("#articleTime").val(),
-          tags: collectAllTags(),
-          cat: $("#item").children().eq(0).html(),
-          id: articleId
-        },
-        dataType: "json",
-        success: function(data){
-          console.log('updating Publish ok');
-        },
-        error: function(jqXHR){
-          alert("发生错误：" + jqXHR.status);
-        },
-      });
+      articleCommonAction("/douMi/updatePub/", updatePubSuccessAction, failureAction);
     });
 
     $('#undoPublish').click(function(){
-
-      var articleId = ~0;
-
-      if ($(".dm-blog .content-viwer").attr("data-set") !== undefined){
-        articleId = parseInt($(".dm-blog .content-viwer").attr("data-set"));
-      }
-
-      $.ajax({
-        type: "POST",
-        url: "/douMi/undoPublish/",
-        data: {
-          Name: $("#entry-title").val(),
-          text: $(".markdown-realtext").val(),
-          publishTime: $("#articleTime").val(),
-          tags: collectAllTags(),
-          cat: $("#item").children().eq(0).html(),
-          id: articleId
-        },
-        dataType: "json",
-        success: function(data){
-          $('#dropdownMenu1').html("保存草稿 <span class=\"caret\"></span>");
-          $('#save').html("保存草稿");
-          $('#save').attr('id', 'save');
-          $('#publish').html("立即发布");
-          $('#publish').attr('id', 'publish');
-        },
-        error: function(jqXHR){
-          alert("发生错误：" + jqXHR.status);
-        },
-      });
+      articleCommonAction("/douMi/undoPublish/", undoPubSuccessAction, failureAction);
     });
   });
 });

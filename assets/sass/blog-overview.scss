@@ -456,3 +456,40 @@ body.offcanvas .offcanvas-overlay {
   -webkit-transition: opacity 0.5s,width 0.1s 0.5s,height 0.1s 0.5s;
   transition: opacity 0.5s,width 0.1s 0.5s,height 0.1s 0.5s;
 }
+.title {
+  margin-top: 0;
+  padding-bottom: 7px;
+  border-bottom: 1px solid #ebebeb;
+  margin-bottom: 21px;
+  position: relative;
+}
+
+ .title:after {
+  content: "";
+  width: 90px;
+  height: 1px;
+  background: #119d55;
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+}
+
+.textwidget .tag-cloud a{
+  border: 1px solid #ebebeb;
+  border-radius: 5px;
+  padding: 2px 7px;
+  color: #959595;
+  line-height: 1.5em;
+  display: inline-block;
+  margin: 0 7px 7px 0;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.textwidget .tag-cloud a:hover {
+  color: #ffffff;
+  background: #119d55;
+  border: 1px solid #119d55;
+  text-decoration: none;
+}

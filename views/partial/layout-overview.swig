@@ -5,7 +5,7 @@
   <title>{% block title %}{% endblock %}</title>
 
   {% block style %}
-  <link rel="stylesheet" href="./vender/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../vender/bootstrap/dist/css/bootstrap.min.css">
 
   {% endblock %}
   <script type="text/javascript"  src="/js/requirejs/require.min.js"></script>
@@ -52,7 +52,7 @@
               <div class="dm-module ">
                 <div class="dm-module-content">
                   <ul class="blog-categories">
-                    <li><a href="#">分类</a>
+                    <li><a href="/home/categories">分类</a>
                       <ul>
                         <li><a href="#">CSS</a></li>
                         <li><a href="#">网站建设</a></li>
@@ -73,9 +73,9 @@
               <div class="dm-megamenu-wrapper">
                 <ul class="dm-megamenu-parent menu-fade hidden-xs">
                   <li class="dm-menu-item"><a href="/">首页</a></li>
-                  <li class="dm-menu-item"><a href="/">归档</a></li>
-                  <li class="dm-menu-item"><a href="/">标签</a></li>
-                  <li class="dm-menu-item"><a href="/">关于豆米</a></li>
+                  <li class="dm-menu-item"><a href="/home/archives">归档</a></li>
+                  <li class="dm-menu-item"><a href="/home/tags">标签</a></li>
+                  <li class="dm-menu-item"><a href="/aboutDouMi">关于豆米</a></li>
               </div>
             </div>
           </div>
@@ -89,9 +89,13 @@
         <div class="dm-column ">
           <div class="dm-page-title">
             <div class="container">
-    <ol class="breadcrumb">
-      <li><a href="/" class="pathway">首页</a></li><li class="active">博文概览</li></ol>
-  </div>
+              <ol class="breadcrumb">
+               <li>
+                 <a href="/" class="pathway">首页</a>
+               </li>
+                <li class="active">博文概览</li>
+              </ol>
+            </div>
           </div>
         </div>
       </div>
@@ -100,75 +104,43 @@
   <div class="blog-main-content">
     <div class="container">
       <div class="row">
-        <main class="col-md-8">
-          <article class="post">
-            <header class="post-header">
-              <h2 class="blog-single-post-title"><a href="#">CSS布局基础</a></h2>
-            </header>
-            <div class="post-content">
-              <p class="post-excerpt">
-                CSS布局基础 标签：CSS CSS包含3种基本的布局模型，用英文概括为：Flow、Layer 和 Float。在网页中，元素有三种布局模型： 1、流动模型（Flow） 2、浮动模型 (Float) 3、层模型（Layer）。 1、流动模型 流动模型也就是标准文档流。从上到下......
-                <a href="#" style="margin-top: 12px;">阅读全文</a>
-              </p>
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="post-meta">
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <span class="post-date"><b>Posted: </b>2016年04月23日</span>
-                      </div>
-                      <div class="col-sm-6 comment-count">
-                        <a href="https://themewagon.com/best-free-stock-photos/">0  comments</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-        </main>
+        <!-- Main content -->
+        {% block content %}
+        {% endblock %}
+        <!-- sidebar content -->
         <aside class="col-md-4 sidebar">
           <div id="secondary" class="widget-area" role="complementary">
             <aside id="archives-2" class="widget widget_archive">
-              <h4 class="widget-title">归档</h4>
+              <h4 class="title">归档</h4>
               <ul>
-                <li><a href="#">2016年06月</a></li>
-                <li><a href="#">2016年05月</a></li>
-                <li><a href="#">2016年04月</a></li>
-                <li><a href="#">2016年03月</a></li>
-                <li><a href="#">2016年02月</a></li>
-                <li><a href="#">2016年01月</a></li>
+                {% for archive in archives %}
+                <li><a href="/home/archives/{{ archive.name }}">{{ archive.name }}</a></li>
+                {% endfor %}
               </ul>
             </aside>
             <aside id="text-6" class="widget widget_text">
               <div class="textwidget">
-                <header class="title">
-                  <p style="margin-bottom: 0;">标签</p>
-                  <h3>Featured Template</h3>
-                </header>
-                <a class="theme-card-anchor" href="https://themewagon.com/themes/reign-pro-premium-corporate-agency-html5-template/" title="Reign Pro - Premium Corporate Agency HTML5 Template">
-                  <section class="card card-themes">
-                    <figure>
-                      <img class="lazy lazy-hidden" src="data:image/gif;base64,R0lGODdhAQABAPAAAP///wAAACwAAAAAAQABAEACAkQBADs=" data-lazy-type="image" data-lazy-src="https://d2zav2bjdlctd5.cloudfront.net/uploads/2016/04/thumb_1.jpg" alt="Reign Pro - Premium Corporate Agency HTML5 Template" style="display: block;"><noscript>&lt;img src="https://d2zav2bjdlctd5.cloudfront.net/uploads/2016/04/thumb_1.jpg" data-lazy-type="image"   alt="Reign Pro - Premium Corporate Agency HTML5 Template" style="display: block;"&gt;</noscript></figure>
-                    <header>
-                      <h2>Reign Pro</h2>
-                    </header>
-                  </section>
-                </a>
+                <h4 class="title">
+                  标签
+                </h4>
+                <div class = "tag-cloud">
+                {% for tag in tags %}
+                <a href="/home/tags/{{ tag.name }}">{{ tag.name }}</h2></a>
+                {% endfor %}
+                </div>
               </div>
             </aside>
             <aside id="categories-4" class="widget widget_categories">
-              <h4 class="widget-title">分类</h4>
+              <h4 class="title">分类</h4>
               <ul>
-                <li class="cat-item cat-item-48"><a href="#">CSS</a>
-                </li>
-                <li class="cat-item cat-item-6"><a href="#">HTML5</a>
-                </li>
+                {% for cat in categories %}
+                <li class="cat-item cat-item-48"><a href="/home/categories/{{ cat.name }}">{{ cat.name }}</a></li>
+                {% endfor %}
               </ul>
             </aside>
             <aside id="text-4" class="widget widget_text">
               <h4 class="widget-title">订阅到RSS</h4>
-              <div class="textwidget"><a href="https://feedburner.google.com/fb/a/mailverify?uri=themewagon&amp;loc=en_US">通过RSS订阅</a></div>
+              <div class="textwidget"><a href="#">通过RSS订阅</a></div>
             </aside>
           </div><!-- #secondary -->
         </aside>
@@ -203,12 +175,10 @@
   </div>
   <div class="offcanvas-overlay"></div>
 </div>
-
-{% block script %}
-<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery" src="./vender/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bootstrap" src="./vender/bootstrap/dist/js/bootstrap.min.js"></script>
-{% endblock %}
 </body>
+<script type="text/javascript">
+  require(['../../js/articleShow']);
+</script>
 </html>
 
 

@@ -1,7 +1,7 @@
 'use strict';
 
-define(['jquery','bootstrap', 'markdown','highlight'], function($, bs, marked, hljs){
-  
+define(['jquery','bootstrap', 'markdown','highlight','hashchange'], function($, bs, marked, hljs){
+
   marked.setOptions({
     highlight: function (code) {
       return hljs.highlightAuto(code).value;
@@ -9,36 +9,48 @@ define(['jquery','bootstrap', 'markdown','highlight'], function($, bs, marked, h
   });
 
   $(document).ready(function(){
+
     var activeElement = $(".post-list li.active");
     var currClickElement;
 
-    $(document).on("click",".blogIndex",function(){
-      var blogIndex = 0;
-      currClickElement = $(this);
-      blogIndex = $(this).attr("data-set");
+    $(window).hashchange( function(){
+      var hash = location.hash;
+      if (hash === null || hash === '') {
+        return;
+      }
+      var url = "douMi/" + hash.replace( /^#/, '' );
 
-      $.ajax({
-        type: "GET",
-        url: "/douMi/" + blogIndex,
-        data: {
-
-        },
-        dataType: "json",
-        success: function(data){
+      // Iterate over all nav links,toggle the active class and change the title.
+      $('.post-list a').each(function(){
+        var aTag = $(this);
+        if(hash === $(aTag).attr('href'))
+        {
           activeElement.removeClass("active");
-          currClickElement.children("li:eq(0)").addClass("active");
+          aTag.children("li:eq(0)").addClass("active");
 
           activeElement = $(".post-list li.active");
+          //exit .each earlier, in case li in nav is found
+          return false;
+        }
+      });
+      //Ajax loading for the workspace.
+      $.ajaxSetup({cache: false});
+      $.get(url)
+        .done(function(data, status, xhr){
 
           $(".content-preview").html(marked(data.content));
 
-          $('.blog-edit').attr("href", "/douMi/editor/" + blogIndex);
-        },
-        error: function(jqXHR){
-          alert("发生错误：" + jqXHR.status);
-        },
-      });
+          $('.blog-edit').attr("href", "/douMi/editor/" + hash.replace( /^#/, '' ));
+        })
+        .fail(function(xhr, status, errorThrown){
+
+        })
+        .always(function(data){
+          //TODO what to do?
+        });
+
     });
+
   });
 });
 

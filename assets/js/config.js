@@ -10,7 +10,8 @@ require.config({
     highlight: 'highlightjs/highlight.pack.min',
     markdown: 'marked/lib/marked',
     datePicker: '../js/jquery.datetimepicker',
-    convertToPinYin: '../js/convertToPinYin'
+    convertToPinYin: '../js/convertToPinYin',
+    hashchange: '../js/hashchange/hashchange.min',
   },
 
   shim: {
@@ -24,6 +25,10 @@ require.config({
     },
     highlight:{
       exports: 'highlight'
+    },
+    hashchange: {
+      deps: ['jquery'],
+      exports: 'jquery-hashchange'
     }
   }
 });

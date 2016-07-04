@@ -107,7 +107,13 @@ module.exports.routes = {
   },
 
   'GET /home': {
-    view: 'blog-overview',
+    controller: 'Blog',
+    action: 'index'
+  },
+
+  'GET /home/:url': {
+    controller: 'Blog',
+    action: 'show'
   },
 
   'GET /aboutDouMi': {

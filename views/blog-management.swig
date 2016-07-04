@@ -45,14 +45,42 @@
         <section class="post-controls">
           <a {% if blogList.length %}href="/douMi/editor/{{ blogList[0].id }}" {% endif %} title="编辑此博文" class="blog-edit"><span class="glyphicon glyphicon-pencil"></span></a>
         </section>
-        <section class="content-preview">
-          {% if blogList.length %}{{ blogList[0].text }}{% endif %}
+        <section class="content-preview" {% if blogList.length %}data-set="{{ blogList[0].id }}"{% endif %}>
+
         </section>
       </section>
     </div>
   </section>
 </main>
 <script type="text/javascript">
+  require(['jquery', 'markdown','highlight'], function($, marked, hljs){
+    marked.setOptions({
+      highlight: function (code) {
+        return hljs.highlightAuto(code).value;
+      }
+    });
+    var articleId = ~0;
+
+    if ($(".blog-content .content-preview").attr("data-set") !== undefined){
+      articleId = parseInt($(".blog-content .content-preview").attr("data-set"));
+
+      $.ajax({
+        type: "GET",
+        url: "/douMi/" + articleId,
+        data: {},
+        dataType: "json",
+        success: function(data){
+          if (data !== undefined){
+            $('.content-preview').html(marked(data.content));
+          }
+        },
+        error: function(jqXHR){
+          alert("发生错误：" + jqXHR.status);
+        },
+      });
+    }
+
+  });
   require(['../js/blog-mgmt']);
 </script>
 {% endblock %}

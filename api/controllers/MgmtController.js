@@ -21,7 +21,8 @@ function updateExistingArticle(articleId, article, category, tagsArray, callback
         content: article.content,
         createTime: article.createTime,
         blogStatus: article.blogStatus,
-        url: article.url + "-" + articleId
+        url: article.url + "-" + articleId,
+        description: article.description
       }).exec(callback);
     },
     function(updateArticle, callback){
@@ -66,7 +67,7 @@ function updateExistingArticle(articleId, article, category, tagsArray, callback
           }
 
           async.map(results[2][0].tags, function(tag, callback){
-            console.log(tag.name);
+
             articleModel.tags.remove(tag.id);
             articleModel.save(callback);
           },callback);
@@ -89,11 +90,16 @@ function updateExistingArticle(articleId, article, category, tagsArray, callback
       },callback)
     }
   ], function(err, result){
-    callback(err, result);
+    if (err){
+      sails.log.error(err);
+      callback(err, result);
+    }else{
+      callback(err, result);
+    }
   });
 }
 
-function createNewArticle(article, category, tagsArray,callback){
+function createNewArticle(article, category, tagsArray, req, callback){
 
   var articleModel,
     categoryModel,
@@ -120,6 +126,7 @@ function createNewArticle(article, category, tagsArray,callback){
       },callback)
     },
     function(Tags, callback){
+      sails.log.error(Tags);
       async.map(Tags, function(tag, callback){
         articleModel.tags.add(tag.id);
         articleModel.save(callback);
@@ -132,18 +139,19 @@ function createNewArticle(article, category, tagsArray,callback){
       articleModel.archive.add(archiveModel.id);
       articleModel.save(callback);
     },
-    function(results, callback){
-      console.log("creating URL......................");
+    function(callback){
       var newURL = articleModel.url + "-" + articleModel.id;
       Blog.update(articleModel.id, {
         url: newURL
       }).exec(callback);
     }
   ],function(err, result){
-    if (){
-      
+    if (err){
+      sails.log.error(err);
+      callback(err, ~0);
+    }else{
+      callback(err, articleModel.id);
     }
-    callback(err, articleModel.id);
   });
 }
 
@@ -165,21 +173,25 @@ module.exports = {
     article.owner = req.session.user;
     article.blogStatus = "draft";
     article.createTime = req.param('publishTime');
+    article.description = req.param('description');
     tags = req.param('tags');
     category = req.param('cat') === undefined ? "未分类" : req.param('cat');
 
     /*transfer the tags string to array*/
-    var tagsArray = tags.split("&");
+    var tagsArray = [];
+    if (tags !== ""){
+      tagsArray = tags.split("&");
+    }
 
     /*If this article has not existing in the database*/
     if (articleId === ~0){
-      createNewArticle(article, category, tagsArray, function(err, articleIndex){
+      createNewArticle(article, category, tagsArray, req, function(err, articleIndex){
         if(err){
           sails.log.error(err);
           return res.json(200, {error: err});
         }else{
           console.log("Send the Ok to client");
-          res.json(200, {articleidx: articleIndex});
+          res.json(200, {articleIdx: articleIndex});
         }
       });
     }else{
@@ -188,7 +200,7 @@ module.exports = {
           sails.log.error(err);
           return res.json(200, {error: err});
         }else{
-          return res.json(200, {articleidx: articleId});
+          return res.json(200, {articleIdx: articleId});
         }
       });
     }
@@ -264,9 +276,11 @@ module.exports = {
 
     article.name = req.param('Name');
     article.content = req.param('text');
+    article.url = req.param('url');
     article.owner = req.session.user;
     article.blogStatus = "publish";
     article.createTime = req.param('publishTime');
+    article.description = req.param('description');
     tags = req.param('tags');
     category = req.param('cat') === undefined ? "未分类" : req.param('cat');
 
@@ -310,9 +324,11 @@ module.exports = {
 
     article.name = req.param('Name');
     article.content = req.param('text');
+    article.url = req.param('url');
     article.owner = req.session.user;
     article.blogStatus = "draft";
     article.createTime = req.param('publishTime');
+    article.description = req.param('description');
     tags = req.param('tags');
     category = req.param('cat') === undefined ? "未分类" : req.param('cat');
 
@@ -341,9 +357,11 @@ module.exports = {
 
     article.name = req.param('Name');
     article.content = req.param('text');
+    article.url = req.param('url');
     article.owner = req.session.user;
     article.blogStatus = "publish";
     article.createTime = req.param('publishTime');
+    article.description = req.param('description');
     tags = req.param('tags');
     category = req.param('cat') === undefined ? "未分类" : req.param('cat');
 
@@ -370,11 +388,18 @@ module.exports = {
         sails.log.error(error);
         return res.negotiate(error);
       }
-
-      return res.json({
-        "err": " ",
+      if (articles.length === 0){
+        return res.json({
+          "err": "找不到对应的博客",
+          "content": ""
+        });
+      }else{
+        return res.json({
+          "err": " ",
           "content": articles[0].content
-      });
+        });
+      }
+
     });
   },
 
@@ -382,7 +407,7 @@ module.exports = {
     var articleId = req.param("id");
     var rule = /^[0-9]*$/;
     var allNumOrNot = rule.test(articleId);
-    if (articleId !== undefined && rule == true ){
+    if (articleId !== undefined && allNumOrNot == true ){
 
     async.parallel([
       function(callback){Blog.find({id:articleId}).exec(callback)},
@@ -391,7 +416,10 @@ module.exports = {
       function(callback){Tags.find().exec(callback)},
       function(callback){Category.find().exec(callback)}
     ],function(error, results){
-
+      if (error){
+        sails.log.error(err);
+        return res.negotiate(err);
+      }
       var article = {
         id: results[0][0].id,
         title: results[0][0].name,
@@ -423,6 +451,7 @@ module.exports = {
             sails.log.error(err);
             return res.negotiate(err);
           }else{
+
             var article = {
               allTags: tags,
               allCats: cats

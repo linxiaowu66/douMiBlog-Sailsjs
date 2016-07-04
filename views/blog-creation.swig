@@ -55,7 +55,7 @@
               <a href="#" class="active">Markdown</a>
               <a href="#" class="">预览</a>
             </span>
-          <span class="entry-word-count">5 个字</span>
+          <span class="entry-word-count">0 个字</span>
         </header>
         <section class="preview-content">
           <div class="preview-text">
@@ -139,6 +139,34 @@
 </div>
 </div>
 <script type="text/javascript">
+  require(['jquery', 'markdown','highlight'], function($, marked, hljs){
+    marked.setOptions({
+      highlight: function (code) {
+        return hljs.highlightAuto(code).value;
+      }
+    });
+    var articleId = ~0;
+
+    if ($(".dm-blog.content-viwer").attr("data-set") !== undefined){
+      articleId = parseInt($(".dm-blog.content-viwer").attr("data-set"));
+
+      $.ajax({
+        type: "GET",
+        url: "/douMi/" + articleId,
+        data: {},
+        dataType: "json",
+        success: function(data){
+          if (data !== undefined){
+            $('.preview-text').html(marked(data.content));
+          }
+        },
+        error: function(jqXHR){
+          alert("发生错误：" + jqXHR.status);
+        },
+      });
+    }
+
+  });
   require(['../js/blog-creation']);
 </script>
 {% endblock %}

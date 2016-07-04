@@ -22,13 +22,11 @@ var reduce = function (k, values) {
 module.exports = {
 
   attributes: {
-    name: {
-      type: 'string',
-      unique: true
-    },
+    name: 'string',
     content: 'string',
     createTime: 'string',
     url: "string",
+    description: "string",
     blogStatus: {
       type: 'string',
       enum: ['draft', 'publish']
