@@ -70,9 +70,9 @@ module.exports = {
   },
   // 每次文章创建完成，更新标签统计
   afterCreate: function (article, cb) {
-    this.updateTags();
-    cb();
-  },
+   this.updateTags();
+   cb();
+   },
   //custom
   updateTags: function () {
     Blog.native(function (err, collection) {

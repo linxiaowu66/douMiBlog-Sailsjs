@@ -88,7 +88,19 @@ function updateExistingArticle(articleId, article, category, tagsArray, callback
         articleModel.tags.add(tag.id);
         articleModel.save(callback);
       },callback)
-    }
+    },
+    function(result, callback){
+      Category.find({name: categoryModel.name}).populate('blog').exec(callback);
+    },
+    function(result, callback){
+      Category.update({name: categoryModel.name}, {numOfArticle: result.length}).exec(callback);
+    },
+    function(result, callback){
+      Category.find({id: disconnectCategoryId}).populate('blog').exec(callback);
+    },
+    function(result, callback){
+      Category.update({id: disconnectCategoryId}, {numOfArticle: result.length}).exec(callback);
+    },
   ], function(err, result){
     if (err){
       sails.log.error(err);
@@ -126,7 +138,6 @@ function createNewArticle(article, category, tagsArray, req, callback){
       },callback)
     },
     function(Tags, callback){
-      sails.log.error(Tags);
       async.map(Tags, function(tag, callback){
         articleModel.tags.add(tag.id);
         articleModel.save(callback);
@@ -144,7 +155,13 @@ function createNewArticle(article, category, tagsArray, req, callback){
       Blog.update(articleModel.id, {
         url: newURL
       }).exec(callback);
-    }
+    },
+    function(result, callback){
+      Category.find({name: categoryModel.name}).populate('blog').exec(callback);
+    },
+    function(result, callback){
+      Category.update({name: categoryModel.name}, {numOfArticle: result.length}).exec(callback);
+    },
   ],function(err, result){
     if (err){
       sails.log.error(err);
@@ -285,17 +302,32 @@ module.exports = {
     category = req.param('cat') === undefined ? "未分类" : req.param('cat');
 
     /*transfer the tags string to array*/
-    var tagsArray = tags.split("&");
+    var tagsArray = [];
+    if (tags !== ""){
+      tagsArray = tags.split("&");
+    }
 
-    updateExistingArticle(articleId, article, category, tagsArray,function(err, result){
-      if(err){
-        sails.log.error(err);
-        return res.json(200, {error: err});
-      }else{
-        return res.json(200, {articleidx: articleId});
-      }
-    });
-
+    /*If this article has not existing in the database*/
+    if (articleId === ~0){
+      createNewArticle(article, category, tagsArray, req, function(err, articleIndex){
+        if(err){
+          sails.log.error(err);
+          return res.json(200, {error: err});
+        }else{
+          console.log("Send the Ok to client");
+          res.json(200, {articleIdx: articleIndex});
+        }
+      });
+    }else {
+      updateExistingArticle(articleId, article, category, tagsArray, function (err, result){
+        if (err) {
+          sails.log.error(err);
+          return res.json(200, { error: err });
+        } else {
+          return res.json(200, { articleidx: articleId });
+        }
+      });
+    }
   },
 
   delete: function(req, res){
@@ -333,7 +365,10 @@ module.exports = {
     category = req.param('cat') === undefined ? "未分类" : req.param('cat');
 
     /*transfer the tags string to array*/
-    var tagsArray = tags.split("&");
+    var tagsArray = [];
+    if (tags !== ""){
+      tagsArray = tags.split("&");
+    }
 
     updateExistingArticle(articleId, article, category, tagsArray,function(err, result){
       if(err){
@@ -366,7 +401,10 @@ module.exports = {
     category = req.param('cat') === undefined ? "未分类" : req.param('cat');
 
     /*transfer the tags string to array*/
-    var tagsArray = tags.split("&");
+    var tagsArray = [];
+    if (tags !== ""){
+      tagsArray = tags.split("&");
+    }
 
     updateExistingArticle(articleId, article, category, tagsArray,function(err, result){
       if(err){

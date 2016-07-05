@@ -12,6 +12,7 @@ module.exports = {
       type: 'string',
       unique: true
     },
+    numOfArticle: 'integer',
     blog: {
       collection: 'blog',
       via: 'archive'

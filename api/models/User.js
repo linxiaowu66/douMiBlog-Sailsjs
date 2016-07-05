@@ -24,7 +24,7 @@ module.exports = {
       type: 'string',
       required: true
     },
-
+    numOfArticle: 'integer',
     blog: {
       collection: 'blog',
       via: 'user'

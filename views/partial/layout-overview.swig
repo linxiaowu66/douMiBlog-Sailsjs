@@ -93,7 +93,7 @@
                <li>
                  <a href="/" class="pathway">首页</a>
                </li>
-                <li class="active">博文概览</li>
+                <li><a href="/home" class="active">博文概览</a></li>
               </ol>
             </div>
           </div>

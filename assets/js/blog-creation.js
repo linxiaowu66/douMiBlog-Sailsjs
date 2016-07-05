@@ -8,7 +8,8 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
     }
   });
 
-  var  articleHasPosted = false;
+  var  articleHasPosted = false,
+       articleHasPubed = false;
 
   $(document).ready(function(){
 
@@ -269,6 +270,11 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
       $('#save').attr('id', 'update');
       $('#publish').html("撤销发布");
       $('#publish').attr('id', 'undoPublish');
+      if (articleHasPubed === false){
+        var appendElements = "<li role=\"separator\" class=\"divider\"></li><li><a id=\"delete\" href=\"/douMi/delete/"+ data.articleIdx + "\">删除博文</a></li>"
+        $('.dropdown-menu').append(appendElements);
+        articleHasPubed = true;
+      }
     }
 
     function updatePubSuccessAction(data){
@@ -315,7 +321,7 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
       /*Remove the whitespaces*/
       description = description.replace(/[\r\n]/g, "");
       description += "......";
-      
+
       $.ajax({
         type: "POST",
         url: postUrl,

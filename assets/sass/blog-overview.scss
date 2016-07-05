@@ -255,10 +255,13 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 .dm-page-title .breadcrumb>span, .dm-page-title .breadcrumb>li, .dm-page-title .breadcrumb>li+li:before, .dm-page-title .breadcrumb>li>a {
   color: #000000;
 }
-.dm-page-title .breadcrumb>.active {
+.dm-page-title .breadcrumb .active {
   color: #119d55;
 }
 
+.dm-page-title .breadcrumb li a:hover {
+  color: #119d55;
+}
 
 .offcanvas-menu {
   right: 0;

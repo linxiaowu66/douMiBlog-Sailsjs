@@ -13,6 +13,7 @@ module.exports = {
       required: true,
       unique: true
     },
+    numOfArticle: 'integer',
     blog: {
       collection: 'blog',
       via: 'category'
@@ -22,4 +23,25 @@ module.exports = {
       return DEFAULT_NAME;
     }
   },
+
+/*  afterCreate: function(category, cb){
+    //this.updateNumOfArticles(category, cb);
+    Category.find({name: category.name}).populate('blog').exec(function(err, blogs){
+      sails.log.error("===[%d]",blogs.length);
+      this.numOfArticle = blogs.length;
+      cb();
+    });
+  },
+
+  afterUpdate: function(category, cb){
+    Category.find({name: category.name}).populate('blog').exec(function(err, blogs){
+      sails.log.error("===[%d]",blogs.length);
+      this.numOfArticle = blogs.length;
+      cb();
+    });
+  },
+
+  updateNumOfArticles: function(category, cb){
+
+  }*/
 };
