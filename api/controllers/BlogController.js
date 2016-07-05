@@ -52,18 +52,17 @@ module.exports = {
 
   show: function (req, res){
     var articleUrl = req.param('url');
-    console.log(articleUrl);
     Blog.find({url: articleUrl}).exec(function(error, article){
 
       if (error){
         sails.log.error(err);
         return res.negotiate(err);
       }
-      console.log(article);
       return res.json(
        200,
         {
           content: article[0].content,
+          name: article[0].name,
           url: article[0].url
         });
     });

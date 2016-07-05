@@ -1,5 +1,5 @@
 
-define(['jquery', 'markdown','highlight'], function($, marked, hljs){
+define(['jquery', 'markdown','highlight','hashchange'], function($, marked, hljs){
   marked.setOptions({
     highlight: function (code) {
       return hljs.highlightAuto(code).value;
@@ -7,28 +7,41 @@ define(['jquery', 'markdown','highlight'], function($, marked, hljs){
   });
   
   $(document).ready(function(){
-    $('.articleLink,.blog-single-post-title').click(function (){
-      var getUrl = "";
+    var currentActiveEle = $(".breadcrumb .active");
 
-      if ($(".post").attr("url-data") !== undefined){
-        getUrl = "/home/" + ($(".post").attr("url-data"));
-      }
-      $.ajax({
-        type: "GET",
-        url: getUrl,
-        data: {
-        },
-        dataType: "json",
-        success: function(data){
-          console.log('send ok');
-          //history.replaceState("","","/home/" + data.url);
-          $('.post').remove();
-          $("main.col-md-8").html(marked(data.content));
-        },
-        error: function(jqXHR){
-          alert("发生错误：" + jqXHR.status);
-        },
-      });
-    });
+   $(window).hashchange( function(){
+    var hash = location.hash,
+        url,
+        hasGetHomePage = 0;
+    if (hash === null) {
+        return;
+    }
+    if (hash == ''){
+        url = "/home/";
+        hasGetHomePage = 1;
+    }else{
+        url = "/home/" + hash.replace( /^#/, '' );
+    }
+
+    $.ajaxSetup({cache: false});
+    $.get(url)
+      .done(function(data, status, xhr){
+        console.log('send ok');
+        if (hasGetHomePage){
+            $("main.col-md-8").html(data);
+            hasGetHomePage = 0;
+        }else{
+        $('.post').remove();
+        $("main.col-md-8").html(marked(data.content));
+        currentActiveEle.removeClass("active");
+        var title = "<li class=\"active\">"+ data.name +"</li>";
+        $('.breadcrumb').append(title);
+        currentActiveEle = $(".breadcrumb .active");
+        }
+    })
+      .fail(function(xhr, status, errorThrown){})
+      .always(function(data){})
+   
+   });            
   });
 });
