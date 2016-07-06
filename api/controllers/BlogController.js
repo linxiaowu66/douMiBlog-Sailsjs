@@ -21,7 +21,6 @@ module.exports = {
   index: function (req, res){
     // 获得当前需要加载第几页
     var page = req.param('page') ? req.param('page') : 1;
-    console.log("==========================================");
     Blog.find({
       sort: FIND_ORDER,
       where: {blogStatus:"publish"}
@@ -52,6 +51,32 @@ module.exports = {
 
   show: function (req, res){
     var articleUrl = req.param('url');
+
+    if (articleUrl === 'index'){
+        Blog.find({
+                  sort: FIND_ORDER,
+                  where: {blogStatus:"publish"}
+            }).paginate({page: 1, limit: FIND_PER_PAGE})
+    .then(function (articles) {
+                  return [
+                            articles,
+                            Category.find(),
+                            Tags.find(),
+                            Archive.find()
+                          ];
+                    })
+    .spread(function (articles, categories, tags, archives) {
+         return res.view('blog-index',
+               {
+                  articles: articles,
+                  categories: categories,
+                  tags: tags,
+                  archives: archives,
+                  page: 1
+                });
+     });
+    }else{
+
     Blog.find({url: articleUrl}).exec(function(error, article){
 
       if (error){
@@ -66,5 +91,6 @@ module.exports = {
           url: article[0].url
         });
     });
+  }
   }
 };

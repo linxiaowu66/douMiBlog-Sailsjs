@@ -124,44 +124,56 @@ function createNewArticle(article, category, tagsArray, req, callback){
     },
     function(newBlog, callback){
       articleModel = newBlog;
-      Archive.findOrCreate({name: article.createTime}, {name: article.createTime}, callback);
-    },
-    function(newArchive,callback){
-      archiveModel = newArchive;
-      Category.findOrCreate({name: category}, {name: category},callback);
-    },
-
-    function(newOrCreatedCat, callback){
-      categoryModel = newOrCreatedCat;
-      async.map(tagsArray, function(tag,callback){
-        Tags.findOrCreate({name:tag},{name:tag},callback);
-      },callback)
-    },
-    function(Tags, callback){
-      async.map(Tags, function(tag, callback){
-        articleModel.tags.add(tag.id);
-        articleModel.save(callback);
-      },callback)
+      async.parallel([
+          function(callback){Archive.findOrCreate({name: article.createTime}, {name: article.createTime}, callback);},
+          function(callback){Category.findOrCreate({name: category}, {name: category},callback);},
+          function(callback){async.map(tagsArray, function(tag,callback){
+            Tags.findOrCreate({name:tag},{name:tag},callback);
+          },callback)}
+      ],function(error, results){
+        archiveModel = results[0];
+        categoryModel = results[1];
+        console.log('Enter the last async');
+        console.log(results[0]);
+        articleModel.user.add(req.session.user);
+        articleModel.category.add(categoryModel.id);
+        articleModel.archive.add(archiveModel.id);
+        async.map(results[2], function(tag, callback){
+            console.log("tag name = %s", tag.name);
+            articleModel.tags.add(tag.id);
+            articleModel.save(callback);
+        },callback);
+      })  
     },
     function(result, callback){
-      console.log('Enter the last async');
-      articleModel.user.add(req.session.user);
-      articleModel.category.add(categoryModel.id);
-      articleModel.archive.add(archiveModel.id);
-      articleModel.save(callback);
-    },
-    function(callback){
       var newURL = articleModel.url + "-" + articleModel.id;
       Blog.update(articleModel.id, {
         url: newURL
       }).exec(callback);
     },
     function(result, callback){
-      Category.find({name: categoryModel.name}).populate('blog').exec(callback);
-    },
-    function(result, callback){
-      Category.update({name: categoryModel.name}, {numOfArticle: result.length}).exec(callback);
-    },
+        console.log("Enter the final callback-----");
+      async.parallel([
+          Category.find({name: categoryModel.name}).populate('blog').exec(callback),
+          Archive.find({name: archiveModel.name}).populate('blog').exec(callback)
+          /*async.map(tagsArray, function(tag, callback){
+              console.log("Final callback Tag=[%s]", tag);
+            Tags.find({name: tag}).populate('blog').exec(callback);
+          },callback)*/
+      ], function(errors, results){
+          console.log("Parallel has finished!==");
+        /*async.parallel([
+            Category.update({name: categoryModel.name}, {numOfArticle: results[0].blog.length}).exec(callback),
+            Archive.update({name: archiveModel.name}, {numOfArticle: results[1].blog.length}).exec(callback)
+            async.map(results[2], function(tagModel, callback){
+                Tags.update({name: tagModel.name}, {numOfArticle: tagModel.blog.length}).exec(callback);
+            },callback)
+        ], function(errors, results){
+            console.log("Creating a Blog Successfully!!!!");
+            callback();
+        })*/
+      });
+    }
   ],function(err, result){
     if (err){
       sails.log.error(err);

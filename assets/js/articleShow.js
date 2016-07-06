@@ -23,11 +23,16 @@ define(['jquery', 'markdown','highlight','hashchange'], function($, marked, hljs
     $.get(url)
       .done(function(data, status, xhr){
           $('.post').remove();
-          $("main.col-md-8").html(marked(data.content));
-          currentActiveEle.removeClass("active");
+          if (hash === "#index"){
+              $("main.col-md-8").html(data);
+              $('.breadcrumb li').last().remove();
+          }else{
+            $("main.col-md-8").html(marked(data.content));
+            currentActiveEle.removeClass("active");
           var title = "<li class=\"active\">"+ data.name +"</li>";
           $('.breadcrumb').append(title);
           currentActiveEle = $(".breadcrumb .active");
+          }
     })
       .fail(function(xhr, status, errorThrown){})
       .always(function(data){})
