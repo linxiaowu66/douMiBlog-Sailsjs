@@ -31,6 +31,10 @@ module.exports = {
       type: 'string',
       enum: ['draft', 'publish']
     },
+    tagsArray:  {
+      type: 'array'
+    },
+    catString: 'string',
     owner: {
       model: 'user'
     },
