@@ -13,9 +13,9 @@ module.exports = {
       required: true,
       unique: true
     },
-    numOfArticle: 'integer',
-    blog: {
-      collection: 'blog',
+    numOfArticles: 'integer',
+    articles: {
+      collection: 'article',
       via: 'tags'
     },
   },

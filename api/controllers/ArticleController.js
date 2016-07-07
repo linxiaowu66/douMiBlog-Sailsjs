@@ -16,10 +16,10 @@ function updateExistingArticle(articleId, article, category, tagsArray, callback
 
   async.waterfall([
     function(callback){
-      Blog.update(articleId, {
-        name: article.name,
+      Article.update(articleId, {
+        title: article.title,
         content: article.content,
-        createTime: article.createTime,
+        createTime.createTime,
         blogStatus: article.blogStatus,
         url: article.url + "-" + articleId,
         description: article.description
@@ -113,7 +113,7 @@ function updateExistingArticle(articleId, article, category, tagsArray, callback
   });
 }
 
-function createNewArticle(article, category, tagsArray, req, callback){
+function createNewArticle(article, category, tagsArray, archive, req, callback){
 
   var articleModel,
     categoryModel,
@@ -122,10 +122,6 @@ function createNewArticle(article, category, tagsArray, req, callback){
 
   async.waterfall([
     function(callback){
-      Blog.create(article, callback);
-    },
-    function(newBlog, callback){
-      articleModel = newBlog;
       async.parallel([
           function(callback){Archive.findOrCreate({name: article.createTime}, {name: article.createTime}, callback);},
           function(callback){Category.findOrCreate({name: category}, {name: category},callback);},
@@ -133,26 +129,42 @@ function createNewArticle(article, category, tagsArray, req, callback){
             Tags.findOrCreate({name:tag},{name:tag},callback);
           },callback)}
       ],function(error, results){
-        archiveModel = results[0];
-        categoryModel = results[1];
-        console.log('Enter the last async');
-        console.log(results[0]);
-        articleModel.user.add(req.session.user);
-        articleModel.category.add(categoryModel.id);
-        articleModel.archive.add(archiveModel.id);
-        async.map(results[2], function(tag, callback){
-            articleModel.tags.add(tag.id);
-            articleModel.save(callback);
-        },callback);
+        /*If any creating model failure, this process
+          should be stop and return the error to client         */
+        if (error){
+            sails.log.error(error);
+            callback(error, null);
+        }else{
+            archiveModel = results[0];
+            categoryModel = results[1];
+            tagsModel = results[2];
+        }
       })
     },
     function(result, callback){
-      var newURL = articleModel.url + "-" + articleModel.id;
-      Blog.update(articleModel.id, {
-        url: newURL
-      }).exec(callback);
+        Article.create({
+            title: article.title,
+            content: article.content,
+            slug: article.slug,
+            digest: article.summary,
+            articleStatus: article.articleStatus,
+            archive: archiveModel.id,
+            category: categoryModel.id,
+            owner: article.owner
+        }).exec(callback);
     },
-    function(result, callback){
+    function(newArticle, callback){
+        articleModel = newArticle;
+        var tagsModelId = [];
+
+        for (var index = 0; index < tagsModel.length; index++){
+        tagsModelId.push(tagsModle[index].id);
+        }
+
+        articleModel.add(tagsModelId);
+        articleModel.save(callback);
+    },
+    function(callback){
       console.log("Enter the final callback-----");
       async.parallel([
         function(callback){Category.find({name: categoryModel.name}).populate('blog').exec(callback)},
@@ -192,13 +204,13 @@ module.exports = {
 
     articleId = parseInt(req.param('id'));
 
-    article.name = req.param('Name');
+    article.title = req.param('Name');
     article.content = req.param('text');
-    article.url = req.param('url');
+    article.slug = req.param('url');
     article.owner = req.session.user;
-    article.blogStatus = "draft";
+    article.articleStatus = "drafted";
     article.createTime = req.param('publishTime');
-    article.description = req.param('description');
+    article.summary = req.param('description');
     tags = req.param('tags');
     category = req.param('cat') === undefined ? "未分类" : req.param('cat');
 

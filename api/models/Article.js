@@ -20,7 +20,7 @@ module.exports = {
       required: true,
       minLength: 1
     },
-    url: {
+    slug: {
       type: 'string',
       required: true,
       minLength: 1
@@ -31,7 +31,7 @@ module.exports = {
       minLength: 1,
       maxLength: 200
     },
-    blogStatus: {
+    articleStatus: {
       type: 'string',
       enum: ['drafted', 'published']
     },
@@ -41,26 +41,24 @@ module.exports = {
     tagsArray:  {
       type: 'array'
     },
-    catString: 'string', /*which category this blog belongs to*/
-    archiveTime: 'string', /*when this blog created ? */
 
-    /*Blog to user is a many-to-many association*/
+    /*Article to user is a many-to-many association*/
     owner: {
       model: 'user',
       required: true
     },
-    /*Blog to tags is a many-to-many association*/
+    /*Article to tags is a many-to-many association*/
     tags: {
       collection: 'Tags',
-      via: 'blog',
+      via: 'articles',
       dominant: true
     },
-    /*Blog to archive is a one-to-many association*/
+    /*article to archive is a one-to-many association*/
     archive: {
       model: 'archive',
       required: true
     },
-    /*Blog to category is a one-to-many association*/
+    /*article to category is a one-to-many association*/
     category: {
       model: 'category',
       required: true

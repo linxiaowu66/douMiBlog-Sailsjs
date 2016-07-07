@@ -14,17 +14,17 @@ module.exports = {
       defaultsTo: "未分类"
     },
     numOfArticles: 'integer',
-    blog: {
-      collection: 'blog',
+    articles: {
+      collection: 'article',
       via: 'category'
     }
   },
 
-/*  afterCreate: function(category, cb){
+  /*afterCreate: function(category, cb){
     //this.updateNumOfArticles(category, cb);
-    Category.find({name: category.name}).populate('blog').exec(function(err, blogs){
-      sails.log.error("===[%d]",blogs.length);
-      this.numOfArticle = blogs.length;
+    Category.find({name: category.name}).populate('articles').exec(function(err, articles){
+      sails.log.error("===[%d]",articles.length);
+      this.numOfArticle = articles.length;
       cb();
     });
   },
