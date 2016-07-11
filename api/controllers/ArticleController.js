@@ -4,7 +4,7 @@
 
 var _ = require('lodash');
 
-function updateExistingArticle(articleId, article, category, tagsArray, callback){
+function updateExistingArticle(article, callback){
 
   var articleModel,
     categoryModel,
@@ -12,108 +12,214 @@ function updateExistingArticle(articleId, article, category, tagsArray, callback
     tagsModel;
   var disconnectArchiveId = ~0,
     disconnectCategoryId = ~0,
-    disconnectTagsArrayId = ~0;
+    disconnectTagsArrayId = [],
+    connectTagsArrayId = [];
 
   async.waterfall([
+    /*Firstly, creating the non-existing related model*/
     function(callback){
-      Article.update(articleId, {
-        title: article.title,
-        content: article.content,
-        createTime.createTime,
-        blogStatus: article.blogStatus,
-        url: article.url + "-" + articleId,
-        description: article.description
-      }).exec(callback);
-    },
-    function(updateArticle, callback){
-      if (updateArticle.length !== 0){
-        articleModel = updateArticle[0];
-        async.parallel([
-          function(callback){Archive.findOrCreate({name: article.createTime}, {name: article.createTime}, callback);},
-          function(callback){Category.findOrCreate({name: category}, {name: category},callback);},
-          function(callback){async.map(tagsArray, function(tag,callback){
-            Tags.findOrCreate({name:tag},{name:tag},callback);
-          },callback)}
-        ],function(error, results){
-          archiveModel = results[0];
-          categoryModel = results[1];
-          tagsModel = results[2];
-          console.log('Enter the last async');
-          console.log(results[0]);
-          callback();
-        });
-      }else{
-        var err = "article update failure at id: " + articleId;
-        sails.log.error(err);
-        callback(err, null);
-      }
-    },
-    function(results, callback){
-
       async.parallel([
-        function(callback){Blog.find({id: articleId}).populate('archive').exec(callback)},
-        function(callback){Blog.find({id: articleId}).populate('category').exec(callback)},
-        function(callback){Blog.find({id: articleId}).populate('tags').exec(callback)}
+        function(callback){
+          if (article.articleStatus === "drafted"){
+            callback(null, "Nothing to create");
+          }else {
+            Archive.findOrCreate({archiveTime: article.archiveTime.substr(0, 7)}, {archiveTime: article.archiveTime.substr(0, 7)}, callback);
+          }
+        },
+        function(callback){Category.findOrCreate({name: article.cat}, {name: article.cat},callback);},
+        function(callback){async.map(article.tagsArray, function(tag,callback){Tags.findOrCreate({name:tag},{name:tag},callback);},callback)}
       ],function(error, results){
+        /*If any creating model failure, this process
+         should be stop and return the error to client*/
         if (error){
           sails.log.error(error);
-          callback(error);
-        }else{
+          callback(error, null);
+        }else {
+          archiveModel = results[0];
+          categoryModel = results[1];
 
-          if (article.createTime !== results[0][0].archive[0].name){
-            disconnectArchiveId = results[0][0].archive[0].id;
+          tagsModel = results[2];
+          for (var index = 0; index < results[2].length; index++){
+            connectTagsArrayId.push(results[2][index].id);
           }
-
-          if (category !== results[1][0].category[0].name){
-            disconnectCategoryId = results[1][0].category[0].id;
-          }
-
-          async.map(results[2][0].tags, function(tag, callback){
-
-            articleModel.tags.remove(tag.id);
-            articleModel.save(callback);
-          },callback);
+          callback(null, results);
         }
       });
     },
-    function(result, callback){
+    /*Secondly getting the old Archive/Category/Tags Model which association with the Article Model*/
+    function(results,callback){
+      async.parallel([
+        function(callback){
+          if (article.articleStatus === "drafted"){
+            callback(null, "Nothing to create");
+          }else {
+            Article.find({id: article.id}).populate('archive').exec(callback);
+          }
+        },
+        function(callback){Article.find({id: article.id}).populate('category').exec(callback)},
+        function(callback){Article.find({id: article.id}).populate('tags').exec(callback)}
+      ],function(error, results){
+        if (error){
+          sails.log.error(error);
+          callback(error, null);
+        }else{
 
-      if (disconnectArchiveId >= 0){
-        articleModel.archive.remove(disconnectArchiveId);
-        articleModel.archive.add(archiveModel.id);
+          /*Compare the new one with the old one, record the old one if they are different*/
+          if ((article.articleStatus === "published") && (results[0][0].archive !== undefined) &&
+            (article.publishTime !== results[0][0].archive.archiveTime)){
+            disconnectArchiveId = results[0][0].archive.id;
+          }
+
+          if (article.cat !== results[1][0].category.name){
+            disconnectCategoryId = results[1][0].category.id;
+          }
+          /*Just deleting all the association with tag model,
+            then relink them in the next step, it maybe can
+            reduce some efforts*/
+          for (var index = 0; index < results[2][0].tags.length; index++){
+            disconnectTagsArrayId.push(results[2][0].tags[index].id);
+          }
+          callback(null, results);
+        }
+      });
+    },
+    /*Thirdly, updating the Article Model*/
+    function(result, callback){
+      var updateArticle = {};
+      updateArticle.title = article.title;
+      updateArticle.content = article.content;
+      updateArticle.slug = article.slug;
+      updateArticle.digest = article.digest;
+      updateArticle.articleStatus = article.articleStatus;
+      updateArticle.tagsArray = article.tagsArray;
+      if (article.articleStatus === "published"){
+        updateArticle.archiveTime = article.archiveTime;
+        updateArticle.archive = archiveModel.id;
       }
-      if (disconnectCategoryId >= 0){
-        articleModel.category.remove(disconnectCategoryId);
-        articleModel.category.add(categoryModel.id);
-      }
-      async.map(tagsModel, function(tag, callback){
-        articleModel.tags.add(tag.id);
-        articleModel.save(callback);
-      },callback)
+      console.log(categoryModel.id);
+      updateArticle.category = categoryModel.id;
+      updateArticle.owner = article.owner.id;
+
+      /*So strange for this: if I want to organise a object to pass to update,
+      * it should be use the model id, and if use the inline object, just use
+      * model object!!!*/
+
+      Article.update({id: article.id},updateArticle, callback);
     },
-    function(result, callback){
-      Category.find({name: categoryModel.name}).populate('blog').exec(callback);
+    /*Fourthly, Remove the old tags model relation*/
+    function (updateArticle, callback){
+      console.log('Enter the 4 async');
+      articleModel = updateArticle[0];
+      articleModel.tags.remove(disconnectTagsArrayId);
+      articleModel.save(callback);
     },
-    function(result, callback){
-      Category.update({name: categoryModel.name}, {numOfArticle: result.length}).exec(callback);
+    function (callback){
+      articleModel.tags.add(connectTagsArrayId);
+      articleModel.save(callback);
     },
-    function(result, callback){
-      Category.find({id: disconnectCategoryId}).populate('blog').exec(callback);
+    function(callback){
+      async.parallel([
+        function(callback){Category.findOne({id:categoryModel.id}).populate('articles').exec(callback)},
+        function(callback){
+          if (article.articleStatus === "drafted"){
+            callback(null, "Nothing to create");
+          }else {
+            Archive.findOne({id:archiveModel.id}).populate('articles').exec(callback);
+          }
+        },
+        function(callback){async.map(tagsModel, function(tagModel, callback){Tags.findOne({id:tagModel.id}).populate('articles').exec(callback)},callback);}
+      ], function(error, results){
+        if (error){
+          sails.log.error(error);
+          callback(error, null);
+        }else {
+          callback(null, results);
+        }
+      });
     },
-    function(result, callback){
-      Category.update({id: disconnectCategoryId}, {numOfArticle: result.length}).exec(callback);
+    function(results, callback){
+      async.parallel([
+        function(callback){Category.update(categoryModel.id, {numOfArticles:results[0].articles.length}).exec(callback)},
+        function(callback){
+          if (article.articleStatus === "drafted"){
+            callback(null, "Nothing to create");
+          }else {
+            Archive.update(archiveModel.id, {numOfArticles:results[1].articles.length}).exec(callback);
+          }
+        },
+        function(callback){async.map(results[2], function(tagModel, callback){Tags.update(tagModel.id, {numOfArticles:tagModel.articles.length}).exec(callback)},callback);}
+      ], function(error, results){
+        if (error){
+          sails.log.error(error);
+          callback(error, null);
+        }else {
+          callback(null, results);
+        }
+      });
     },
+    function(results, callback){
+      async.parallel([
+        function(callback){
+          if(disconnectCategoryId != ~0) {
+            Category.findOne({ id: disconnectCategoryId}).populate('articles').exec(callback);
+          }else{
+            callback(null, "Not need to update");
+          }
+        },
+        function(callback){
+          if(disconnectArchiveId != ~0) {
+            Archive.findOne({id:disconnectArchiveId}).populate('articles').exec(callback);
+          }else{
+            callback(null, "Not need to update");
+          }
+        },
+        function(callback){async.map(disconnectTagsArrayId, function(tagId, callback){
+          Tags.findOne({id:tagId}).populate('articles').exec(callback)},callback);
+        }
+      ], function(error, results){
+        if (error){
+          sails.log.error(error);
+          callback(error, null);
+        }else {
+          callback(null, results);
+        }
+      });
+    },
+    function(results, callback){
+      async.parallel([
+        function(callback){
+          if(disconnectCategoryId != ~0){
+            Category.update(disconnectCategoryId,{numOfArticles:results[0].articles.length}).exec(callback)
+          }else{
+            callback(null, "update category successfully");
+          }},
+        function(callback){
+          if(disconnectArchiveId != ~0){
+            Archive.update(disconnectArchiveId, {numOfArticles:results[1].articles.length}).exec(callback)
+          }else{
+            callback(null, "update archive successfully");
+          }},
+        function(callback){async.map(results[2], function(tagModel, callback){Tags.update(tagModel.id,{numOfArticles:tagModel.articles.length}).exec(callback)},callback);}
+      ], function(error, results){
+        if (error){
+          sails.log.error(error);
+          callback(error, null);
+        }else {
+          callback(null, results);
+        }
+      });
+    }
   ], function(err, result){
     if (err){
       sails.log.error(err);
-      callback(err, result);
+      callback(err, null);
     }else{
       callback(err, result);
     }
   });
 }
 
-function createNewArticle(article, category, tagsArray, archive, req, callback){
+function createNewArticle(article, callback){
 
   var articleModel,
     categoryModel,
@@ -121,16 +227,21 @@ function createNewArticle(article, category, tagsArray, archive, req, callback){
     tagsModel;
 
   async.waterfall([
+    /*Firstly create the related model which article mapping*/
     function(callback){
       async.parallel([
-          function(callback){Archive.findOrCreate({name: article.createTime}, {name: article.createTime}, callback);},
-          function(callback){Category.findOrCreate({name: category}, {name: category},callback);},
-          function(callback){async.map(tagsArray, function(tag,callback){
-            Tags.findOrCreate({name:tag},{name:tag},callback);
-          },callback)}
+          function(callback){
+            if (article.articleStatus === "drafted"){
+              callback(null, "Nothing to create");
+            }else{
+              Archive.findOrCreate({archiveTime: article.archiveTime.substr(0, 7)}, {archiveTime: article.archiveTime.substr(0, 7)}, callback);
+            }
+          },
+          function(callback){Category.findOrCreate({name: article.cat}, {name: article.cat},callback);},
+          function(callback){async.map(article.tagsArray, function(tag,callback){Tags.findOrCreate({name:tag},{name:tag},callback)},callback)}
       ],function(error, results){
         /*If any creating model failure, this process
-          should be stop and return the error to client         */
+          should be stop and return the error to client*/
         if (error){
             sails.log.error(error);
             callback(error, null);
@@ -138,48 +249,82 @@ function createNewArticle(article, category, tagsArray, archive, req, callback){
             archiveModel = results[0];
             categoryModel = results[1];
             tagsModel = results[2];
+            callback(null, results);
         }
       })
     },
+    /*Secondly Create the article model*/
     function(result, callback){
-        Article.create({
-            title: article.title,
-            content: article.content,
-            slug: article.slug,
-            digest: article.summary,
-            articleStatus: article.articleStatus,
-            archive: archiveModel.id,
-            category: categoryModel.id,
-            owner: article.owner
-        }).exec(callback);
+      var newArticle = {};
+      newArticle.title = article.title;
+      newArticle.content = article.content;
+      newArticle.slug = article.slug;
+      newArticle.digest = article.digest;
+      newArticle.articleStatus = article.articleStatus;
+      newArticle.tagsArray = article.tagsArray;
+      if (article.articleStatus === "published"){
+        newArticle.archiveTime = article.archiveTime;
+        newArticle.archive = archiveModel;
+      }
+      newArticle.category = categoryModel;
+      newArticle.owner = article.owner;
+
+      Article.create(newArticle, callback);
     },
+    /*Thirdly mapping the Tags model to Article model*/
     function(newArticle, callback){
-        articleModel = newArticle;
-        var tagsModelId = [];
+      articleModel = newArticle;
+      var tagsModelId = [];
 
-        for (var index = 0; index < tagsModel.length; index++){
-        tagsModelId.push(tagsModle[index].id);
-        }
-
-        articleModel.add(tagsModelId);
-        articleModel.save(callback);
+      for (var index = 0; index < tagsModel.length; index++){
+        tagsModelId.push(tagsModel[index].id);
+      }
+      console.log(tagsModelId);
+      /*As the tag model is many-to-many association with article,
+        so using the array to bind each other*/
+      articleModel.tags.add(tagsModelId);
+      articleModel.save(callback);
     },
+    /*Fourth, updating the count of article in the each models*/
     function(callback){
+      async.parallel([
+        function(callback){Category.findOne({id:categoryModel.id}).populate('articles').exec(callback)},
+        function(callback){
+          if (article.articleStatus === "drafted") {
+            callback(null, "Nothing to do");
+          }else{
+            Archive.findOne({id:archiveModel.id}).populate('articles').exec(callback);
+          }
+        },
+        function(callback){async.map(tagsModel, function(tagModel, callback){Tags.findOne({id:tagModel.id}).populate('articles').exec(callback)},callback);}
+      ], function(error, results){
+        if (error){
+          sails.log.error(error);
+          callback(error, null);
+        }else {
+          callback(null, results);
+        }
+      });
+    },
+    function(results, callback){
       console.log("Enter the final callback-----");
       async.parallel([
-        function(callback){Category.find({name: categoryModel.name}).populate('blog').exec(callback)},
-        function(callback){Archive.find({name: archiveModel.name}).populate('blog').exec(callback)},
-        function(callback){async.map(tagsArray, function(tag, callback){Tags.find({name: tag}).populate('blog').exec(callback);},callback);}
-      ], function(errors, results){
-         async.parallel([
-           function(callback){Category.update({name: categoryModel.name}, {numOfArticle: results[0][0].blog.length}).exec(callback)},
-           function(callback){Archive.update({name: archiveModel.name}, {numOfArticle: results[1][0].blog.length}).exec(callback)},
-           function(callback){async.map(results[2][0], function(tagModel, callback){
-                Tags.update({name: tagModel.name}, {numOfArticle: tagModel.blog.length}).exec(callback);
-            },callback);}
-        ], function(errors, results){
-            callback();
-        })
+        function(callback){Category.update(categoryModel.id, {numOfArticles:results[0].articles.length}).exec(callback)},
+        function(callback){
+          if (article.articleStatus === "drafted") {
+            callback(null, "Nothing to do");
+          }else{
+            Archive.update(archiveModel.id, {numOfArticles:results[1].articles.length}).exec(callback);
+          }
+        },
+        function(callback){async.map(results[2], function(tagModel, callback){Tags.update(tagModel.id, {numOfArticles:tagModel.articles.length}).exec(callback)},callback);}
+      ], function(error, results){
+        if (error){
+          sails.log.error(error);
+          callback(error, null);
+        }else {
+          callback(null, results);
+        }
       });
     }
   ],function(err, result){
@@ -187,42 +332,49 @@ function createNewArticle(article, category, tagsArray, archive, req, callback){
       sails.log.error(err);
       callback(err, ~0);
     }else{
-      callback(err, articleModel.id);
+      callback(null, articleModel.id);
     }
   });
-}
+};
+
+function prepareCommonParameter(req, status){
+  var tagsArray = [],
+      tags = "";
+
+  tags = req.param('tags');
+
+  /*transfer the tags string to array*/
+  if (tags !== ""){
+    tagsArray = tags.split("&");
+  }
+
+  var article = {
+    title: req.param('title'),
+    content: req.param('content'),
+    slug: req.param('slug'), /*This slug has ensure unique, which format is title-2016-07-07-20-20*/
+    owner: req.session.user,
+    articleStatus: status,
+    /*Now this archiveTime format is 2016-07-10 14:28, and if this article is draft,
+    * this parameter is empty, or we should truncate the head part to store in the
+    * archive model*/
+    archiveTime: req.param('publishTime'),
+    digest: req.param('summary'),
+    id: parseInt(req.param('id')), /*If this value equal to -1, indicates that this article is a new one.*/
+    cat: req.param('cat') === undefined ? "未分类" : req.param('cat'),
+    tagsArray: tagsArray
+  };
+
+  return article;
+};
 
 module.exports = {
 
   saveDraft: function(req,res){
-    var article = {};
-    var tags = {},
-        category = "",
-      /*using this value to distinguish this article is newly created or updated*/
-        articleId = ~0;
-
-
-    articleId = parseInt(req.param('id'));
-
-    article.title = req.param('Name');
-    article.content = req.param('text');
-    article.slug = req.param('url');
-    article.owner = req.session.user;
-    article.articleStatus = "drafted";
-    article.createTime = req.param('publishTime');
-    article.summary = req.param('description');
-    tags = req.param('tags');
-    category = req.param('cat') === undefined ? "未分类" : req.param('cat');
-
-    /*transfer the tags string to array*/
-    var tagsArray = [];
-    if (tags !== ""){
-      tagsArray = tags.split("&");
-    }
+    var article = prepareCommonParameter(req, "drafted");
 
     /*If this article has not existing in the database*/
-    if (articleId === ~0){
-      createNewArticle(article, category, tagsArray, req, function(err, articleIndex){
+    if (article.id === ~0){
+      createNewArticle(article, function(err, articleIndex){
         if(err){
           sails.log.error(err);
           return res.json(200, {error: err});
@@ -232,104 +384,22 @@ module.exports = {
         }
       });
     }else{
-      updateExistingArticle(articleId, article, category, tagsArray, function(err, result){
+      updateExistingArticle(article, function(err, result){
         if(err){
           sails.log.error(err);
           return res.json(200, {error: err});
         }else{
-          return res.json(200, {articleIdx: articleId});
+          return res.json(200, {articleIdx: article.id});
         }
       });
     }
-
   },
-
-  index: function (req,res){
-    var blogItems = [];
-    var index = 0;
-    Blog.find().exec(function(error, articles){
-
-      if (error) {
-        sails.log.error(error);
-        return res.negotiate(error);
-      }
-
-      _(articles).forEach(function(blog) {
-        var articleName = blog.name;
-        var text = blog.content;
-        var blogId = blog.id;
-        var stat = blog.blogStatus;
-        var timeDesc;
-        var curTime = new Date();
-        var timeOffset = Math.floor((curTime.getTime() - blog.createdAt.getTime())/1000);
-        var leftDay = Math.floor(timeOffset/60/60/24);
-        var leftHours = Math.floor(timeOffset/60/60%24);
-        var leftMinutes = Math.floor(timeOffset/60%60);
-        var leftSeconds = Math.floor(timeOffset%60);
-
-        if (leftDay != 0){
-          if (parseInt(leftDay / 365)){
-            timeDesc = parseInt(leftDay / 365) + ' 年前';
-          }else if (parseInt(leftDay / 30)){
-            timeDesc = parseInt(leftDay / 30) + ' 个月前';
-          }else{
-            timeDesc = leftDay + ' 天前';
-          }
-        }else if (leftHours != 0){
-          timeDesc = leftHours + ' 小时前';
-        }else if(leftMinutes != 0){
-          timeDesc = leftMinutes + ' 分钟前';
-        }else{
-          timeDesc = leftSeconds + ' 秒前';
-        }
-
-        var blogItem = {
-          name: articleName,
-          text: text,
-          status: stat,
-          timeDescription: timeDesc,
-          id: blogId
-        };
-        blogItems.push(blogItem);
-      });
-
-      return res.view('blog-management', {
-        blogList: blogItems,
-        navIndex: 1
-      });
-
-    });
-  },
-
   publish: function (req,res){
-    var article = {};
-    var tags = {},
-      category = "",
-    /*using this value to distinguish this article is newly created or updated*/
-      articleId = ~0;
-
-
-    articleId = parseInt(req.param('id'));
-
-    article.name = req.param('Name');
-    article.content = req.param('text');
-    article.url = req.param('url');
-    article.owner = req.session.user;
-    article.blogStatus = "publish";
-    article.createTime = req.param('publishTime');
-    article.description = req.param('description');
-    tags = req.param('tags');
-    category = req.param('cat') === undefined ? "未分类" : req.param('cat');
-
-    /*transfer the tags string to array*/
-    var tagsArray = [];
-    if (tags !== ""){
-      tagsArray = tags.split("&");
-    }
+    var article = prepareCommonParameter(req, "published");
 
     /*If this article has not existing in the database*/
-    if (articleId === ~0){
-      createNewArticle(article, category, tagsArray, req, function(err, articleIndex){
+    if (article.id === ~0){
+      createNewArticle(article,  function(err, articleIndex){
         if(err){
           sails.log.error(err);
           return res.json(200, {error: err});
@@ -339,12 +409,12 @@ module.exports = {
         }
       });
     }else {
-      updateExistingArticle(articleId, article, category, tagsArray, function (err, result){
+      updateExistingArticle(article, function (err, result){
         if (err) {
           sails.log.error(err);
           return res.json(200, { error: err });
         } else {
-          return res.json(200, { articleidx: articleId });
+          return res.json(200, { articleIdx: article.id });
         }
       });
     }
@@ -353,7 +423,7 @@ module.exports = {
   delete: function(req, res){
     var index = req.param('id');
 
-    Blog.destroy({id : index}).exec(function deleteCB(err){
+    Article.destroy({id : index}).exec(function deleteCB(err){
       if(err){
         sails.log.error('Failed to find article:', err);
         return res.negotiate(err);
@@ -365,32 +435,22 @@ module.exports = {
   },
 
   undoPub: function(req, res){
-    var article = {};
-    var tags = {},
-      category = "",
-    /*using this value to distinguish this article is newly created or updated*/
-      articleId = ~0;
+    var article = prepareCommonParameter(req, "drafted");
 
+    updateExistingArticle(article,function(err, result){
+      if(err){
+        sails.log.error(err);
+        return res.json(200, {error: err});
+      }else{
+        return res.json(200, {articleIdx: article.id});
+      }
+    });
+  },
 
-    articleId = parseInt(req.param('id'));
+  updatePub: function(req, res){
+    var article = prepareCommonParameter(req, "published");
 
-    article.name = req.param('Name');
-    article.content = req.param('text');
-    article.url = req.param('url');
-    article.owner = req.session.user;
-    article.blogStatus = "draft";
-    article.createTime = req.param('publishTime');
-    article.description = req.param('description');
-    tags = req.param('tags');
-    category = req.param('cat') === undefined ? "未分类" : req.param('cat');
-
-    /*transfer the tags string to array*/
-    var tagsArray = [];
-    if (tags !== ""){
-      tagsArray = tags.split("&");
-    }
-
-    updateExistingArticle(articleId, article, category, tagsArray,function(err, result){
+    updateExistingArticle(article,function(err, result){
       if(err){
         sails.log.error(err);
         return res.json(200, {error: err});
@@ -400,39 +460,64 @@ module.exports = {
     });
   },
 
-  updatePub: function(req, res){
-    var article = {};
-    var tags = {},
-      category = "",
-    /*using this value to distinguish this article is newly created or updated*/
-      articleId = ~0;
+  index: function (req,res){
+    var articleItems = [];
+    var index = 0;
+    Article.find().exec(function(error, articles){
 
-
-    articleId = parseInt(req.param('id'));
-
-    article.name = req.param('Name');
-    article.content = req.param('text');
-    article.url = req.param('url');
-    article.owner = req.session.user;
-    article.blogStatus = "publish";
-    article.createTime = req.param('publishTime');
-    article.description = req.param('description');
-    tags = req.param('tags');
-    category = req.param('cat') === undefined ? "未分类" : req.param('cat');
-
-    /*transfer the tags string to array*/
-    var tagsArray = [];
-    if (tags !== ""){
-      tagsArray = tags.split("&");
-    }
-
-    updateExistingArticle(articleId, article, category, tagsArray,function(err, result){
-      if(err){
-        sails.log.error(err);
-        return res.json(200, {error: err});
-      }else{
-        return res.json(200, {articleIdx: articleId});
+      if (error) {
+        sails.log.error(error);
+        return res.negotiate(error);
       }
+
+      _(articles).forEach(function(article) {
+        var title = article.title;
+        var content = article.content;
+        var articleId = article.id;
+        var stat = article.articleStatus;
+        var timeDesc;
+        var curTime = new Date();
+        if (article.articleStatus === "published"){
+          var publishYear = article.archiveTime.substr(0,4),
+              publishMonth = article.archiveTime.substr(5,2),
+              publishDay = article.archiveTime.substr(8,2),
+              publishMinute = article.archiveTime.substr(11,2),
+              publishSecond = article.archiveTime.substr(14,2);
+          var yearOffset = publishYear - curTime.getFullYear(),
+              monthOffset = publishMonth - (curTime.getMonth() + 1),
+              dayOffset = publishDay - curTime.getDate(),
+              hoursOffset = publishMinute - curTime.getHours(),
+              minutesOffset = publishSecond - curTime.getMinutes();
+
+          if (yearOffset > 0){
+            timeDesc = yearOffset + ' 年前';
+          }else if (monthOffset > 0){
+            timeDesc = monthOffset + ' 个月前';
+          }else if (dayOffset > 0){
+            timeDesc = dayOffset + ' 天前';
+          }else if (hoursOffset > 0){
+            timeDesc = hoursOffset + ' 小时前';
+          }else if (minutesOffset > 0){
+            timeDesc = minutesOffset + ' 分钟前';
+          }
+          console.log(timeDesc);
+          console.log(article.archiveTime);
+        }
+
+        var articleItem = {
+          title: title,
+          content: content,
+          status: stat,
+          timeDescription: timeDesc,
+          id: articleId
+        };
+        articleItems.push(articleItem);
+      });
+
+      return res.view('blogManagement', {
+        articleList: articleItems,
+        navIndex: 1
+      });
     });
   },
 
@@ -440,7 +525,7 @@ module.exports = {
 
     var index = req.param('id');
 
-    Blog.find({id : index}).exec(function(error, articles){
+    Article.find({id : index}).exec(function(error, articles){
 
       if (error) {
         sails.log.error(error);
@@ -461,16 +546,17 @@ module.exports = {
     });
   },
 
-  update: function(req, res){
+  articleEdit: function(req, res){
     var articleId = req.param("id");
     var rule = /^[0-9]*$/;
     var allNumOrNot = rule.test(articleId);
     if (articleId !== undefined && allNumOrNot == true ){
 
     async.parallel([
-      function(callback){Blog.find({id:articleId}).exec(callback)},
-      function(callback){Blog.find({id:articleId}).populate('category').exec(callback)},
-      function(callback){Blog.find({id:articleId}).populate('tags').exec(callback)},
+      function(callback){Article.findOne({id:articleId}).exec(callback)},
+      function(callback){Article.findOne({id:articleId}).populate('archive').exec(callback)},
+      function(callback){Article.findOne({id:articleId}).populate('category').exec(callback)},
+      function(callback){Article.findOne({id:articleId}).populate('tags').exec(callback)},
       function(callback){Tags.find().exec(callback)},
       function(callback){Category.find().exec(callback)}
     ],function(error, results){
@@ -479,18 +565,19 @@ module.exports = {
         return res.negotiate(err);
       }
       var article = {
-        id: results[0][0].id,
-        title: results[0][0].name,
-        content: results[0][0].content,
-        status: results[0][0].blogStatus,
-        archive: results[0][0].createTime,
-        category: results[1][0].category[0].name,
-        tags: results[2][0].tags,
-        allTags: results[3],
-        allCats: results[4]
+        id: results[0].id,
+        title: results[0].title,
+        content: results[0].content,
+        status: results[0].articleStatus,
+        archive: results[0].archiveTime,
+        category: results[2].category.name,
+        tags: results[3].tags,
+        allTags: results[4],
+        allCats: results[5]
       };
-      return res.view("blog-creation", {
-          article: article
+      return res.view("articleEditor", {
+          article: article,
+          navIndex: 0
       });
     });
   }else{
@@ -514,8 +601,9 @@ module.exports = {
               allTags: tags,
               allCats: cats
             };
-            return res.view('blog-creation', {
-              article: article
+            return res.view('articleEditor', {
+              article: article,
+              navIndex: 0
             });
        }
     });

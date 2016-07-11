@@ -24,10 +24,13 @@ module.exports = {
       type: 'string',
       required: true
     },
-    numOfArticle: 'integer',
-    blog: {
-      collection: 'blog',
-      via: 'user'
+    numOfArticles: {
+      type: 'integer',
+      defaultsTo: 0
+    },
+    articles: {
+      collection: 'article',
+      via: 'owner'
     },
   },
 
@@ -45,12 +48,14 @@ module.exports = {
 
   afterCreate: function (createdUser, cb) {
     this.updateSite(createdUser);
+    this.updateNumOfArticles(createdUser);
     cb();
   },
 
 // 用户信息更新时，更新站点信息
   afterUpdate: function (user,cb) {
     this.updateSite(user);
+    this.updateNumOfArticles(user);
     cb();
   },
 
@@ -63,5 +68,11 @@ module.exports = {
       sails.config.douMi.douDouName = user.fullname;
       sails.config.douMi.douDouDesc = user.description;
     }
+  },
+
+  updateNumOfArticles: function(createdUser){
+    User.findOne({id: createdUser.id}).populate('articles').exec(function(err, user){
+      this.numOfArticles = user.articles.length;
+    });
   }
 };

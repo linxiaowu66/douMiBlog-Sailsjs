@@ -1,11 +1,11 @@
-{% extends 'partial/layout-management.swig' %}
+{% extends 'partial/layoutManagement.swig' %}
 
 {% block title %}豆米的博客{% endblock %}
 
 {% block style %}
 {% parent %}
 <link href="../../vender/highlightjs/styles/solarized_dark.css" type="text/css" rel="stylesheet"/>
-<link rel="stylesheet" href="../../styles/blog-creation.css">
+<link rel="stylesheet" href="../../styles/articleEditor.css">
 <link rel="stylesheet" href="../../styles/jquery.datetimepicker.css">
 {% endblock %}
 
@@ -22,11 +22,11 @@
       <section class="blog-actions">
         <div class="dropdown">
           <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            {% if article.status === undefined || article.status === 'draft' %}保存草稿{% else %}更新博文{% endif %}
+            {% if article.status === undefined || article.status === 'drafted' %}保存草稿{% else %}更新博文{% endif %}
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider" >
-            {% if article.status === undefined || article.status === 'draft' %}
+            {% if article.status === undefined || article.status === 'drafted' %}
             <li><a id="save" href="#">保存草稿</a></li>
             <li><a id="publish" href="#">立即发布</a></li>
             {% else %}
@@ -167,7 +167,7 @@
     }
 
   });
-  require(['../js/blog-creation']);
+  require(['../js/articleEdit']);
 </script>
 {% endblock %}
 

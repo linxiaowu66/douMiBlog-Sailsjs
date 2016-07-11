@@ -1,10 +1,10 @@
-{% extends 'partial/layout-management.swig' %}
+{% extends 'partial/layoutManagement.swig' %}
 
 {% block title %}豆米的博客{% endblock %}
 
 {% block style %}
 {% parent %}
-<link rel="stylesheet" href="../styles/blog-management.css">
+<link rel="stylesheet" href="../styles/blogManagement.css">
 <link href="../vender/highlightjs/styles/monokai-sublime.css" rel="stylesheet">
 {% endblock %}
 
@@ -21,16 +21,16 @@
       <section class = "blog-list">
         <section class="content-scroll">
           <ol class="post-list">
-            {% for blog in blogList %}
-            <a href="#{{ blog.id }}" data-set="{{ blog.id }}" class="blogIndex">
+            {% for article in articleList %}
+            <a href="#{{ article.id }}" data-set="{{ article.id }}" class="blogIndex">
               <li {% if loop.first %}class="active"{% endif %}>
                 <div class="media">
                   <div class="media-left">
                       <img class="media-object" src="../images/icon-img.jpg" alt="douMiAvatar">
                   </div>
                   <div class="media-body">
-                    <h4 class="media-heading">{{ blog.name }}</h4>
-                    {% if blog.status == "publish" %}发布于 {{ blog.timeDescription }}
+                    <h4 class="media-heading">{{ article.title }}</h4>
+                    {% if article.status == "published" %}发布于 {{ article.timeDescription }}
                     {% else %} <span>草稿</span>
                     {% endif %}
                   </div>
@@ -43,9 +43,9 @@
       </section>
       <section class="blog-content">
         <section class="post-controls">
-          <a {% if blogList.length %}href="/douMi/editor/{{ blogList[0].id }}" {% endif %} title="编辑此博文" class="blog-edit"><span class="glyphicon glyphicon-pencil"></span></a>
+          <a {% if articleList.length %}href="/douMi/editor/{{ articleList[0].id }}" {% endif %} title="编辑此博文" class="blog-edit"><span class="glyphicon glyphicon-pencil"></span></a>
         </section>
-        <section class="content-preview" {% if blogList.length %}data-set="{{ blogList[0].id }}"{% endif %}>
+        <section class="content-preview" {% if articleList.length %}data-set="{{ articleList[0].id }}"{% endif %}>
 
         </section>
       </section>
@@ -81,7 +81,7 @@
     }
 
   });
-  require(['../js/blog-mgmt']);
+  require(['../js/blogManagement']);
 </script>
 {% endblock %}
 

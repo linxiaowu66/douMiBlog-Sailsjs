@@ -36,15 +36,15 @@ module.exports.policies = {
     toLogin: ['userIsExisting']
   },
 
-  MgmtController: {
+  ArticleController: {
+    saveDraft: ['isAuthenticated'],
+    publish:['isAuthenticated'],
+    delete:['isAuthenticated'],
+    undoPub: ['isAuthenticated'],
+    updatePub: ['isAuthenticated'],
     index: ['isAuthenticated'],
-    doCreate:['isAuthenticated'],
-    show:['isAuthenticated'],
-    createBlog: ['isAuthenticated'],
-    updateBlog: ['isAuthenticated'],
-    deleteBlog: ['isAuthenticated'],
-    updateUser: ['isAuthenticated'],
-    updatePwd: ['isAuthenticated']
+    show: ['isAuthenticated'],
+    articleEdit: ['isAuthenticated']
   },
 
   /***************************************************************************

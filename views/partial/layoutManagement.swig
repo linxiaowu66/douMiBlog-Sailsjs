@@ -6,7 +6,7 @@
 
   {% block style %}
   <link rel="stylesheet" href="../../vender/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../styles/management-nav.css">
+  <link rel="stylesheet" href="../../styles/navOfManagement.css">
   {% endblock %}
 
   <script type="text/javascript"  src="../../js/requirejs/require.min.js"></script>
@@ -47,7 +47,7 @@
           </section>
           <footer class="dm-nav-footer">
             <p>Copyright &copy; 2016
-              | Designed by <a href="/home" target="_parent">豆米博客</a></p>
+              | Designed by <a href="/home#index" target="_parent">豆米博客</a></p>
           </footer>
         </nav>
         <!-- Main content -->

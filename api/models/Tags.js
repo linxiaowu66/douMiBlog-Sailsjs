@@ -13,7 +13,10 @@ module.exports = {
       required: true,
       unique: true
     },
-    numOfArticles: 'integer',
+    numOfArticles: {
+      type: 'integer',
+      defaultsTo: 0
+    },
     articles: {
       collection: 'article',
       via: 'tags'

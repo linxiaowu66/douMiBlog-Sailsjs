@@ -21,9 +21,9 @@ module.exports = {
   index: function (req, res){
     // 获得当前需要加载第几页
     var page = req.param('page') ? req.param('page') : 1;
-    Blog.find({
+    Article.find({
       sort: FIND_ORDER,
-      where: {blogStatus:"publish"}
+      where: {articleStatus:"published"}
     }).paginate({page: page, limit: FIND_PER_PAGE})
       .then(function (articles) {
         // 每篇文章转换
@@ -37,13 +37,27 @@ module.exports = {
       })
       .spread(function (articles, categories, tags, archives) {
 
+        var archiveArray = [];
+        for (var index = 0; index < archives.length; index++){
+          var year = archives[index].archiveTime.substr(0,4);
+          var month = archives[index].archiveTime.substr(5,2);
+          var newFormat = year + "年" + month + "月";
+
+          var archive = {
+            archiveTime: newFormat,
+            numOfArticles: archives[index].numOfArticles
+          };
+
+          archiveArray.push(archive);
+        }
+
         return res.view(
-          'blog-overview',
+          'blogHome',
           {
             articles: articles,
             categories: categories,
             tags: tags,
-            archives: archives,
+            archives: archiveArray,
             page: page
           });
       });
@@ -53,31 +67,30 @@ module.exports = {
     var articleUrl = req.param('url');
 
     if (articleUrl === 'index'){
-        Blog.find({
-                  sort: FIND_ORDER,
-                  where: {blogStatus:"publish"}
-            }).paginate({page: 1, limit: FIND_PER_PAGE})
-    .then(function (articles) {
-                  return [
-                            articles,
-                            Category.find(),
-                            Tags.find(),
-                            Archive.find()
-                          ];
-                    })
-    .spread(function (articles, categories, tags, archives) {
-         return res.view('blog-index',
-               {
-                  articles: articles,
-                  categories: categories,
-                  tags: tags,
-                  archives: archives,
-                  page: 1
-                });
-     });
+        Article.find({
+          sort: FIND_ORDER,
+          where: {articleStatus:"published"}
+        }).paginate({page: 1, limit: FIND_PER_PAGE})
+        .then(function (articles) {
+          return [
+            articles,
+            Category.find(),
+            Tags.find(),
+            Archive.find()
+          ];
+        })
+        .spread(function (articles, categories, tags, archives) {
+         return res.view('articlesShow',
+           {
+              articles: articles,
+              categories: categories,
+              tags: tags,
+              archives: archives,
+              page: 1
+            });
+        });
     }else{
-
-    Blog.find({url: articleUrl}).exec(function(error, article){
+    Article.findOne({slug: articleUrl}).exec(function(error, article){
 
       if (error){
         sails.log.error(err);
@@ -86,11 +99,11 @@ module.exports = {
       return res.json(
        200,
         {
-          content: article[0].content,
-          name: article[0].name,
-          url: article[0].url
+          content: article.content,
+          name: article.title,
+          url: article.slug
         });
-    });
-  }
+      });
+    }
   }
 };

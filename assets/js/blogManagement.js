@@ -11,6 +11,7 @@ define(['jquery','bootstrap', 'markdown','highlight','hashchange'], function($, 
   $(document).ready(function(){
 
     var activeElement = $(".post-list li.active");
+    var activeNavIndex = $(".dm-left-nav .active");
     var currClickElement;
 
     $(window).hashchange( function(){
@@ -50,7 +51,6 @@ define(['jquery','bootstrap', 'markdown','highlight','hashchange'], function($, 
         });
 
     });
-
   });
 });
 

@@ -62,57 +62,57 @@ module.exports.routes = {
   },
 
   'GET /douMi': {
-    controller: 'Mgmt',
+    controller: 'Article',
     action: 'index'
   },
 
   'GET /douMi/editor': {
-    controller: 'Mgmt',
-    action: 'update'
+    controller: 'Article',
+    action: 'articleEdit'
   },
 
   'GET /douMi/:id': {
-    controller: 'Mgmt',
+    controller: 'Article',
     action: 'show'
   },
 
   'GET /douMi/editor/:id': {
-    controller: 'Mgmt',
-    action: 'update'
+    controller: 'Article',
+    action: 'articleEdit'
   },
 
   'POST /douMi/saveDraft': {
-    controller: 'Mgmt',
+    controller: 'Article',
     action: 'saveDraft'
   },
 
   'POST /douMi/doPublish': {
-    controller: 'Mgmt',
+    controller: 'Article',
     action: 'publish'
   },
 
   'GET /douMi/delete/:id': {
-    controller: 'Mgmt',
+    controller: 'Article',
     action: 'delete'
   },
 
   'POST /douMi/updatePub': {
-    controller: 'Mgmt',
+    controller: 'Article',
     action: 'updatePub'
   },
 
   'POST /douMi/undoPublish': {
-    controller: 'Mgmt',
+    controller: 'Article',
     action: 'undoPub'
   },
 
   'GET /home': {
-    controller: 'Blog',
+    controller: 'Home',
     action: 'index'
   },
 
   'GET /home/:url': {
-    controller: 'Blog',
+    controller: 'Home',
     action: 'show'
   },
 

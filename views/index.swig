@@ -1,4 +1,4 @@
-﻿{% extends 'partial/layout.swig' %}
+﻿{% extends 'partial/layoutIndex.swig' %}
 
 {% block title %}豆米的博客{% endblock %}
 

@@ -1,4 +1,4 @@
-{% extends 'partial/layout.swig' %}
+{% extends 'partial/layoutIndex.swig' %}
 {% set module='register' %}
 {% block title -%}注册{%- endblock %}
 {% block content -%}

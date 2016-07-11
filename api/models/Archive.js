@@ -12,7 +12,10 @@ module.exports = {
       type: 'string',
       unique: true
     },
-    numOfArticles: 'integer',
+    numOfArticles: {
+      type: 'integer',
+      defaultsTo: 0
+    },
     articles: {
       collection: 'article',
       via: 'archive'

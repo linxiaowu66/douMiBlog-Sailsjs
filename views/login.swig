@@ -1,13 +1,13 @@
-{% extends 'partial/layout.swig' %}
+{% extends 'partial/layoutIndex.swig' %}
 {% set module='login' %}
 {% block title %}豆米的博客{% endblock %}
 
 {% block style %}
 {% parent %}
-<link rel="stylesheet" type="text/css" href="./styles/login-basic-styles.css">
+<link rel="stylesheet" type="text/css" href="./styles/loginBasicStyles.css">
 <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,700,700italic,600'>
 <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
-<link rel="stylesheet" href="./styles/login-main-styles.css">
+<link rel="stylesheet" href="./styles/loginMainStyles.css">
 <!--[if IE]>
 <script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
 <![endif]-->
@@ -57,6 +57,6 @@
   </div>
 </div>
 <script type="text/javascript">
-  require(['../js/index']);
+  require(['../js/login']);
 </script>
 {% endblock %}

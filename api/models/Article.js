@@ -33,13 +33,16 @@ module.exports = {
     },
     articleStatus: {
       type: 'string',
-      enum: ['drafted', 'published']
+      enum: ['drafted', 'published'],
+      required: true
     },
-    /*Add these three attributes only for updating
-      the counts of blog which in the Tags/Archive/Category/User Model
-    */
+
     tagsArray:  {
       type: 'array'
+    },
+    /*This parameter is active when the article is in the publish status*/
+    archiveTime:{
+      type: 'string',
     },
 
     /*Article to user is a many-to-many association*/
@@ -56,19 +59,12 @@ module.exports = {
     /*article to archive is a one-to-many association*/
     archive: {
       model: 'archive',
-      required: true
     },
     /*article to category is a one-to-many association*/
     category: {
       model: 'category',
       required: true
     }
-
-  },
-
-  /*After creating the article, we need to update the
-    counts of tags/category/archive model*/
-  afterCreate: function (article, cb) {
 
   },
 

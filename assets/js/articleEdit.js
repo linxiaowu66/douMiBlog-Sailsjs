@@ -8,20 +8,38 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
     }
   });
 
-  var  articleHasPosted = false,
-       articleHasPubed = false;
 
   $(document).ready(function(){
 
-    $('#articleTime').datetimepicker({
-      yearOffset:0,
-      lang:'ch',
-      timepicker:false,
-      format:'Y-m-d',
-      formatDate:'Y/m/d',
-      minDate:'-1970/01/02', // yesterday is minimum date
-      maxDate:'+1970/01/02' // and tommorow is maximum date calendar
-    });
+    var archiveTime = "",
+        date = new Date();
+
+    if ($('#articleTime').val() === ""){
+      archiveTime += date.getFullYear();
+      if (date.getMonth() < 9){
+        archiveTime += "/0" + (date.getMonth() + 1);
+      }else{
+        archiveTime += "/" + (date.getMonth() + 1);
+      }
+      if (date.getDate() < 10){
+        archiveTime += "/0" + date.getDate();
+      }else{
+        archiveTime += "/" + date.getDate();
+      }
+      if (date.getHours() < 10){
+        archiveTime += " 0" + date.getHours();
+      }else{
+        archiveTime += " " + date.getHours();
+      }
+      if (date.getMinutes() < 10){
+        archiveTime += ":0" + date.getMinutes();
+      }else{
+        archiveTime += ":" + date.getMinutes();
+      }
+      $('#articleTime').datetimepicker({value:archiveTime,step:10});
+    }else{
+      $('#articleTime').datetimepicker({step:10});
+    }
 
     function updatePadding(srcObj, inputObj){
       /*Calculate the padding left value*/
@@ -256,10 +274,9 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
       console.log('send ok');
       history.replaceState("","","/douMi/editor/" + data.articleIdx);
       $(".dm-blog .content-viwer").attr("data-set", data.articleIdx);
-      if (articleHasPosted === false){
+      if ($(".dm-blog .content-viwer").attr("data-set") === undefined){
         var appendElements = "<li role=\"separator\" class=\"divider\"></li><li><a id=\"delete\" href=\"/douMi/delete/"+ data.articleIdx + "\">删除博文</a></li>"
         $('.dropdown-menu').append(appendElements);
-        articleHasPosted = true;
       }
     }
 
@@ -270,10 +287,9 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
       $('#save').attr('id', 'update');
       $('#publish').html("撤销发布");
       $('#publish').attr('id', 'undoPublish');
-      if (articleHasPubed === false){
+      if ($(".dm-blog .content-viwer").attr("data-set") === undefined){
         var appendElements = "<li role=\"separator\" class=\"divider\"></li><li><a id=\"delete\" href=\"/douMi/delete/"+ data.articleIdx + "\">删除博文</a></li>"
         $('.dropdown-menu').append(appendElements);
-        articleHasPubed = true;
       }
     }
 
@@ -294,25 +310,27 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
     }
 
     function articleCommonAction(postUrl,successCallback, failureCallback){
-      var articleId = ~0;
-      var articleName = $("#entry-title").val();
-      var date = new Date();
-      var dateString = "";
-      var content = $(".markdown-realtext").val();
-      var description = "";
+      var articleId = ~0,
+          articleName = $("#entry-title").val(),
+          dateString = "",
+          content = $(".markdown-realtext").val(),
+          description = "",
+          url = "";
 
       if ($(".dm-blog .content-viwer").attr("data-set") !== undefined){
         articleId = parseInt($(".dm-blog .content-viwer").attr("data-set"));
       }
-      if ($("#articleTime").val() === ""){
-        dateString += date.getFullYear();
-        dateString += "-" + (date.getMonth() + 1);
-        dateString += "-" + date.getDate();
 
-        $("#articleTime").val(dateString);
+      if (postUrl === "/douMi/saveDraft/"){
+        dateString = "";
       }else{
         dateString = $("#articleTime").val();
       }
+
+
+      /*Make a unique slug*/
+      url = toPinYin.ConvertPinyin(articleName) + Math.random() % 100;
+
 
       description = content.substr(0, 100);
       description = marked(description);
@@ -326,14 +344,14 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
         type: "POST",
         url: postUrl,
         data: {
-          Name: articleName,
-          text: content,
+          title: articleName,
+          content: content,
           publishTime: dateString,
           tags: collectAllTags(),
           cat: $("#item").children().eq(0).html(),
           id: articleId,
-          url: toPinYin.ConvertPinyin(articleName),
-          description: description
+          slug: url,
+          summary: description
         },
         dataType: "json",
         success: function(data){successCallback(data)},

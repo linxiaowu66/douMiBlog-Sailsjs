@@ -32,7 +32,7 @@ define([],function(){
           if (reg.test(val)) {
             output += val;
           } else if (name !== false) {
-            output += name;
+            output += name + "-";
           }
 
         }

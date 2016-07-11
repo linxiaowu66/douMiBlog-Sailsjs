@@ -48,25 +48,17 @@
       <div class="container">
         <div class="row" style="position: relative;">
           <div id="dm-categories" class="col-sm-4 col-md-2">
-            <div class="dm-column ">
-              <div class="dm-module ">
-                <div class="dm-module-content">
-                  <ul class="blog-categories">
-                    <li><a href="/home/categories">分类</a>
-                      <ul>
-                        <li><a href="#">CSS</a></li>
-                        <li><a href="#">网站建设</a></li>
-                        <li><a href="#">HTML5</a></li>
-                        <li><a href="#">JavaScript</a></li>
-                        <li><a href="#">SailsJs</a></li>
-                        <li><a href="#">前端生活</a></li>
-                        <li><a href="#">年度总结</a></li>
-                      </ul>
-                    </li>
-                  </ul>
+              <div class="has-sub">
+                <a href="/home/categories" class="cat-name">分类<span class="caret"></span></a>
+                <div class="sub-nav">
+                  <span class="triangle"></span>
+                  <div class="sub-nav-list">
+                    {% for cat in categories %}
+                    <a href="/home/categories/{{ cat.name }}">{{ cat.name }}</a>
+                    {% endfor %}
+                  </div>
                 </div>
               </div>
-            </div>
           </div>
           <div id="dm-menu" class="col-sm-8 col-md-7" style="position: static;">
             <div class="dm-column ">
@@ -76,6 +68,7 @@
                   <li class="dm-menu-item"><a href="/home/archives">归档</a></li>
                   <li class="dm-menu-item"><a href="/home/tags">标签</a></li>
                   <li class="dm-menu-item"><a href="/aboutDouMi">关于豆米</a></li>
+                </ul>
               </div>
             </div>
           </div>
@@ -105,8 +98,40 @@
     <div class="container">
       <div class="row">
         <!-- Main content -->
-        {% block content %}
-        {% endblock %}
+        <main class="col-md-8">
+          {% for article in articles %}
+          <article class="post" url-data="{{ article.slug }}">
+            <header class="post-header">
+              <h2 class="blog-single-post-title"><a href="#{{ article.slug }}">{{ article.title }}</a></h2>
+            </header>
+            <div class="post-content">
+              <p class="post-excerpt">
+                {{ article.digest }}
+                <a href="#{{ article.slug }}" class = "articleLink">阅读全文</a>
+              </p>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="post-meta">
+                    <div class="row">
+                      <div class="col-sm-9">
+                        <span class="post-date"><b>发布于: </b>{{ article.archiveTime }}</span>
+                        <span class="tags-array"><b>标签: </b>
+                          {% for tag in article.tagsArray %}
+                          <a href = "/home/tags/{{tag}}">{{ tag }}</a>
+                          {% endfor %}
+                        </span>
+                      </div>
+                      <div class="col-sm-3 comment-count">
+                        <a href="#">0  comments</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          {% endfor %}
+        </main>
         <!-- sidebar content -->
         <aside class="col-md-4 sidebar">
           <div id="secondary" class="widget-area" role="complementary">
@@ -114,7 +139,7 @@
               <h4 class="title">归档</h4>
               <ul>
                 {% for archive in archives %}
-                <li><a href="/home/archives/{{ archive.name }}">{{ archive.name }}</a></li>
+                <li><a href="/home/archives/{{ archive.archiveTime }}">{{ archive.archiveTime }}</a><span>({{ archive.numOfArticles}})</span></li>
                 {% endfor %}
               </ul>
             </aside>
@@ -131,11 +156,9 @@
               </div>
             </aside>
             <aside id="categories-4" class="widget widget_categories">
-              <h4 class="title">分类</h4>
+              <h4 class="title">热门文章</h4>
               <ul>
-                {% for cat in categories %}
-                <li class="cat-item cat-item-48"><a href="/home/categories/{{ cat.name }}">{{ cat.name }}</a></li>
-                {% endfor %}
+
               </ul>
             </aside>
             <aside id="text-4" class="widget widget_text">
