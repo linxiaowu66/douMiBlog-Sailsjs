@@ -4,17 +4,18 @@ FIND_ORDER = 'updatedAt desc';
 FIND_PER_PAGE = 5;
 
 var marked = require('marked');
+var hljs   = require('../../node_modules/highlightjs/highlight.pack.js');
 marked.setOptions({
-  renderer: new marked.Renderer(),
-  gfm: true,
-  tables: true,
-  breaks: false,
-  pedantic: false,
-  sanitize: true,
-  smartLists: true,
-  smartypants: false
+      highlight: function(code, lang) {
+              if (typeof lang === 'undefined') {
+                        return hljs.highlightAuto(code).value;
+                      } else if (lang === 'nohighlight') {
+                                return code;
+                              } else {
+                                        return hljs.highlight(lang, code).value;
+                                      }
+            }
 });
-
 
 module.exports = {
 
@@ -66,44 +67,19 @@ module.exports = {
   show: function (req, res){
     var articleUrl = req.param('url');
 
-    if (articleUrl === 'index'){
-        Article.find({
-          sort: FIND_ORDER,
-          where: {articleStatus:"published"}
-        }).paginate({page: 1, limit: FIND_PER_PAGE})
-        .then(function (articles) {
-          return [
-            articles,
-            Category.find(),
-            Tags.find(),
-            Archive.find()
-          ];
-        })
-        .spread(function (articles, categories, tags, archives) {
-         return res.view('articlesShow',
-           {
-              articles: articles,
-              categories: categories,
-              tags: tags,
-              archives: archives,
-              page: 1
-            });
-        });
-    }else{
     Article.findOne({slug: articleUrl}).exec(function(error, article){
 
       if (error){
         sails.log.error(err);
         return res.negotiate(err);
       }
-      return res.json(
-       200,
+      return res.view(
+       'article',
         {
-          content: article.content,
+          content: marked(article.content),
           name: article.title,
           url: article.slug
         });
       });
     }
-  }
 };

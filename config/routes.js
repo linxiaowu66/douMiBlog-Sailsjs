@@ -35,7 +35,7 @@ module.exports.routes = {
   '/': {
     view: 'index',
   },
-
+  /*Auth Route controller*/
   'GET /login': {
     controller: 'Auth',
     action: 'toLogin'
@@ -60,7 +60,9 @@ module.exports.routes = {
     controller: 'Auth',
     action: 'logout'
   },
+  /*End for Auth route controller*/
 
+  /*Blog backend management route*/
   'GET /douMi': {
     controller: 'Article',
     action: 'index'
@@ -105,7 +107,9 @@ module.exports.routes = {
     controller: 'Article',
     action: 'undoPub'
   },
+  /*End for Blog backend management route*/
 
+  /*Blog fontend route*/
   'GET /home': {
     controller: 'Home',
     action: 'index'
@@ -115,6 +119,43 @@ module.exports.routes = {
     controller: 'Home',
     action: 'show'
   },
+
+
+  'GET /home/categories': {
+    controller: 'Home',
+    action: 'showAllCategories'
+  },
+
+  'GET /home/categories/:url': {
+    controller: 'Home',
+    action: 'showOneCategory'
+  },
+
+
+  'GET /home/tags': {
+    controller: 'Home',
+    action: 'showAllTags'
+  },
+
+  'GET /home/tags/:url': {
+    controller: 'Home',
+    action: 'showOneTag'
+  },
+
+
+  'GET /home/archives/': {
+    controller: 'Home',
+    action: 'showAllArchives'
+  },
+
+
+  'GET /home/archives/:url': {
+    controller: 'Home',
+    action: 'showOneArchive'
+  },
+
+
+  /*End for blog frontend route*/
 
   'GET /aboutDouMi': {
     view: 'aboutDouMi',
