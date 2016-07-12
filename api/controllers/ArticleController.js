@@ -455,7 +455,7 @@ module.exports = {
         sails.log.error(err);
         return res.json(200, {error: err});
       }else{
-        return res.json(200, {articleIdx: articleId});
+        return res.json(200, {articleIdx: article.id});
       }
     });
   },

@@ -3,10 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>{% block title %}{% endblock %}</title>
-
   {% block style %}
-  <link rel="stylesheet" href="../vender/bootstrap/dist/css/bootstrap.min.css">
-
   {% endblock %}
   <script type="text/javascript"  src="/js/requirejs/require.min.js"></script>
   <script type="text/javascript"  src="/js/config.js"></script>
@@ -54,7 +51,7 @@
                   <span class="triangle"></span>
                   <div class="sub-nav-list">
                     {% for cat in categories %}
-                    <a href="/home/categories/{{ cat.name }}">{{ cat.name }}</a>
+                    <a href="/home/category/{{ cat.name }}">{{ cat.name }}</a>
                     {% endfor %}
                   </div>
                 </div>
@@ -65,8 +62,6 @@
               <div class="dm-megamenu-wrapper">
                 <ul class="dm-megamenu-parent menu-fade hidden-xs">
                   <li class="dm-menu-item"><a href="/">首页</a></li>
-                  <li class="dm-menu-item"><a href="/home/archives">归档</a></li>
-                  <li class="dm-menu-item"><a href="/home/tags">标签</a></li>
                   <li class="dm-menu-item"><a href="/aboutDouMi">关于豆米</a></li>
                 </ul>
               </div>
@@ -86,7 +81,11 @@
                <li>
                  <a href="/" class="pathway">首页</a>
                </li>
-                <li><a href="/home#index" class="active">博文概览</a></li>
+                {% for navTitle in breadcrumb%}
+                {% if loop.last %}<li><a class="active">{{ navTitle }}</a></li>
+                {% else %} <li><a>{{ navTitle }}</a></li>
+                {% endif %}
+                {% endfor %}
               </ol>
             </div>
           </div>
@@ -107,7 +106,7 @@
               <h4 class="title">归档</h4>
               <ul>
                 {% for archive in archives %}
-                <li><a href="/home/archives/{{ archive.archiveTime }}">{{ archive.archiveTime }}</a><span>({{ archive.numOfArticles}})</span></li>
+                <li><a href="/home/archive/{{ archive.archiveTime }}">{{ archive.archiveTime }}</a><span>({{ archive.numOfArticles}})</span></li>
                 {% endfor %}
               </ul>
             </aside>
@@ -118,7 +117,7 @@
                 </h4>
                 <div class = "tag-cloud">
                 {% for tag in tags %}
-                <a href="/home/tags/{{ tag.name }}">{{ tag.name }}</h2></a>
+                <a href="/home/tag/{{ tag.name }}">{{ tag.name }}</h2></a>
                 {% endfor %}
                 </div>
               </div>

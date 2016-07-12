@@ -117,39 +117,23 @@ module.exports.routes = {
 
   'GET /home/:url': {
     controller: 'Home',
-    action: 'show'
+    action: 'showOneArticle'
   },
 
 
-  'GET /home/categories': {
-    controller: 'Home',
-    action: 'showAllCategories'
-  },
-
-  'GET /home/categories/:url': {
+  'GET /home/category/:url': {
     controller: 'Home',
     action: 'showOneCategory'
   },
 
 
-  'GET /home/tags': {
-    controller: 'Home',
-    action: 'showAllTags'
-  },
-
-  'GET /home/tags/:url': {
+  'GET /home/tag/:url': {
     controller: 'Home',
     action: 'showOneTag'
   },
 
 
-  'GET /home/archives/': {
-    controller: 'Home',
-    action: 'showAllArchives'
-  },
-
-
-  'GET /home/archives/:url': {
+  'GET /home/archive/:url': {
     controller: 'Home',
     action: 'showOneArchive'
   },

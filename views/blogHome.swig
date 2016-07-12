@@ -4,6 +4,7 @@
 
 {% block style %}
 {% parent %}
+<link rel="stylesheet" href="../vender/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="../styles/blogHome.css">
 {% endblock %}
 

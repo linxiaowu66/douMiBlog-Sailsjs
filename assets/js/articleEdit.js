@@ -329,7 +329,7 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
 
 
       /*Make a unique slug*/
-      url = toPinYin.ConvertPinyin(articleName) + Math.random() % 100;
+      url = toPinYin.ConvertPinyin(articleName) + Math.floor((Math.random()*100));
 
 
       description = content.substr(0, 100);
