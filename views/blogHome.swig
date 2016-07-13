@@ -43,6 +43,36 @@
       </div>
     </article>
   {% endfor %}
+  {% if pageNum > 1 %}
+  <nav id="page-nav">
+     {% if currentPage != 1%}
+        <a class="extend prev" rel="prev" href="/home/page/{{ currentPage-1 }}">« Prev</a>
+        <a class="page-number" href="/home/page/1/">1</a>
+    {% endif %}
+    {% if currentPage - 3 > 0 %}  
+       <span class="space">…</span>
+    {% endif %}
+    {% if currentPage - 2 > 0 %}
+        <a class="page-number" href="/home/page/{{currentPage-2}}">{{ currentPage-2 }}</a>     
+    {% endif %}
+    {% if currentPage - 1 > 0 %}
+        <a class="page-number" href="/home/page/{{currentPage-1}}">{{ currentPage-1 }}</a>     
+    {% endif %}
+    <span class="page-number current">{{ currentPage }}</span>
+    {% if currentPage + 1 < pageNum %}
+        <a class="page-number" href="/home/page/{{currentPage+1}}">{{ currentPage+1 }}</a>     
+    {% endif %}
+    {% if currentPage + 2 < pageNum %}
+        <a class="page-number" href="/home/page/{{currentPage+2}}">{{ currentPage+2 }}</a>     
+    {% endif %}
+    {% if currentPage + 3 < pageNum %}
+        <span class="space">…</span>
+    {% endif %}
+    {% if currentPage != pageNum  %}
+      <a class="extend next" rel="next" href="/home/page/{{currentPage+1}}">Next</a>
+    {% endif %}
+  </nav>
+  {% endif %}
 </main>
 {% endblock %}
 

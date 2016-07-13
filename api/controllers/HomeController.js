@@ -31,12 +31,13 @@ module.exports = {
         // 查找分类,及标签
         return [
           articles,
+          Article.count({where: {articleStatus:"published"}}),
           Category.find(),
           Tags.find(),
           Archive.find()
         ];
       })
-      .spread(function (articles, categories, tags, archives) {
+      .spread(function (articles,numOfArticles, categories, tags, archives) {
 
         var archiveArray = [];
         for (var index = 0; index < archives.length; index++){
@@ -59,7 +60,8 @@ module.exports = {
             categories: categories,
             tags: tags,
             archives: archiveArray,
-            page: page,
+            currentPage: page,
+            pageNum: Math.ceil(numOfArticles/FIND_PER_PAGE),  
             breadcrumb: ['博文概览']
           });
       });
