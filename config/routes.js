@@ -120,24 +120,37 @@ module.exports.routes = {
     action: 'showOneArticle'
   },
 
+  'GET /home/page/:page': {
+    controller: 'Home',
+    action: 'index'
+  },
 
   'GET /home/category/:url': {
     controller: 'Home',
     action: 'showOneCategory'
   },
-
+  'GET /home/category/page/:page': {
+    controller: 'Home',
+    action: 'showOneCategory'
+  },
 
   'GET /home/tag/:url': {
     controller: 'Home',
     action: 'showOneTag'
   },
-
+  'GET /home/tag/page/:page': {
+    controller: 'Home',
+    action: 'showOneTag'
+  },
 
   'GET /home/archive/:url': {
     controller: 'Home',
     action: 'showOneArchive'
   },
-
+  'GET /home/archive/page/:page': {
+    controller: 'Home',
+    action: 'showOneArchive'
+  },
 
   /*End for blog frontend route*/
 

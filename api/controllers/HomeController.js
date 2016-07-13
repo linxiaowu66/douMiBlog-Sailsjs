@@ -54,14 +54,14 @@ module.exports = {
         }
 
         return res.view(
-          'blogHome',
+          'articleLists',
           {
             articles: articles,
             categories: categories,
             tags: tags,
             archives: archiveArray,
             currentPage: page,
-            pageNum: Math.ceil(numOfArticles/FIND_PER_PAGE),  
+            pageNum: Math.ceil(numOfArticles/FIND_PER_PAGE),
             breadcrumb: ['博文概览']
           });
       });
@@ -119,12 +119,13 @@ module.exports = {
       .then(function (categories) {
         return [
           categories[0].articles,
+          Category.find({name: queryCategory}).populate('articles',{where: {articleStatus:"published" }}),
           Category.find(),
           Tags.find(),
           Archive.find()
         ];
       })
-      .spread(function (articles, categories, tags, archives) {
+      .spread(function (articles,totalQueryArticles, categories, tags, archives) {
 
         var archiveArray = [];
         for (var index = 0; index < archives.length; index++){
@@ -141,23 +142,116 @@ module.exports = {
         }
 
         return res.view(
-          'categoryShow',
+          'articleLists',
           {
             articles: articles,
             categories: categories,
             tags: tags,
             archives: archiveArray,
-            page: page,
+            currentPage: page,
+            pageNum: Math.ceil(totalQueryArticles[0].articles.length/FIND_PER_PAGE),
             breadcrumb: ['分类', queryCategory]
           });
       });
   },
 
   showOneTag: function (req, res){
+    // 获得当前需要加载第几页
+    var page = req.param('page') ? req.param('page') : 1;
+    var queryTag = req.param('url');
 
+    Tags.find({name: queryTag}).populate('articles',{
+      where: {
+        articleStatus:"published"
+      },
+      sort: FIND_ORDER
+    }).paginate({page: page, limit: FIND_PER_PAGE})
+      .then(function (tags) {
+        return [
+          tags[0].articles,
+          Tags.find({name: queryTag}).populate('articles',{where: {articleStatus:"published" }}),
+          Category.find(),
+          Tags.find(),
+          Archive.find()
+        ];
+      })
+      .spread(function (articles, totalQueryArticles, categories, tags, archives) {
+
+        var archiveArray = [];
+        for (var index = 0; index < archives.length; index++){
+          var year = archives[index].archiveTime.substr(0,4);
+          var month = archives[index].archiveTime.substr(5,2);
+          var newFormat = year + "年" + month + "月";
+
+          var archive = {
+            archiveTime: newFormat,
+            numOfArticles: archives[index].numOfArticles
+          };
+
+          archiveArray.push(archive);
+        }
+
+        return res.view(
+          'articleLists',
+          {
+            articles: articles,
+            categories: categories,
+            tags: tags,
+            archives: archiveArray,
+            currentPage: page,
+            pageNum: Math.ceil(totalQueryArticles[0].articles.length/FIND_PER_PAGE),
+            breadcrumb: ['标签', queryTag]
+          });
+      });
   },
 
   showOneArchive: function (req, res){
+// 获得当前需要加载第几页
+    var page = req.param('page') ? req.param('page') : 1;
+    var queryArchive = req.param('url');
 
+    Archive.find({archiveTime: queryArchive}).populate('articles',{
+      where: {
+        articleStatus:"published"
+      },
+      sort: FIND_ORDER
+    }).paginate({page: page, limit: FIND_PER_PAGE})
+      .then(function (archives) {
+        return [
+          archives[0].articles,
+          Archive.find({archiveTime: queryArchive}).populate('articles',{where: {articleStatus:"published" }}),
+          Category.find(),
+          Tags.find(),
+          Archive.find()
+        ];
+      })
+      .spread(function (articles, totalQueryArticles, categories, tags, archives) {
+
+        var archiveArray = [];
+        for (var index = 0; index < archives.length; index++){
+          var year = archives[index].archiveTime.substr(0,4);
+          var month = archives[index].archiveTime.substr(5,2);
+          var newFormat = year + "年" + month + "月";
+
+          var archive = {
+            archiveTime: newFormat,
+            numOfArticles: archives[index].numOfArticles
+          };
+
+          archiveArray.push(archive);
+        }
+
+        return res.view(
+          'articleLists',
+          {
+            articles: articles,
+            categories: categories,
+            tags: tags,
+            archives: archiveArray,
+            currentPage: page,
+            pageNum: Math.ceil(totalQueryArticles[0].articles.length/FIND_PER_PAGE),
+            breadcrumb: ['归档', queryArchive]
+          });
+      });
   }
 };
