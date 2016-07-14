@@ -31,7 +31,9 @@
                    <a href = "/home/tags/{{tag}}">{{ tag }}</a>
                    {% endfor %}
                   </span>
-                  <span><b>作者：</b>xiaomizha</span>
+                  <span class="author"><b>作者：</b>
+                  <a href = "/home/user/{{article.author}}" >{{article.author}}</a>
+                  </span>
                 </div>
                 <div class="col-sm-3 comment-count">
                    <a href="#">0  comments</a>

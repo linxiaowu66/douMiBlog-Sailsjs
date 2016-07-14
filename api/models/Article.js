@@ -38,7 +38,7 @@ module.exports = {
     },
 
     author:{
-      type: 'array',
+      type: 'string',
       required: true
     },
     tagsArray:  {

@@ -357,8 +357,8 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
   padding-right: 5px;
 }
 
-.tags-array{
-  padding-left: 9px;
+.tags-array,.author{
+  padding: 0px 9px;
   border-left: 1px solid #119d55;
 
   a:hover{

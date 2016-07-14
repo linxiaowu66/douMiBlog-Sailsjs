@@ -152,6 +152,15 @@ module.exports.routes = {
     action: 'showOneArchive'
   },
 
+  'GET /home/user/:url': {
+    controller: 'Home',
+    action: 'showOneUser'
+  },
+  'GET /home/user/page/:page': {
+    controller: 'Home',
+    action: 'showOneUser'
+  },
+
   /*End for blog frontend route*/
 
   'GET /aboutDouMi': {

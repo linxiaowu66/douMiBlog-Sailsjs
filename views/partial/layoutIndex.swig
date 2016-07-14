@@ -5,7 +5,7 @@
   <title>{% block title %}{% endblock %}</title>
 
   {% block style %}
-  <link rel="stylesheet" href="./vender/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/vender/bootstrap/dist/css/bootstrap.min.css">
   {% endblock %}
 
   <script type="text/javascript"  src="/js/requirejs/require.min.js"></script>

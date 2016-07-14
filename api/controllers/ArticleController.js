@@ -96,7 +96,6 @@ function updateExistingArticle(article, callback){
         updateArticle.archiveTime = article.archiveTime;
         updateArticle.archive = archiveModel.id;
       }
-      console.log(categoryModel.id);
       updateArticle.category = categoryModel.id;
       updateArticle.owner = article.owner.id;
 
@@ -268,6 +267,7 @@ function createNewArticle(article, callback){
       }
       newArticle.category = categoryModel;
       newArticle.owner = article.owner;
+      newArticle.author = article.owner.fullname;
 
       Article.create(newArticle, callback);
     },
@@ -296,7 +296,8 @@ function createNewArticle(article, callback){
             Archive.findOne({id:archiveModel.id}).populate('articles').exec(callback);
           }
         },
-        function(callback){async.map(tagsModel, function(tagModel, callback){Tags.findOne({id:tagModel.id}).populate('articles').exec(callback)},callback);}
+        function(callback){async.map(tagsModel, function(tagModel, callback){Tags.findOne({id:tagModel.id}).populate('articles').exec(callback)},callback);},
+        function(callback){User.findOne({id:article.owner.id}).populate('articles').exec(callback);}  
       ], function(error, results){
         if (error){
           sails.log.error(error);
@@ -317,7 +318,8 @@ function createNewArticle(article, callback){
             Archive.update(archiveModel.id, {numOfArticles:results[1].articles.length}).exec(callback);
           }
         },
-        function(callback){async.map(results[2], function(tagModel, callback){Tags.update(tagModel.id, {numOfArticles:tagModel.articles.length}).exec(callback)},callback);}
+        function(callback){async.map(results[2], function(tagModel, callback){Tags.update(tagModel.id, {numOfArticles:tagModel.articles.length}).exec(callback)},callback);},
+        function(callback){User.update(article.owner.id, {numOfArticles:results[3].articles.length}).exec(callback);}  
       ], function(error, results){
         if (error){
           sails.log.error(error);

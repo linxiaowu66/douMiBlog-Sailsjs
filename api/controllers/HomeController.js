@@ -253,5 +253,8 @@ module.exports = {
             breadcrumb: ['归档', queryArchive]
           });
       });
+  },
+  showOneUser: function(req, res){
+  
   }
 };
