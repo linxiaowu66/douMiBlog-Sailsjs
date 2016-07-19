@@ -1,0 +1,67 @@
+#flex-flow{
+   -webkit-flex-grow: 1;
+   -ms-flex-positive: 1;
+   flex-grow: 1;
+   display: -webkit-flex;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-flex-direction: column;
+   -ms-flex-direction: column;
+   flex-direction: column;
+   overflow-y: auto;
+   min-height: 100vh;
+}
+
+#wrapper{
+   -webkit-flex-grow: 1;
+   -ms-flex-positive: 1;
+   flex-grow: 1;
+   -webkit-flex-shrink: 0;
+   -ms-flex-negative: 0;
+   flex-shrink: 0;
+   display: -webkit-flex;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-justify-content: center;
+   -ms-flex-pack: center;
+   justify-content: center;
+   -webkit-align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
+   margin: 0 5%;
+   padding-bottom: 8vh;
+}
+
+.content{
+   display: -webkit-flex;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-flex-direction: column;
+   -ms-flex-direction: column;
+   flex-direction: column;
+   max-width: 700px;
+   width: 100%;
+   color: #7d878a;
+   text-align: center;
+   font-size: 1.9rem;
+   line-height: 1.5em;
+   font-weight: 100;
+}
+#sign-up{
+    position: relative;
+    margin: 30px auto;
+    padding: 40px;
+    max-width: 400px;
+    width: 100%;
+    border: 1px solid #dae1e3;
+    background: #f8fbfd;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.field{
+  margin-bottom: 1.5rem;
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+}
