@@ -36,7 +36,9 @@ module.exports = {
       enum: ['drafted', 'published'],
       required: true
     },
-
+    pageviews: {
+      type: 'array',
+    },
     author:{
       type: 'string',
       required: true

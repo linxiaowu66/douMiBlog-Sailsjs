@@ -34,9 +34,12 @@
                   <span class="author"><b>作者：</b>
                   <a href = "/home/user/{{article.author}}" >{{article.author}}</a>
                   </span>
+                  <span class="pageViews"><b>阅读量: </b>
+                  {{ article.pageViews.length }}
+                  </span>
                 </div>
                 <div class="col-sm-3 comment-count">
-                   <a href="#">0  comments</a>
+                   <a href="/home/{{ article.slug }}#disqus_thread">Comment(s)</a>
                 </div>
               </div>
             </div>
@@ -77,6 +80,7 @@
     {% endif %}
   </nav>
   {% endif %}
+  <script id="dsq-count-scr" src="//doumiblog2016.disqus.com/count.js" async></script>
 </main>
 {% endblock %}
 

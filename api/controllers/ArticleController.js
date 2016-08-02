@@ -268,7 +268,7 @@ function createNewArticle(article, callback){
       newArticle.category = categoryModel;
       newArticle.owner = article.owner;
       newArticle.author = article.owner.fullname;
-
+      newArticle.pageViews = [];
       Article.create(newArticle, callback);
     },
     /*Thirdly mapping the Tags model to Article model*/

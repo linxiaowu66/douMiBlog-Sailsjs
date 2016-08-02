@@ -14,6 +14,43 @@
 <main class="col-md-8">
   <header class="post-header"><h1 class="post-title">{{ title }}</h1></header>
   <section>{{ content |safe}}</section>
-  <footer></footer>
+  <footer class="post-footer">
+    <figure class="author-image">
+      <a class="img" href="/author/" style="background-image: url(/images/douMi.jpg)"><span class="hidden">小米喳和大洋芋的头像</span></a>
+    </figure>
+    <section class="author">
+      <h4><a href="/author/">小米喳和大洋芋</a></h4>
+      <p>豆米目前生活在“上有天堂，下有苏杭”的杭州，美不胜收的美景之地也收获着甜蜜恩爱的生活。豆米热爱前端，热爱互联网，豆米是洋芋(土豆-豆)和米喳(米)的简称。</p>
+      <div class="author-meta">
+        <span class="author-location icon-location">杭州</span>
+        <span class="author-link icon-link"><a href="http://www.5udou.cn">http://www.5udou.cn</a></span>
+      </div>
+    </section>
+    <section class="share">
+      <h4>分享此博文</h4>
+      <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1470122130117"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a></div>
+      <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+    </section>
+  </footer>
+  <div id="disqus_thread"></div>
+  <script>
+
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+  
+  var disqus_config = function () {
+    this.page.url = 'http://blog.5udou.cn/home/{{slug}}';  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = '{{ slug }}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+  };
+  
+  (function() { // DON'T EDIT BELOW THIS LINE
+     var d = document, s = d.createElement('script');
+     s.src = '//doumiblog2016.disqus.com/embed.js';
+     s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </main>
 {% endblock %}

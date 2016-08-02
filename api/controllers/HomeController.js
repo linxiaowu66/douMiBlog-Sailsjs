@@ -69,7 +69,7 @@ module.exports = {
 
   showOneArticle: function (req, res){
     var articleUrl = req.param('url');
-
+    console.log("ip = [%s]\n", req.ip);
     Article.findOne({slug: articleUrl})
       .then(function(article){
         return [
@@ -94,12 +94,21 @@ module.exports = {
           archiveArray.push(archive);
         }
 
+        if (article.pageViews.indexOf(req.ip) === -1){
+          Article.update(article.id, 
+            {pageViews: article.pageViews.push(req.ip)}
+          ).exec(function(err, article){
+            console.log(article);
+          });
+        }
+
         return res.view('articleShow',
         {
           categories: categories,
           tags: tags,
           archives: archiveArray,
           content: marked(article.content),
+          slug: article.slug,     
           title: article.title,
           breadcrumb: ['博文概览', article.title]
         });

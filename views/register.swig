@@ -12,7 +12,7 @@
 <div id = "wrapper">
 <section class="content">
 <form id = "sign-up" action="/register" method="post">
-  <h1 class="ui dividing header">欢迎注册</h1>
+  <h2 class="header">欢迎注册</h2>
   {% if err -%}
   <div class="ui error message" style="display: block">
     <div class="header">注册失败</div>
@@ -21,25 +21,23 @@
   {%- endif %}
 
   <div class="field">
-    <span class="glyphicon glyphicon-envelope">
+    <span class="input-icon glyphicon glyphicon-envelope">
     <input id="email" name="email" type="email" placeholder="填写邮箱">
     </span>
   </div>
   <div class="field">
-    <span class="glyphicon glyphicon-lock">
+    <span class="input-icon glyphicon glyphicon-lock">
     <input id="password" name="password" type="password" placeholder="填写密码（不少于6个字符）"/>
     </span>
   </div>
   <div class="field">
-    <span class="glyphicon glyphicon-user">
-    <input id="name" name="fullname" placeholder="请输入您的昵称"/>
+    <span class="input-icon glyphicon glyphicon-user">
+    <input id="name" name="fullname" placeholder="请输入您的昵称" type="text"/>
     </span>
   </div>
 
   <div class="field">
-    <div class="ui buttons">
-      <button class="button btn-success" type="submit">注册</button>
-    </div>
+    <button class="reg-btn" type="submit">注册</button>
   </div>
 </form>
 </section>

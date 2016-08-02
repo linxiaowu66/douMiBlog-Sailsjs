@@ -599,3 +599,101 @@ ul li{
 #page-nav a.page-number:hover {
   border-color: #119d55;
 }
+
+
+.post-footer {
+  position: relative;
+  margin: 6rem 0 3rem 0;
+  padding: 6rem 0 0 0;
+  border-top: #EBF2F6 1px solid;
+}
+
+.author-image {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  margin-left: -40px;
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  overflow: hidden;
+  padding: 6px;
+  background: #fff;
+  z-index: 2;
+  box-shadow: #E7EEF2 0 0 0 1px;
+}
+
+.author-image .img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 100%;
+}
+
+.hidden {
+  text-indent: -9999px;
+  visibility: hidden;
+  display: none;
+}
+
+.post-footer .author {
+   margin-right: 260px;
+}
+
+.post-footer h4 {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.post-footer p {
+  margin: 1rem 0;
+  font-size: 1.4rem;
+  line-height: 1.75em;
+}
+
+.author-meta {
+  margin: 1.6rem 0;
+}
+.author-meta {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-size: 1.4rem;
+  line-height: 1;
+  font-style: italic;
+  color: #9EABB3;
+}
+
+.author-meta span {
+   display: inline-block;
+   margin: 0 2rem 1rem 0;
+   word-wrap: break-word;
+}
+
+
+.post-footer .share {
+   position: absolute;
+   top: 6rem;
+   right: 0;
+   width: 230px;
+}
+
+
+.bdshare-button-style1-24 {
+  zoom: 1;
+}
+
+.post-footer .share a {
+   font-size: 1.8rem;
+   display: inline-block;
+   margin: 1rem 1.6rem 1.6rem 0;
+   color: #BBC7CC;
+   text-decoration: none;
+}

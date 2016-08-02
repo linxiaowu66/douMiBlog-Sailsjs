@@ -58,10 +58,80 @@
     border-radius: 5px;
     text-align: left;
 }
-
+.header{
+  text-align:center;
+}
 .field{
   margin-bottom: 1.5rem;
   position: relative;
   max-width: 500px;
   width: 100%;
+  text-align: center;
+}
+
+.input-icon[class*=glyphicon-] {
+  position: relative;
+  display: block;
+}
+        
+.input-icon[class*=glyphicon-]:before {
+  position: absolute;
+  top: 50%;
+  left: 1.1rem;
+  z-index: 100;
+  font-size: 1.3rem;
+  -webkit-transform: translateY(-52%);
+  transform: translateY(-52%);
+}
+
+input[type=text],input[type=email],input[type=password]{
+  border: solid 1px #ccc;
+  padding-left: 4px;
+  border-radius: 4px;
+}
+
+#email,#password,#name{
+  display: block;
+  padding: 8px 30px 8px !important;
+  width: 100%;
+  border: 1px solid #dfe1e3;
+  border-radius: 4px;
+  font: 62.5%/1.65 "Open Sans",sans-serif;
+  color: #666;
+  font-size: 1.6rem;
+  line-height: 1.4em;
+  font-weight: 100;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  transition: border-color .15s linear;
+  -webkit-appearance: none;  
+}
+
+.reg-btn:hover {
+  background: #119d55;
+  color: #fff;
+  text-decoration: none;
+}
+
+.reg-btn{
+  width: 100%;
+  margin: 0;
+  padding: 12px;
+  display: block;
+  max-width: 200px;
+  border:1px solid #119d55;
+  display: inline-block;
+  padding: 9px 15px;
+  background: #fff;
+  text-align: center;
+  text-shadow: none;
+  white-space: nowrap;
+  letter-spacing: 1px;
+  font-size: 1.4rem;
+  line-height: 1.428571429;
+  font-weight: 300;
+  cursor: pointer;
+  transition: color .2s ease,background .2s ease,border-color .2s ease;
 }
