@@ -8,7 +8,6 @@
  * For more information on bootstrapping your app, check out:
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.bootstrap.html
  */
-var later = require('later');
 var schedule = require('node-schedule');
 
 function clearTodayVisitCounts(){
@@ -30,7 +29,7 @@ module.exports.bootstrap = function(cb) {
   rule.dayOfWeek = [0, new schedule.Range(0, 6)];
   rule.hour = 0;
   rule.minute = 0;
- 
+
 
   schedule.scheduleJob(rule, clearTodayVisitCounts);
 

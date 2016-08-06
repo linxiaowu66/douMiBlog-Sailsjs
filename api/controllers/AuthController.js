@@ -26,7 +26,7 @@ module.exports = {
         // 否则，将新创建的用户登录
         req.login(created, function(err) {
           if (err) { return next(err); }
-          return res.redirect('/');
+          return res.redirect('/login');
         });
       }
     });

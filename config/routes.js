@@ -110,53 +110,53 @@ module.exports.routes = {
   /*End for Blog backend management route*/
 
   /*Blog fontend route*/
-  'GET /home': {
+  'GET /blog': {
     controller: 'Home',
     action: 'index'
   },
 
-  'GET /home/:url': {
+  'GET /blog/:url': {
     controller: 'Home',
     action: 'showOneArticle'
   },
 
-  'GET /home/page/:page': {
+  'GET /blog/page/:page': {
     controller: 'Home',
     action: 'index'
   },
 
-  'GET /home/category/:url': {
+  'GET /blog/category/:url': {
     controller: 'Home',
     action: 'showOneCategory'
   },
-  'GET /home/category/page/:page': {
+  'GET /blog/category/page/:page': {
     controller: 'Home',
     action: 'showOneCategory'
   },
 
-  'GET /home/tag/:url': {
+  'GET /blog/tag/:url': {
     controller: 'Home',
     action: 'showOneTag'
   },
-  'GET /home/tag/page/:page': {
+  'GET /blog/tag/page/:page': {
     controller: 'Home',
     action: 'showOneTag'
   },
 
-  'GET /home/archive/:url': {
+  'GET /blog/archive/:url': {
     controller: 'Home',
     action: 'showOneArchive'
   },
-  'GET /home/archive/page/:page': {
+  'GET /blog/archive/page/:page': {
     controller: 'Home',
     action: 'showOneArchive'
   },
 
-  'GET /home/user/:url': {
+  'GET /blog/user/:url': {
     controller: 'Home',
     action: 'showOneUser'
   },
-  'GET /home/user/page/:page': {
+  'GET /blog/user/page/:page': {
     controller: 'Home',
     action: 'showOneUser'
   },

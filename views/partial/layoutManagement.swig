@@ -47,7 +47,7 @@
           </section>
           <footer class="dm-nav-footer">
             <p>Copyright &copy; 2016
-              | Designed by <a href="/home" target="_parent">豆米博客</a></p>
+              | Designed by <a href="/blog" target="_parent">豆米博客</a></p>
           </footer>
         </nav>
         <!-- Main content -->

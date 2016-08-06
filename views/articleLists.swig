@@ -13,12 +13,12 @@
  {% for article in articles %}
   <article class="post" url-data="{{ article.slug }}">
     <header class="post-header">
-      <h2 class="blog-single-post-title"><a href="/home/{{ article.slug }}">{{ article.title }}</a></h2>
+      <h2 class="blog-single-post-title"><a href="/blog/{{ article.slug }}">{{ article.title }}</a></h2>
     </header>
     <div class="post-content">
     <p class="post-excerpt">
       {{ article.digest }}
-      <a href="/home/{{ article.slug }}" class = "articleLink">阅读全文</a>
+      <a href="/blog/{{ article.slug }}" class = "articleLink">阅读全文</a>
     </p>
     <div class="row">
       <div class="col-sm-12">
@@ -28,18 +28,18 @@
                  <span class="post-date"><b>发布于: </b>{{ article.archiveTime }}</span>
                  <span class="tags-array"><b>标签: </b>
                    {% for tag in article.tagsArray %}
-                   <a href = "/home/tags/{{tag}}">{{ tag }}</a>
+                   <a href = "/blog/tags/{{tag}}">{{ tag }}</a>
                    {% endfor %}
                   </span>
                   <span class="author"><b>作者：</b>
-                  <a href = "/home/user/{{article.author}}" >{{article.author}}</a>
+                  <a href = "/blog/user/{{article.author}}" >{{article.author}}</a>
                   </span>
-                  <span class="pageViews"><b>阅读量: </b>
+                  <span class="pageViews"><b>阅读: </b>
                   {{ article.pageViews.length }}
                   </span>
                 </div>
                 <div class="col-sm-2 comment-count">
-                   <a href="/home/{{ article.slug }}#disqus_thread">Comment(s)</a>
+                   <a href="/blog/{{ article.slug }}#disqus_thread">评论</a>
                 </div>
               </div>
             </div>
@@ -51,32 +51,32 @@
   {% if pageNum > 1 %}
   <nav id="page-nav">
      {% if currentPage != 1 %}
-        <a class="extend prev" rel="prev" href="/home/page/{{ currentPage-1 }}">上一页</a>
-        <a class="page-number" href="/home/page/1/">1</a>
+        <a class="extend prev" rel="prev" href="/blog/page/{{ currentPage-1 }}">上一页</a>
+        <a class="page-number" href="/blog/page/1/">1</a>
     {% endif %}
     {% if currentPage - 3 > 1 %}
        <span class="space">…</span>
     {% endif %}
     {% if currentPage - 2 > 1 %}
-        <a class="page-number" href="/home/page/{{currentPage-2}}">{{ currentPage-2 }}</a>
+        <a class="page-number" href="/blog/page/{{currentPage-2}}">{{ currentPage-2 }}</a>
     {% endif %}
     {% if currentPage - 1 > 1 %}
-        <a class="page-number" href="/home/page/{{currentPage-1}}">{{ currentPage-1 }}</a>
+        <a class="page-number" href="/blog/page/{{currentPage-1}}">{{ currentPage-1 }}</a>
     {% endif %}
     <span class="page-number current">{{ currentPage }}</span>
     {% if parseInt(currentPage) + 1 <= parseInt(pageNum) %}
-        <a class="page-number" href="/home/page/{{parseInt(currentPage) + 1}}">{{parseInt(currentPage) + 1}}</a>
+        <a class="page-number" href="/blog/page/{{parseInt(currentPage) + 1}}">{{parseInt(currentPage) + 1}}</a>
     {% endif %}
     {% if parseInt(currentPage) + 2 <= parseInt(pageNum) %}
-        <a class="page-number" href="/home/page/{{parseInt(currentPage) + 2}}">{{ parseInt(currentPage) + 2 }}</a>
+        <a class="page-number" href="/blog/page/{{parseInt(currentPage) + 2}}">{{ parseInt(currentPage) + 2 }}</a>
     {% endif %}
     {% if parseInt(currentPage) + 3 <= parseInt(pageNum) %}
         <span class="space">…</span>
     {% endif %}
 
     {% if parseInt(currentPage) != parseInt(pageNum)  %}
-      <a class="page-number" href="/home/page/{{pageNum}}">{{ pageNum }}</a>
-      <a class="extend next" rel="next" href="/home/page/{{parseInt(currentPage) + 1}}">下一页</a>
+      <a class="page-number" href="/blog/page/{{pageNum}}">{{ pageNum }}</a>
+      <a class="extend next" rel="next" href="/blog/page/{{parseInt(currentPage) + 1}}">下一页</a>
     {% endif %}
   </nav>
   {% endif %}

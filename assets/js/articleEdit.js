@@ -273,10 +273,11 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
     function draftSuccessAction(data){
       console.log('send ok');
       history.replaceState("","","/douMi/editor/" + data.articleIdx);
-      $(".dm-blog .content-viwer").attr("data-set", data.articleIdx);
+
       if ($(".dm-blog .content-viwer").attr("data-set") === undefined){
         var appendElements = "<li role=\"separator\" class=\"divider\"></li><li><a id=\"delete\" href=\"/douMi/delete/"+ data.articleIdx + "\">删除博文</a></li>"
         $('.dropdown-menu').append(appendElements);
+        $(".dm-blog .content-viwer").attr("data-set", data.articleIdx);
       }
     }
 
@@ -287,9 +288,11 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
       $('#save').attr('id', 'update');
       $('#publish').html("撤销发布");
       $('#publish').attr('id', 'undoPublish');
+      history.replaceState("","","/douMi/editor/" + data.articleIdx);
       if ($(".dm-blog .content-viwer").attr("data-set") === undefined){
         var appendElements = "<li role=\"separator\" class=\"divider\"></li><li><a id=\"delete\" href=\"/douMi/delete/"+ data.articleIdx + "\">删除博文</a></li>"
         $('.dropdown-menu').append(appendElements);
+        $(".dm-blog .content-viwer").attr("data-set", data.articleIdx);
       }
     }
 

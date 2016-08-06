@@ -297,7 +297,7 @@ function createNewArticle(article, callback){
           }
         },
         function(callback){async.map(tagsModel, function(tagModel, callback){Tags.findOne({id:tagModel.id}).populate('articles').exec(callback)},callback);},
-        function(callback){User.findOne({id:article.owner.id}).populate('articles').exec(callback);}  
+        function(callback){User.findOne({id:article.owner.id}).populate('articles').exec(callback);}
       ], function(error, results){
         if (error){
           sails.log.error(error);
@@ -319,7 +319,7 @@ function createNewArticle(article, callback){
           }
         },
         function(callback){async.map(results[2], function(tagModel, callback){Tags.update(tagModel.id, {numOfArticles:tagModel.articles.length}).exec(callback)},callback);},
-        function(callback){User.update(article.owner.id, {numOfArticles:results[3].articles.length}).exec(callback);}  
+        function(callback){User.update(article.owner.id, {numOfArticles:results[3].articles.length}).exec(callback);}
       ], function(error, results){
         if (error){
           sails.log.error(error);
@@ -485,12 +485,12 @@ module.exports = {
               publishDay = article.archiveTime.substr(8,2),
               publishMinute = article.archiveTime.substr(11,2),
               publishSecond = article.archiveTime.substr(14,2);
-          var yearOffset = publishYear - curTime.getFullYear(),
-              monthOffset = publishMonth - (curTime.getMonth() + 1),
-              dayOffset = publishDay - curTime.getDate(),
-              hoursOffset = publishMinute - curTime.getHours(),
-              minutesOffset = publishSecond - curTime.getMinutes();
-
+          var yearOffset = curTime.getFullYear() - publishYear,
+              monthOffset = (curTime.getMonth() + 1) - publishMonth,
+              dayOffset = curTime.getDate() - publishDay,
+              hoursOffset = curTime.getHours() - publishMinute,
+              minutesOffset = curTime.getMinutes() - publishSecond;
+          console.log(minutesOffset);
           if (yearOffset > 0){
             timeDesc = yearOffset + ' 年前';
           }else if (monthOffset > 0){

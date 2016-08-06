@@ -715,3 +715,24 @@ ul li{
   float: right;
   margin-right: 20px;
 }
+
+.article-body table{
+  border: 1px solid #d0d6d7;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 22px;
+  display: table;
+  border-spacing: 2px;
+
+  th{
+    border: 1px solid #d0d6d7;
+    padding: 15px;
+    background-color: #e4f0f1;
+  }
+
+  td{
+    border: 1px solid #d0d6d7;
+    padding: 15px;
+  }
+}
+

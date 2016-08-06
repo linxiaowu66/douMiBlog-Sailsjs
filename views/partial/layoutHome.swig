@@ -46,12 +46,12 @@
         <div class="row" style="position: relative;">
           <div id="dm-categories" class="col-sm-4 col-md-2">
               <div class="has-sub">
-                <a href="/home/categories" class="cat-name">分类<span class="caret"></span></a>
+                <a href="/blog/categories" class="cat-name">分类<span class="caret"></span></a>
                 <div class="sub-nav">
                   <span class="triangle"></span>
                   <div class="sub-nav-list">
                     {% for cat in categories %}
-                    <a href="/home/category/{{ cat.name }}">{{ cat.name }}</a>
+                    <a href="/blog/category/{{ cat.name }}">{{ cat.name }}</a>
                     {% endfor %}
                   </div>
                 </div>
@@ -106,7 +106,7 @@
               <h4 class="title">归档</h4>
               <ul>
                 {% for archive in archives %}
-                <li><a href="/home/archive/{{ archive.archiveTime }}">{{ archive.archiveTime }}</a><span>({{ archive.numOfArticles}})</span></li>
+                <li><a href="/blog/archive/{{ archive.archiveTime }}">{{ archive.archiveTime }}</a><span>({{ archive.numOfArticles}})</span></li>
                 {% endfor %}
               </ul>
             </aside>
@@ -117,7 +117,7 @@
                 </h4>
                 <div class = "tag-cloud">
                 {% for tag in tags %}
-                <a href="/home/tag/{{ tag.name }}">{{ tag.name }}</a>
+                <a href="/blog/tag/{{ tag.name }}">{{ tag.name }}</a>
                 {% endfor %}
                 </div>
               </div>
@@ -126,7 +126,7 @@
               <h4 class="title">热门文章</h4>
               <ul>
               {% for article in hotterArticles %}
-              <li><a href="/home/{{ article.slug }}">{{ article.title }}</a></li>
+              <li><a href="/blog/{{ article.slug }}">{{ article.title }}</a></li>
               {% endfor %}
               </ul>
             </aside>
