@@ -71,11 +71,15 @@
         <a class="page-number" href="/blog/page/{{parseInt(currentPage) + 2}}">{{ parseInt(currentPage) + 2 }}</a>
     {% endif %}
     {% if parseInt(currentPage) + 3 <= parseInt(pageNum) %}
+    <a class="page-number" href="/blog/page/{{parseInt(currentPage) + 3}}">{{ parseInt(currentPage) + 3 }}</a>
+    {% endif %}
+    {% if parseInt(currentPage) + 5 <= parseInt(pageNum) %}
         <span class="space">…</span>
     {% endif %}
-
-    {% if parseInt(currentPage) != parseInt(pageNum)  %}
+    {% if parseInt(currentPage) + 4 <= parseInt(pageNum) %}
       <a class="page-number" href="/blog/page/{{pageNum}}">{{ pageNum }}</a>
+    {% endif %}
+    {% if parseInt(currentPage) != parseInt(pageNum)  %}
       <a class="extend next" rel="next" href="/blog/page/{{parseInt(currentPage) + 1}}">下一页</a>
     {% endif %}
   </nav>

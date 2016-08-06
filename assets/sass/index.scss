@@ -46,11 +46,11 @@ body{
   box-sizing: border-box;
   display: block;
   position: absolute;
-  top: -40px;
+  top: -60px;
   left: 50%;
   margin-left: -40px;
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   border-radius: 100%;
   overflow: hidden;
   padding: 6px;
@@ -248,6 +248,7 @@ small {
         color: #bbbbbb;
         font-size: 12px;
         font-weight: normal;
+        margin-left: 10px;
       }
     }
   }

@@ -63,6 +63,7 @@
                 <ul class="dm-megamenu-parent menu-fade hidden-xs">
                   <li class="dm-menu-item"><a href="/">首页</a></li>
                   <li class="dm-menu-item"><a href="/aboutDouMi">关于豆米</a></li>
+                  <li class="dm-menu-item"><a href="/aboutSite">关于本站</a></li>
                 </ul>
               </div>
             </div>
@@ -81,6 +82,9 @@
                <li>
                  <a href="/" class="pathway">首页</a>
                </li>
+                <li>
+                  <a href="/blog" class="pathway">博文概览</a>
+                </li>
                 {% for navTitle in breadcrumb%}
                 {% if loop.last %}<li><a class="active">{{ navTitle }}</a></li>
                 {% else %} <li><a>{{ navTitle }}</a></li>
@@ -106,7 +110,7 @@
               <h4 class="title">归档</h4>
               <ul>
                 {% for archive in archives %}
-                <li><a href="/blog/archive/{{ archive.archiveTime }}">{{ archive.archiveTime }}</a><span>({{ archive.numOfArticles}})</span></li>
+                <li><a href="/blog/archive/{{ archive.oldArchiveTime }}">{{ archive.archiveTime }}</a><span>({{ archive.numOfArticles}})</span></li>
                 {% endfor %}
               </ul>
             </aside>

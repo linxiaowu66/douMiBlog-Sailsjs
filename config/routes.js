@@ -33,7 +33,8 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
-    view: 'index',
+    controller: 'Home',
+    action: 'index',
   },
   /*Auth Route controller*/
   'GET /login': {
@@ -111,53 +112,53 @@ module.exports.routes = {
 
   /*Blog fontend route*/
   'GET /blog': {
-    controller: 'Home',
+    controller: 'Blog',
     action: 'index'
   },
 
   'GET /blog/:url': {
-    controller: 'Home',
+    controller: 'Blog',
     action: 'showOneArticle'
   },
 
   'GET /blog/page/:page': {
-    controller: 'Home',
+    controller: 'Blog',
     action: 'index'
   },
 
   'GET /blog/category/:url': {
-    controller: 'Home',
+    controller: 'Blog',
     action: 'showOneCategory'
   },
   'GET /blog/category/page/:page': {
-    controller: 'Home',
+    controller: 'Blog',
     action: 'showOneCategory'
   },
 
   'GET /blog/tag/:url': {
-    controller: 'Home',
+    controller: 'Blog',
     action: 'showOneTag'
   },
   'GET /blog/tag/page/:page': {
-    controller: 'Home',
+    controller: 'Blog',
     action: 'showOneTag'
   },
 
   'GET /blog/archive/:url': {
-    controller: 'Home',
+    controller: 'Blog',
     action: 'showOneArchive'
   },
   'GET /blog/archive/page/:page': {
-    controller: 'Home',
+    controller: 'Blog',
     action: 'showOneArchive'
   },
 
   'GET /blog/user/:url': {
-    controller: 'Home',
+    controller: 'Blog',
     action: 'showOneUser'
   },
   'GET /blog/user/page/:page': {
-    controller: 'Home',
+    controller: 'Blog',
     action: 'showOneUser'
   },
 

@@ -17,14 +17,14 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
     if ($('#articleTime').val() === ""){
       archiveTime += date.getFullYear();
       if (date.getMonth() < 9){
-        archiveTime += "/0" + (date.getMonth() + 1);
+        archiveTime += "-0" + (date.getMonth() + 1);
       }else{
-        archiveTime += "/" + (date.getMonth() + 1);
+        archiveTime += "-" + (date.getMonth() + 1);
       }
       if (date.getDate() < 10){
-        archiveTime += "/0" + date.getDate();
+        archiveTime += "-0" + date.getDate();
       }else{
-        archiveTime += "/" + date.getDate();
+        archiveTime += "-" + date.getDate();
       }
       if (date.getHours() < 10){
         archiveTime += " 0" + date.getHours();
@@ -36,9 +36,9 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
       }else{
         archiveTime += ":" + date.getMinutes();
       }
-      $('#articleTime').datetimepicker({value:archiveTime,step:10});
+      $('#articleTime').datetimepicker({value:archiveTime,step:10,lang:'ch',format:'Y-m-d H:i'});
     }else{
-      $('#articleTime').datetimepicker({step:10});
+      $('#articleTime').datetimepicker({step:10,lang:'ch',format:'Y-m-d H:i'});
     }
 
     function updatePadding(srcObj, inputObj){

@@ -67,16 +67,11 @@
 
   <h2>热门文章<small>（<a href="/blog">全部博客文章</a>）</small></h2>
   <ul>
-
-    <li class="post ">
-      <a href=""><span>作为一个Web开发者，有多大的压力？</span><time datetime="2016-05-13">2016/05</time></a>
-    </li>
-    <li class="post ">
-      <a href=""><span>作为一个Web开发者，有多大的压力？</span><time datetime="2016-05-13">2016/05</time></a>
-    </li>
-    <li class="post ">
-      <a href=""><span>作为一个Web开发者，有多大的压力？</span><time datetime="2016-05-13">2016/05</time></a>
-    </li>
+    {% for post in hotterArticles%}
+      <li>
+        <a href="/blog/{{post.slug}}"><span>{{ post.title }}</span><time datetime="{{post.archiveTime}}">{{post.archiveTime}}</time></a>
+      </li>
+    {% endfor %}
   </ul>
 
 </section>

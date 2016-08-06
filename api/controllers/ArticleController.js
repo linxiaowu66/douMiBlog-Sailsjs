@@ -502,8 +502,6 @@ module.exports = {
           }else if (minutesOffset > 0){
             timeDesc = minutesOffset + ' 分钟前';
           }
-          console.log(timeDesc);
-          console.log(article.archiveTime);
         }
 
         var articleItem = {
