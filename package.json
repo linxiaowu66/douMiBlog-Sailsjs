@@ -1,8 +1,8 @@
 {
-  "name": "myBlog",
+  "name": "douMiBlog",
   "private": true,
   "version": "0.0.0",
-  "description": "a Sails application",
+  "description": "a blog platform which is based on the Sails web framwork",
   "keywords": [],
   "dependencies": {
     "bcrypt": "^0.8.6",
@@ -42,8 +42,8 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/anonymous node/sails user/myBlog.git"
+    "url": "https://gitlab.com/linxiaowu/douMiNewBlog.git"
   },
-  "author": "anonymous node/sails user",
+  "author": "linxiaowu",
   "license": ""
 }
