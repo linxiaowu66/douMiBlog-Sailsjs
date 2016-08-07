@@ -183,6 +183,11 @@
     </div>
   </div>
   <div class="offcanvas-overlay"></div>
+  <footer class="footer">
+    <div>
+      Copyright © <a href="/">豆米博客</a>. 2016 • All rights reserved. | 浙ICP备15041819号-1
+    </div>
+  </footer>
 </div>
 </body>
 <script type="text/javascript">

@@ -163,7 +163,10 @@ module.exports.routes = {
   },
 
   /*End for blog frontend route*/
-
+  'GET /aboutSite': {
+    controller: 'Blog',
+    action: 'aboutSite'
+  },
   'GET /aboutDouMi': {
     view: 'aboutDouMi',
   },

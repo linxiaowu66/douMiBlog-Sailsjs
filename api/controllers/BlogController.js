@@ -363,5 +363,58 @@ module.exports = {
   },
   showOneUser: function(req, res){
 
+  },
+
+  aboutSite: function (req, res){
+
+    var now = new Date();
+    //Format the current time to year/month/day
+    var matchString = '';
+    matchString = '' + now.getFullYear();
+    matchString += ((now.getMonth() + 1) < 10) ? ('-0' + (now.getMonth() + 1)) : ('-' + (now.getMonth() + 1));
+    matchString += (now.getDate() < 10) ? ('-0' + now.getDate()) : ('-' + now.getDate());
+
+    async.parallel([
+      function(callback){Category.find().exec(callback)},
+      function(callback){Tags.find().exec(callback)},
+      function(callback){Archive.find().exec(callback)},
+      function(callback){Article.find({ where: { articleStatus: 'published' }, sort: 'pageViewsCount DESC', limit: 10 }).exec(callback)},
+      function(callback){Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString}}}).exec(callback)},
+      function(callback){Statistics.findOne({key: 0}).exec(callback)},
+      function(callback){Article.count({where: {articleStatus:"published"}}, callback)}
+    ],function(error, results){
+      /*If any creating model failure, this process
+       should be stop and return the error to client*/
+      if (error){
+        sails.log.error(error);
+        callback(error, null);
+      }else{
+        var archiveArray = [];
+        for (var index = 0; index < results[2].length; index++){
+          var year = results[2][index].archiveTime.substr(0,4);
+          var month = results[2][index].archiveTime.substr(5,2);
+          var newFormat = year + "年" + month + "月";
+
+          var archive = {
+            oldArchiveTime: results[2][index].archiveTime,
+            archiveTime: newFormat,
+            numOfArticles: results[2][index].numOfArticles
+          };
+
+          archiveArray.push(archive);
+        }
+        return res.view('aboutSite', {
+          breadcrumb: ['关于本站'],
+          categories: results[0],
+          tags: results[1],
+          archives: archiveArray,
+          hotterArticles: results[3],
+          numOfArticles: results[6],
+          newArticlesToday: results[4].length,
+          totalVisitCounts: results[5].totalVisitCounts,
+          todayVisitCounts: results[5].todayVisitCounts
+        })
+      }
+    });
   }
 };
