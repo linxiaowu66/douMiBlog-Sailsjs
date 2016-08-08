@@ -17,6 +17,17 @@ marked.setOptions({
   }
 });
 
+var matchString = function(){
+  var now = new Date();
+  //Format the current time to year/month/day
+  var matchString = '';
+  matchString = '' + now.getFullYear();
+  matchString += ((now.getMonth() + 1) < 10) ? ('-0' + (now.getMonth() + 1)) : ('-' + (now.getMonth() + 1));
+  matchString += (now.getDate() < 10) ? ('-0' + now.getDate()) : ('-' + now.getDate());
+
+  return matchString;
+}
+
 module.exports = {
 
   index: function (req, res){
@@ -29,12 +40,7 @@ module.exports = {
       .then(function (articles) {
         // 每篇文章转换
         // 查找分类,及标签
-        var now = new Date();
-        //Format the current time to year/month/day
-        var matchString = '';
-        matchString = '' + now.getFullYear();
-        matchString += ((now.getMonth() + 1) < 10) ? ('-0' + (now.getMonth() + 1)) : ('-' + (now.getMonth() + 1));
-        matchString += (now.getDate() < 10) ? ('-0' + now.getDate()) : ('-' + now.getDate());
+
         return [
           articles,
           Article.count({where: {articleStatus:"published"}}),
@@ -169,7 +175,7 @@ module.exports = {
     var page = req.param('page') ? req.param('page') : 1;
     var queryCategory = req.param('url');
 
-    Category.find({name: queryCategory}).populate('articles',{
+    Category.findOne({name: queryCategory}).populate('articles',{
       where: {
         articleStatus:"published"
       },
@@ -235,7 +241,7 @@ module.exports = {
     var page = req.param('page') ? req.param('page') : 1;
     var queryTag = req.param('url');
 
-    Tags.find({name: queryTag}).populate('articles',{
+    Tags.findOne({name: queryTag}).populate('articles',{
       where: {
         articleStatus:"published"
       },
@@ -297,11 +303,11 @@ module.exports = {
   },
 
   showOneArchive: function (req, res){
-// 获得当前需要加载第几页
+
     var page = req.param('page') ? req.param('page') : 1;
     var queryArchive = req.param('url');
     console.log(queryArchive);
-    Archive.find({archiveTime: queryArchive}).populate('articles',{
+    Archive.findOne({archiveTime: queryArchive}).populate('articles',{
       where: {
         articleStatus:"published"
       },
@@ -362,7 +368,70 @@ module.exports = {
       });
   },
   showOneUser: function(req, res){
+    var page = req.param('page') ? req.param('page') : 1;
 
+    var queryUser = req.param('url');
+    console.log(queryArchive);
+
+    User.findOne({fullname: queryUser}).populate('articles',{
+      where: {
+        articleStatus:"published"
+      },
+      sort: FIND_ORDER
+    }).paginate({page: page, limit: FIND_PER_PAGE})
+      .then(function (users) {
+        var now = new Date();
+        //Format the current time to year/month/day
+        var matchString = '';
+        matchString = '' + now.getFullYear();
+        matchString += ((now.getMonth() + 1) < 10) ? ('-0' + (now.getMonth() + 1)) : ('-' + (now.getMonth() + 1));
+        matchString += (now.getDate() < 10) ? ('-0' + now.getDate()) : ('-' + now.getDate());
+        return [
+          users.articles,
+          Users.find({fullname: queryUser}).populate('articles',{where: {articleStatus:"published" }}),
+          Category.find(),
+          Tags.find(),
+          Archive.find(),
+          Article.find({ where: { articleStatus: 'published' }, sort: 'pageViewsCount DESC', limit: 10 }),
+          Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString}}}),
+          Statistics.findOne({key: 0}),
+          Article.count({where: {articleStatus:"published"}})
+        ];
+      })
+      .spread(function (articles, totalQueryArticles, categories, tags, archives,hotterArticles, newArticlesToday, statistics,numOfArticles) {
+
+        var archiveArray = [];
+        for (var index = 0; index < archives.length; index++){
+          var year = archives[index].archiveTime.substr(0,4);
+          var month = archives[index].archiveTime.substr(5,2);
+          var newFormat = year + "年" + month + "月";
+
+          var archive = {
+            oldArchiveTime: archives[index].archiveTime,
+            archiveTime: newFormat,
+            numOfArticles: archives[index].numOfArticles
+          };
+
+          archiveArray.push(archive);
+        }
+
+        return res.view(
+          'articleLists',
+          {
+            articles: articles,
+            categories: categories,
+            tags: tags,
+            archives: archiveArray,
+            currentPage: page,
+            pageNum: Math.ceil(totalQueryArticles[0].articles.length/FIND_PER_PAGE),
+            breadcrumb: ['归档', queryArchive],
+            hotterArticles: hotterArticles,
+            numOfArticles: numOfArticles,
+            newArticlesToday: newArticlesToday.length,
+            totalVisitCounts: statistics.totalVisitCounts,
+            todayVisitCounts: statistics.todayVisitCounts
+          });
+      });
   },
 
   aboutSite: function (req, res){

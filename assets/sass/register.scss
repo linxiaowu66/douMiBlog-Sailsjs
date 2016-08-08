@@ -1,67 +1,74 @@
-#flex-flow{
-   -webkit-flex-grow: 1;
-   -ms-flex-positive: 1;
-   flex-grow: 1;
-   display: -webkit-flex;
-   display: -ms-flexbox;
-   display: flex;
-   -webkit-flex-direction: column;
-   -ms-flex-direction: column;
-   flex-direction: column;
-   overflow-y: auto;
-   min-height: 100vh;
+/*Common Styles*/
+* {font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif}
+
+
+#flex-flow {
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow-y: auto;
+  min-height: 100vh;
 }
 
-#wrapper{
-   -webkit-flex-grow: 1;
-   -ms-flex-positive: 1;
-   flex-grow: 1;
-   -webkit-flex-shrink: 0;
-   -ms-flex-negative: 0;
-   flex-shrink: 0;
-   display: -webkit-flex;
-   display: -ms-flexbox;
-   display: flex;
-   -webkit-justify-content: center;
-   -ms-flex-pack: center;
-   justify-content: center;
-   -webkit-align-items: center;
-   -ms-flex-align: center;
-   align-items: center;
-   margin: 0 5%;
-   padding-bottom: 8vh;
+#wrapper {
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0 5%;
+  padding-bottom: 8vh;
 }
 
-.content{
-   display: -webkit-flex;
-   display: -ms-flexbox;
-   display: flex;
-   -webkit-flex-direction: column;
-   -ms-flex-direction: column;
-   flex-direction: column;
-   max-width: 700px;
-   width: 100%;
-   color: #7d878a;
-   text-align: center;
-   font-size: 1.9rem;
-   line-height: 1.5em;
-   font-weight: 100;
+.content {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  max-width: 700px;
+  width: 100%;
+  color: #7d878a;
+  text-align: center;
+  font-size: 1.9rem;
+  line-height: 1.5em;
+  font-weight: 100;
 }
-#sign-up{
-    position: relative;
-    margin: 30px auto;
-    padding: 40px;
-    max-width: 400px;
-    width: 100%;
-    border: 1px solid #dae1e3;
-    background: #f8fbfd;
-    border-radius: 5px;
-    text-align: left;
+
+#sign-up {
+  position: relative;
+  margin: 30px auto;
+  padding: 40px;
+  max-width: 400px;
+  width: 100%;
+  border: 1px solid #dae1e3;
+  background: #f8fbfd;
+  border-radius: 5px;
+  text-align: left;
 }
-.header{
-  text-align:center;
+
+.header {
+  text-align: center;
 }
-.field{
+
+.field {
   margin-bottom: 1.5rem;
   position: relative;
   max-width: 500px;
@@ -72,25 +79,26 @@
 .input-icon[class*=glyphicon-] {
   position: relative;
   display: block;
-}
-        
-.input-icon[class*=glyphicon-]:before {
-  position: absolute;
-  top: 50%;
-  left: 1.1rem;
-  z-index: 100;
-  font-size: 1.3rem;
-  -webkit-transform: translateY(-52%);
-  transform: translateY(-52%);
-}
-
-input[type=text],input[type=email],input[type=password]{
-  border: solid 1px #ccc;
-  padding-left: 4px;
-  border-radius: 4px;
+  &:before {
+    position: absolute;
+    top: 50%;
+    left: 1.1rem;
+    z-index: 100;
+    font-size: 1.3rem;
+    -webkit-transform: translateY(-52%);
+    transform: translateY(-52%);
+  }
 }
 
-#email,#password,#name{
+input {
+  &[type=text], &[type=email], &[type=password] {
+    border: solid 1px #ccc;
+    padding-left: 4px;
+    border-radius: 4px;
+  }
+}
+
+#email, #password, #name {
   display: block;
   padding: 8px 30px 8px !important;
   width: 100%;
@@ -106,22 +114,21 @@ input[type=text],input[type=email],input[type=password]{
   -ms-user-select: text;
   user-select: text;
   transition: border-color .15s linear;
-  -webkit-appearance: none;  
+  -webkit-appearance: none;
 }
 
-.reg-btn:hover {
-  background: #119d55;
-  color: #fff;
-  text-decoration: none;
-}
-
-.reg-btn{
+.reg-btn {
+  &:hover {
+    background: #119d55;
+    color: #fff;
+    text-decoration: none;
+  }
   width: 100%;
   margin: 0;
   padding: 12px;
   display: block;
   max-width: 200px;
-  border:1px solid #119d55;
+  border: 1px solid #119d55;
   display: inline-block;
   padding: 9px 15px;
   background: #fff;

@@ -10,8 +10,8 @@ define(['jquery','bootstrap', 'markdown','highlight','hashchange'], function($, 
 
   $(document).ready(function(){
 
-    var activeElement = $(".post-list li.active");
-    var activeNavIndex = $(".dm-left-nav .active");
+    var activeElement = $('.post-list li.active');
+    var activeNavIndex = $('.dm-left-nav .active');
     var currClickElement;
 
     $(window).hashchange( function(){
@@ -19,17 +19,17 @@ define(['jquery','bootstrap', 'markdown','highlight','hashchange'], function($, 
       if (hash === null || hash === '') {
         return;
       }
-      var url = "douMi/" + hash.replace( /^#/, '' );
+      var url = 'douMi/' + hash.replace( /^#/, '' );
 
       // Iterate over all nav links,toggle the active class and change the title.
       $('.post-list a').each(function(){
         var aTag = $(this);
         if(hash === $(aTag).attr('href'))
         {
-          activeElement.removeClass("active");
-          aTag.children("li:eq(0)").addClass("active");
+          activeElement.removeClass('active');
+          aTag.children('li:eq(0)').addClass('active');
 
-          activeElement = $(".post-list li.active");
+          activeElement = $('.post-list li.active');
           //exit .each earlier, in case li in nav is found
           return false;
         }
@@ -39,9 +39,9 @@ define(['jquery','bootstrap', 'markdown','highlight','hashchange'], function($, 
       $.get(url)
         .done(function(data, status, xhr){
 
-          $(".content-preview").html(marked(data.content));
+          $('.content-preview').html(marked(data.content));
 
-          $('.blog-edit').attr("href", "/douMi/editor/" + hash.replace( /^#/, '' ));
+          $('.blog-edit').attr('href', '/douMi/editor/' + hash.replace( /^#/, '' ));
         })
         .fail(function(xhr, status, errorThrown){
 
