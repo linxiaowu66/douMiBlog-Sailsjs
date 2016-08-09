@@ -130,7 +130,7 @@ module.exports.routes = {
     controller: 'Blog',
     action: 'showOneCategory'
   },
-  'GET /blog/category/page/:page': {
+  'GET /blog/category/:url/page/:page': {
     controller: 'Blog',
     action: 'showOneCategory'
   },
@@ -139,7 +139,7 @@ module.exports.routes = {
     controller: 'Blog',
     action: 'showOneTag'
   },
-  'GET /blog/tag/page/:page': {
+  'GET /blog/tag/:url/page/:page': {
     controller: 'Blog',
     action: 'showOneTag'
   },
@@ -148,7 +148,7 @@ module.exports.routes = {
     controller: 'Blog',
     action: 'showOneArchive'
   },
-  'GET /blog/archive/page/:page': {
+  'GET /blog/archive/:url/page/:page': {
     controller: 'Blog',
     action: 'showOneArchive'
   },
@@ -157,7 +157,7 @@ module.exports.routes = {
     controller: 'Blog',
     action: 'showOneUser'
   },
-  'GET /blog/user/page/:page': {
+  'GET /blog/user/:url/page/:page': {
     controller: 'Blog',
     action: 'showOneUser'
   },

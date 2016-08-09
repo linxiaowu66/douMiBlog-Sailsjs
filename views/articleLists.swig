@@ -52,36 +52,36 @@
   {% if pageNum > 1 %}
   <nav id='page-nav'>
      {% if currentPage != 1 %}
-        <a class='extend prev' rel='prev' href='/blog/page/{{ currentPage-1 }}'>上一页</a>
-        <a class='page-number' href='/blog/page/1/'>1</a>
+        <a class='extend prev' rel='prev' href='{{pageUrl}}/{{ currentPage-1 }}'>上一页</a>
+        <a class='page-number' href='{{pageUrl}}/1/'>1</a>
     {% endif %}
     {% if currentPage - 3 > 1 %}
        <span class='space'>…</span>
     {% endif %}
     {% if currentPage - 2 > 1 %}
-        <a class='page-number' href='/blog/page/{{currentPage-2}}'>{{ currentPage-2 }}</a>
+        <a class='page-number' href='{{pageUrl}}/{{currentPage-2}}'>{{ currentPage-2 }}</a>
     {% endif %}
     {% if currentPage - 1 > 1 %}
-        <a class='page-number' href='/blog/page/{{currentPage-1}}'>{{ currentPage-1 }}</a>
+        <a class='page-number' href='{{pageUrl}}/{{currentPage-1}}'>{{ currentPage-1 }}</a>
     {% endif %}
     <span class='page-number current'>{{ currentPage }}</span>
     {% if parseInt(currentPage) + 1 <= parseInt(pageNum) %}
-        <a class='page-number' href='/blog/page/{{parseInt(currentPage) + 1}}'>{{parseInt(currentPage) + 1}}</a>
+        <a class='page-number' href='{{pageUrl}}/{{parseInt(currentPage) + 1}}'>{{parseInt(currentPage) + 1}}</a>
     {% endif %}
     {% if parseInt(currentPage) + 2 <= parseInt(pageNum) %}
-        <a class='page-number' href='/blog/page/{{parseInt(currentPage) + 2}}'>{{ parseInt(currentPage) + 2 }}</a>
+        <a class='page-number' href='{{pageUrl}}/{{parseInt(currentPage) + 2}}'>{{ parseInt(currentPage) + 2 }}</a>
     {% endif %}
     {% if parseInt(currentPage) + 3 <= parseInt(pageNum) %}
-    <a class='page-number' href='/blog/page/{{parseInt(currentPage) + 3}}'>{{ parseInt(currentPage) + 3 }}</a>
+    <a class='page-number' href='{{pageUrl}}/{{parseInt(currentPage) + 3}}'>{{ parseInt(currentPage) + 3 }}</a>
     {% endif %}
     {% if parseInt(currentPage) + 5 <= parseInt(pageNum) %}
         <span class='space'>…</span>
     {% endif %}
     {% if parseInt(currentPage) + 4 <= parseInt(pageNum) %}
-      <a class='page-number' href='/blog/page/{{pageNum}}'>{{ pageNum }}</a>
+      <a class='page-number' href='{{pageUrl}}/{{pageNum}}'>{{ pageNum }}</a>
     {% endif %}
     {% if parseInt(currentPage) != parseInt(pageNum)  %}
-      <a class='extend next' rel='next' href='/blog/page/{{parseInt(currentPage) + 1}}'>下一页</a>
+      <a class='extend next' rel='next' href='{{pageUrl}}/{{parseInt(currentPage) + 1}}'>下一页</a>
     {% endif %}
   </nav>
   {% endif %}

@@ -32,7 +32,7 @@ module.exports = {
 
   index: function (req, res){
     // 获得当前需要加载第几页
-    var page = req.param('page') ? req.param('page') : 1;
+    var page = req.param('page') ? parseInt(req.param('page')) : 1;
     Article.find({
       sort: FIND_ORDER,
       where: {articleStatus:"published"}
@@ -86,6 +86,7 @@ module.exports = {
             tags: tags,
             archives: archiveArray,
             currentPage: page,
+            pageUrl: '/blog/page',
             pageNum: Math.ceil(numOfArticles/FIND_PER_PAGE),
             breadcrumb: [],
             hotterArticles: hotterArticles,
@@ -174,13 +175,14 @@ module.exports = {
       where: {
         articleStatus:"published"
       },
-      sort: FIND_ORDER
-    }).paginate({page: page, limit: FIND_PER_PAGE})
-      .then(function (categories) {
+      sort: FIND_ORDER,
+      limit: FIND_PER_PAGE,
+      skip: (page - 1) * FIND_PER_PAGE
+    }).then(function (categories) {
         var now = new Date();
         //Format the current time to year/month/day
         return [
-          categories[0].articles,
+          categories.articles,
           Category.find({name: queryCategory}).populate('articles',{where: {articleStatus:"published" }}),
           Category.find(),
           Tags.find(),
@@ -216,6 +218,7 @@ module.exports = {
             tags: tags,
             archives: archiveArray,
             currentPage: page,
+            pageUrl: '/blog/category/' + queryCategory + '/page',
             pageNum: Math.ceil(totalQueryArticles[0].articles.length/FIND_PER_PAGE),
             breadcrumb: ['分类', queryCategory],
             hotterArticles: hotterArticles,
@@ -236,13 +239,12 @@ module.exports = {
       where: {
         articleStatus:"published"
       },
-      sort: FIND_ORDER
-    }).paginate({page: page, limit: FIND_PER_PAGE})
-      .then(function (tags) {
-        var now = new Date();
-        //Format the current time to year/month/day
+      sort: FIND_ORDER,
+      limit: 5,
+      skip: (page - 1) * FIND_PER_PAGE
+    }).then(function (tags) {
         return [
-          tags[0].articles,
+          tags.articles,
           Tags.find({name: queryTag}).populate('articles',{where: {articleStatus:"published" }}),
           Category.find(),
           Tags.find(),
@@ -278,6 +280,7 @@ module.exports = {
             tags: tags,
             archives: archiveArray,
             currentPage: page,
+            pageUrl: '/blog/tag/' + queryTag + '/page',
             pageNum: Math.ceil(totalQueryArticles[0].articles.length/FIND_PER_PAGE),
             breadcrumb: ['标签', queryTag],
             hotterArticles: hotterArticles,
@@ -293,18 +296,19 @@ module.exports = {
 
     var page = req.param('page') ? req.param('page') : 1;
     var queryArchive = req.param('url');
-    console.log(queryArchive);
+
     Archive.findOne({archiveTime: queryArchive}).populate('articles',{
       where: {
         articleStatus:"published"
       },
-      sort: FIND_ORDER
-    }).paginate({page: page, limit: FIND_PER_PAGE})
-      .then(function (archives) {
+      sort: FIND_ORDER,
+      limit: FIND_PER_PAGE,
+      skip: (page - 1) * FIND_PER_PAGE
+    }).then(function (archives) {
         var now = new Date();
         //Format the current time to year/month/day
         return [
-          archives[0].articles,
+          archives.articles,
           Archive.find({archiveTime: queryArchive}).populate('articles',{where: {articleStatus:"published" }}),
           Category.find(),
           Tags.find(),
@@ -340,6 +344,7 @@ module.exports = {
             tags: tags,
             archives: archiveArray,
             currentPage: page,
+            pageUrl: '/blog/archive/' + queryArchive + '/page',
             pageNum: Math.ceil(totalQueryArticles[0].articles.length/FIND_PER_PAGE),
             breadcrumb: ['归档', queryArchive],
             hotterArticles: hotterArticles,
@@ -354,15 +359,15 @@ module.exports = {
     var page = req.param('page') ? req.param('page') : 1;
 
     var queryUser = req.param('url');
-    console.log(queryArchive);
 
     User.findOne({fullname: queryUser}).populate('articles',{
       where: {
         articleStatus:"published"
       },
-      sort: FIND_ORDER
-    }).paginate({page: page, limit: FIND_PER_PAGE})
-      .then(function (users) {
+      sort: FIND_ORDER,
+      limit: FIND_PER_PAGE,
+      skip: (page - 1) * FIND_PER_PAGE
+    }).then(function (users) {
         var now = new Date();
         //Format the current time to year/month/day
         return [
@@ -402,8 +407,9 @@ module.exports = {
             tags: tags,
             archives: archiveArray,
             currentPage: page,
+            pageUrl: '/blog/user/' + queryUser + '/page',
             pageNum: Math.ceil(totalQueryArticles[0].articles.length/FIND_PER_PAGE),
-            breadcrumb: ['归档', queryArchive],
+            breadcrumb: ['作者', queryUser],
             hotterArticles: hotterArticles,
             numOfArticles: numOfArticles,
             newArticlesToday: newArticlesToday.length,
