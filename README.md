@@ -65,7 +65,7 @@ This project is dependence with the SASS, so you should install the ruby and com
 # apt-add-repository ppa:brightbox/ruby-ng
 # apt-get update
 # apt-get install ruby2.1 ruby2.1-dev
-# gem sources --add https://ruby.taobao.org/ --remove http://rubygems.org/
+# gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/
 # gem install compass
 ```
 > NOTE: If you can assess the http://rubygem.org, you can add the taobao mirrors to gem source just as step 3.

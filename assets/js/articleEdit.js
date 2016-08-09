@@ -300,7 +300,6 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
     /*Post Actions as following: */
 
     function draftSuccessAction(data){
-      console.log('send ok');
       history.replaceState('','','/douMi/editor/' + data.articleIdx);
 
       if ($('.dm-blog .content-viwer').attr('data-set') === undefined){
@@ -311,7 +310,6 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
     }
 
     function publishSuccessAction(data){
-      console.log('publish ok');
       $('#dropdownMenu1').html('更新博文 <span class=\'caret\'></span>');
       $('#save').html('更新博文');
       $('#save').attr('id', 'update');

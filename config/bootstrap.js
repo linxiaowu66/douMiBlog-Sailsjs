@@ -22,7 +22,7 @@ module.exports.bootstrap = function(cb) {
     todayVisitCounts: 0,
     key: 0
   }).exec(function(err, record){
-    console.log(record);
+    
   })
 
   var rule = new schedule.RecurrenceRule();
