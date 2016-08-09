@@ -18,6 +18,7 @@ This blog platform has following tech stack:
 + Bootstrap
 + bcrypt + passport
 + swig
++ SASS
 + grunt
 + marked
 + node-schedule
@@ -57,6 +58,19 @@ $ npm i
 $ bower i
 ```
 
+This project is dependence with the SASS, so you should install the ruby and compass before run the app. Install steps as follow(AliYun--Ubuntu):
+
+``` bash
+# apt-get install Python-software-properties
+# apt-add-repository ppa:brightbox/ruby-ng
+# apt-get update
+# apt-get install ruby2.1 ruby2.1-dev
+# gem sources --add https://ruby.taobao.org/ --remove http://rubygems.org/
+# gem install compass
+```
+> NOTE: If you can assess the http://rubygem.org, you can add the taobao mirrors to gem source just as step 3.
+
+
 > deploy it under `root` is really a bad idea, but in case you're basted, try:
 
 ```bash
@@ -66,6 +80,20 @@ $ bower i
 
 **Step 5** In development mode, you can use 'localDiskDb'. Then no need to install database in development mode. But in production mode, MongoDb is used in this project.
 
+Running the mongoDb,you can type these:
+
+```
+mongod -fork --dbpath=/home/mongodb_data/ --logpath=/home/mongodb_log/mongodb.log --logappend &
+
+```
+
+Then forever run the sails app:
+
+```
+cd yourProject
+
+NODE_ENV=production forever start app.js
+```
 
 **Step 6** In this project, we use mocha [ http://mochajs.org/ ] for unit test. Unit test is a good way to protect your code. To install mocha:
 
