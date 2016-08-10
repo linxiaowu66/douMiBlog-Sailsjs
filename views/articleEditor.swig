@@ -167,7 +167,7 @@
     }
 
   });
-  require(['../js/articleEdit']);
+  require(['../js/articleEdit.min']);
 </script>
 {% endblock %}
 

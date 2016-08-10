@@ -9,8 +9,8 @@
   <link rel='stylesheet' href='/styles/navOfManagement.css'>
   {% endblock %}
 
-  <script type='text/javascript'  src='../../js/requirejs/require.min.js'></script>
-  <script type='text/javascript'  src='../../js/config.js'></script>
+  <script type='text/javascript'  src='/js/requirejs/require.min.js'></script>
+  <script type='text/javascript'  src='/js/config.min.js'></script>
 
 </head>
 <body>

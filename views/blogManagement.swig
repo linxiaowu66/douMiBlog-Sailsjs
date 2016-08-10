@@ -53,7 +53,7 @@
   </section>
 </main>
 <script type='text/javascript'>
-  require(['../js/blogManagement']);
+  require(['../js/blogManagement.min']);
 </script>
 {% endblock %}
 
