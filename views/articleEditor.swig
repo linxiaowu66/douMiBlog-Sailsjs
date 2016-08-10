@@ -59,6 +59,7 @@
         </header>
         <section class='preview-content'>
           <div class='preview-text'>
+            {% if article.preview !== undefined %}{{ article.preview | safe}}{% endif %}
           </div>
         </section>
       </section>
@@ -139,35 +140,7 @@
 </div>
 </div>
 <script type='text/javascript'>
-  require(['jquery', 'markdown','highlight'], function($, marked, hljs){
-    marked.setOptions({
-      highlight: function (code) {
-        return hljs.highlightAuto(code).value;
-      }
-    });
-    var articleId = ~0;
-
-    if ($('.dm-blog.content-viwer').attr('data-set') !== undefined){
-      articleId = parseInt($('.dm-blog.content-viwer').attr('data-set'));
-
-      $.ajax({
-        type: 'GET',
-        url: '/douMi/' + articleId,
-        data: {},
-        dataType: 'json',
-        success: function(data){
-          if (data !== undefined){
-            $('.preview-text').html(marked(data.content));
-          }
-        },
-        error: function(jqXHR){
-          alert('发生错误：' + jqXHR.status);
-        },
-      });
-    }
-
-  });
-  require(['../js/articleEdit.min']);
+  require(['../js/articleEdit']);
 </script>
 {% endblock %}
 

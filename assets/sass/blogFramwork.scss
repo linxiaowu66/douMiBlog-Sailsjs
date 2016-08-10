@@ -15,6 +15,9 @@ a {
 
 ul li {
   list-style: none;
+  a{
+    font-size: 1.4rem;
+  }
 }
 
 select, textarea {
@@ -450,7 +453,7 @@ body.offcanvas .offcanvas-overlay {
   margin-top: 0;
   padding-bottom: 7px;
   border-bottom: 1px solid #ebebeb;
-  margin-bottom: 21px;
+  margin-bottom: 10px;
   position: relative;
   &:after {
     content: "";

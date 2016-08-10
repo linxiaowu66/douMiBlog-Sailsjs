@@ -53,7 +53,7 @@
         <div class='row' style='position: relative;'>
           <div id='dm-categories' class='col-sm-4 col-md-2'>
               <div class='has-sub'>
-                <a href='/blog/categories' class='cat-name'>分类<span class='caret'></span></a>
+                <a href='#' class='cat-name'>分类<span class='caret'></span></a>
                 <div class='sub-nav'>
                   <span class='triangle'></span>
                   <div class='sub-nav-list'>

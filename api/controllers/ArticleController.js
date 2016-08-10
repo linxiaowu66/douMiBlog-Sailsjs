@@ -28,6 +28,8 @@ function updateExistingArticle(article, callback){
     disconnectTagsArrayId = [],
     connectTagsArrayId = [];
 
+  console.log(article.id);
+
   async.waterfall([
     /*Firstly, creating the non-existing related model*/
     function(callback){
@@ -66,31 +68,30 @@ function updateExistingArticle(article, callback){
           if (article.articleStatus === "drafted"){
             callback(null, "Nothing to create");
           }else {
-            Article.find({id: article.id}).populate('archive').exec(callback);
+            Article.findOne({id: article.id}).populate('archive').exec(callback);
           }
         },
-        function(callback){Article.find({id: article.id}).populate('category').exec(callback)},
-        function(callback){Article.find({id: article.id}).populate('tags').exec(callback)}
+        function(callback){Article.findOne({id: article.id}).populate('category').exec(callback)},
+        function(callback){Article.findOne({id: article.id}).populate('tags').exec(callback)}
       ],function(error, results){
         if (error){
           sails.log.error(error);
           callback(error, null);
         }else{
-
           /*Compare the new one with the old one, record the old one if they are different*/
-          if ((article.articleStatus === "published") && (results[0][0].archive !== undefined) &&
-            (article.publishTime !== results[0][0].archive.archiveTime)){
-            disconnectArchiveId = results[0][0].archive.id;
+          if ((article.articleStatus === "published") && (results[0].archive !== undefined) &&
+            (article.publishTime !== results[0].archive.archiveTime)){
+            disconnectArchiveId = results[0].archive.id;
           }
 
-          if (article.cat !== results[1][0].category.name){
-            disconnectCategoryId = results[1][0].category.id;
+          if (article.cat !== results[1].category.name){
+            disconnectCategoryId = results[1].category.id;
           }
           /*Just deleting all the association with tag model,
             then relink them in the next step, it maybe can
             reduce some efforts*/
-          for (var index = 0; index < results[2][0].tags.length; index++){
-            disconnectTagsArrayId.push(results[2][0].tags[index].id);
+          for (var index = 0; index < results[2].tags.length; index++){
+            disconnectTagsArrayId.push(results[2].tags[index].id);
           }
           callback(null, results);
         }
@@ -374,7 +375,7 @@ function prepareCommonParameter(req, status){
     * archive model*/
     archiveTime: req.param('publishTime'),
     digest: req.param('summary'),
-    id: parseInt(req.param('id')), /*If this value equal to -1, indicates that this article is a new one.*/
+    id: req.param('id'), /*If this value equal to undefined, indicates that this article is a new one.*/
     cat: req.param('cat') === undefined ? "未分类" : req.param('cat'),
     tagsArray: tagsArray
   };
@@ -388,7 +389,7 @@ module.exports = {
     var article = prepareCommonParameter(req, "drafted");
 
     /*If this article has not existing in the database*/
-    if (article.id === ~0){
+    if (article.id === undefined){
       createNewArticle(article, function(err, articleIndex){
         if(err){
           sails.log.error(err);
@@ -413,13 +414,12 @@ module.exports = {
     var article = prepareCommonParameter(req, "published");
 
     /*If this article has not existing in the database*/
-    if (article.id === ~0){
+    if (article.id === undefined){
       createNewArticle(article,  function(err, articleIndex){
         if(err){
           sails.log.error(err);
           return res.json(200, {error: err});
         }else{
-          console.log("Send the Ok to client");
           res.json(200, {articleIdx: articleIndex});
         }
       });
@@ -478,7 +478,7 @@ module.exports = {
   index: function (req,res){
     var articleItems = [];
     var index = 0;
-    Article.find().exec(function(error, articles){
+    Article.find({sort: 'updatedAt desc'}).exec(function(error, articles){
 
       if (error) {
         sails.log.error(error);
@@ -560,7 +560,7 @@ module.exports = {
 
   articleEdit: function(req, res){
     var articleId = req.param("id");
-    var rule = /^[0-9]*$/;
+    var rule = /^[0-9a-zA-Z]*$/;
     var allNumOrNot = rule.test(articleId);
     if (articleId !== undefined && allNumOrNot == true ){
 
@@ -580,6 +580,7 @@ module.exports = {
         id: results[0].id,
         title: results[0].title,
         content: results[0].content,
+        preview: marked(results[0].content),
         status: results[0].articleStatus,
         archive: results[0].archiveTime,
         category: results[2].category.name,

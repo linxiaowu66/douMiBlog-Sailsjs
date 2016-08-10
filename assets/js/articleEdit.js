@@ -340,7 +340,7 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
     }
 
     function articleCommonAction(postUrl,successCallback, failureCallback){
-      var articleId = ~0,
+      var articleId = undefined,
           articleName = $('#entry-title').val(),
           dateString = '',
           content = $('.markdown-realtext').val(),
@@ -348,7 +348,7 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
           url = '';
 
       if ($('.dm-blog .content-viwer').attr('data-set') !== undefined){
-        articleId = parseInt($('.dm-blog .content-viwer').attr('data-set'));
+        articleId = $('.dm-blog .content-viwer').attr('data-set');
       }
 
       if (postUrl === '/douMi/saveDraft/'){
@@ -369,6 +369,8 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
       /*Remove the whitespaces*/
       description = description.replace(/[\r\n]/g, '');
       description += '......';
+
+      console.log(articleId);
 
       $.ajax({
         type: 'POST',

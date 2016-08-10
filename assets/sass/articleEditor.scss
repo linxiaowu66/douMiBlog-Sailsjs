@@ -425,6 +425,10 @@ input[type=text] {
   border-radius: 5px;
   padding: 4px 6px;
   margin: 0 10px 10px 0;
+  &:hover{
+    color: #119d55;
+    text-decoration: none;
+  }
 }
 
 #tag2box a.act {
