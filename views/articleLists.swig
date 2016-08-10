@@ -29,7 +29,7 @@
                  <span class='post-date glyphicon glyphicon-time'><a href='#' style='padding-left:5px'>{{ article.archiveTime }}</a></span>
                  <span class='tags-array glyphicon glyphicon-tags'>
                    {% for tag in article.tagsArray %}
-                   <a href = '/blog/tags/{{tag}}'>{{ tag }}</a>
+                   <a href = '/blog/tag/{{tag}}'>{{ tag }}</a>
                    {% endfor %}
                   </span>
                   <span class='author glyphicon glyphicon-user'>

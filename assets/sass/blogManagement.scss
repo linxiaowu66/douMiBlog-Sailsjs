@@ -170,6 +170,10 @@ a {
       -ms-hyphens: auto;
       hyphens: auto;
     }
+    /*Restrict the image`s width*/
+    img{
+      width:100%
+    }
   }
 }
 

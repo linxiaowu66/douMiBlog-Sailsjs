@@ -372,7 +372,7 @@ module.exports = {
         //Format the current time to year/month/day
         return [
           users.articles,
-          Users.find({fullname: queryUser}).populate('articles',{where: {articleStatus:"published" }}),
+          User.find({fullname: queryUser}).populate('articles',{where: {articleStatus:"published" }}),
           Category.find(),
           Tags.find(),
           Archive.find(),

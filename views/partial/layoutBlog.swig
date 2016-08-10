@@ -139,11 +139,11 @@
               </div>
             </aside>
             <!-- hotter Post Box -->
-            <aside class='widget'>
+            <aside class='widget' id='hotterArticle'>
               <h4 class='title'>热门文章</h4>
               <ul>
               {% for article in hotterArticles %}
-              <li><a href='/blog/{{ article.slug }}'>{{ article.title }}</a></li>
+              <li><a href='/blog/{{ article.slug }}'>{{ article.title }}</a><span>({% if article.pageViewsCount != undefined %}{{ article.pageViewsCount}}){% else %}0{% endif%}</span></li>
               {% endfor %}
               </ul>
             </aside>
