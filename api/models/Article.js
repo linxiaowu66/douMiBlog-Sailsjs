@@ -39,6 +39,9 @@ module.exports = {
     pageviews: {
       type: 'array',
     },
+    pageviewsCount: {
+      type: 'integer'
+    },
     author:{
       type: 'string',
       required: true

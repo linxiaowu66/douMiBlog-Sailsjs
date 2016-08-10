@@ -376,6 +376,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
   margin: 0;
   font-size: 1.25em;
   line-height: 2.1em;
+  padding-left: 0;
 }
 
 
@@ -696,4 +697,21 @@ ul li{
    margin: 1rem 1.6rem 1.6rem 0;
    color: #BBC7CC;
    text-decoration: none;
+}
+
+
+
+.blog-statistics ul{
+  padding-bottom: 10px;
+}
+
+.blog-statistics ul li{
+  color: #00a67c;
+  text-decoration: none;
+  line-height: 24px;
+}
+
+.blog-statistics ul li span{
+  float: right;
+  margin-right: 20px;
 }

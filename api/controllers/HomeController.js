@@ -29,15 +29,24 @@ module.exports = {
       .then(function (articles) {
         // 每篇文章转换
         // 查找分类,及标签
+        var now = new Date();
+        //Format the now to year/month/day
+        var matchString = '';
+        matchString = '' + now.getFullYear();
+        matchString += ((now.getMonth() + 1) < 10) ? ('/0' + (now.getMonth() + 1)) : ('/' + (now.getMonth() + 1));
+        matchString += (now.getDate() < 10) ? ('/0' + now.getDate()) : ('/' + now.getDate());
         return [
           articles,
           Article.count({where: {articleStatus:"published"}}),
           Category.find(),
           Tags.find(),
-          Archive.find()
+          Archive.find(),
+          Article.find({ where: { articleStatus: 'published' }, sort: 'pageViewsCount DESC', limit: 10 }),
+          Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString}}}),
+          Statistics.findOne({key: 0}),
         ];
       })
-      .spread(function (articles,numOfArticles, categories, tags, archives) {
+      .spread(function (articles,numOfArticles, categories, tags, archives, hotterArticles, newArticlesToday, statistics) {
 
         var archiveArray = [];
         for (var index = 0; index < archives.length; index++){
@@ -52,6 +61,10 @@ module.exports = {
 
           archiveArray.push(archive);
         }
+        var newVisitCounts = statistics.totalVisitCounts + 1;
+        var newTodayCounts = statistics.todayVisitCounts + 1;
+
+        Statistics.update({key: 0}, {totalVisitCounts: newVisitCounts, todayVisitCounts: newTodayCounts});
 
         return res.view(
           'articleLists',
@@ -62,14 +75,18 @@ module.exports = {
             archives: archiveArray,
             currentPage: page,
             pageNum: Math.ceil(numOfArticles/FIND_PER_PAGE),
-            breadcrumb: ['博文概览']
+            breadcrumb: ['博文概览'],
+            hotterArticles: hotterArticles,
+            numOfArticles: numOfArticles,
+            newArticlesToday: newArticlesToday.length,
+            totalVisitCounts: statistics.totalVisitCounts + 1,
+            todayVisitCounts: statistics.todayVisitCounts + 1   
           });
       });
   },
 
   showOneArticle: function (req, res){
     var articleUrl = req.param('url');
-    console.log("ip = [%s]\n", req.ip);
     Article.findOne({slug: articleUrl})
       .then(function(article){
         return [
@@ -95,10 +112,16 @@ module.exports = {
         }
 
         if (article.pageViews.indexOf(req.ip) === -1){
+          
+          article.pageViews.push(req.ip);
+          
           Article.update(article.id, 
-            {pageViews: article.pageViews.push(req.ip)}
+            {
+             pageViews: article.pageViews,
+             pageViewsCount: article.pageViews.length
+            }
           ).exec(function(err, article){
-            console.log(article);
+            /*todo errors*/
           });
         }
 
@@ -112,6 +135,10 @@ module.exports = {
           title: article.title,
           breadcrumb: ['博文概览', article.title]
         });
+      })
+      .catch(function(err){
+        console.log(err);
+        /*ToDo.....*/
       })
   },
   showOneCategory: function (req, res){

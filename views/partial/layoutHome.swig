@@ -117,7 +117,7 @@
                 </h4>
                 <div class = "tag-cloud">
                 {% for tag in tags %}
-                <a href="/home/tag/{{ tag.name }}">{{ tag.name }}</h2></a>
+                <a href="/home/tag/{{ tag.name }}">{{ tag.name }}</a>
                 {% endfor %}
                 </div>
               </div>
@@ -125,12 +125,27 @@
             <aside id="categories-4" class="widget widget_categories">
               <h4 class="title">热门文章</h4>
               <ul>
-
+              {% for article in hotterArticles %}
+              <li><a href="/home/{{ article.slug }}">{{ article.title }}</a></li>
+              {% endfor %}
               </ul>
             </aside>
-            <aside id="text-4" class="widget widget_text">
-              <h4 class="widget-title">订阅到RSS</h4>
-              <div class="textwidget"><a href="#">通过RSS订阅</a></div>
+            <aside id="text-4" class="widget blog-statistics">
+              <h4 class='title'>博客统计</h4>
+              <ul>
+                <li>
+                  <span>{{ numOfArticles  }}</span>文章数:
+                </li>
+                <li>
+                  <span>{{ newArticlesToday }}</span>今日新增文章数:
+                </li>
+                <li>
+                  <span>{{ totalVisitCounts }}</span>网站访问量:
+                </li>
+                <li>
+                  <span>{{ todayVisitCounts }}</span>今日访问量:
+                </li>
+              </ul>
             </aside>
           </div><!-- #secondary -->
         </aside>

@@ -24,7 +24,7 @@
       <div class="col-sm-12">
         <div class="post-meta">
            <div class="row">
-              <div class="col-sm-9">
+              <div class="col-sm-10">
                  <span class="post-date"><b>发布于: </b>{{ article.archiveTime }}</span>
                  <span class="tags-array"><b>标签: </b>
                    {% for tag in article.tagsArray %}
@@ -38,7 +38,7 @@
                   {{ article.pageViews.length }}
                   </span>
                 </div>
-                <div class="col-sm-3 comment-count">
+                <div class="col-sm-2 comment-count">
                    <a href="/home/{{ article.slug }}#disqus_thread">Comment(s)</a>
                 </div>
               </div>

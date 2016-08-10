@@ -8,8 +8,31 @@
  * For more information on bootstrapping your app, check out:
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.bootstrap.html
  */
+var later = require('later');
+var schedule = require('node-schedule');
+
+function clearTodayVisitCounts(){
+  Statistics.update({key: 0}, {todayVisitCounts: 0});
+}
 
 module.exports.bootstrap = function(cb) {
+
+
+  Statistics.findOrCreate({key: 0},{
+    totalVisitCounts: 0,
+    todayVisitCounts: 0,
+    key: 0
+  }).exec(function(err, record){
+    console.log(record);
+  })
+
+  var rule = new schedule.RecurrenceRule();
+  rule.dayOfWeek = [0, new schedule.Range(0, 6)];
+  rule.hour = 0;
+  rule.minute = 0;
+ 
+
+  schedule.scheduleJob(rule, clearTodayVisitCounts);
 
   // It's very important to trigger this callback method when you are finished
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
