@@ -9,9 +9,16 @@
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.bootstrap.html
  */
 var schedule = require('node-schedule');
+var _ = require('lodash');
 
 function clearTodayVisitCounts(){
-  Statistics.update({key: 0}, {todayVisitCounts: 0});
+  console.log('New Day Has begun!!!');
+  async.parallel([
+    function(callback){Statistics.update({key: 0}, {todayVisitCounts: 0}, callback)},
+    function(callback){Article.find({where: {articleStatus:"published"}}).exec(callback)}
+  ],function(error, results){
+  async.map(tagsModel, function(tagModel, callback){Tags.findOne({id:tagModel.id}).populate('articles').exec(callback)},callback);
+  });
 }
 
 module.exports.bootstrap = function(cb) {
