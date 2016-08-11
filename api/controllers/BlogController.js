@@ -150,7 +150,7 @@ module.exports = {
           categories: categories,
           tags: tags,
           archives: archiveArray,
-          content: marked(article.content),
+          content: article.previewText,
           slug: article.slug,
           title: article.title,
           breadcrumb: [article.title],

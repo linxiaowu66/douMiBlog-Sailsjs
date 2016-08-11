@@ -10,7 +10,7 @@
   {% endblock %}
 
   <script type='text/javascript'  src='/js/requirejs/require.min.js'></script>
-  <script type='text/javascript'  src='/js/config.min.js'></script>
+  <script type='text/javascript'  src='/js/config.js'></script>
 
 </head>
 <body>
@@ -49,7 +49,7 @@
           </section>
           <footer class='dm-nav-footer'>
             <p>Copyright &copy; 2016
-              | Designed by <a href='/blog' target='_parent'>豆米博客</a></p>
+              | Designed by <a href='/blog' target='_blank'>豆米博客</a></p>
           </footer>
         </nav>
         <!-- Main content -->

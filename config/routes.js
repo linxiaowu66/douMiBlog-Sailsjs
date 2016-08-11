@@ -69,6 +69,11 @@ module.exports.routes = {
     action: 'index'
   },
 
+  'GET /douMi/articles/page/:page': {
+    controller: 'Article',
+    action: 'index'
+  },
+
   'GET /douMi/editor': {
     controller: 'Article',
     action: 'articleEdit'

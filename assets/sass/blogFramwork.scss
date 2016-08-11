@@ -165,6 +165,7 @@ main.col-md-8 section img {
           display: inline-block;
           float: left;
           position: relative;
+          margin-left: 10px;
         }
       }
     }
@@ -357,15 +358,7 @@ Breadcrumb navigation Box
 /*Responsive navigation
 -----------------------------*/
 
-.offcanvas-menu {
-  right: 0;
-}
-
-.offcanvas .offcanvas-menu {
-  opacity: 1;
-}
-
-.offcanvas-menu {
+.right-nav-menu {
   right: -280px;
   -webkit-transition: opacity 400ms cubic-bezier(0.7, 0, 0.3, 1), right 400ms cubic-bezier(0.7, 0, 0.3, 1);
   transition: opacity 400ms cubic-bezier(0.7, 0, 0.3, 1), right 400ms cubic-bezier(0.7, 0, 0.3, 1);
@@ -379,22 +372,27 @@ Breadcrumb navigation Box
   z-index: 99999;
 }
 
-.close-offcanvas {
+.open.right-nav-menu {
+  right: 0;
+  opacity: 0.8;
+}
+
+.close-menu {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 16px;
+  right: 16px;
   z-index: 1;
   color: #fff;
   border-radius: 100%;
-  width: 22px;
-  height: 22px;
-  line-height: 22px;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
   text-align: center;
-  font-size: 12px;
-  background: rgba(0, 0, 0, 0.3);
+  font-size: 16px;
+  background: rgba(0, 0, 0, 0.5);
 }
 
-.fa {
+.close-icon {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
@@ -404,37 +402,89 @@ Breadcrumb navigation Box
   transform: translate(0, 0);
 }
 
-.offcanvas-menu .offcanvas-inner {
+.right-nav-menu .right-nav-inner {
   padding: 20px;
-  .sp-module {
-    margin-top: 20px;
-    &:first-child {
-      margin-top: 0;
-    }
-    .sp-module-title {
-      font-size: 16px;
-      line-height: 1;
-      text-transform: uppercase;
+  .nav-item{
+    padding-bottom: 20px;
+    &>a{
+      font-size: 2.0rem;
+      color: #FFF;
     }
   }
 }
 
-body.offcanvas .offcanvas-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.8);
-  opacity: 1;
-  z-index: 9999;
+.accordion {
+  width: 100%;
+  margin: 30px auto 20px;
+  padding-left: 5px;
 }
 
-.offcanvas-overlay {
-  opacity: 0;
-  -webkit-transition: opacity 0.5s,width 0.1s 0.5s,height 0.1s 0.5s;
-  transition: opacity 0.5s,width 0.1s 0.5s,height 0.1s 0.5s;
+.accordion .link {
+  cursor: pointer;
+  display: block;
+  padding: 15px 15px 15px 0px;
+  color: #FFF;
+  font-size: 2.0rem;
+  font-weight: 700;
+  border-bottom: 1px solid #CCC;
+  position: relative;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
 }
+
+
+.accordion li i {
+  position: absolute;
+  top: 16px;
+  left: 12px;
+  font-size: 18px;
+  color: #595959;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.accordion li i.glyphicon-chevron-down {
+  right: 12px;
+  left: auto;
+  font-size: 16px;
+}
+
+.accordion li.open .link {
+  color: #b63b4d;
+}
+
+.accordion li.open i {
+  color: #b63b4d;
+}
+.accordion li.open i.glyphicon-chevron-down {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+/**
+ * Submenu
+ -----------------------------*/
+.submenu {
+  display: none;
+  font-size: 1.6rem;
+  padding-left: 15px;
+}
+
+.submenu a {
+  display: block;
+  text-decoration: none;
+  color: #d9d9d9;
+  padding: 6px 12px;
+  -webkit-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+
 
 /*Blog Content Box
 --------------------------*/
@@ -446,6 +496,11 @@ body.offcanvas .offcanvas-overlay {
 
 /* sidebar content
 ---------------------------*/
+
+.col-md-4.sidebar{
+  margin-top: 2em;
+}
+
 /*Sidebar Commom styles
 ------------------------------*/
 
@@ -558,8 +613,8 @@ body.offcanvas .offcanvas-overlay {
 
 @media (max-width: 767px) {
   #dm-header #dm-account .btn#offcanvas-toggler, #dm-header #dm-account .btn.btn-login {
-    color: #000000;
-    padding-left: 0;
-    font-size: 18px;
+    color: #119d55;
+    padding-left: 10px;
+    font-size: 2.0rem;
   }
 }

@@ -8,7 +8,7 @@
     <link rel='stylesheet' href='/styles/blogFramwork.css'>
   {% endblock %}
   <script type='text/javascript'  src='/js/requirejs/require.min.js'></script>
-  <script type='text/javascript'  src='/js/config.min.js'></script>
+  <script type='text/javascript'  src='/js/config.js'></script>
 </head>
 <body>
 <div id='wrapper'>
@@ -37,9 +37,9 @@
         <div id='dm-account' class='col-xs-4 col-sm-5 col-md-4'>
           <div class='dm-column '>
             <ul>
-              <li><a class='btn btn-success btn-login hidden-sm hidden-xs' href='/login'>登录</a></li>
-              <li><a class='btn btn-link btn-login visible-sm visible-xs' href='/login'><span class='glyphicon glyphicon-user'></span></a></li>
-              <li><a class='btn btn-link btn-login visible-sm visible-xs' id='offcanvas-toggler' href='#'><span class='glyphicon glyphicon-list'></span></a></li>
+              <li><a class='btn btn-success btn-login hidden-xs' href='/login'>登录</a></li>
+              <li><a class='btn btn-link btn-login visible-xs' href='/login'><span class='glyphicon glyphicon-user'></span></a></li>
+              <li><a class='btn btn-link btn-login visible-xs' id='right-menu-toggler' href='#'><span class='glyphicon glyphicon-list'></span></a></li>
             </ul>
           </div>
         </div>
@@ -47,8 +47,8 @@
     </div>
   </header>
   <!-- Navigation Body -->
-  <nav id='dm-navbar-sticky-wrapper' class='sticky-wrapper' style='height: 45px;'>
-    <section id='dm-navbar' class=' hidden-xs'>
+  <nav id='dm-navbar-sticky-wrapper' class='sticky-wrapper'>
+    <section id='dm-navbar' class='hidden-xs'>
       <div class='container'>
         <div class='row' style='position: relative;'>
           <div id='dm-categories' class='col-sm-4 col-md-2'>
@@ -65,10 +65,10 @@
               </div>
           </div>
           <!-- Navigation Menu Box -->
-          <div id='dm-menu' class='col-sm-8 col-md-7' style='position: static;'>
-            <div class='dm-column '>
-              <div class='dm-megamenu-wrapper'>
-                <ul class='dm-megamenu-parent menu-fade hidden-xs'>
+          <div class='col-sm-8 col-md-7'>
+            <div>
+              <div>
+                <ul class='dm-megamenu-parent hidden-xs'>
                   <li class='dm-menu-item'><a href='/'>首页</a></li>
                   <li class='dm-menu-item'><a href='/aboutDouMi'>关于豆米</a></li>
                   <li class='dm-menu-item'><a href='/aboutSite'>关于本站</a></li>
@@ -143,7 +143,7 @@
               <h4 class='title'>热门文章</h4>
               <ul>
               {% for article in hotterArticles %}
-              <li><a href='/blog/{{ article.slug }}'>{{ article.title }}</a><span>({% if article.pageViewsCount != undefined %}{{ article.pageViewsCount}}){% else %}0{% endif%}</span></li>
+              <li><a href='/blog/{{ article.slug }}'>{{ article.title }}</a><span>({% if article.pageViewsCount != undefined %}{{ article.pageViewsCount}}{% else %}0{% endif%})</span></li>
               {% endfor %}
               </ul>
             </aside>
@@ -171,33 +171,24 @@
     </div><!-- container -->
   </div>
   <!-- Responsive navigation -->
-  <div class='offcanvas-menu'>
-    <a href='#' class='close-offcanvas'><i class='fa fa-remove'></i></a>
-    <div class='offcanvas-inner'>
-      <div class='dm-module '><h3 class='dm-module-title'>ShapeBootstrap</h3><div class='dm-module-content'><ul class='nav menu'>
-        <li class='item-101'><a href='/'>Home</a></li>
-        <li class='item-105'><a href='/items'>All Items</a></li>
-        <li class='item-111'><a href='/popular-items'>Popular Items</a></li>
-        <li class='item-106'><a href='/free-templates'>Free Templates</a></li>
-        <li class='item-118'><a href='/blog'>Blog</a></li>
-        <li class='item-125 deeper parent'>
-          <a href='#'>Help</a>
-          <span class='offcanvas-menu-toggler collapsed' data-toggle='collapse' data-target='#collapse-menu-125' role='button' aria-expanded='false' aria-controls='collapse-menu-125'>
-            <i class='fa fa-plus'></i>
-            <i class='fa fa-minus'></i>
-          </span>
-          <ul class='collapse' id='collapse-menu-125'>
-            <li class='item-126'><a href='/forum'>Community Forum</a></li>
-            <li class='item-123'><a href='/help/contact'>Contact Us</a></li>
-            <li class='item-129'><a href='/licenses'>Licenses</a></li>
+  <div class='right-nav-menu'>
+    <a href='#' class='close-menu'><span aria-hidden='true' class='close-icon'>&times;</span></a>
+    <div class='right-nav-inner'>
+      <ul id="accordion" class="accordion">
+        <li class='nav-item'><a href='/'>首页</a></li>
+        <li class='nav-item'>
+          <div class="link">分类<i class="glyphicon glyphicon-chevron-down"></i></div>
+          <ul class="submenu">
+            {% for cat in categories %}
+            <li><a href='/blog/category/{{ cat.name }}'>{{ cat.name }}</a></li>
+            {% endfor %}
           </ul>
         </li>
-        <li class='item-131'><a href='/affiliates'>Affiliates</a></li>
+        <li class='nav-item'><a href='/aboutDouMi'>关于豆米</a></li>
+        <li class='nav-item'><a href='/aboutSite'>关于本站</a></li>
       </ul>
-      </div></div>
     </div>
   </div>
-  <div class='offcanvas-overlay'></div>
   <!-- Footer Box -->
   <footer class='footer'>
     <div>
@@ -206,6 +197,9 @@
   </footer>
 </div>
 </body>
+<script type='text/javascript'>
+  require(['../js/blogHome']);
+</script>
 </html>
 
 

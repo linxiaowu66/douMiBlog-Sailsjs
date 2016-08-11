@@ -173,7 +173,7 @@ body {
     margin-bottom: 3px;
     font-size: 1.1em;
     list-style: none;
-    
+
     &.active, &:hover {
       background: #FFB5C5;
       border-left: 10px solid rgba(0, 234, 233, 0.2);
@@ -184,6 +184,7 @@ body {
     display: block;
     padding: 15px;
     transition: all 0.3s ease;
+    text-decoration: none;
   }
   .icon {
     margin-right: 15px;

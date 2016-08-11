@@ -28,8 +28,6 @@ function updateExistingArticle(article, callback){
     disconnectTagsArrayId = [],
     connectTagsArrayId = [];
 
-  console.log(article.id);
-
   async.waterfall([
     /*Firstly, creating the non-existing related model*/
     function(callback){
@@ -102,6 +100,7 @@ function updateExistingArticle(article, callback){
       var updateArticle = {};
       updateArticle.title = article.title;
       updateArticle.content = article.content;
+      updateArticle.previewText = marked(article.content);
       updateArticle.slug = article.slug;
       updateArticle.digest = article.digest;
       updateArticle.articleStatus = article.articleStatus;
@@ -271,6 +270,7 @@ function createNewArticle(article, callback){
       var newArticle = {};
       newArticle.title = article.title;
       newArticle.content = article.content;
+      newArticle.previewText = marked(article.content);
       newArticle.slug = article.slug;
       newArticle.digest = article.digest;
       newArticle.articleStatus = article.articleStatus;
@@ -293,7 +293,6 @@ function createNewArticle(article, callback){
       for (var index = 0; index < tagsModel.length; index++){
         tagsModelId.push(tagsModel[index].id);
       }
-      console.log(tagsModelId);
       /*As the tag model is many-to-many association with article,
         so using the array to bind each other*/
       articleModel.tags.add(tagsModelId);
@@ -476,9 +475,9 @@ module.exports = {
   },
 
   index: function (req,res){
+    var page = req.param('page') ? req.param('page') : 1;
     var articleItems = [];
-    var index = 0;
-    Article.find({sort: 'updatedAt desc'}).exec(function(error, articles){
+    Article.find({sort: 'updatedAt desc'}).paginate({page: page, limit: 10}).exec(function(error, articles){
 
       if (error) {
         sails.log.error(error);
@@ -518,7 +517,7 @@ module.exports = {
 
         var articleItem = {
           title: title,
-          content: marked(content),
+          content: content,
           status: stat,
           timeDescription: timeDesc,
           id: articleId
@@ -526,10 +525,19 @@ module.exports = {
         articleItems.push(articleItem);
       });
 
-      return res.view('blogManagement', {
-        articleList: articleItems,
-        navIndex: 1
-      });
+      if (page == 1){
+        return res.view('blogManagement', {
+          articleList: articleItems,
+          navIndex: 1
+        });
+      }else{
+        Article.count().exec(function(err, count){
+          return res.json(200, {
+            articleList: articleItems,
+            count: count
+          });
+        });
+      }
     });
   },
 
@@ -551,7 +559,7 @@ module.exports = {
       }else{
         return res.json({
           "err": " ",
-          "content": articles[0].content
+          "content": articles[0].previewText
         });
       }
 
@@ -580,7 +588,7 @@ module.exports = {
         id: results[0].id,
         title: results[0].title,
         content: results[0].content,
-        preview: marked(results[0].content),
+        preview: results[0].previewText,
         status: results[0].articleStatus,
         archive: results[0].archiveTime,
         category: results[2].category.name,

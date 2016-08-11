@@ -9,8 +9,8 @@ require.config({
     bootstrap: 'bootstrap/dist/js/bootstrap.min',
     highlight: 'highlightjs/highlight.pack.min',
     markdown: 'marked/lib/marked',
-    datePicker: '../js/datetimepicker.min',
-    convertToPinYin: '../js/convertToPinYin.min',
+    datePicker: '../js/datetimepicker',
+    convertToPinYin: '../js/convertToPinYin',
     hashchange: '../js/hashchange/hashchange.min',
   },
 

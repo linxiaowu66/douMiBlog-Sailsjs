@@ -57,6 +57,6 @@
   </div>
 </div>
 <script type='text/javascript'>
-  require(['../js/login.min']);
+  require(['../js/login']);
 </script>
 {% endblock %}

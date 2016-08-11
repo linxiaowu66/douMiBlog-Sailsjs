@@ -20,6 +20,11 @@ module.exports = {
       required: true,
       minLength: 1
     },
+    previewText: {
+      type: 'string',
+      required: true,
+      minLength: 1
+    },
     slug: {
       type: 'string',
       required: true,
@@ -40,7 +45,8 @@ module.exports = {
       type: 'array',
     },
     pageviewsCount: {
-      type: 'integer'
+      type: 'integer',
+      defaultsTo: 0
     },
     author:{
       type: 'string',

@@ -370,8 +370,6 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
       description = description.replace(/[\r\n]/g, '');
       description += '......';
 
-      console.log(articleId);
-
       $.ajax({
         type: 'POST',
         url: postUrl,
