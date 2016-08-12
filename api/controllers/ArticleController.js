@@ -486,7 +486,7 @@ module.exports = {
 
       _(articles).forEach(function(article) {
         var title = article.title;
-        var content = article.content;
+        var content = article.previewText;
         var articleId = article.id;
         var stat = article.articleStatus;
         var timeDesc;

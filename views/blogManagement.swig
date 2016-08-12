@@ -46,7 +46,7 @@
           <a {% if articleList.length %}href='/douMi/editor/{{ articleList[0].id }}' {% endif %} title='编辑此博文' class='blog-edit'><span class='glyphicon glyphicon-pencil'></span></a>
         </section>
         <section class='content-preview' {% if articleList.length %}data-set='{{ articleList[0].id }}'{% endif %}>
-         {% if articleList.length %}{{ articleList[0].content |safe}}{% endif %}
+         {% if articleList.length %}{{ articleList[0].content | safe}}{% endif %}
         </section>
       </section>
     </div>
