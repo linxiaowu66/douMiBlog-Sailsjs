@@ -32,6 +32,7 @@
       <div class='medium_text'>
         <h3 class='img_txt_title'>首页</h3>
         <p class='img_p'>前方<br>为你开启</p>
+        <span class='location'>杭州 · 西溪</span>
       </div>
     </a>
     <a href='#' class='small_pic_wrap a2'>
@@ -39,6 +40,7 @@
       <div class='small_text'>
         <h3 class='img_txt_title'>启程</h3>
         <p class='img_p'>扬帆<br>在风浪中拼搏</p>
+        <span class='location'>杭州 · 湘湖</span>
       </div>
     </a>
     <a href='/blog' class='medium_pic_wrap a3' target='_blank'>
@@ -46,6 +48,7 @@
       <div class='medium_text'>
         <h3 class='img_txt_title'>博客</h3>
         <p class='img_p'>记录<br>感悟不止一点点</p>
+        <span class='location'>杭州 · 西湖</span>
       </div>
     </a>
     <a href='#' class='small_pic_wrap a4' target='_blank'>
@@ -53,6 +56,7 @@
       <div class='small_text'>
         <h3 class='img_txt_title'>行进</h3>
         <p class='img_p'>梦想<br>就在前方</p>
+        <span class='location'>杭州 · 九溪</span>
       </div>
 
     </a>
@@ -61,6 +65,7 @@
       <div class='medium_text'>
         <h3 class='img_txt_title'>关于豆米</h3>
         <p class='img_p'>你想了解的<br>都在这里</p>
+        <span class='location'>杭州 · 你和我</span>
       </div>
     </a>
   </nav>
