@@ -102,8 +102,7 @@ module.exports = {
     var articleUrl = req.param('url');
     Article.findOne({slug: articleUrl})
       .then(function(article){
-        var now = new Date();
-        //Format the current time to year/month/day
+
         return [
           article,
           Category.find(),

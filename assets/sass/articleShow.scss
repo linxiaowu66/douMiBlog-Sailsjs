@@ -109,3 +109,30 @@
     padding: 15px;
   }
 }
+
+/* Go to top Box
+--------------------------------*/
+#page-top {
+  position: fixed;
+  z-index: 9999;
+  bottom: 20px;
+  right: 0px;
+  font-size: 1.5rem;
+}
+
+#page-top a {
+  background: #665e53;
+  text-decoration: none;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  display: block;
+  -moz-opacity: 0.3;
+  opacity: 0.3;
+  transition: all .5s;
+
+  &:hover{
+    background: #119d55;
+    opacity: 0.8;
+  }
+}

@@ -20,24 +20,25 @@
 
 /* Article Info Box
 -----------------------*/
-.tags-array,.author, .pageViews{
-  padding: 0px 9px;
-  border-left: 1px solid #119d55;
-
+.post-meta .row span{
+  padding: 0 5px 0 5px;
+  &:nth-child(odd){
+    border-right: 1px solid #119d55;
+  }
   a:hover{
     text-decoration: underline;
+  }
+
+  &:nth-child(4), &:nth-child(1){
+    a {
+      padding-left: 13px;
+    }
   }
 }
 
 .comment-count {
   text-align: right;
 }
-
-.post-date {
-  padding-right: 5px;
-}
-
-
 
 /* Pagination Box
 ----------------------*/

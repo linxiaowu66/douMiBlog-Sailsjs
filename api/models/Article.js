@@ -41,10 +41,10 @@ module.exports = {
       enum: ['drafted', 'published'],
       required: true
     },
-    pageviews: {
+    pageViews: {
       type: 'array',
     },
-    pageviewsCount: {
+    pageViewsCount: {
       type: 'integer',
       defaultsTo: 0
     },

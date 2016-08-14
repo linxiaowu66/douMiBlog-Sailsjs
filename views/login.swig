@@ -7,7 +7,6 @@
 <link rel='stylesheet' type='text/css' href='/styles/loginBasicStyles.css'>
 <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,700,700italic,600'>
 <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
-<link rel='stylesheet' href='/styles/loginMainStyles.css'>
 <!--[if IE]>
 <script src='http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js'></script>
 <![endif]-->
@@ -16,6 +15,7 @@
 {% block content %}
 <div class='htmleaf-container'>
   <div class='cont_principal'>
+    <!--Header Box-->
     <header class='htmleaf-header'>
       <h1>豆米的博客 <span>有趣、五味杂陈的前端生活博客</span></h1>
       <div class='htmleaf-links'>
@@ -23,6 +23,7 @@
         <a class='icon' href='/blog' title='返回文章'><span class='glyphicon glyphicon-share-alt'></span></a>
       </div>
     </header>
+    <!--Form Box-->
     <form id='login-form' action='/login' method='post'>
       <div class='cont_join  '>
         <div class='cont_letras'>

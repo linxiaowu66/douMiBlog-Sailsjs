@@ -392,16 +392,6 @@ Breadcrumb navigation Box
   background: rgba(0, 0, 0, 0.5);
 }
 
-.close-icon {
-  display: inline-block;
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: inherit;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  transform: translate(0, 0);
-}
-
 .right-nav-menu .right-nav-inner {
   padding: 20px;
   .nav-item{
@@ -445,7 +435,7 @@ Breadcrumb navigation Box
   transition: all 0.4s ease;
 }
 
-.accordion li i.glyphicon-chevron-down {
+.accordion li i.glyphicon-menu-down {
   right: 12px;
   left: auto;
   font-size: 16px;
@@ -458,7 +448,7 @@ Breadcrumb navigation Box
 .accordion li.open i {
   color: #b63b4d;
 }
-.accordion li.open i.glyphicon-chevron-down {
+.accordion li.open i.glyphicon-menu-down {
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   -o-transform: rotate(180deg);
@@ -614,7 +604,7 @@ Breadcrumb navigation Box
 @media (max-width: 767px) {
   #dm-header #dm-account .btn#offcanvas-toggler, #dm-header #dm-account .btn.btn-login {
     color: #119d55;
-    padding-left: 10px;
+    padding: 0px 10px;
     font-size: 2.0rem;
   }
 }

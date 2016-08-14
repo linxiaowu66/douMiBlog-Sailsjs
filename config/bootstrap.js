@@ -17,7 +17,19 @@ function clearTodayVisitCounts(){
     function(callback){Statistics.update({key: 0}, {todayVisitCounts: 0}, callback)},
     function(callback){Article.find({where: {articleStatus:"published"}}).exec(callback)}
   ],function(error, results){
-  async.map(tagsModel, function(tagModel, callback){Tags.findOne({id:tagModel.id}).populate('articles').exec(callback)},callback);
+    if (error){
+      sails.log.error('update db has happened error: ' + error);
+    }else{
+      async.map(results[1], function(article, callback){
+        Article.update({id: article.id}, {pageViews: []}, callback);
+      },function(err,results) {
+        if (error){
+          sails.log.error('update db has happened error: ' + error);
+        }else{
+          /*ToDo....*/
+        }
+      });
+    }
   });
 }
 
@@ -29,7 +41,7 @@ module.exports.bootstrap = function(cb) {
     todayVisitCounts: 0,
     key: 0
   }).exec(function(err, record){
-    
+
   })
 
   var rule = new schedule.RecurrenceRule();

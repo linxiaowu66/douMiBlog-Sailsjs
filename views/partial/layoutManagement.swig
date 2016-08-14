@@ -3,7 +3,10 @@
 <head>
   <meta charset='utf-8'>
   <title>{% block title %}{% endblock %}</title>
-
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="Keywords" content="豆米 前端 博客 服务器 生活">
+  <meta name="Description" content="豆米博客，用心、用爱、用力拥抱热爱前端">
   {% block style %}
   <link rel='stylesheet' href='/vender/bootstrap/dist/css/bootstrap.min.css'>
   <link rel='stylesheet' href='/styles/navOfManagement.css'>

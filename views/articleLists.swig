@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block content %}
-<main class='col-md-8'>
+<main class='col-md-8 col-sm-8 col-xs-12'>
  {% for article in articles %}
  <!-- Article Box -->
   <article class='post' url-data='{{ article.slug }}'>
@@ -22,23 +22,23 @@
     </p>
     <!-- Article Info Box -->
     <div class='row'>
-      <div class='col-sm-12'>
+      <div class='col-sm-12 col-md-12 col-xs-12'>
         <div class='post-meta'>
            <div class='row'>
-              <div class='col-sm-10'>
-                 <span class='post-date glyphicon glyphicon-time'><a href='#' style='padding-left:5px'>{{ article.archiveTime }}</a></span>
-                 <span class='tags-array glyphicon glyphicon-tags'>
+              <div class='col-sm-10 col-xs-10 col-md-10'>
+                 <span class='col-xs-8 col-sm-8 col-md-4 glyphicon glyphicon-time'><a href='#'>{{ article.archiveTime }}</a></span>
+                 <span class='col-xs-4 col-sm-4 col-md-2 author glyphicon glyphicon-user'>
+                   <a href = '/blog/user/{{article.author}}' >{{article.author}}</a>
+                 </span>
+                 <span class='col-xs-8 col-sm-8 col-md-4 tags-array glyphicon glyphicon-tags'>
                    {% for tag in article.tagsArray %}
                    <a href = '/blog/tag/{{tag}}'>{{ tag }}</a>
                    {% endfor %}
                   </span>
-                  <span class='author glyphicon glyphicon-user'>
-                  <a href = '/blog/user/{{article.author}}' >{{article.author}}</a>
-                  </span>
-                  <span class='pageViews glyphicon glyphicon-heart'><a href='#' style='padding-left:5px'>{{ article.pageViews.length }}</a>
+                  <span class='col-xs-4 col-sm-4 col-md-2 glyphicon glyphicon-heart'><a href='#'>{{ article.pageViews.length }}</a>
                   </span>
                 </div>
-                <div class='col-sm-2 comment-count'>
+                <div class='col-sm-2 col-xs-2 col-md-2 comment-count'>
                    <a href='/blog/{{ article.slug }}#disqus_thread' class='glyphicon glyphicon-comment'></a>
                 </div>
               </div>

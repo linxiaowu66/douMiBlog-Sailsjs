@@ -2,6 +2,10 @@
 <html>
 <head>
   <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="Keywords" content="豆米 前端 博客 服务器 生活">
+  <meta name="Description" content="豆米博客，用心、用爱、用力拥抱热爱前端">
   <title>{% block title %}{% endblock %}</title>
   {% block style %}
     <link rel='stylesheet' href='/vender/bootstrap/dist/css/bootstrap.min.css'>
@@ -114,7 +118,7 @@
         {% block content %}
         {% endblock %}
         <!-- sidebar content -->
-        <aside class='col-md-4 sidebar'>
+        <aside class='col-md-4 col-sm-4 col-xs-12 sidebar'>
           <div id='secondary' class='widget-area' role='complementary'>
             <!-- archive Box -->
             <aside id='archives' class='widget widget_archive'>
@@ -177,7 +181,7 @@
       <ul id="accordion" class="accordion">
         <li class='nav-item'><a href='/'>首页</a></li>
         <li class='nav-item'>
-          <div class="link">分类<i class="glyphicon glyphicon-chevron-down"></i></div>
+          <div class="link">分类<i class="glyphicon glyphicon-menu-down"></i></div>
           <ul class="submenu">
             {% for cat in categories %}
             <li><a href='/blog/category/{{ cat.name }}'>{{ cat.name }}</a></li>
