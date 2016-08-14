@@ -324,7 +324,6 @@ a {
       color: #fff;
       font-size: 1.4rem;
       margin: 15px 0px 2px 15px;
-      margin-bottom: 2px;
       text-align: left;
     }
   }
@@ -448,5 +447,14 @@ a {
     height: 65%;
     margin-top: -30%;
     margin-left: -45%;
+  }
+
+  .cont_form_join{
+    & > h2{
+      margin-top: 0px;
+    }
+  }
+  .cont_form_join > p{
+    margin-top: 5px;
   }
 }
