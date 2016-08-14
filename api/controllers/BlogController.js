@@ -99,7 +99,8 @@ module.exports = {
   },
 
   showOneArticle: function (req, res){
-    var articleUrl = req.param('url');
+    var articleUrl = req.param('url'),
+        reqIp = '';
     Article.findOne({slug: articleUrl})
       .then(function(article){
 
@@ -129,10 +130,16 @@ module.exports = {
 
           archiveArray.push(archive);
         }
-        
-        if (article.pageViews.indexOf(req.headers['x-real-ip']) === -1){
+       
+	if (req.headers['x-real-ip'] === undefined){
+	  reqIp = req.ip;
+	}else{
+	  reqIp = req.headers['x-real-ip'];
+	}
+ 
+        if (article.pageViews.indexOf(reqIp) === -1){
 
-          article.pageViews.push(req.headers['x-real-ip']);
+          article.pageViews.push(reqIp);
 
           Article.update(article.id,
             {
