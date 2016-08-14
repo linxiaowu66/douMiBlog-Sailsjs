@@ -1,3 +1,21 @@
+
+.article-info.row span{
+  padding: 0 5px 0 5px;
+  &:nth-child(odd){
+    border-right: 1px solid #119d55;
+  }
+  a:hover{
+    text-decoration: underline;
+  }
+
+  &:nth-child(4), &:nth-child(1){
+    a {
+      padding-left: 13px;
+    }
+  }
+}
+
+
 .post-footer {
   position: relative;
   margin: 6rem 0 3rem 0;

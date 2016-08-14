@@ -11,14 +11,29 @@
 
 {% block content %}
 <main class='col-md-8'>
-  <header class='post-header'><h1 class='post-title'>{{ title }}</h1></header>
-  <section class='article-body'>{{ content |safe}}</section>
+  <header class='post-header'><h1 class='post-title'>{{ article.title }}</h1></header>
+  <section class='article-info row'>
+    <div class='col-sm-10 col-xs-10 col-md-10'>
+      <span class='col-xs-8 col-sm-8 col-md-4 glyphicon glyphicon-time'><a href='#'>{{ article.archiveTime }}</a></span>
+      <span class='col-xs-4 col-sm-4 col-md-2 author glyphicon glyphicon-user'>
+       <a href = '/blog/user/{{article.author}}' >{{article.author}}</a>
+      </span>
+      <span class='col-xs-8 col-sm-8 col-md-4 tags-array glyphicon glyphicon-tags'>
+       {% for tag in article.tagsArray %}
+       <a href = '/blog/tag/{{tag}}'>{{ tag }}</a>
+       {% endfor %}
+      </span>
+      <span class='col-xs-4 col-sm-4 col-md-2 glyphicon glyphicon-heart'><a href='#'>{{ article.pageViews.length }}</a>
+      </span>
+    </div>
+  </section>
+  <section class='article-body'>{{ article.previewText |safe}}</section>
   <footer class='post-footer'>
     <figure class='author-image'>
-      <a class='img' href='/author/' style='background-image: url(/images/douMi.jpg)'><span class='hidden'>豆米的头像</span></a>
+      <a class='img' href='/aboutDouMi'><span class='hidden'>豆米的头像</span></a>
     </figure>
     <section class='author'>
-      <h4><a href='/author/'>小米喳和大洋芋</a></h4>
+      <h4><a href='/aboutDouMi'>小米喳和大洋芋</a></h4>
       <p>豆米目前生活在“上有天堂，下有苏杭”的杭州，美不胜收的美景之地也收获着甜蜜恩爱的生活。豆米热爱前端，热爱互联网，豆米是洋芋(土豆-豆)和米喳(米)的简称。</p>
       <div class='author-meta'>
         <span class='glyphicon glyphicon-map-marker'>杭州</span>
@@ -27,7 +42,12 @@
     </section>
     <section class='share'>
       <h4>分享此博文</h4>
-      <div class='bdsharebuttonbox bdshare-button-style1-24' data-bd-bind='1470122130117'><a href='#' class='bds_more' data-cmd='more'></a><a href='#' class='bds_tsina' data-cmd='tsina' title='分享到新浪微博'></a><a href='#' class='bds_weixin' data-cmd='weixin' title='分享到微信'></a><a href='#' class='bds_douban' data-cmd='douban' title='分享到豆瓣网'></a><a href='#' class='bds_renren' data-cmd='renren' title='分享到人人网'></a></div>
+      <div class='bdsharebuttonbox bdshare-button-style1-24' data-bd-bind='1470122130117'>
+        <a href='#' class='bds_more' data-cmd='more'></a>
+        <a href='#' class='bds_tsina' data-cmd='tsina' title='分享到新浪微博'></a>
+        <a href='#' class='bds_weixin' data-cmd='weixin' title='分享到微信'></a>
+        <a href='#' class='bds_douban' data-cmd='douban' title='分享到豆瓣网'></a>
+        <a href='#' class='bds_renren' data-cmd='renren' title='分享到人人网'></a></div>
       <script>window._bd_share_config={'common':{'bdSnsKey':{},'bdText':'','bdMini':'2','bdMiniList':false,'bdPic':'','bdStyle':'1','bdSize':'24'},'share':{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
     </section>
   </footer>
