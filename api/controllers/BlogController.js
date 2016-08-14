@@ -129,10 +129,10 @@ module.exports = {
 
           archiveArray.push(archive);
         }
+        
+        if (article.pageViews.indexOf(req.headers['x-real-ip']) === -1){
 
-        if (article.pageViews.indexOf(req.ip) === -1){
-
-          article.pageViews.push(req.ip);
+          article.pageViews.push(req.headers['x-real-ip']);
 
           Article.update(article.id,
             {
