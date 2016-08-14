@@ -35,7 +35,7 @@
                    <a href = '/blog/tag/{{tag}}'>{{ tag }}</a>
                    {% endfor %}
                   </span>
-                  <span class='col-xs-4 col-sm-4 col-md-2 glyphicon glyphicon-heart'><a href='#'>{{ article.pageViews.length }}</a>
+                  <span class='col-xs-4 col-sm-4 col-md-2 glyphicon glyphicon-heart'><a href='#'>{{ article.pageViewsCount }}</a>
                   </span>
                 </div>
                 <div class='col-sm-2 col-xs-2 col-md-2 comment-count'>

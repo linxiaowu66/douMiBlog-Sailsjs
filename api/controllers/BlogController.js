@@ -137,7 +137,7 @@ module.exports = {
           Article.update(article.id,
             {
              pageViews: article.pageViews,
-             pageViewsCount: article.pageViews.length
+             pageViewsCount: article.pageViewsCount + 1
             }
           ).exec(function(err, article){
             /*todo errors*/

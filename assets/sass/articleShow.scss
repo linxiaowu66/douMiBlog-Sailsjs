@@ -41,7 +41,7 @@
 
 .post-footer {
   .author {
-    margin-right: 260px;
+    margin-right: 35%;
   }
   h4 {
     font-size: 1.8rem;
@@ -78,6 +78,12 @@
   top: 6rem;
   right: 0;
   width: 230px;
+}
+
+@media (max-width: 767px){
+  .post-footer .share {
+    width: 90px;
+  }
 }
 
 .bdshare-button-style1-24 {
