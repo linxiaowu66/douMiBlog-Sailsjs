@@ -17,7 +17,7 @@ marked.setOptions({
   }
 });
 
-var matchString = function(){
+function matchString(){
   var now = new Date();
   //Format the current time to year/month/day
   var matchString = '';
@@ -40,7 +40,6 @@ module.exports = {
       .then(function (articles) {
         // 每篇文章转换
         // 查找分类,及标签
-
         return [
           articles,
           Article.count({where: {articleStatus:"published"}}),
@@ -48,7 +47,7 @@ module.exports = {
           Tags.find(),
           Archive.find(),
           Article.find({ where: { articleStatus: 'published' }, sort: 'pageViewsCount DESC', limit: 10 }),
-          Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString}}}),
+          Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString()}}}),
           Statistics.findOne({key: 0})
         ];
       })
@@ -104,17 +103,13 @@ module.exports = {
       .then(function(article){
         var now = new Date();
         //Format the current time to year/month/day
-        var matchString = '';
-        matchString = '' + now.getFullYear();
-        matchString += ((now.getMonth() + 1) < 10) ? ('-0' + (now.getMonth() + 1)) : ('-' + (now.getMonth() + 1));
-        matchString += (now.getDate() < 10) ? ('-0' + now.getDate()) : ('-' + now.getDate());
         return [
           article,
           Category.find(),
           Tags.find(),
           Archive.find(),
           Article.find({ where: { articleStatus: 'published' }, sort: 'pageViewsCount DESC', limit: 10 }),
-          Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString}}}),
+          Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString()}}}),
           Statistics.findOne({key: 0}),
           Article.count({where: {articleStatus:"published"}})
         ];
@@ -184,10 +179,6 @@ module.exports = {
       .then(function (categories) {
         var now = new Date();
         //Format the current time to year/month/day
-        var matchString = '';
-        matchString = '' + now.getFullYear();
-        matchString += ((now.getMonth() + 1) < 10) ? ('-0' + (now.getMonth() + 1)) : ('-' + (now.getMonth() + 1));
-        matchString += (now.getDate() < 10) ? ('-0' + now.getDate()) : ('-' + now.getDate());
         return [
           categories[0].articles,
           Category.find({name: queryCategory}).populate('articles',{where: {articleStatus:"published" }}),
@@ -195,7 +186,7 @@ module.exports = {
           Tags.find(),
           Archive.find(),
           Article.find({ where: { articleStatus: 'published' }, sort: 'pageViewsCount DESC', limit: 10 }),
-          Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString}}}),
+          Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString()}}}),
           Statistics.findOne({key: 0}),
           Article.count({where: {articleStatus:"published"}})
         ];
@@ -250,10 +241,6 @@ module.exports = {
       .then(function (tags) {
         var now = new Date();
         //Format the current time to year/month/day
-        var matchString = '';
-        matchString = '' + now.getFullYear();
-        matchString += ((now.getMonth() + 1) < 10) ? ('-0' + (now.getMonth() + 1)) : ('-' + (now.getMonth() + 1));
-        matchString += (now.getDate() < 10) ? ('-0' + now.getDate()) : ('-' + now.getDate());
         return [
           tags[0].articles,
           Tags.find({name: queryTag}).populate('articles',{where: {articleStatus:"published" }}),
@@ -261,7 +248,7 @@ module.exports = {
           Tags.find(),
           Archive.find(),
           Article.find({ where: { articleStatus: 'published' }, sort: 'pageViewsCount DESC', limit: 10 }),
-          Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString}}}),
+          Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString()}}}),
           Statistics.findOne({key: 0}),
           Article.count({where: {articleStatus:"published"}})
         ];
@@ -316,10 +303,6 @@ module.exports = {
       .then(function (archives) {
         var now = new Date();
         //Format the current time to year/month/day
-        var matchString = '';
-        matchString = '' + now.getFullYear();
-        matchString += ((now.getMonth() + 1) < 10) ? ('-0' + (now.getMonth() + 1)) : ('-' + (now.getMonth() + 1));
-        matchString += (now.getDate() < 10) ? ('-0' + now.getDate()) : ('-' + now.getDate());
         return [
           archives[0].articles,
           Archive.find({archiveTime: queryArchive}).populate('articles',{where: {articleStatus:"published" }}),
@@ -327,7 +310,7 @@ module.exports = {
           Tags.find(),
           Archive.find(),
           Article.find({ where: { articleStatus: 'published' }, sort: 'pageViewsCount DESC', limit: 10 }),
-          Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString}}}),
+          Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString()}}}),
           Statistics.findOne({key: 0}),
           Article.count({where: {articleStatus:"published"}})
         ];
@@ -382,10 +365,6 @@ module.exports = {
       .then(function (users) {
         var now = new Date();
         //Format the current time to year/month/day
-        var matchString = '';
-        matchString = '' + now.getFullYear();
-        matchString += ((now.getMonth() + 1) < 10) ? ('-0' + (now.getMonth() + 1)) : ('-' + (now.getMonth() + 1));
-        matchString += (now.getDate() < 10) ? ('-0' + now.getDate()) : ('-' + now.getDate());
         return [
           users.articles,
           Users.find({fullname: queryUser}).populate('articles',{where: {articleStatus:"published" }}),
@@ -393,7 +372,7 @@ module.exports = {
           Tags.find(),
           Archive.find(),
           Article.find({ where: { articleStatus: 'published' }, sort: 'pageViewsCount DESC', limit: 10 }),
-          Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString}}}),
+          Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString()}}}),
           Statistics.findOne({key: 0}),
           Article.count({where: {articleStatus:"published"}})
         ];
@@ -436,19 +415,12 @@ module.exports = {
 
   aboutSite: function (req, res){
 
-    var now = new Date();
-    //Format the current time to year/month/day
-    var matchString = '';
-    matchString = '' + now.getFullYear();
-    matchString += ((now.getMonth() + 1) < 10) ? ('-0' + (now.getMonth() + 1)) : ('-' + (now.getMonth() + 1));
-    matchString += (now.getDate() < 10) ? ('-0' + now.getDate()) : ('-' + now.getDate());
-
     async.parallel([
       function(callback){Category.find().exec(callback)},
       function(callback){Tags.find().exec(callback)},
       function(callback){Archive.find().exec(callback)},
       function(callback){Article.find({ where: { articleStatus: 'published' }, sort: 'pageViewsCount DESC', limit: 10 }).exec(callback)},
-      function(callback){Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString}}}).exec(callback)},
+      function(callback){Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString()}}}).exec(callback)},
       function(callback){Statistics.findOne({key: 0}).exec(callback)},
       function(callback){Article.count({where: {articleStatus:"published"}}, callback)}
     ],function(error, results){

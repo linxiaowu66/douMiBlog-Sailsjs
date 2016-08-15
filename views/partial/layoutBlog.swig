@@ -4,6 +4,7 @@
   <meta charset='utf-8'>
   <title>{% block title %}{% endblock %}</title>
   {% block style %}
+    <link rel='stylesheet' href='/vender/bootstrap/dist/css/bootstrap.min.css'>
     <link rel='stylesheet' href='/styles/blogFramwork.css'>
   {% endblock %}
   <script type='text/javascript'  src='/js/requirejs/require.min.js'></script>
@@ -126,7 +127,7 @@
             </aside>
             <!-- tags cloud Box -->
             <aside class='widget'>
-              <div class=tagsWidget'>
+              <div class='tagsWidget'>
                 <h4 class='title'>
                   标签
                 </h4>
@@ -205,9 +206,6 @@
   </footer>
 </div>
 </body>
-<script type='text/javascript'>
-  require(['../../js/articleShow']);
-</script>
 </html>
 
 

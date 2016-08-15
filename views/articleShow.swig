@@ -5,9 +5,8 @@
 
 {% block style %}
 {% parent %}
-<link rel='stylesheet' href='../vender/bootstrap/dist/css/bootstrap.min.css'>
 <link href='/vender/highlightjs/styles/monokai-sublime.css' rel='stylesheet'>
-<link rel='stylesheet' href='/styles/artileShow.css'>
+<link rel='stylesheet' href='/styles/articleShow.css'>
 {% endblock %}
 
 {% block content %}
@@ -22,8 +21,8 @@
       <h4><a href='/author/'>小米喳和大洋芋</a></h4>
       <p>豆米目前生活在“上有天堂，下有苏杭”的杭州，美不胜收的美景之地也收获着甜蜜恩爱的生活。豆米热爱前端，热爱互联网，豆米是洋芋(土豆-豆)和米喳(米)的简称。</p>
       <div class='author-meta'>
-        <span class='author-location icon-location'>杭州</span>
-        <span class='author-link icon-link'><a href='http://www.5udou.cn'>http://www.5udou.cn</a></span>
+        <span class='glyphicon glyphicon-map-marker'>杭州</span>
+        <span class='glyphicon glyphicon-link'><a href='http://www.5udou.cn'>http://www.5udou.cn</a></span>
       </div>
     </section>
     <section class='share'>

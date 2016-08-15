@@ -4,7 +4,6 @@
 
 {% block style %}
 {% parent %}
-<link rel='stylesheet' href='/vender/bootstrap/dist/css/bootstrap.min.css'>
 <link rel='stylesheet' href='/styles/articleLists.css'>
 {% endblock %}
 
@@ -27,21 +26,20 @@
         <div class='post-meta'>
            <div class='row'>
               <div class='col-sm-10'>
-                 <span class='post-date'><b>发布于: </b>{{ article.archiveTime }}</span>
-                 <span class='tags-array'><b>标签: </b>
+                 <span class='post-date glyphicon glyphicon-time'><a href='#' style='padding-left:5px'>{{ article.archiveTime }}</a></span>
+                 <span class='tags-array glyphicon glyphicon-tags'>
                    {% for tag in article.tagsArray %}
                    <a href = '/blog/tags/{{tag}}'>{{ tag }}</a>
                    {% endfor %}
                   </span>
-                  <span class='author'><b>作者：</b>
+                  <span class='author glyphicon glyphicon-user'>
                   <a href = '/blog/user/{{article.author}}' >{{article.author}}</a>
                   </span>
-                  <span class='pageViews'><b>阅读: </b>
-                  {{ article.pageViews.length }}
+                  <span class='pageViews glyphicon glyphicon-heart'><a href='#' style='padding-left:5px'>{{ article.pageViews.length }}</a>
                   </span>
                 </div>
                 <div class='col-sm-2 comment-count'>
-                   <a href='/blog/{{ article.slug }}#disqus_thread'>评论</a>
+                   <a href='/blog/{{ article.slug }}#disqus_thread' class='glyphicon glyphicon-comment'></a>
                 </div>
               </div>
             </div>

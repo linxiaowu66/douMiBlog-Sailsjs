@@ -69,14 +69,23 @@ body {
   }
 }
 
-.dm-nav-header h1 {
-  color: #7d878a;
-  display: inline-block;
-  font-size: 1.8em;
-  font-weight: 300;
-  letter-spacing: 1.5px;
-  margin: 0 5px;
-  vertical-align: middle;
+.dm-nav-header{
+  .square {
+    width: 25px;
+    height: 25px;
+    border: 3px solid #119d55;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  h1 {
+    color: #7d878a;
+    display: inline-block;
+    font-size: 1.8em;
+    font-weight: 300;
+    letter-spacing: 1.5px;
+    margin: 0 5px;
+    vertical-align: middle;
+  }
 }
 
 .dm-sidebar .dm-nav-body {
@@ -158,9 +167,13 @@ body {
 -----------------------------*/
 
 .dm-left-nav {
+  padding-left: 10px;
   li {
     font-weight: 300;
     margin-bottom: 3px;
+    font-size: 1.1em;
+    list-style: none;
+    
     &.active, &:hover {
       background: #FFB5C5;
       border-left: 10px solid rgba(0, 234, 233, 0.2);
@@ -169,7 +182,7 @@ body {
   a {
     color: #7d878a;
     display: block;
-    padding: 30px;
+    padding: 15px;
     transition: all 0.3s ease;
   }
   .icon {

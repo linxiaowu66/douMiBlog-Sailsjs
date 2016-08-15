@@ -122,7 +122,7 @@ main.col-md-8 section img {
     height: 45px;
     display: table;
     h1 {
-      font-size: 24px;
+      font-size: 2.0rem;
       line-height: 1;
       margin: 0;
       padding: 0;
@@ -211,20 +211,40 @@ main.col-md-8 section img {
   }
 }
 
-.sub-nav {
-  display: none;
-}
 
 #dm-categories .has-sub .sub-nav {
   position: absolute;
-  left: 100%;
+  /*Make the postion relative to left is 0px,
+   so it always left align and not overflow to screen*/
+  left: 0%;
   top: 100%;
-  margin-left: -203px;
-  width: 219px;
+  /*Make this box width is equal to 'has-sub' box,
+   so when the has-sub box`s width has changed, this
+   box also will be change,thus the center always will
+   point to has-sub box center.*/
+  width: 100%;
   border: #eee solid 1px;
   background-color: #fff;
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
   z-index: 10;
+  display: block;
+  opacity: 0;
+  -ms-transform: scale(0, 0);
+  -webkit-transform: scale(0, 0);
+  transform: scale(0, 0);
+  -ms-transform-origin: 50% 10%;
+  -webkit-transform-origin: 50% 10%;
+  transform-origin: 50% 10%;
+  -webkit-transition: all .3s ease 0s;
+  transition: all .3s ease 0s;
+}
+
+
+#dm-categories .has-sub:hover .sub-nav {
+  opacity: 1;
+  -ms-transform: scale(1, 1);
+  -webkit-transform: scale(1, 1);
+  transform: scale(1, 1);
 }
 
 .sub-nav .triangle {
@@ -523,30 +543,6 @@ body.offcanvas .offcanvas-overlay {
 /*Media Queries
 --------------------------*/
 
-
-@media only screen and (min-width: 100px) {
-  #dm-categories .has-sub:hover .sub-nav {
-    opacity: 1;
-    -ms-transform: scale(1, 1);
-    -webkit-transform: scale(1, 1);
-    transform: scale(1, 1);
-  }
-}
-
-@media only screen and (min-width: 100px) {
-  .sub-nav {
-    display: block;
-    opacity: 0;
-    -ms-transform: scale(0, 0);
-    -webkit-transform: scale(0, 0);
-    transform: scale(0, 0);
-    -ms-transform-origin: 50% 10%;
-    -webkit-transform-origin: 50% 10%;
-    transform-origin: 50% 10%;
-    -webkit-transition: all .3s ease 0s;
-    transition: all .3s ease 0s;
-  }
-}
 
 @media (max-width: 767px) {
   #dm-header #dm-account .btn#offcanvas-toggler, #dm-header #dm-account .btn.btn-login {

@@ -14,7 +14,7 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
     var archiveTime = '',
         date = new Date();
 
-    if ($('#articleTime').val() === '){
+    if ($('#articleTime').val() === ''){
       archiveTime += date.getFullYear();
       if (date.getMonth() < 9){
         archiveTime += '-0' + (date.getMonth() + 1);
@@ -254,7 +254,7 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
         result.length = 3 - spanNum;
       }
       for (index = 0; index < result.length; index++){
-        var insertElement = '<span title='单击删除该标签'>' + result[index] +'</span>'
+        var insertElement = "<span title='单击删除该标签'>" + result[index] +'</span>'
         $('#tags').append(insertElement);
       }
 
@@ -274,7 +274,7 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
       }
 
       var select = $(this).html();
-      var insertElement = '<span title='单击删除该标签'>' + select +'</span>'
+      var insertElement = "<span title='单击删除该标签'>" + select +'</span>'
       $('#tags').append(insertElement);
 
       $(this).addClass('act');

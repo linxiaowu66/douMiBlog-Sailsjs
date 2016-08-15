@@ -4,6 +4,19 @@
 
 var _ = require('lodash');
 
+var marked = require('marked');
+var hljs   = require('../../node_modules/highlightjs/highlight.pack.js');
+marked.setOptions({
+  highlight: function(code, lang) {
+    if (typeof lang === 'undefined') {
+      return hljs.highlightAuto(code).value;
+    } else if (lang === 'nohighlight') {
+      return code;
+    } else {
+      return hljs.highlight(lang, code).value;
+    }
+  }
+});
 function updateExistingArticle(article, callback){
 
   var articleModel,
@@ -490,7 +503,6 @@ module.exports = {
               dayOffset = curTime.getDate() - publishDay,
               hoursOffset = curTime.getHours() - publishMinute,
               minutesOffset = curTime.getMinutes() - publishSecond;
-          console.log(minutesOffset);
           if (yearOffset > 0){
             timeDesc = yearOffset + ' 年前';
           }else if (monthOffset > 0){
@@ -506,7 +518,7 @@ module.exports = {
 
         var articleItem = {
           title: title,
-          content: content,
+          content: marked(content),
           status: stat,
           timeDescription: timeDesc,
           id: articleId

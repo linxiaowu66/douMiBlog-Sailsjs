@@ -67,6 +67,9 @@
     display: inline-block;
     margin: 0 2rem 1rem 0;
     word-wrap: break-word;
+   &:before,&:after{
+    padding-right: 6px;
+   }
   }
 }
 
