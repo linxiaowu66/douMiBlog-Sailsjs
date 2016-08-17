@@ -357,11 +357,9 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
         dateString = $('#articleTime').val();
       }
 
-
       /*Make a unique slug*/
-      url = toPinYin.ConvertPinyin(articleName) + Math.floor((Math.random()*100));
-
-
+      url = toPinYin.ConvertPinyin(articleName);// + Math.floor((Math.random()*100));
+      
       description = content.substr(0, 100);
       description = marked(description);
       /*Remove the html tags*/
