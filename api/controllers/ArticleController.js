@@ -395,7 +395,11 @@ module.exports = {
           return res.json(200, {error: err});
         }else{
           console.log("Send the Ok to client");
-          res.json(200, {articleIdx: articleIndex});
+          res.json(200, {
+            articleIdx: articleIndex,
+            title: article.title,
+            slug: article.slug
+          });
         }
       });
     }else{
@@ -404,7 +408,11 @@ module.exports = {
           sails.log.error(err);
           return res.json(200, {error: err});
         }else{
-          return res.json(200, {articleIdx: article.id});
+          return res.json(200, {
+            articleIdx: article.id,
+            title: article.title,
+            slug: article.slug
+          });
         }
       });
     }
@@ -419,7 +427,11 @@ module.exports = {
           sails.log.error(err);
           return res.json(200, {error: err});
         }else{
-          res.json(200, {articleIdx: articleIndex});
+          res.json(200, {
+            articleIdx: articleIndex,
+            title: article.title,
+            slug: article.slug
+          });
         }
       });
     }else {
@@ -428,7 +440,11 @@ module.exports = {
           sails.log.error(err);
           return res.json(200, { error: err });
         } else {
-          return res.json(200, { articleIdx: article.id });
+          return res.json(200, {
+            articleIdx: article.id,
+            title: article.title,
+            slug: article.slug
+          });
         }
       });
     }
@@ -456,7 +472,11 @@ module.exports = {
         sails.log.error(err);
         return res.json(200, {error: err});
       }else{
-        return res.json(200, {articleIdx: article.id});
+        return res.json(200, {
+          articleIdx: article.id,
+          title: article.title,
+          slug: article.slug
+        });
       }
     });
   },
@@ -469,7 +489,11 @@ module.exports = {
         sails.log.error(err);
         return res.json(200, {error: err});
       }else{
-        return res.json(200, {articleIdx: article.id});
+        return res.json(200, {
+          articleIdx: article.id,
+          title: article.title,
+          slug: article.slug
+        });
       }
     });
   },
@@ -587,6 +611,7 @@ module.exports = {
       var article = {
         id: results[0].id,
         title: results[0].title,
+        slug: results[0].slug,
         content: results[0].content,
         preview: results[0].previewText,
         status: results[0].articleStatus,

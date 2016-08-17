@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block content %}
-<main class='dm-blog content-viwer' {% if article.id !== undefined %} data-set = '{{ article.id }}' {% endif %} >
+<main class='dm-blog content-viwer' {% if article.id !== undefined %} data-id = '{{ article.id }}' data-title='{{article.title}}' data-slug='{{article.slug}}'{% endif %} >
   <section class='dm-blog content-container'>
     <header class='view-header'>
       <h2 class='view-title'>

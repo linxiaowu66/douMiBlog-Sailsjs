@@ -302,10 +302,17 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
     function draftSuccessAction(data){
       history.replaceState('','','/douMi/editor/' + data.articleIdx);
 
-      if ($('.dm-blog .content-viwer').attr('data-set') === undefined){
+      if ($('.dm-blog .content-viwer').attr('data-id') === undefined){
         var appendElements = '<li role=\'separator\' class=\'divider\'></li><li><a id=\'delete\' href=\'/douMi/delete/'+ data.articleIdx + '\'>删除博文</a></li>'
         $('.dropdown-menu').append(appendElements);
-        $('.dm-blog .content-viwer').attr('data-set', data.articleIdx);
+        $('.dm-blog .content-viwer').attr('data-id', data.articleIdx);
+      }
+      if ($('.dm-blog .content-viwer').attr('data-title') === undefined){
+        $('.dm-blog .content-viwer').attr('data-title', data.title);
+        $('.dm-blog .content-viwer').attr('data-slug', data.slug);
+      }else if($('.dm-blog .content-viwer').attr('data-title') !== data.title){
+        $('.dm-blog .content-viwer').attr('data-title', data.title);
+        $('.dm-blog .content-viwer').attr('data-slug', data.slug);
       }
     }
 
@@ -316,15 +323,29 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
       $('#publish').html('撤销发布');
       $('#publish').attr('id', 'undoPublish');
       history.replaceState('','','/douMi/editor/' + data.articleIdx);
-      if ($('.dm-blog .content-viwer').attr('data-set') === undefined){
+      if ($('.dm-blog .content-viwer').attr('data-id') === undefined){
         var appendElements = '<li role=\'separator\' class=\'divider\'></li><li><a id=\'delete\' href=\'/douMi/delete/'+ data.articleIdx + '\'>删除博文</a></li>'
         $('.dropdown-menu').append(appendElements);
-        $('.dm-blog .content-viwer').attr('data-set', data.articleIdx);
+        $('.dm-blog .content-viwer').attr('data-id', data.articleIdx);
+      }
+
+      if ($('.dm-blog .content-viwer').attr('data-title') === undefined){
+        $('.dm-blog .content-viwer').attr('data-title', data.title);
+        $('.dm-blog .content-viwer').attr('data-slug', data.slug);
+      }else if($('.dm-blog .content-viwer').attr('data-title') !== data.title){
+        $('.dm-blog .content-viwer').attr('data-title', data.title);
+        $('.dm-blog .content-viwer').attr('data-slug', data.slug);
       }
     }
 
     function updatePubSuccessAction(data){
-      console.log('updating Publish ok');
+      if ($('.dm-blog .content-viwer').attr('data-title') === undefined){
+        $('.dm-blog .content-viwer').attr('data-id', data.title);
+        $('.dm-blog .content-viwer').attr('data-slug', data.slug);
+      }else if($('.dm-blog .content-viwer').attr('data-title') !== data.title){
+        $('.dm-blog .content-viwer').attr('data-title', data.title);
+        $('.dm-blog .content-viwer').attr('data-slug', data.slug);
+      }
     }
 
     function undoPubSuccessAction(data){
@@ -333,6 +354,14 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
       $('#save').attr('id', 'save');
       $('#publish').html('立即发布');
       $('#publish').attr('id', 'publish');
+
+      if ($('.dm-blog .content-viwer').attr('data-title') === undefined){
+        $('.dm-blog .content-viwer').attr('data-id', data.title);
+        $('.dm-blog .content-viwer').attr('data-slug', data.slug);
+      }else if($('.dm-blog .content-viwer').attr('data-title') !== data.title){
+        $('.dm-blog .content-viwer').attr('data-title', data.title);
+        $('.dm-blog .content-viwer').attr('data-slug', data.slug);
+      }
     }
 
     function failureAction(jqXHR){
@@ -347,8 +376,8 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
           description = '',
           url = '';
 
-      if ($('.dm-blog .content-viwer').attr('data-set') !== undefined){
-        articleId = $('.dm-blog .content-viwer').attr('data-set');
+      if ($('.dm-blog .content-viwer').attr('data-id') !== undefined){
+        articleId = $('.dm-blog .content-viwer').attr('data-id');
       }
 
       if (postUrl === '/douMi/saveDraft/'){
@@ -358,8 +387,14 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
       }
 
       /*Make a unique slug*/
-      url = toPinYin.ConvertPinyin(articleName);// + Math.floor((Math.random()*100));
-      
+      if ($('.dm-blog .content-viwer').attr('data-title') === undefined){
+        url = toPinYin.ConvertPinyin(articleName) + Math.floor((Math.random()*100));
+      }else if($('.dm-blog .content-viwer').attr('data-title') !== articleName){
+        url = toPinYin.ConvertPinyin(articleName) + Math.floor((Math.random()*100));
+      }else{
+        url = $('.dm-blog .content-viwer').attr('data-slug');
+      }
+
       description = content.substr(0, 100);
       description = marked(description);
       /*Remove the html tags*/
