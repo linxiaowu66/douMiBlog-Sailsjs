@@ -43,9 +43,9 @@ module.exports = {
         return [
           articles,
           Article.count({where: {articleStatus:"published"}}),
-          Category.find(),
-          Tags.find(),
-          Archive.find(),
+          Category.find().populate('articles',{where: {articleStatus:"published"}}),
+          Tags.find().populate('articles',{where: {articleStatus:"published"}}),
+          Archive.find().populate('articles',{where: {articleStatus:"published"}}),
           Article.find({ where: { articleStatus: 'published' }, sort: 'pageViewsCount DESC', limit: 10 }),
           Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString()}}}),
           Statistics.findOne({key: 0})
@@ -62,7 +62,7 @@ module.exports = {
           var archive = {
             oldArchiveTime: archives[index].archiveTime,
             archiveTime: newFormat,
-            numOfArticles: archives[index].numOfArticles
+            numOfArticles: archives[index].articles.length
           };
 
           archiveArray.push(archive);
@@ -106,9 +106,9 @@ module.exports = {
 
         return [
           article,
-          Category.find(),
-          Tags.find(),
-          Archive.find(),
+          Category.find().populate('articles',{where: {articleStatus:"published"}}),
+          Tags.find().populate('articles',{where: {articleStatus:"published"}}),
+          Archive.find().populate('articles',{where: {articleStatus:"published"}}),
           Article.find({ where: { articleStatus: 'published' }, sort: 'pageViewsCount DESC', limit: 10 }),
           Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString()}}}),
           Statistics.findOne({key: 0}),
@@ -125,18 +125,18 @@ module.exports = {
           var archive = {
             oldArchiveTime: archives[index].archiveTime,
             archiveTime: newFormat,
-            numOfArticles: archives[index].numOfArticles
+            numOfArticles: archives[index].articles.length
           };
 
           archiveArray.push(archive);
         }
-       
+
 	if (req.headers['x-real-ip'] === undefined){
 	  reqIp = req.ip;
 	}else{
 	  reqIp = req.headers['x-real-ip'];
 	}
- 
+
         if (article.pageViews.indexOf(reqIp) === -1){
 
           article.pageViews.push(reqIp);
@@ -188,9 +188,9 @@ module.exports = {
         return [
           categories.articles,
           Category.find({name: queryCategory}).populate('articles',{where: {articleStatus:"published" }}),
-          Category.find(),
-          Tags.find(),
-          Archive.find(),
+          Category.find().populate('articles',{where: {articleStatus:"published"}}),
+          Tags.find().populate('articles',{where: {articleStatus:"published"}}),
+          Archive.find().populate('articles',{where: {articleStatus:"published"}}),
           Article.find({ where: { articleStatus: 'published' }, sort: 'pageViewsCount DESC', limit: 10 }),
           Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString()}}}),
           Statistics.findOne({key: 0}),
@@ -208,7 +208,7 @@ module.exports = {
           var archive = {
             oldArchiveTime: archives[index].archiveTime,
             archiveTime: newFormat,
-            numOfArticles: archives[index].numOfArticles
+            numOfArticles: archives[index].articles.length
           };
 
           archiveArray.push(archive);
@@ -250,9 +250,9 @@ module.exports = {
         return [
           tags.articles,
           Tags.find({name: queryTag}).populate('articles',{where: {articleStatus:"published" }}),
-          Category.find(),
-          Tags.find(),
-          Archive.find(),
+          Category.find().populate('articles',{where: {articleStatus:"published"}}),
+          Tags.find().populate('articles',{where: {articleStatus:"published"}}),
+          Archive.find().populate('articles',{where: {articleStatus:"published"}}),
           Article.find({ where: { articleStatus: 'published' }, sort: 'pageViewsCount DESC', limit: 10 }),
           Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString()}}}),
           Statistics.findOne({key: 0}),
@@ -270,7 +270,7 @@ module.exports = {
           var archive = {
             oldArchiveTime: archives[index].archiveTime,
             archiveTime: newFormat,
-            numOfArticles: archives[index].numOfArticles
+            numOfArticles: archives[index].articles.length
           };
 
           archiveArray.push(archive);
@@ -314,9 +314,9 @@ module.exports = {
         return [
           archives.articles,
           Archive.find({archiveTime: queryArchive}).populate('articles',{where: {articleStatus:"published" }}),
-          Category.find(),
-          Tags.find(),
-          Archive.find(),
+          Category.find().populate('articles',{where: {articleStatus:"published"}}),
+          Tags.find().populate('articles',{where: {articleStatus:"published"}}),
+          Archive.find().populate('articles',{where: {articleStatus:"published"}}),
           Article.find({ where: { articleStatus: 'published' }, sort: 'pageViewsCount DESC', limit: 10 }),
           Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString()}}}),
           Statistics.findOne({key: 0}),
@@ -334,7 +334,7 @@ module.exports = {
           var archive = {
             oldArchiveTime: archives[index].archiveTime,
             archiveTime: newFormat,
-            numOfArticles: archives[index].numOfArticles
+            numOfArticles: archives[index].articles.length
           };
 
           archiveArray.push(archive);
@@ -377,9 +377,9 @@ module.exports = {
         return [
           users.articles,
           User.find({fullname: queryUser}).populate('articles',{where: {articleStatus:"published" }}),
-          Category.find(),
-          Tags.find(),
-          Archive.find(),
+          Category.find().populate('articles',{where: {articleStatus:"published"}}),
+          Tags.find().populate('articles',{where: {articleStatus:"published"}}),
+          Archive.find().populate('articles',{where: {articleStatus:"published"}}),
           Article.find({ where: { articleStatus: 'published' }, sort: 'pageViewsCount DESC', limit: 10 }),
           Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString()}}}),
           Statistics.findOne({key: 0}),
@@ -397,7 +397,7 @@ module.exports = {
           var archive = {
             oldArchiveTime: archives[index].archiveTime,
             archiveTime: newFormat,
-            numOfArticles: archives[index].numOfArticles
+            numOfArticles: archives[index].articles.length
           };
 
           archiveArray.push(archive);
@@ -426,9 +426,9 @@ module.exports = {
   aboutSite: function (req, res){
 
     async.parallel([
-      function(callback){Category.find().exec(callback)},
-      function(callback){Tags.find().exec(callback)},
-      function(callback){Archive.find().exec(callback)},
+      function(callback){Category.find().populate('articles',{where: {articleStatus:"published"}}).exec(callback)},
+      function(callback){Tags.find().populate('articles',{where: {articleStatus:"published"}}).exec(callback)},
+      function(callback){Archive.find().populate('articles',{where: {articleStatus:"published"}}).exec(callback)},
       function(callback){Article.find({ where: { articleStatus: 'published' }, sort: 'pageViewsCount DESC', limit: 10 }).exec(callback)},
       function(callback){Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString()}}}).exec(callback)},
       function(callback){Statistics.findOne({key: 0}).exec(callback)},
@@ -449,7 +449,7 @@ module.exports = {
           var archive = {
             oldArchiveTime: results[2][index].archiveTime,
             archiveTime: newFormat,
-            numOfArticles: results[2][index].numOfArticles
+            numOfArticles: results[2][index].articles.length
           };
 
           archiveArray.push(archive);

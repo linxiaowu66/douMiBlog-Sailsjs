@@ -13,10 +13,6 @@ module.exports = {
       unique: true,
       defaultsTo: "未分类"
     },
-    numOfArticles: {
-      type: 'integer',
-      defaultsTo: 0
-    },
     articles: {
       collection: 'article',
       via: 'category'

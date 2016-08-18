@@ -422,27 +422,26 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
       });
     }
 
-    $('#save').click(function(){
+    $('.dropdown-menu #save').on('click',function(){
       articleCommonAction('/douMi/saveDraft/', draftSuccessAction, failureAction);
-
     });
 
-    $('#publish').click(function(){
+    $('.dropdown-menu  #publish').on('click', function(){
       articleCommonAction('/douMi/doPublish/', publishSuccessAction, failureAction);
     });
 
-    $('.markdown-realtext').bind('input propertychange', function() {
+    $('.dropdown-menu  .markdown-realtext').bind('input propertychange', function() {
         $('.preview-text').html(marked($(this).val()));
 
         $('.entry-word-count').html($('.markdown-realtext').val().length + ' 个字');
 
     });
 
-    $('#update').click(function(){
+    $('.dropdown-menu #update').on('click', function(){
       articleCommonAction('/douMi/updatePub/', updatePubSuccessAction, failureAction);
     });
 
-    $('#undoPublish').click(function(){
+    $('.dropdown-menu #undoPublish').on('click', function(){
       articleCommonAction('/douMi/undoPublish/', undoPubSuccessAction, failureAction);
     });
   });

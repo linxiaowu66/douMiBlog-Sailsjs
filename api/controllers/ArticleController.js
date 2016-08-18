@@ -23,9 +23,7 @@ function updateExistingArticle(article, callback){
     categoryModel,
     archiveModel,
     tagsModel;
-  var disconnectArchiveId = ~0,
-    disconnectCategoryId = ~0,
-    disconnectTagsArrayId = [],
+  var disconnectTagsArrayId = [],
     connectTagsArrayId = [];
 
   async.waterfall([
@@ -61,42 +59,16 @@ function updateExistingArticle(article, callback){
     },
     /*Secondly getting the old Archive/Category/Tags Model which association with the Article Model*/
     function(results,callback){
-      async.parallel([
-        function(callback){
-          if (article.articleStatus === "drafted"){
-            callback(null, "Nothing to create");
-          }else {
-            Article.findOne({id: article.id}).populate('archive').exec(callback);
-          }
-        },
-        function(callback){Article.findOne({id: article.id}).populate('category').exec(callback)},
-        function(callback){Article.findOne({id: article.id}).populate('tags').exec(callback)}
-      ],function(error, results){
-        if (error){
-          sails.log.error(error);
-          callback(error, null);
-        }else{
-          /*Compare the new one with the old one, record the old one if they are different*/
-          if ((article.articleStatus === "published") && (results[0].archive !== undefined) &&
-            (article.publishTime !== results[0].archive.archiveTime)){
-            disconnectArchiveId = results[0].archive.id;
-          }
-
-          if (article.cat !== results[1].category.name){
-            disconnectCategoryId = results[1].category.id;
-          }
-          /*Just deleting all the association with tag model,
-            then relink them in the next step, it maybe can
-            reduce some efforts*/
-          for (var index = 0; index < results[2].tags.length; index++){
-            disconnectTagsArrayId.push(results[2].tags[index].id);
-          }
-          callback(null, results);
-        }
-      });
+      Article.findOne({id: article.id}).populate('tags').exec(callback);
+    },
+    function(article,callback){
+      for (var index = 0; index < article.tags.length; index++){
+        disconnectTagsArrayId.push(article.tags[index].id);
+      }
+      callback();
     },
     /*Thirdly, updating the Article Model*/
-    function(result, callback){
+    function(callback){
       var updateArticle = {};
       updateArticle.title = article.title;
       updateArticle.content = article.content;
@@ -128,98 +100,6 @@ function updateExistingArticle(article, callback){
     function (callback){
       articleModel.tags.add(connectTagsArrayId);
       articleModel.save(callback);
-    },
-    function(callback){
-      async.parallel([
-        function(callback){Category.findOne({id:categoryModel.id}).populate('articles').exec(callback)},
-        function(callback){
-          if (article.articleStatus === "drafted"){
-            callback(null, "Nothing to create");
-          }else {
-            Archive.findOne({id:archiveModel.id}).populate('articles').exec(callback);
-          }
-        },
-        function(callback){async.map(tagsModel, function(tagModel, callback){Tags.findOne({id:tagModel.id}).populate('articles').exec(callback)},callback);}
-      ], function(error, results){
-        if (error){
-          sails.log.error(error);
-          callback(error, null);
-        }else {
-          callback(null, results);
-        }
-      });
-    },
-    function(results, callback){
-      async.parallel([
-        function(callback){Category.update(categoryModel.id, {numOfArticles:results[0].articles.length}).exec(callback)},
-        function(callback){
-          if (article.articleStatus === "drafted"){
-            callback(null, "Nothing to create");
-          }else {
-            Archive.update(archiveModel.id, {numOfArticles:results[1].articles.length}).exec(callback);
-          }
-        },
-        function(callback){async.map(results[2], function(tagModel, callback){Tags.update(tagModel.id, {numOfArticles:tagModel.articles.length}).exec(callback)},callback);}
-      ], function(error, results){
-        if (error){
-          sails.log.error(error);
-          callback(error, null);
-        }else {
-          callback(null, results);
-        }
-      });
-    },
-    function(results, callback){
-      async.parallel([
-        function(callback){
-          if(disconnectCategoryId != ~0) {
-            Category.findOne({ id: disconnectCategoryId}).populate('articles').exec(callback);
-          }else{
-            callback(null, "Not need to update");
-          }
-        },
-        function(callback){
-          if(disconnectArchiveId != ~0) {
-            Archive.findOne({id:disconnectArchiveId}).populate('articles').exec(callback);
-          }else{
-            callback(null, "Not need to update");
-          }
-        },
-        function(callback){async.map(disconnectTagsArrayId, function(tagId, callback){
-          Tags.findOne({id:tagId}).populate('articles').exec(callback)},callback);
-        }
-      ], function(error, results){
-        if (error){
-          sails.log.error(error);
-          callback(error, null);
-        }else {
-          callback(null, results);
-        }
-      });
-    },
-    function(results, callback){
-      async.parallel([
-        function(callback){
-          if(disconnectCategoryId != ~0){
-            Category.update(disconnectCategoryId,{numOfArticles:results[0].articles.length}).exec(callback)
-          }else{
-            callback(null, "update category successfully");
-          }},
-        function(callback){
-          if(disconnectArchiveId != ~0){
-            Archive.update(disconnectArchiveId, {numOfArticles:results[1].articles.length}).exec(callback)
-          }else{
-            callback(null, "update archive successfully");
-          }},
-        function(callback){async.map(results[2], function(tagModel, callback){Tags.update(tagModel.id,{numOfArticles:tagModel.articles.length}).exec(callback)},callback);}
-      ], function(error, results){
-        if (error){
-          sails.log.error(error);
-          callback(error, null);
-        }else {
-          callback(null, results);
-        }
-      });
     }
   ], function(err, result){
     if (err){
@@ -297,52 +177,8 @@ function createNewArticle(article, callback){
         so using the array to bind each other*/
       articleModel.tags.add(tagsModelId);
       articleModel.save(callback);
-    },
-    /*Fourth, updating the count of article in the each models*/
-    function(callback){
-      async.parallel([
-        function(callback){Category.findOne({id:categoryModel.id}).populate('articles').exec(callback)},
-        function(callback){
-          if (article.articleStatus === "drafted") {
-            callback(null, "Nothing to do");
-          }else{
-            Archive.findOne({id:archiveModel.id}).populate('articles').exec(callback);
-          }
-        },
-        function(callback){async.map(tagsModel, function(tagModel, callback){Tags.findOne({id:tagModel.id}).populate('articles').exec(callback)},callback);},
-        function(callback){User.findOne({id:article.owner.id}).populate('articles').exec(callback);}
-      ], function(error, results){
-        if (error){
-          sails.log.error(error);
-          callback(error, null);
-        }else {
-          callback(null, results);
-        }
-      });
-    },
-    function(results, callback){
-      console.log("Enter the final callback-----");
-      async.parallel([
-        function(callback){Category.update(categoryModel.id, {numOfArticles:results[0].articles.length}).exec(callback)},
-        function(callback){
-          if (article.articleStatus === "drafted") {
-            callback(null, "Nothing to do");
-          }else{
-            Archive.update(archiveModel.id, {numOfArticles:results[1].articles.length}).exec(callback);
-          }
-        },
-        function(callback){async.map(results[2], function(tagModel, callback){Tags.update(tagModel.id, {numOfArticles:tagModel.articles.length}).exec(callback)},callback);},
-        function(callback){User.update(article.owner.id, {numOfArticles:results[3].articles.length}).exec(callback);}
-      ], function(error, results){
-        if (error){
-          sails.log.error(error);
-          callback(error, null);
-        }else {
-          callback(null, results);
-        }
-      });
     }
-  ],function(err, result){
+  ],function(err){
     if (err){
       sails.log.error(err);
       callback(err, ~0);
@@ -536,6 +372,8 @@ module.exports = {
             timeDesc = hoursOffset + ' 小时前';
           }else if (minutesOffset > 0){
             timeDesc = minutesOffset + ' 分钟前';
+          }else{
+            timeDesc = '30秒前';
           }
         }
 

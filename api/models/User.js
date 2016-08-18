@@ -24,10 +24,6 @@ module.exports = {
       type: 'string',
       required: true
     },
-    numOfArticles: {
-      type: 'integer',
-      defaultsTo: 0
-    },
     articles: {
       collection: 'article',
       via: 'owner'
