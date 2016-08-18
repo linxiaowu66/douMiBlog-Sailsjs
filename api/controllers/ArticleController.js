@@ -57,7 +57,7 @@ function updateExistingArticle(article, callback){
         }
       });
     },
-    /*Secondly getting the old Archive/Category/Tags Model which association with the Article Model*/
+    /*Secondly getting the old Tags Model which association with the Article Model*/
     function(results,callback){
       Article.findOne({id: article.id}).populate('tags').exec(callback);
     },
@@ -97,6 +97,7 @@ function updateExistingArticle(article, callback){
       articleModel.tags.remove(disconnectTagsArrayId);
       articleModel.save(callback);
     },
+    /*Finally, Add the new tags model relation*/
     function (callback){
       articleModel.tags.add(connectTagsArrayId);
       articleModel.save(callback);
