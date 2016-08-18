@@ -430,7 +430,7 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
       articleCommonAction('/douMi/doPublish/', publishSuccessAction, failureAction);
     });
 
-    $('.dropdown-menu  .markdown-realtext').bind('input propertychange', function() {
+    $('.markdown-realtext').bind('input propertychange', function() {
         $('.preview-text').html(marked($(this).val()));
 
         $('.entry-word-count').html($('.markdown-realtext').val().length + ' 个字');
