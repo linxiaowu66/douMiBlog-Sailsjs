@@ -39,7 +39,7 @@
                   </span>
                 </div>
                 <div class='col-sm-2 col-xs-2 col-md-2 comment-count'>
-                   <a href='/blog/{{ article.slug }}#disqus_thread' class='glyphicon glyphicon-comment'></a>
+                   <a href='http://blog.5udou.cn/blog/{{ article.slug }}#disqus_thread' class='glyphicon glyphicon-comment'></a>
                 </div>
               </div>
             </div>

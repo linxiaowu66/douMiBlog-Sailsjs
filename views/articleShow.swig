@@ -51,7 +51,12 @@
       <script>window._bd_share_config={'common':{'bdSnsKey':{},'bdText':'','bdMini':'2','bdMiniList':false,'bdPic':'','bdStyle':'1','bdSize':'24'},'share':{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
     </section>
   </footer>
-  <div id='disqus_thread'></div>
+  <div id='disqus_thread'>
+    评论正在加载，请稍后...
+   <br>
+   <br>
+   <strong>注意：</strong>如果长时间无法加载，那么说明你的网络被墙掉了，请使用代理或者VPN访问。
+  </div>
   <aside id="page-top" style="display: block;">
     <a href="#wrapper" class="glyphicon glyphicon-menu-up"></a>
   </aside>
