@@ -14,7 +14,15 @@
 
   <script type='text/javascript'  src='/js/requirejs/require.min.js'></script>
   <script type='text/javascript'  src='/js/config.js'></script>
-
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?3152c3de98b0032125ac07f988e65bb2";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 </head>
 <body>
 <!--   outer container -->
