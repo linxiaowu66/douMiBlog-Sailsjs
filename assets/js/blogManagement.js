@@ -58,7 +58,7 @@ define(['jquery','bootstrap', 'markdown','highlight','hashchange'], function($, 
       /*If the scroll height add the box height is equal to the actual content height,
       * it indicates that we had reached the bottom*/
       if ($(this).scrollTop() + $(this).height() >= $(this).get(0).scrollHeight){
-        
+
         var currentItems = Math.floor($(this).get(0).scrollHeight / $('.blogIndex li').outerHeight());
 
         var currentPage = currentItems / 10;
@@ -99,6 +99,36 @@ define(['jquery','bootstrap', 'markdown','highlight','hashchange'], function($, 
           });
       }
     })
+
+    $("#search-input").blur(function (){
+      $("#query-results").css("display", "none");
+      $('#search-input').val('');
+    });
+    $('.res-dropdown').on('mousedown','a', function(e){
+      console.log($(this).attr('href'));
+      window.location.href = '/douMi#' + $(this).data('id');
+    });
+    $('#search-input').bind('input propertychange', function (){
+      var input = $(this).val();
+
+      $.ajax({
+        type: 'GET',
+        url: '/blog/search/' + input,
+        dataType: 'json',
+        success: function (response){
+          var searchHtml = '';
+          if (response.data.length === 0) {
+            searchHtml = '<a class="option">抱歉，没有找到对应的文章</a>';
+          } else {
+            for (var index = 0; index < response.data.length; index++) {
+              searchHtml += '<a class="option" data-id="' + response.data[index].id + '">' + response.data[index].title + '</a>';
+            }
+          }
+          $("#query-results").css("display", "block");
+          $('.res-dropdown').html(searchHtml);
+        }
+      });
+    });
   });
 });
 

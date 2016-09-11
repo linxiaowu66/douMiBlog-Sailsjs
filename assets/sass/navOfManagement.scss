@@ -135,6 +135,46 @@ body {
   }
 }
 
+#query-results{
+  position: absolute;
+  z-index: 1000;
+  box-sizing: border-box;
+  margin: -1px 0 0;
+  border: 1px solid #119d55;
+  border-top: 0 none;
+  background: #fff;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 3px 6px rgba(0,0,0,.1);
+  width: 100%;
+  top: 35px;
+  left: 0px;
+  outline: -webkit-focus-ring-color auto 5px;
+  outline-color: #119d55;
+  outline-style: auto;
+  outline-width: 2px;
+}
+
+.res-dropdown{
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 200px;
+
+  .option {
+    padding: 7px 8px;
+    cursor: pointer;
+    display: block;
+    color: #119d55;
+    &.active{
+      background: rgba(17,157,85,0.3);
+      color: #7d878a
+    }
+    &:hover{
+      background: rgba(17,157,85,0.3);
+      color: #7d878a
+    }
+  }
+}
+
 .form-control:focus {
   border-color: #13895F;
   outline: 0;

@@ -9,13 +9,13 @@
 
 {% block content %}
 <header class='title'>
-  <a href='5udou.cn'>5udou.cn</a>
+  <a href='http://www.5udou.cn'>5udou.cn</a>
 </header>
 <section class='wrapper'>
 
   <div class='blogProfile'>
     <figure class='author-image'>
-      <a class='img' href='/author/' style='background-image: url(/images/douMi.jpg)'><span class='hidden'>豆米的头像</span></a>
+      <a class='img' href='/author/'><span class='hidden'>豆米的头像</span></a>
     </figure>
     <section class='author'>
       <h4><a href='/author/'>豆米</a></h4>

@@ -31,10 +31,14 @@
         <!-- search box -->
         <div id='dm-search' class='col-sm-4 col-md-6 hidden-xs'>
           <div class='dm-column '>
-            <form id='blog-search' action='/search' method='get'>
+            <div id='blog-search'>
               <span class='glyphicon glyphicon-search dm-icon-search' aria-hidden='true'></span>
-              <input type='text' name='search' placeholder='搜索' value=''>
-            </form>
+              <input type='text' name='search' placeholder='文章搜索'id="search-input">
+              <div id='query-results' style='display:none'>
+                <div class='res-dropdown'>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <!-- Login box -->
@@ -206,7 +210,7 @@ var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "//hm.baidu.com/hm.js?3152c3de98b0032125ac07f988e65bb2";
-  var s = document.getElementsByTagName("script")[0]; 
+  var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>

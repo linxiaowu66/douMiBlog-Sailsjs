@@ -121,11 +121,6 @@ module.exports.routes = {
     action: 'index'
   },
 
-  'GET /blog/:url': {
-    controller: 'Blog',
-    action: 'showOneArticle'
-  },
-
   'GET /blog/page/:page': {
     controller: 'Blog',
     action: 'index'
@@ -165,6 +160,16 @@ module.exports.routes = {
   'GET /blog/user/:url/page/:page': {
     controller: 'Blog',
     action: 'showOneUser'
+  },
+
+  'GET /blog/search/:query':{
+    controller: 'Blog',
+    action: 'showSearch'
+  },
+
+  'GET /blog/:url': {
+    controller: 'Blog',
+    action: 'showOneArticle'
   },
 
   /*End for blog frontend route*/

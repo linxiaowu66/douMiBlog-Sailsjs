@@ -101,6 +101,7 @@ module.exports = {
   showOneArticle: function (req, res){
     var articleUrl = req.param('url'),
         reqIp = '';
+    console.log(articleUrl);
     Article.findOne({slug: articleUrl})
       .then(function(article){
 
@@ -131,13 +132,13 @@ module.exports = {
           archiveArray.push(archive);
         }
 
-	if (req.headers['x-real-ip'] === undefined){
-	  reqIp = req.ip;
-	}else{
-	  reqIp = req.headers['x-real-ip'];
-	}
+        if (req.headers['x-real-ip'] === undefined){
+          reqIp = req.ip;
+        }else{
+          reqIp = req.headers['x-real-ip'];
+        }
 
-        if (article.pageViews.indexOf(reqIp) === -1){
+        if (article && article.pageViews.indexOf(reqIp) === -1){
 
           article.pageViews.push(reqIp);
 
@@ -421,6 +422,18 @@ module.exports = {
             todayVisitCounts: statistics.todayVisitCounts
           });
       });
+  },
+
+  showSearch: function(req, res){
+    var query = req.param('query');
+
+    if(query !== ''){
+      Article.find({title:{'contains': query}}).exec(function(err, results){
+        return res.json(200, {data: results, err: err})
+      });
+    }else{
+
+    }
   },
 
   aboutSite: function (req, res){

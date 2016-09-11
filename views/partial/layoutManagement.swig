@@ -32,12 +32,16 @@
               <div class='profile-photo-overlay'></div>
             </div>
             <!-- Search box -->
-            <form class='dm-search-form' role='search'>
+            <div class='dm-search-form' role='search'>
               <div class='input-group'>
                 <button type='submit' class='glyphicon glyphicon-search icon dm-search'></button>
-                <input type='text' class='form-control' placeholder='Search' name='srch-term' id='srch-term'>
+                <input type='text' class='form-control' placeholder='Search' id='search-input'>
+                <div id='query-results' style='display:none'>
+                  <div class='res-dropdown'>
+                  </div>
+                </div>
               </div>
-            </form>
+            </div>
             <div class='mobile-menu-icon'>
               <i class='glyphicon glyphicon-align-justify icon'></i>
             </div>
@@ -66,7 +70,7 @@ var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "//hm.baidu.com/hm.js?3152c3de98b0032125ac07f988e65bb2";
-  var s = document.getElementsByTagName("script")[0]; 
+  var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>

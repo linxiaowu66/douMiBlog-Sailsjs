@@ -19,6 +19,15 @@
         <span>08&nbsp;&nbsp;周一</span>
       </div>
     </div>
+    <div class='update-log'>
+      <h3>完成文章搜索功能</h3>
+      <p>9月11号，完成网站的首页以及后台的文章搜索功能。</p>
+      <p>暂时只提供对博客的标题搜索，不支持全文搜索。</p>
+      <div class='update-time'>
+        <span>2016/09</span>
+        <span>11&nbsp;&nbsp;周日</span>
+      </div>
+    </div>
   </section>
 </main>
 {% endblock %}
