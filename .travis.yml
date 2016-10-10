@@ -2,9 +2,7 @@ language: node_js
 node_js:
     - 4
 install:
-|
-    npm install -g npm@latest
-    npm --version
-    npm install --registry http://registry.npmjs.org
+  - npm install -g sailsjs
+  - npm install
 script:
-    - npm run test
+  - npm run test
