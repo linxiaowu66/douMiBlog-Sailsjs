@@ -2,7 +2,7 @@ language: node_js
 node_js:
     - 4
 install:
-  - npm install -g sailsjs
+  - npm install -g sails
   - npm install
 script:
   - npm run test
