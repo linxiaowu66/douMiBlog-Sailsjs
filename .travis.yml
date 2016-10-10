@@ -4,7 +4,7 @@ os:
 node_js:
     - 6
 install:
-  - npm install -g sails --registry http://registry.npmjs.org
-  - npm install --registry http://registry.npmjs.org
+  - npm install -g sails bower cnpm
+  - cnpm i
 script:
   - npm run test
