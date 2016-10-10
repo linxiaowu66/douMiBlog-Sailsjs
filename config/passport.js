@@ -2,7 +2,7 @@ var passport = require('passport'),
 // 使用本地登录逻辑
   LocalStrategy = require('passport-local').Strategy,
 // 使用bcrypt进行密码加密
-  bcrypt = require('bcrypt');
+  bcrypt = require('bcryptjs');
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);
