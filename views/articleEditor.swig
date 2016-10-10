@@ -1,6 +1,6 @@
 {% extends 'partial/layoutManagement.swig' %}
 
-{% block title %}豆米的博客{% endblock %}
+{% block title %}文章编辑 - 豆米的博客{% endblock %}
 
 {% block style %}
 {% parent %}

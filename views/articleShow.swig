@@ -1,7 +1,9 @@
 
 {% extends 'partial/layoutBlog.swig' %}
 
-{% block title %}豆米的博客{% endblock %}
+{% block keywords %}{{ article.tagsArray }}{% endblock %}
+{% block description %}{{ article.digest }}{% endblock %}
+{% block title %}{{ article.title }}{% endblock %}
 
 {% block style %}
 {% parent %}

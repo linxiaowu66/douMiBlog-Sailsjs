@@ -1,6 +1,6 @@
 ﻿{% extends 'partial/layoutIndex.swig' %}
 
-{% block title %}豆米的博客{% endblock %}
+{% block title %}首页 - 豆米的博客{% endblock %}
 
 {% block style %}
   {% parent %}

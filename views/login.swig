@@ -1,6 +1,6 @@
 {% extends 'partial/layoutIndex.swig' %}
 {% set module='login' %}
-{% block title %}豆米的博客{% endblock %}
+{% block title %}登录 - 豆米的博客{% endblock %}
 
 {% block style %}
 {% parent %}

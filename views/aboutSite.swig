@@ -1,6 +1,8 @@
 {% extends 'partial/layoutBlog.swig' %}
 
-{% block title %}豆米的博客{% endblock %}
+{% block keywords %}豆米的博客 版本历史 功能更新 时间线{% endblock %}
+{% block description %}豆米的博客网站的历史，对于每次网站功能更新的记录与回顾。{% endblock %}
+{% block title %}关于本站 - 豆米的博客{% endblock %}
 
 {% block style %}
 {% parent %}
@@ -26,6 +28,15 @@
       <div class='update-time'>
         <span>2016/09</span>
         <span>11&nbsp;&nbsp;周日</span>
+      </div>
+    </div>
+    <div class='update-log'>
+      <h3>改进网站的SEO</h3>
+      <p>10月10号，修改部分代码，增强网站的SEO。</p>
+      <p>修改页面的title、description等meta，提高网站的SEO。添加google的verification文件，提高谷歌收录网站的可能性</p>
+      <div class='update-time'>
+        <span>2016/10</span>
+        <span>10&nbsp;&nbsp;周一</span>
       </div>
     </div>
   </section>

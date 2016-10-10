@@ -5,8 +5,8 @@
   <title>{% block title %}{% endblock %}</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="Keywords" content="豆米 前端 博客 服务器 生活">
-  <meta name="Description" content="豆米博客，用心、用爱、用力拥抱热爱前端">
+  <meta name="Keywords" content="豆米 前端 博客 后台管理">
+  <meta name="Description" content="豆米博客的管理后台，包含文章的增删改查，用户管理以及标签管理，后期功能增加中....">
   {% block style %}
   <link rel='stylesheet' href='/vender/bootstrap/dist/css/bootstrap.min.css'>
   <link rel='stylesheet' href='/styles/navOfManagement.css'>

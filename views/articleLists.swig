@@ -1,6 +1,8 @@
 {% extends 'partial/layoutBlog.swig' %}
 
-{% block title %}豆米的博客{% endblock %}
+{% block keywords %}博客 web前端 编程 全栈开发{% endblock %}
+{% block description %}热爱前端的豆米打造了这么一个记录前端的博客，希望可以和大家一起见证前端的变化和发展，一起进步{% endblock %}
+{% block title %}博文列表 - 豆米的博客{% endblock %}
 
 {% block style %}
 {% parent %}
