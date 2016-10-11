@@ -1,7 +1,7 @@
 # DouMi blog platform
 
 [![Build Status](https://travis-ci.org/linxiaowu66/douMiBlogPlatform.svg?branch=master)](https://travis-ci.org/linxiaowu66/douMiBlogPlatform)
-
+[![Coverage Status](https://coveralls.io/repos/github/linxiaowu66/douMiBlogPlatform/badge.svg?branch=master)](https://coveralls.io/github/linxiaowu66/douMiBlogPlatform?branch=master)
 A [Sails](http://sailsjs.org) application. It is used for recording the process from the loving to marriage, all happiness and happy time are showing with only five pages. Each pages has the unique theme:
 
 This blog platform is based on the [sailsjs](http://sailsjs.org) web framework. It contains three parts:
