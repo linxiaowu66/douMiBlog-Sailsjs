@@ -1,0 +1,20 @@
+.{
+  "ignore": [
+    "**/node_modules/**",
+    "**/vendor/**",
+    "**/**-min-**",
+    "**/**-min.**",
+    "**/**.min.**",
+    "**/**jquery.?(ui|effects)-*.*.?(*).?(cs|j)s",
+    "**/**jquery-*.*.?(*).?(cs|j)s",
+    "bower_components/**",
+    "api/response/**",
+    "api/servives/**"
+  ],
+  "test": [
+    "**/test/**",
+    "**/tests/**",
+    "**/spec/**",
+    "**/specs/**"
+  ]
+}
