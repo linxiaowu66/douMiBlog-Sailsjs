@@ -128,3 +128,4 @@ gem
 assets/styles/
 .sass-cache/
 
+/coverage

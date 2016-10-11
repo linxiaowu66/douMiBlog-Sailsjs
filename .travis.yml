@@ -7,7 +7,7 @@ install:
   - npm install -g sails bower cnpm
   - npm i
 script:
-  - npm run test
+  - npm run cover
 after_success:
   - npm run coveralls
 
