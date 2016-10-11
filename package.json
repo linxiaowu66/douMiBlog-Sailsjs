@@ -36,7 +36,7 @@
   },
   "scripts": {
     "debug": "node debug app.js",
-    "postinstall": "bower install",
+    "postinstall": "bower install --allow-root",
     "start": "node app.js",
     "test": "./node_modules/.bin/mocha test/setup.js test/test*.js",
     "cover": "./node_modules/.bin/istanbul cover _mocha",
