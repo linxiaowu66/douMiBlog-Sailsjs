@@ -4,4 +4,5 @@ assets/js/dependecies
 assets/js/hashchange
 assets/js/requirejs
 assets/js/datetimepicker.js
+assets/js/convertToPinYin.js
 

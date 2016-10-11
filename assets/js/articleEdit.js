@@ -1,3 +1,4 @@
+/*jshint strict:false */
 'use strict';
 
 define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], function($, date, marked, hljs, toPinYin){
@@ -55,14 +56,14 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
       var tags = '';
 
       for(var index = 0; index < $('#tags').children().length; index++){
-        if (index ==0){
+        if (index === 0){
           tags = $('#tags').children().eq(index).html();
         }else{
           tags = tags + '&' + $('#tags').children().eq(index).html();
         }
       }
       return tags;
-    };
+    }
     function updatePadding(srcObj, inputObj){
       /*Calculate the padding left value*/
       var spanNum = srcObj.children().length;
@@ -135,17 +136,20 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
        you choose in the category dropdown.*/
     $('.cat-dropdown').on('mousedown','div', function(e){
 
+      e.preventDefault();
+
       var select = $(this).html(),
             firstMatch = 0,
             Opt = '',
-            newItemOrNot = 0;
+            newItemOrNot = 0,
+            index = 0;
 
       /*If there is already existing a category, we can`t add any more.*/
-      if ($('#item').children('span').length == 1){
+      if ($('#item').children('span').length === 1){
         $('#cat-input').val('');
         $('#all-cats').css('display','none');
         $('.cat-dropdown').children('div').remove();
-        for(var index = 0; index < categories.length; index++){
+        for(index = 0; index < categories.length; index++){
           if (firstMatch === 0){
             Opt = '<div class=\'option active\'>' + categories[index] + '<\/div>';
             firstMatch++;
@@ -166,7 +170,7 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
 
       /*Secondly, append this select element to correct position*/
       var selectdText = '<option selected=\'selected\'>' + select + '<\/option>';
-      var input = '<span title=\'单击删除该分类\'>' + select + '<\/span>'
+      var input = '<span title=\'单击删除该分类\'>' + select + '<\/span>';
       $('#category').append(selectdText);
       $('#item').append(input);
 
@@ -179,7 +183,7 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
       $('#cat-input').val('');
       updatePadding($('#item'), $('#cat-input'));
       $('.cat-dropdown').children('div').remove();
-      for(var index = 0; index < categories.length; index++){
+      for(index = 0; index < categories.length; index++){
         if (firstMatch === 0){
           Opt = '<div class=\'option active\'>' + categories[index] + '<\/div>';
           firstMatch++;
@@ -197,7 +201,7 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
         firstMatch = 0,
         Opt = '';
 
-      for (var index = 0; index < categories.length; index++){
+      for (index = 0; index < categories.length; index++){
         if ((categories[index] === select) && (index >= originalArrLength)){
           categories.splice(index, 1);
         }
@@ -243,7 +247,7 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
       var result = input.split(',');
       var spanNum = $('#tags').children().length;
 
-      if (result == '' || spanNum === 3){
+      if (result === '' || spanNum === 3){
         /*Clear the input text*/
         $(this).val('');
         return;
@@ -254,7 +258,8 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
         result.length = 3 - spanNum;
       }
       for (index = 0; index < result.length; index++){
-        var insertElement = "<span title='单击删除该标签'>" + result[index] +'</span>'
+        /*jshint quotmark:false*/
+        var insertElement = "<span title='单击删除该标签'>" + result[index] +'</span>';
         $('#tags').append(insertElement);
       }
 
@@ -274,7 +279,8 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
       }
 
       var select = $(this).html();
-      var insertElement = "<span title='单击删除该标签'>" + select +'</span>'
+      /*jshint quotmark:false*/
+      var insertElement = "<span title='单击删除该标签'>" + select +'</span>';
       $('#tags').append(insertElement);
 
       $(this).addClass('act');
@@ -303,7 +309,7 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
       history.replaceState('','','/douMi/editor/' + data.articleIdx);
 
       if ($('.dm-blog .content-viwer').attr('data-id') === undefined){
-        var appendElements = '<li role=\'separator\' class=\'divider\'></li><li><a id=\'delete\' href=\'/douMi/delete/'+ data.articleIdx + '\'>删除博文</a></li>'
+        var appendElements = '<li role=\'separator\' class=\'divider\'></li><li><a id=\'delete\' href=\'/douMi/delete/'+ data.articleIdx + '\'>删除博文</a></li>';
         $('.dropdown-menu').append(appendElements);
         $('.dm-blog .content-viwer').attr('data-id', data.articleIdx);
       }
@@ -324,7 +330,7 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
       $('#publish').attr('id', 'undoPublish');
       history.replaceState('','','/douMi/editor/' + data.articleIdx);
       if ($('.dm-blog .content-viwer').attr('data-id') === undefined){
-        var appendElements = '<li role=\'separator\' class=\'divider\'></li><li><a id=\'delete\' href=\'/douMi/delete/'+ data.articleIdx + '\'>删除博文</a></li>'
+        var appendElements = '<li role=\'separator\' class=\'divider\'></li><li><a id=\'delete\' href=\'/douMi/delete/'+ data.articleIdx + '\'>删除博文</a></li>';
         $('.dropdown-menu').append(appendElements);
         $('.dm-blog .content-viwer').attr('data-id', data.articleIdx);
       }
@@ -369,7 +375,7 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
     }
 
     function articleCommonAction(postUrl,successCallback, failureCallback){
-      var articleId = undefined,
+      var articleId,
           articleName = $('#entry-title').val(),
           dateString = '',
           content = $('.markdown-realtext').val(),
@@ -417,8 +423,8 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
           summary: description
         },
         dataType: 'json',
-        success: function(data){successCallback(data)},
-        error: function(jqXHR){failureCallback(jqXHR)},
+        success: function(data){successCallback(data);},
+        error: function(jqXHR){failureCallback(jqXHR);},
       });
     }
 
