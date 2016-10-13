@@ -3,6 +3,7 @@
  * */
 
 var articleUtil = require('../../services/articleUtil.js');
+var _ = require('lodash');
 
 module.exports = {
 
