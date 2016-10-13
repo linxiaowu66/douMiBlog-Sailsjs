@@ -101,7 +101,7 @@ module.exports = {
   showOneArticle: function (req, res){
     var articleUrl = req.param('url'),
         reqIp = '';
-    console.log(articleUrl);
+
     Article.findOne({slug: articleUrl})
       .then(function(article){
 
