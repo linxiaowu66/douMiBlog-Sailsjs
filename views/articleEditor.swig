@@ -4,7 +4,7 @@
 
 {% block style %}
 {% parent %}
-<link href='/vender/highlightjs/styles/monokai-sublime.css' rel='stylesheet'>
+<link href='/vender/highlightjs/styles/github.css' rel='stylesheet'>
 <link rel='stylesheet' href='/styles/articleEditor.css'>
 <link rel='stylesheet' href='/styles/jquery.datetimepicker.css'>
 {% endblock %}
