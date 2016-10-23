@@ -522,6 +522,11 @@ Breadcrumb navigation Box
 .blog-main-content {
   background: white;
   padding: 40px 0;
+  .article-body{
+    p, li{
+      font-size: 1.2em;
+    }
+  }
 }
 
 /* sidebar content
