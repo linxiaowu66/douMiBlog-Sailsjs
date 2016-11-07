@@ -14,8 +14,8 @@ body{
 
 .title a{
   position: fixed;
-  top: 13px;
-  right: 13px;
+  top: 20px;
+  right: 20px;
   z-index: 200;
   display: block;
   padding: 9px 12px 6px;
@@ -27,7 +27,29 @@ body{
   -ms-transition: background 0.6s ease-out;
   -o-transition: background 0.6s ease-out;
   transition: background 0.6s ease-out;
+  -webkit-animation: sb-pulse 2s infinite;
+  -moz-animation: sb-pulse 2s infinite;
+  -o-animation: sb-pulse 2s infinite;
+  -ms-animation: sb-pulse 2s infinite;
+  animation: sb-pulse 2s infinite;
 }
+
+@-webkit-keyframes 'sb-pulse'{
+
+  0% {
+      -webkit-box-shadow: 0 0 0 0 rgba(139,195,74,.5);
+      box-shadow: 0 0 0 0 rgba(139,195,74,.5);
+  }
+  70% {
+      -webkit-box-shadow: 0 0 0 20px rgba(139,195,74,0);
+      box-shadow: 0 0 0 20px rgba(139,195,74,0);
+  }
+  100% {
+      -webkit-box-shadow: 0 0 0 0 rgba(139,195,74,0);
+      box-shadow: 0 0 0 0 rgba(139,195,74,0);
+  }
+}
+
 .title a:hover{
   background: #119d55;
   text-decoration: none;
