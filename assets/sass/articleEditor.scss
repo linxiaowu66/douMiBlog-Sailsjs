@@ -248,9 +248,13 @@ button.post-settings{
         -moz-user-select: text;
         -ms-user-select: text;
         user-select: text;
-	img{
-	  width:100%
-	}
+	      img{
+	        margin: 0 auto;
+          max-width: 100%;
+          height: auto;
+          display: block;
+          line-height: 0;
+	      }
       }
 
       table{
