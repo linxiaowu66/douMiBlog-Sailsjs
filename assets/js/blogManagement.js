@@ -75,7 +75,6 @@ define(['jquery','bootstrap', 'markdown','highlight','hashchange'], function($, 
             totalItemsCount = data.count;
 
             $.map(data.articleList,function(article){
-              console.log(article);
               var ele = "<a href='#" + article.id + "' data-set='" + article.id + "' class='blogIndex'>" +
                 "<li>" +
                 "<div class='media'><div class='media-left'>" +
@@ -106,7 +105,6 @@ define(['jquery','bootstrap', 'markdown','highlight','hashchange'], function($, 
       $('#search-input').val('');
     });
     $('.res-dropdown').on('mousedown','a', function(e){
-      console.log($(this).attr('href'));
       window.location.href = '/douMi#' + $(this).data('id');
     });
     $('#search-input').bind('input propertychange', function (){
