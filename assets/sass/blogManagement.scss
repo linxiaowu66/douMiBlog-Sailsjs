@@ -190,7 +190,11 @@ a {
     }
     /*Restrict the image`s width*/
     img{
-      width:100%
+     margin: 0 auto;
+     max-width: 100%;
+     height: auto;
+     display: block;
+     line-height: 0;
     }
   }
 }
