@@ -5,7 +5,7 @@
 {% block style %}
 {% parent %}
 <link rel='stylesheet' href='/styles/blogManagement.css'>
-<link href='/vender/highlightjs/styles/monokai-sublime.css' rel='stylesheet'>
+<link href='/vender/highlightjs/styles/github.css' rel='stylesheet'>
 {% endblock %}
 
 {% block content %}
