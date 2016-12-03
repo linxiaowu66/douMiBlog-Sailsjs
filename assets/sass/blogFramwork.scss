@@ -2,6 +2,10 @@
 
 * {font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif}
 
+#wrapper{
+  background-color: #F5F5F5;
+}
+
 a {
   color: #119d55;
   -webkit-transition: color 400ms,background-color 400ms;
@@ -524,8 +528,7 @@ Breadcrumb navigation Box
 --------------------------*/
 
 .blog-main-content {
-  background: white;
-  padding: 40px 0;
+  padding: 10px 0;
   .article-body{
     p, li{
       font-size: 1.2em;
@@ -565,6 +568,7 @@ Breadcrumb navigation Box
   margin-bottom: 30px;
   padding: 20px;
   position: relative;
+  background-color: #FFF;
   ul {
     margin: 0;
     font-size: 1.25em;

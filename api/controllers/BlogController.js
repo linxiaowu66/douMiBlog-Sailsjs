@@ -1,5 +1,5 @@
-// 文章查询顺序：以更新时间逆序
-FIND_ORDER = 'updatedAt desc';
+// 文章查询顺序：以创建时间逆序
+FIND_ORDER = 'createdAt desc';
 // 文章每页条目数
 FIND_PER_PAGE = 5;
 

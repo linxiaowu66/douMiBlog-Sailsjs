@@ -13,17 +13,25 @@
 <main class='col-md-8 col-sm-8 col-xs-12'>
  {% for article in articles %}
  <!-- Article Box -->
-  <article class='post' url-data='{{ article.slug }}'>
+  <article class='post widget' url-data='{{ article.slug }}'>
     <header class='post-header'>
       <h2 class='blog-single-post-title'><a href='/blog/{{ article.slug }}'>{{ article.title }}</a></h2>
+      <div class='tags'>
+        <span>CSS3</span>
+        <span>HTML5</span>
+      </div>
+      <img src="http://blogimages2016.oss-cn-hangzhou.aliyuncs.com/jianZhan_3/nodejs%E7%89%88%E6%9C%AC%E6%9F%A5%E7%9C%8B.png" alt="nodejs版本查看.png">
+      <span class="ribble">
+        2016-12-03
+      </span>
     </header>
     <div class='post-content'>
     <p class='post-excerpt'>
-      {{ article.digest }}
+      {{ article.digest |safe }}
       <a href='/blog/{{ article.slug }}' class = 'articleLink'>阅读全文</a>
     </p>
     <!-- Article Info Box -->
-    <div class='row'>
+    <!-- <div class='row'>
       <div class='col-sm-12 col-md-12 col-xs-12'>
         <div class='post-meta'>
            <div class='row'>
@@ -47,7 +55,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </article>
   {% endfor %}
   <!-- Pagination Box -->

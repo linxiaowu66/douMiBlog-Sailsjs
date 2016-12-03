@@ -123,7 +123,7 @@ module.exports = {
   index: function (req,res){
     var page = req.param('page') ? req.param('page') : 1;
     var articleItems = [];
-    Article.find({sort: 'updatedAt desc'}).paginate({page: page, limit: 10}).exec(function(error, articles){
+    Article.find({sort: 'createdAt desc'}).paginate({page: page, limit: 10}).exec(function(error, articles){
 
       if (error) {
         sails.log.error(error);

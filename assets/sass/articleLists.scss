@@ -1,21 +1,56 @@
 /* Article Box
 ----------------------*/
+.post{
+  overflow: hidden;
+}
 .blog-single-post-title {
   font-weight: 500;
-  line-height: 136%;
   padding-bottom: .5em;
-  margin-bottom: 1em;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+  margin-top: 0px;
   border-bottom: 1px solid #E8E8E8;
 }
 
 .post-header {
   margin-bottom: 3.4rem;
+  img{
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    line-height: 0;
+  }
+  .tags{
+    position: absolute;
+    top: 0;
+    right: 150px;
+  }
+  .ribble{
+    position: absolute;
+    top: 16px;
+    right: -27px;
+    display: inline-block;
+    background-color: #119d55;
+    height: 30px;
+    width: 120px;
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    color: #FFF;
+    text-align: center;
+    line-height: 30px;
+  }
 }
 
 .post-excerpt {
   margin-bottom: 1em;
-  font-size: 1.25em;
-  line-height: 2.1em;
+  font-size: 1.1em;
+  .articleLink{
+    font-size: 1.3em;
+  }
 }
 
 /* Article Info Box
