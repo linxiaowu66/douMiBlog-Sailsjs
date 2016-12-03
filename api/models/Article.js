@@ -52,6 +52,9 @@ module.exports = {
       type: 'string',
       required: true
     },
+    picture:{
+      type: 'string'
+    }，
     tagsArray:  {
       type: 'array'
     },

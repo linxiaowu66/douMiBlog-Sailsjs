@@ -85,6 +85,10 @@
             <p class='response' style='display: none;'><!----></p>
         </div>
         <div class='form-group'>
+          <label for='image'>首页图片URL</label>
+          <input id='home-image' name='image' type='text' class='post-setting-date' />
+        </div>
+        <div class='form-group'>
           <div style='position:relative;'>
             <label for='tags'>标签</label>
             <div id='tags'>

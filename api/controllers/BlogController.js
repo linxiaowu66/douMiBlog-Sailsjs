@@ -81,7 +81,7 @@ module.exports = {
         return res.view(
           'articleLists',
           {
-            articles: articles,
+            articles: articles.map(function(item){item.archiveTime = item.archiveTime.substr(0, 9);  return item;}),
             categories: categories,
             tags: tags,
             archives: archiveArray,
@@ -151,6 +151,12 @@ module.exports = {
             /*todo errors*/
           });
         }
+        var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        article.map(function(item){
+          item.archiveDay = item.archiveTime.substr(8, 9);
+          item.archiveMonth = months[item.archiveTime.substr(5, 6) - 1];
+          return item
+        })
 
         return res.view('articleShow',
         {

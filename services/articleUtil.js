@@ -75,6 +75,7 @@ module.exports = {
         updateArticle.digest = article.digest;
         updateArticle.articleStatus = article.articleStatus;
         updateArticle.tagsArray = article.tagsArray;
+        updateArticle.picture = article.picture;
         if (article.articleStatus === "published"){
           updateArticle.archiveTime = article.archiveTime;
           updateArticle.archive = archiveModel.id;
@@ -156,6 +157,7 @@ module.exports = {
         newArticle.digest = article.digest;
         newArticle.articleStatus = article.articleStatus;
         newArticle.tagsArray = article.tagsArray;
+        newArticle.picture = article.picture;
         if (article.articleStatus === "published"){
           newArticle.archiveTime = article.archiveTime;
           newArticle.archive = archiveModel;
@@ -211,6 +213,7 @@ module.exports = {
       * archive model*/
       archiveTime: req.param('publishTime'),
       digest: req.param('summary'),
+      picture: req.param('picture'),
       id: req.param('id'), /*If this value equal to undefined, indicates that this article is a new one.*/
       cat: req.param('cat') === undefined ? "未分类" : req.param('cat'),
       tagsArray: tagsArray

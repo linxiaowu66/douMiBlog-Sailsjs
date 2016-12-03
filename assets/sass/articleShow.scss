@@ -1,3 +1,50 @@
+.post-header{
+  text-align: center;
+}
+.post-title{
+  margin-top: 0px;
+  font-size: 1.8em
+}
+
+.blog-date{
+  float: left;
+  text-align: center;
+  em{
+    display: block;
+    border-top: 2px solid #119d55;
+    font-style: normal;
+    text-transform: uppercase;
+  }
+  span{
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 110%;
+    }
+}
+.blog-view-count{
+  display: inline-block;
+  float: right;
+  height: 40px;
+  line-height: 40px;
+  font-size: 1.5em;
+  color: #119d55;
+}
+
+.tags{
+  margin: 20px 0px;
+  span{
+    border: 1px solid #119d55;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    padding: 0px 5px;
+    border-radius: 5px;
+    color: #119d55;
+    margin-right: 10px;
+  }
+}
+
 .article-info{
   margin: 25px;
 }

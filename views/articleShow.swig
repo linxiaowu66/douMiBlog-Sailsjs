@@ -12,23 +12,22 @@
 {% endblock %}
 
 {% block content %}
-<main class='col-md-8'>
-  <header class='post-header'><h1 class='post-title'>{{ article.title }}</h1></header>
-  <section class='article-info row'>
-    <div class='col-sm-10 col-xs-10 col-md-10'>
-      <span class='col-xs-8 col-sm-8 col-md-4 glyphicon glyphicon-time'><a href='#'>{{ article.archiveTime }}</a></span>
-      <span class='col-xs-4 col-sm-4 col-md-2 author glyphicon glyphicon-user'>
-       <a href = '/blog/user/{{article.author}}' >{{article.author}}</a>
-      </span>
-      <span class='col-xs-8 col-sm-8 col-md-4 tags-array glyphicon glyphicon-tags'>
-       {% for tag in article.tagsArray %}
-       <a href = '/blog/tag/{{tag}}'>{{ tag }}</a>
-       {% endfor %}
-      </span>
-      <span class='col-xs-4 col-sm-4 col-md-2 glyphicon glyphicon-heart'><a href='#'>{{ article.pageViewsCount }}</a>
-      </span>
-    </div>
-  </section>
+<main class='col-md-8 widget'>
+  <header class='post-header'>
+    <span class="blog-view-count">{{ article.pageViewsCount }}℃</span>
+    <span class="blog-date">
+      <time class="dt-published" datetime="{{ article.archiveTime }}">
+        <span>{{ article.archiveDay }}</span>
+        <em>{{ article.archiveMonth }}</em>
+      </time>
+    </span>
+    <h1 class='post-title'>{{ article.title }}</h1>
+  </header>
+  <div class='tags'>
+    {% for tag in article.tagsArray %}
+    <span><a href = '/blog/tag/{{tag}}'>{{ tag }}</a></span>
+    {% endfor %}
+  </div>
   <section class='article-body'>{{ article.previewText |safe}}</section>
   <footer class='post-footer'>
     <figure class='author-image'>

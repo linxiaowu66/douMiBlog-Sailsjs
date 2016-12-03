@@ -402,12 +402,12 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
       }
 
       description = content.substr(0, 100);
-      description = marked(description);
-      /*Remove the html tags*/
-      description = description.replace(/<\/?.+?>/g,'');
-      /*Remove the whitespaces*/
-      description = description.replace(/[\r\n]/g, '');
-      description += '......';
+      // description = marked(description);
+      // /*Remove the html tags*/
+      // description = description.replace(/<\/?.+?>/g,'');
+      // /*Remove the whitespaces*/
+      // description = description.replace(/[\r\n]/g, '');
+      // description += '......';
 
       $.ajax({
         type: 'POST',
@@ -420,6 +420,7 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
           cat: $('#item').children().eq(0).html(),
           id: articleId,
           slug: url,
+          picture: $('#home-image').val(),
           summary: description
         },
         dataType: 'json',
