@@ -81,7 +81,7 @@ module.exports = {
         return res.view(
           'articleLists',
           {
-            articles: articles.map(function(item){item.archiveTime = item.archiveTime.substr(0, 9);  return item;}),
+            articles: articles.map(function(item){item.archiveTime = item.archiveTime.substr(0, 10);  return item;}),
             categories: categories,
             tags: tags,
             archives: archiveArray,
@@ -152,11 +152,9 @@ module.exports = {
           });
         }
         var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-        article.map(function(item){
-          item.archiveDay = item.archiveTime.substr(8, 9);
-          item.archiveMonth = months[item.archiveTime.substr(5, 6) - 1];
-          return item
-        })
+        // 改造显示归档时间
+        article.archiveDay = article.archiveTime.substr(8, 2);
+        article.archiveMonth = months[parseInt(article.archiveTime.substr(5, 2)) - 1];
 
         return res.view('articleShow',
         {

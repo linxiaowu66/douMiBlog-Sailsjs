@@ -86,7 +86,7 @@
         </div>
         <div class='form-group'>
           <label for='image'>首页图片URL</label>
-          <input id='home-image' name='image' type='text' class='post-setting-date' />
+          <input id='home-image' name='image' type='text' class='post-setting-date' value='{{ article.picture }}'/>
         </div>
         <div class='form-group'>
           <div style='position:relative;'>

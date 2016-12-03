@@ -54,7 +54,7 @@ module.exports = {
     },
     picture:{
       type: 'string'
-    }，
+    },
     tagsArray:  {
       type: 'array'
     },

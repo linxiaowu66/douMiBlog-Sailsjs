@@ -240,6 +240,7 @@ module.exports = {
         preview: results[0].previewText,
         status: results[0].articleStatus,
         archive: results[0].archiveTime,
+        picture: results[0].picture,
         category: results[2].category.name,
         tags: results[3].tags,
         allTags: results[4],
@@ -258,24 +259,24 @@ module.exports = {
 
         function(tags, callback){
           Category.find().exec(function(error, cats){
-          callback(null, tags, cats);
-        });
-                         }
-        ], function(err, tags, cats){
-          if(err){
-            sails.log.error(err);
-            return res.negotiate(err);
-          }else{
+            callback(null, tags, cats);
+          });
+        }
+      ], function(err, tags, cats){
+        if(err){
+          sails.log.error(err);
+          return res.negotiate(err);
+        }else{
 
-            var article = {
-              allTags: tags,
-              allCats: cats
-            };
-            return res.view('articleEditor', {
-              article: article,
-              navIndex: 0
-            });
-       }
+          var article = {
+            allTags: tags,
+            allCats: cats
+          };
+          return res.view('articleEditor', {
+            article: article,
+            navIndex: 0
+          });
+     }
     });
   }
   }
