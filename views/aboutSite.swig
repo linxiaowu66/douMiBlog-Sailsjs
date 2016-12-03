@@ -39,6 +39,15 @@
         <span>10&nbsp;&nbsp;周一</span>
       </div>
     </div>
+    <div class='update-log'>
+      <h3>博文列表改版</h3>
+      <p>12月03号，博文列表改版，使之更加简洁大方。</p>
+      <p>新增博客首页图片，方便显示博文列表中的大图,增加网站形象性</p>
+      <div class='update-time'>
+        <span>2016/12</span>
+        <span>12&nbsp;&nbsp;周六</span>
+      </div>
+    </div>
   </section>
 </main>
 {% endblock %}
