@@ -34,7 +34,7 @@ module.exports = {
       type: 'string',
       required: true,
       minLength: 1,
-      maxLength: 200
+      maxLength: 500
     },
     articleStatus: {
       type: 'string',
