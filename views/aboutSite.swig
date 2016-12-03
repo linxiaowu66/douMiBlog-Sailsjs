@@ -45,7 +45,7 @@
       <p>新增博客首页图片，方便显示博文列表中的大图,增加网站形象性</p>
       <div class='update-time'>
         <span>2016/12</span>
-        <span>12&nbsp;&nbsp;周六</span>
+        <span>03&nbsp;&nbsp;周六</span>
       </div>
     </div>
   </section>
