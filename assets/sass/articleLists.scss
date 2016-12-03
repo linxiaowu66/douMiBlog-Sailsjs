@@ -13,7 +13,7 @@
 }
 
 .post-header {
-  margin-bottom: 3.4rem;
+  margin-bottom: 1.4rem;
   img{
     margin: 0 auto;
     max-width: 100%;
@@ -23,8 +23,25 @@
   }
   .tags{
     position: absolute;
-    top: 0;
-    right: 150px;
+    top: 5px;
+    right: 10%;
+    -webkit-animation: slide 5s ease-in-out 0s infinite;
+    -o-animation: slide 5s ease-in-out 0s infinite;
+    animation: slide 5s ease-in-out 0s infinite;
+    span{
+      border: 2px solid #119d55;
+      height: 30px;
+      line-height: 30px;
+      display: inline-block;
+      color: #119d55;
+      border-radius: 5px;
+      -webkit-animation: swing 2s ease-in-out 0s infinite;
+      -o-animation: swing 2s ease-in-out 0s infinite;
+      animation: swing 2s ease-in-out 0s infinite;
+      -webkit-transform-origin: 50% 100%;
+      -moz-transform-origin: 50% 100%;
+      transform-origin: 50% 100%;
+    }
   }
   .ribble{
     position: absolute;
@@ -53,22 +70,58 @@
   }
 }
 
-/* Article Info Box
------------------------*/
-.post-meta .row span{
-  padding: 0 5px 0 5px;
-  &:nth-child(odd){
-    border-right: 1px solid #119d55;
-  }
-  a:hover{
-    text-decoration: underline;
-  }
+@keyframes swing
+{
+  0% { -webkit-transform: rotate(10deg); }
+  50% { -webkit-transform: rotate(-10deg); }
+  100% { -webkit-transform: rotate(10deg); }
+}
+@-moz-keyframes swing /* Firefox */
+{
+  0% { -webkit-transform: rotate(10deg); }
+  50% { -webkit-transform: rotate(-10deg); }
+  100% { -webkit-transform: rotate(10deg); }
+}
 
-  &:nth-child(4), &:nth-child(1){
-    a {
-      padding-left: 13px;
-    }
-  }
+@-webkit-keyframes swing /* Safari 和 Chrome */
+{
+  0% { -webkit-transform: rotate(10deg); }
+  50% { -webkit-transform: rotate(-10deg); }
+  100% { -webkit-transform: rotate(10deg); }
+}
+
+@-o-keyframes swing /* Opera */
+{
+  0% { -webkit-transform: rotate(10deg); }
+  50% { -webkit-transform: rotate(-10deg); }
+  100% { -webkit-transform: rotate(10deg); }
+}
+
+@keyframes slide
+{
+  0% { right: 10% }
+  50% { right: 25% }
+  100% { right: 10% }
+}
+@-moz-keyframes slide /* Firefox */
+{
+  0% { right: 10% }
+  50% { right: 25% }
+  100% { right: 10% }
+}
+
+@-webkit-keyframes slide /* Safari 和 Chrome */
+{
+  0% { right: 10% }
+  50% { right: 25% }
+  100% { right: 10% }
+}
+
+@-o-keyframes slide /* Opera */
+{
+  0% { right: 10% }
+  50% { right: 25% }
+  100% { right: 10% }
 }
 
 .comment-count {

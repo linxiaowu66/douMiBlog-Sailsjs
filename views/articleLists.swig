@@ -17,45 +17,24 @@
     <header class='post-header'>
       <h2 class='blog-single-post-title'><a href='/blog/{{ article.slug }}'>{{ article.title }}</a></h2>
       <div class='tags'>
-        <span>CSS3</span>
-        <span>HTML5</span>
+        {% for tag in article.tagsArray %}
+        <span><a href = '/blog/tag/{{tag}}'>{{ tag }}</a></span>
+        {% endfor %}
       </div>
-      <img src="http://blogimages2016.oss-cn-hangzhou.aliyuncs.com/jianZhan_3/nodejs%E7%89%88%E6%9C%AC%E6%9F%A5%E7%9C%8B.png" alt="nodejs版本查看.png">
+      <img src="{{ article.picture }}" alt="文章首页图片">
       <span class="ribble">
-        2016-12-03
+        {{ article.archiveTime }}
       </span>
     </header>
     <div class='post-content'>
-    <p class='post-excerpt'>
-      {{ article.digest |safe }}
-      <a href='/blog/{{ article.slug }}' class = 'articleLink'>阅读全文</a>
-    </p>
-    <!-- Article Info Box -->
-    <!-- <div class='row'>
-      <div class='col-sm-12 col-md-12 col-xs-12'>
-        <div class='post-meta'>
-           <div class='row'>
-              <div class='col-sm-10 col-xs-10 col-md-10'>
-                 <span class='col-xs-8 col-sm-8 col-md-4 glyphicon glyphicon-time'><a href='#'>{{ article.archiveTime }}</a></span>
-                 <span class='col-xs-4 col-sm-4 col-md-2 author glyphicon glyphicon-user'>
-                   <a href = '/blog/user/{{article.author}}' >{{article.author}}</a>
-                 </span>
-                 <span class='col-xs-8 col-sm-8 col-md-4 tags-array glyphicon glyphicon-tags'>
-                   {% for tag in article.tagsArray %}
-                   <a href = '/blog/tag/{{tag}}'>{{ tag }}</a>
-                   {% endfor %}
-                  </span>
-                  <span class='col-xs-4 col-sm-4 col-md-2 glyphicon glyphicon-heart'><a href='#'>{{ article.pageViewsCount }}</a>
-                  </span>
-                </div>
-                <div class='col-sm-2 col-xs-2 col-md-2 comment-count'>
-                   <a href='http://blog.5udou.cn/blog/{{ article.slug }}#disqus_thread'></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
+      <p class='post-excerpt'>
+        {{ article.digest |safe }}
+        <a href='/blog/{{ article.slug }}' class = 'articleLink'>阅读全文</a>
+      </p>
+    </div>
+    <div class='comment-count'>
+       <a href='http://blog.5udou.cn/blog/{{ article.slug }}#disqus_thread'></a>
+    </div>
     </article>
   {% endfor %}
   <!-- Pagination Box -->
