@@ -401,7 +401,7 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
         url = $('.dm-blog .content-viwer').attr('data-slug');
       }
 
-      description = content.substr(0, 100);
+      description = content.substr(0, 150);
       // description = marked(description);
       // /*Remove the html tags*/
       // description = description.replace(/<\/?.+?>/g,'');

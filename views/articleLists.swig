@@ -16,7 +16,7 @@
   <article class='post widget' url-data='{{ article.slug }}'>
     <header class='post-header'>
       <h2 class='blog-single-post-title'><a href='/blog/{{ article.slug }}'>{{ article.title }}</a></h2>
-      <div class='tags'>
+      <div class='tags hidden-xs'>
         {% for tag in article.tagsArray %}
         <span><a href = '/blog/tag/{{tag}}'>{{ tag }}</a></span>
         {% endfor %}
