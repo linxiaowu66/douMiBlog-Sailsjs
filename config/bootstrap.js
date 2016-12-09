@@ -12,7 +12,7 @@ var schedule = require('node-schedule');
 var _ = require('lodash');
 
 function clearTodayVisitCounts(){
-  console.log('New Day Has begun!!!');
+  console.log('New Day Has begun, current date is ', new Date());
   async.parallel([
     function(callback){Statistics.update({key: 0}, {todayVisitCounts: 0}, callback)},
     function(callback){Article.find({where: {articleStatus:"published"}}).exec(callback)}
