@@ -80,6 +80,7 @@
                   <li class='dm-menu-item'><a href='/'>首页</a></li>
                   <li class='dm-menu-item'><a href='/aboutDouMi'>关于豆米</a></li>
                   <li class='dm-menu-item'><a href='/aboutSite'>关于本站</a></li>
+                  <li class='dm-menu-item'><a href='https://github.com/linxiaowu66/douMiBlog-Sailsjs'>Github源码</a></li>
                 </ul>
               </div>
             </div>

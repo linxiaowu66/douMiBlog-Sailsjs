@@ -115,8 +115,7 @@ module.exports = {
           Statistics.findOne({key: 0}),
           Article.count({where: {articleStatus:"published"}})
         ];
-      })
-      .spread(function(article, categories, tags, archives,hotterArticles, newArticlesToday, statistics,numOfArticles){
+      }).spread(function(article, categories, tags, archives,hotterArticles, newArticlesToday, statistics,numOfArticles){
         var archiveArray = [];
         for (var index = 0; index < archives.length; index++){
           var year = archives[index].archiveTime.substr(0,4);
@@ -169,11 +168,11 @@ module.exports = {
           totalVisitCounts: statistics.totalVisitCounts,
           todayVisitCounts: statistics.todayVisitCounts
         });
-      }).catch(err){
+      }).catch(function(err){
         console.error('crash occur at showOneArticle: ', articleUrl);
         console.error('error code: ', err);
         return res.send('获取文章分类失败,请联系管理员。');
-      }
+      });
   },
   showOneCategory: function (req, res){
     // 获得当前需要加载第几页
@@ -301,11 +300,11 @@ module.exports = {
           totalVisitCounts: statistics.totalVisitCounts,
           todayVisitCounts: statistics.todayVisitCounts
         });
-    }).catch(err){
+    }).catch(function(err){
       console.error('crash occur at showOneTag: ', page, queryTag);
       console.error('error code: ', err);
       return res.send('获取文章分类失败,请联系管理员。');
-    }
+    });
   },
 
   showOneArchive: function (req, res){
@@ -368,11 +367,11 @@ module.exports = {
           totalVisitCounts: statistics.totalVisitCounts,
           todayVisitCounts: statistics.todayVisitCounts
         });
-    }).catch(err){
+    }).catch(function(err){
       console.error('crash occur at showOneArchive: ', page, queryArchive);
       console.error('error code: ', err);
       return res.send('获取文章分类失败,请联系管理员。');
-    }
+    });
   },
   showOneUser: function(req, res){
     var page = req.param('page') ? req.param('page') : 1;
@@ -434,11 +433,11 @@ module.exports = {
           totalVisitCounts: statistics.totalVisitCounts,
           todayVisitCounts: statistics.todayVisitCounts
         });
-    }).catch(err){
+    }).catch(function(err){
       console.error('crash occur at showOneUser: ', page, queryUser);
       console.error('error code: ', err);
       return res.send('获取文章分类失败,请联系管理员。');
-    }
+    });
   },
 
   showSearch: function(req, res){
