@@ -126,9 +126,9 @@
         <aside class='col-md-4 col-sm-4 col-xs-12 sidebar'>
           <div id='secondary' class='widget-area' role='complementary'>
             <!-- archive Box -->
-            <aside id='archives' class='widget widget_archive'>
+            <aside id='archives' class='widget'>
               <h4 class='title'>归档</h4>
-              <ul>
+              <ul class='widget_archive'>
                 {% for archive in archives %}
                 <li><a href='/blog/archive/{{ archive.oldArchiveTime }}'>{{ archive.archiveTime }}</a><span>({{ archive.numOfArticles}})</span></li>
                 {% endfor %}
@@ -150,7 +150,7 @@
             <!-- hotter Post Box -->
             <aside class='widget' id='hotterArticle'>
               <h4 class='title'>热门文章</h4>
-              <ul>
+              <ul class='widget_hotter'>
               {% for article in hotterArticles %}
               <li><a href='/blog/{{ article.slug }}'>{{ article.title }}</a><span>({% if article.pageViewsCount != undefined %}{{ article.pageViewsCount}}{% else %}0{% endif%})</span></li>
               {% endfor %}
@@ -159,7 +159,7 @@
             <!-- blog statistics Box -->
             <aside class='widget blog-statistics'>
               <h4 class='title'>博客统计</h4>
-              <ul>
+              <ul class='widget_statistics'>
                 <li>
                   <span>{{ numOfArticles  }}</span>文章数:
                 </li>
