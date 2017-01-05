@@ -54,7 +54,7 @@
             </ul>
           </section>
           <footer class='dm-nav-footer'>
-            <p>Copyright &copy; 2016
+            <p>Copyright &copy; 2017
               | Designed by <a href='/blog' target='_blank'>豆米博客</a></p>
           </footer>
         </nav>
@@ -65,15 +65,6 @@
     </div>
   </div>
 </body>
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?3152c3de98b0032125ac07f988e65bb2";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

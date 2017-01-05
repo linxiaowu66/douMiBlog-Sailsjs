@@ -12,7 +12,7 @@ module.exports = {
       type: 'string',
       required: true,
       minLength: 1,
-      maxLength: 40,
+      maxLength: 150,
       defaultsTo: 'untitled'
     },
     content: {
