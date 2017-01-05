@@ -48,6 +48,15 @@
         <span>03&nbsp;&nbsp;周六</span>
       </div>
     </div>
+    <div class='update-log'>
+      <h3>增加友情链接面板</h3>
+      <p>01月05号，增加友情链接面板，加大文章标题的可存长度</p>
+      <p>新增博客的友情链接，外链到一些推荐的博客网站</p>
+      <div class='update-time'>
+        <span>2017/01</span>
+        <span>05&nbsp;&nbsp;周四</span>
+      </div>
+    </div>
   </section>
 </main>
 {% endblock %}

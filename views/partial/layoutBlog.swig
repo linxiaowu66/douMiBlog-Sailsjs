@@ -174,6 +174,17 @@
                 </li>
               </ul>
             </aside>
+            <aside class='widget blog-statistics'>
+              <div class='tagsWidget'>
+                <h4 class='title'>
+                  友情链接
+                </h4>
+                <div class = 'tag-cloud'>
+                  <a href='http://mollychin.com/'>凯风的博客</a>
+                  <a href='http://www.myronliu.com/'>myron</a>
+                </div>
+              </div>
+            </aside>
           </div>
         </aside>
       </div><!-- row -->
@@ -201,20 +212,11 @@
   <!-- Footer Box -->
   <footer class='footer'>
     <div>
-      Copyright © <a href='/'>豆米博客</a>. 2016 • All rights reserved. | 浙ICP备15041819号-1
+      Copyright © <a href='/'>豆米博客</a>. 2017 • All rights reserved. | 浙ICP备15041819号-1
     </div>
   </footer>
 </div>
 </body>
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?3152c3de98b0032125ac07f988e65bb2";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
