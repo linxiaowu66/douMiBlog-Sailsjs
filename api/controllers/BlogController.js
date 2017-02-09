@@ -74,7 +74,7 @@ module.exports = {
         }else{
           reqIp = req.headers['x-real-ip'];
         }
-        console.log(statistics)
+        //console.log(statistics)
         if (statistics.todayVisitIps.indexOf(reqIp) === -1) {
           var newVisitCounts = statistics.totalVisitCounts + 1;
           var newTodayCounts = statistics.todayVisitCounts + 1;
