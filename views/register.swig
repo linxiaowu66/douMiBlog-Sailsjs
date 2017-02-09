@@ -22,17 +22,17 @@
 
   <div class='field'>
     <span class='input-icon glyphicon glyphicon-envelope'>
-    <input id='email' name='email' type='email' placeholder='填写邮箱'>
+    <input id='email' name='email' type='email' required placeholder='填写邮箱'>
     </span>
   </div>
   <div class='field'>
     <span class='input-icon glyphicon glyphicon-lock'>
-    <input id='password' name='password' type='password' placeholder='填写密码（不少于6个字符）'/>
+    <input id='password' name='password' type='password' required placeholder='填写密码（不少于6个字符）'/>
     </span>
   </div>
   <div class='field'>
     <span class='input-icon glyphicon glyphicon-user'>
-    <input id='name' name='fullname' placeholder='请输入您的昵称' type='text'/>
+    <input id='name' name='fullname' placeholder='请输入您的昵称' type='text' required />
     </span>
   </div>
 
