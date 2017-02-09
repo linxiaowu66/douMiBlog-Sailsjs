@@ -3,6 +3,7 @@
  * */
 
 var articleUtil = require('../../services/articleUtil.js');
+var commonUtil = require('../../services/commonUtil.js')
 var _ = require('lodash');
 
 module.exports = {
@@ -14,27 +15,27 @@ module.exports = {
     if (article.id === undefined){
       articleUtil.createNewArticle(article, function(err, articleIndex){
         if(err){
-          sails.log.error(err);
-          return res.json(200, {error: err});
+          sails.log.error('Failed to save new draft:', err);
+          return res.json(200, commonUtil.format('草稿创建出错, 请联系管理员', null));
         }else{
-          res.json(200, {
+          res.json(200, commonUtil.format(null, {
             articleIdx: articleIndex,
             title: article.title,
             slug: article.slug
-          });
+          }));
         }
       });
     }else{
       articleUtil.updateExistingArticle(article, function(err, result){
         if(err){
-          sails.log.error(err);
-          return res.json(200, {error: err});
+          sails.log.error('Failed to save draft:', err);
+          return res.json(200, commonUtil.format('草稿更新出错, 请联系管理员', null));
         }else{
-          return res.json(200, {
+          return res.json(200, commonUtil.format(null, {
             articleIdx: article.id,
             title: article.title,
             slug: article.slug
-          });
+          }));
         }
       });
     }
@@ -46,27 +47,27 @@ module.exports = {
     if (article.id === undefined){
       articleUtil.createNewArticle(article,  function(err, articleIndex){
         if(err){
-          sails.log.error(err);
-          return res.json(200, {error: err});
+          sails.log.error('Failed to publish new article:', err);
+          return res.json(200, commonUtil.format('文章发布出错, 请联系管理员', null));
         }else{
-          res.json(200, {
+          res.json(200, commonUtil.format(null, {
             articleIdx: articleIndex,
             title: article.title,
             slug: article.slug
-          });
+          }));
         }
       });
     }else {
       articleUtil.updateExistingArticle(article, function (err, result){
         if (err) {
-          sails.log.error(err);
-          return res.json(200, { error: err });
+          sails.log.error('Failed to publish article:', err);
+          return res.json(200, commonUtil.format('文章发布出错, 请联系管理员', null));
         } else {
-          return res.json(200, {
+          return res.json(200, commonUtil.format(null, {
             articleIdx: article.id,
             title: article.title,
             slug: article.slug
-          });
+          }));
         }
       });
     }
@@ -77,8 +78,8 @@ module.exports = {
 
     Article.destroy({id : index}).exec(function deleteCB(err){
       if(err){
-        sails.log.error('Failed to find article:', err);
-        return res.negotiate(err);
+        sails.log.error('Failed to delete article:', err);
+        return res.json(200, commonUtil.format('文章删除出错, 请联系管理员', null));
       }
       else{
         return res.redirect('/douMi');
@@ -91,14 +92,14 @@ module.exports = {
 
     articleUtil.updateExistingArticle(article,function(err, result){
       if(err){
-        sails.log.error(err);
-        return res.json(200, {error: err});
+        sails.log.error('Failed to undoPub article:', err);
+        return res.json(200, commonUtil.format('文章撤销发布出错, 请联系管理员', null));
       }else{
-        return res.json(200, {
+        return res.json(200, commonUtil.format(null, {
           articleIdx: article.id,
           title: article.title,
           slug: article.slug
-        });
+        }));
       }
     });
   },
@@ -108,14 +109,14 @@ module.exports = {
 
     articleUtil.updateExistingArticle(article,function(err, result){
       if(err){
-        sails.log.error(err);
-        return res.json(200, {error: err});
+        sails.log.error('Failed to updatePub article:',err);
+        return res.json(200, commonUtil.format('文章更新发布出错, 请联系管理员', null));
       }else{
-        return res.json(200, {
+        return res.json(200, commonUtil.format(null, {
           articleIdx: article.id,
           title: article.title,
           slug: article.slug
-        });
+        }));
       }
     });
   },
@@ -200,15 +201,11 @@ module.exports = {
         return res.negotiate(error);
       }
       if (articles.length === 0){
-        return res.json({
-          "err": "找不到对应的博客",
-          "content": ""
-        });
+        return res.json(200, commonUtil.format('找不到对应文章, 请重新确认', null));
       }else{
-        return res.json({
-          "err": " ",
+        return res.json(200, commonUtil.format({
           "content": articles[0].previewText
-        });
+        }));
       }
 
     });

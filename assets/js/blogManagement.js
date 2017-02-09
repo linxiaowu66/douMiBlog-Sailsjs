@@ -38,11 +38,16 @@ define(['jquery','bootstrap', 'markdown','highlight','hashchange'], function($, 
       //Ajax loading for the workspace.
       $.ajaxSetup({cache: false});
       $.get(url)
-        .done(function(data, status, xhr){
+        .done(function(res, status, xhr){
+          if (!res.status) {
+            var data = res.data
+            $('.content-preview').html(data.content);
 
-          $('.content-preview').html(data.content);
+            $('.blog-edit').attr('href', '/douMi/editor/' + hash.replace( /^#/, '' ));
+          } else {
+            alert(res.msg)
+          }
 
-          $('.blog-edit').attr('href', '/douMi/editor/' + hash.replace( /^#/, '' ));
         })
         .fail(function(xhr, status, errorThrown){
 

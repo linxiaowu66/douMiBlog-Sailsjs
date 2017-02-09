@@ -14,7 +14,6 @@ marked.setOptions({
   }
 });
 module.exports = {
-
   updateExistingArticle: function(article, callback){
 
     var articleModel,

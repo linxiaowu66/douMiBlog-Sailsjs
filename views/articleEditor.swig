@@ -143,6 +143,9 @@
   </div>
 </div>
 </div>
+<div class="toast">
+  <p></p>
+</div>
 <script type='text/javascript'>
   require(['../js/articleEdit']);
 </script>

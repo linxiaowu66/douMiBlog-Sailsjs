@@ -273,7 +273,7 @@ button.post-settings{
 	   border: 1px solid #d0d6d7;
            padding: 15px;
 	}
-     }      
+     }
     }
   }
 }
@@ -502,3 +502,33 @@ input[type=text] {
   color: #242628
 }
 
+.toast {
+  padding: 0 24px;
+  background-color: #000;
+  color: #FFF;
+  border-radius: 5px;
+  position: fixed;
+  right: 10px;
+  top: 69px;
+  z-index: 2000;
+  max-width: 568px;
+  transition: transform 1.5s ease, opacity 1.5s ease;
+  backface-visibility: hidden;
+  opacity: 0;
+  p{
+    display: inline-block;
+    height: 48px;
+    line-height: 48px;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    word-wrap: break-word;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+  &.active{
+    transform: translate3d(0, 50px, 0);
+    opacity: 0.8;
+  }
+}
