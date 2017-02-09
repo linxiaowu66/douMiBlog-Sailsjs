@@ -1,5 +1,5 @@
 
 
 module.exports = function (grunt) {
-  grunt.registerTask('test', ['mochaTest']);
+  grunt.registerTask('test', ['mochaTest:dev']);
 };

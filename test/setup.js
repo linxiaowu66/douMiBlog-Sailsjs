@@ -3,6 +3,7 @@
 var Sails = require('sails');
 
 before(function(done) {
+  this.timeout(5000);
   Sails.lift({
     port: 8989,
     log: {
