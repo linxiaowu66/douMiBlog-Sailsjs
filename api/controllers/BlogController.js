@@ -33,6 +33,7 @@ module.exports = {
   index: function (req, res){
     // 获得当前需要加载第几页
     var page = req.param('page') ? parseInt(req.param('page')) : 1;
+    var reqIp = '';
     Article.find({
       sort: FIND_ORDER,
       where: {articleStatus:"published"}
@@ -67,16 +68,30 @@ module.exports = {
 
           archiveArray.push(archive);
         }
-        var newVisitCounts = statistics.totalVisitCounts + 1;
-        var newTodayCounts = statistics.todayVisitCounts + 1;
 
-        Statistics.update({key: 0}, {totalVisitCounts: newVisitCounts, todayVisitCounts: newTodayCounts}).exec(function(err, record){
-          if(err){
-            console.log(err);
-          }else{
-            //console.log(record);
-          }
-        });
+        if (req.headers['x-real-ip'] === undefined){
+          reqIp = req.ip;
+        }else{
+          reqIp = req.headers['x-real-ip'];
+        }
+        console.log(statistics)
+        if (statistics.todayVisitIps.indexOf(reqIp) === -1) {
+          var newVisitCounts = statistics.totalVisitCounts + 1;
+          var newTodayCounts = statistics.todayVisitCounts + 1;
+          statistics.todayVisitIps.push(reqIp);
+
+          Statistics.update({key: 0}, {
+            totalVisitCounts: newVisitCounts,
+            todayVisitCounts: newTodayCounts,
+            todayVisitIps: statistics.todayVisitIps
+          }).exec(function(err, record){
+            if(err){
+              console.log(err);
+            }else{
+              //console.log(record);
+            }
+          });
+        }
 
         return res.view(
           'articleLists',
@@ -113,7 +128,7 @@ module.exports = {
           Article.find({ where: { articleStatus: 'published' }, sort: 'pageViewsCount DESC', limit: 10 }),
           Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString()}}}),
           Statistics.findOne({key: 0}),
-          Article.count({where: {articleStatus:"published"}})
+          Article.count({where: {articleStatus:"published"}}),
         ];
       }).spread(function(article, categories, tags, archives,hotterArticles, newArticlesToday, statistics,numOfArticles){
         var archiveArray = [];
@@ -136,7 +151,8 @@ module.exports = {
         }else{
           reqIp = req.headers['x-real-ip'];
         }
-
+        //  如果用户的IP地址不在该文章的访客列表中,那么就认为该用户对于
+        //  这篇文章来说是新的阅读者，注意文章的访客列表每天清空一次
         if (article && article.pageViews.indexOf(reqIp) === -1){
 
           article.pageViews.push(reqIp);
@@ -147,8 +163,31 @@ module.exports = {
              pageViewsCount: article.pageViewsCount + 1
             }
           ).exec(function(err, article){
-            /*todo errors*/
+            if(err){
+              console.log(err);
+            }else{
+              //console.log(record);
+            }
           });
+          // 如果访问该文章的用户IP不在全局访问列表中，那么就认为该用户是网站
+          // 的新用户, 注意该全局访问IP表也是每天清空一次
+          if (statistics.todayVisitIps.indexOf(reqIp) === -1) {
+            var newVisitCounts = statistics.totalVisitCounts + 1;
+            var newTodayCounts = statistics.todayVisitCounts + 1;
+            statistics.todayVisitIps.push(reqIp);
+
+            Statistics.update({key: 0}, {
+              totalVisitCounts: newVisitCounts,
+              todayVisitCounts: newTodayCounts,
+              todayVisitIps: statistics.todayVisitIps
+            }).exec(function(err, record){
+              if(err){
+                console.log(err);
+              }else{
+                //console.log(record);
+              }
+            });
+          }
         }
         var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         // 改造显示归档时间

@@ -17,6 +17,10 @@ module.exports = {
       type: 'integer',
       defaultsTo: 0
     },
+    todayVisitIps: {
+      type: 'Array',
+      defaultsTo: []
+    },
     key: {
       type: 'integer',
       defaultsTo: 0
