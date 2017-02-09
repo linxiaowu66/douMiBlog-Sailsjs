@@ -57,6 +57,15 @@
         <span>05&nbsp;&nbsp;周四</span>
       </div>
     </div>
+    <div class='update-log'>
+      <h3>优化管理后台和统计数据</h3>
+      <p>02月09号，优化管理后台，增加操作信息框</p>
+      <p>优化网站统计数据，修复若干bug</p>
+      <div class='update-time'>
+        <span>2017/02</span>
+        <span>09&nbsp;&nbsp;周四</span>
+      </div>
+    </div>
   </section>
 </main>
 {% endblock %}
