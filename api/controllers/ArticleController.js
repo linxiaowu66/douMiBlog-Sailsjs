@@ -193,17 +193,18 @@ module.exports = {
   show: function (req,res){
 
     var index = req.param('id');
-
+    sails.log.info('show article id is:', index)
     Article.find({id : index}).exec(function(error, articles){
 
       if (error) {
         sails.log.error(error);
         return res.negotiate(error);
       }
+      sails.log.info('article length is:', articles.length)
       if (articles.length === 0){
         return res.json(200, commonUtil.format('找不到对应文章, 请重新确认', null));
       }else{
-        return res.json(200, commonUtil.format({
+        return res.json(200, commonUtil.format(null, {
           "content": articles[0].previewText
         }));
       }
