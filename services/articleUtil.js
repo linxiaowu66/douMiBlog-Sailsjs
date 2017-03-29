@@ -1,6 +1,7 @@
 'user strict';
 
-var marked = require('marked');
+var marked = require('marked-katex');
+var katex = require('katex')
 var hljs   = require('../node_modules/highlightjs/highlight.pack.js');
 marked.setOptions({
   highlight: function(code, lang) {
@@ -11,7 +12,8 @@ marked.setOptions({
     } else {
       return hljs.highlight(lang, code).value;
     }
-  }
+  },
+  kaTex: katex
 });
 module.exports = {
   updateExistingArticle: function(article, callback){

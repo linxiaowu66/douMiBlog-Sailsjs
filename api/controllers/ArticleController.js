@@ -139,20 +139,16 @@ module.exports = {
         var timeDesc;
         var curTime = new Date();
         if (article.articleStatus === "published"){
-          var publishYear = article.archiveTime.substr(0,4),
-              publishMonth = article.archiveTime.substr(5,2),
+          var publishMonth = article.archiveTime.substr(5,2),
               publishDay = article.archiveTime.substr(8,2),
               publishMinute = article.archiveTime.substr(11,2),
               publishSecond = article.archiveTime.substr(14,2);
-          var yearOffset = curTime.getFullYear() - publishYear,
-              monthOffset = (curTime.getMonth() + 1) - publishMonth,
+          var monthOffset = (curTime.getMonth() + 1) - publishMonth,
               dayOffset = curTime.getDate() - publishDay,
               hoursOffset = curTime.getHours() - publishMinute,
               minutesOffset = curTime.getMinutes() - publishSecond;
-          if (yearOffset > 0){
-            timeDesc = yearOffset + ' 年前';
-          }else if (monthOffset > 0){
-            timeDesc = monthOffset + ' 个月前';
+          if (monthOffset > 0){
+            timeDesc = monthOffset/12 >= 1 ? parseInt(monthOffset/12, 10) + ' 年前' : monthOffset + ' 个月前';
           }else if (dayOffset > 0){
             timeDesc = dayOffset + ' 天前';
           }else if (hoursOffset > 0){

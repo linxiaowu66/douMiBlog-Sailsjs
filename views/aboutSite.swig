@@ -66,6 +66,15 @@
         <span>09&nbsp;&nbsp;周四</span>
       </div>
     </div>
+    <div class='update-log'>
+      <h3>增加Markdown编辑器对于数学公式渲染的支持</h3>
+      <p>03月29号，支持数学公式的渲染显示，修复若干个bug</p>
+      <p>在<a href="https://www.npmjs.com/package/marked">marked</a>解析器的基础上支持数学公式的编辑，并将修改后的包发布到npm上：<a href="https://www.npmjs.com/package/marked-katex">marked-katex</a></p>
+      <div class='update-time'>
+        <span>2017/03</span>
+        <span>29&nbsp;&nbsp;周三</span>
+      </div>
+    </div>
   </section>
 </main>
 {% endblock %}

@@ -1,5 +1,5 @@
 {
-  "name": "douMiBlog",
+  "name": "doumi-blog",
   "version": "0.0.1",
   "homepage": "http://blog.5udou.cn",
   "authors": [
@@ -23,7 +23,8 @@
   "dependencies": {
     "bootstrap": "~3.3.5",
     "jquery": "~2.1.4",
-    "marked": "^0.3.6",
-    "highlightjs": "^9.2.0"
+    "marked-katex": "^0.3.8",
+    "highlightjs": "^9.2.0",
+    "katex": "^0.7.1"
   }
 }

@@ -1,12 +1,13 @@
 /*jshint strict:false */
 'use strict';
 
-define(['jquery','bootstrap', 'markdown','highlight','hashchange'], function($, bs, marked, hljs){
+define(['jquery','bootstrap', 'markdown','highlight','hashchange', 'katex'], function($, bs, marked, hljs, katex){
 
   marked.setOptions({
     highlight: function (code) {
       return hljs.highlightAuto(code).value;
-    }
+    },
+    kaTex: katex
   });
 
   $(document).ready(function(){

@@ -6,6 +6,7 @@
 {% parent %}
 <link rel='stylesheet' href='/styles/blogManagement.css'>
 <link href='/vender/highlightjs/styles/github.css' rel='stylesheet'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
 {% endblock %}
 
 {% block content %}

@@ -1,12 +1,13 @@
 /*jshint strict:false */
 'use strict';
 
-define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], function($, date, marked, hljs, toPinYin){
+define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin', 'katex'], function($, date, marked, hljs, toPinYin, katex){
 
   marked.setOptions({
     highlight: function (code) {
       return hljs.highlightAuto(code).value;
-    }
+    },
+    kaTex: katex
   });
 
   function showToast(message){
@@ -339,6 +340,7 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
 
     function publishSuccessAction(res){
       if (!res.status) {
+        data = res.data
         $('#dropdownMenu1').html('更新博文 <span class=\'caret\'></span>');
         $('#save').html('更新博文');
         $('#save').attr('id', 'update');
@@ -366,6 +368,7 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
 
     function updatePubSuccessAction(res){
       if (!res.status) {
+        data = res.data
         if ($('.dm-blog .content-viwer').attr('data-title') === undefined){
           $('.dm-blog .content-viwer').attr('data-id', data.title);
           $('.dm-blog .content-viwer').attr('data-slug', data.slug);
@@ -381,6 +384,7 @@ define(['jquery', 'datePicker', 'markdown','highlight','convertToPinYin'], funct
 
     function undoPubSuccessAction(data){
       if (!res.status) {
+        data = res.data
         $('#dropdownMenu1').html('保存草稿 <span class=\'caret\'></span>');
         $('#save').html('保存草稿');
         $('#save').attr('id', 'save');
