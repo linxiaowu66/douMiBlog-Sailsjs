@@ -3,20 +3,6 @@ FIND_ORDER = 'createdAt desc';
 // 文章每页条目数
 FIND_PER_PAGE = 5;
 
-var marked = require('marked');
-var hljs   = require('../../node_modules/highlightjs/highlight.pack.js');
-marked.setOptions({
-  highlight: function(code, lang) {
-    if (typeof lang === 'undefined') {
-      return hljs.highlightAuto(code).value;
-    } else if (lang === 'nohighlight') {
-      return code;
-    } else {
-      return hljs.highlight(lang, code).value;
-    }
-  }
-});
-
 function matchString(){
   var now = new Date();
   //Format the current time to year/month/day

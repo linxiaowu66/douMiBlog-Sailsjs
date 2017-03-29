@@ -139,16 +139,18 @@ module.exports = {
         var timeDesc;
         var curTime = new Date();
         if (article.articleStatus === "published"){
-          var publishMonth = article.archiveTime.substr(5,2),
-              publishDay = article.archiveTime.substr(8,2),
-              publishMinute = article.archiveTime.substr(11,2),
-              publishSecond = article.archiveTime.substr(14,2);
-          var monthOffset = (curTime.getMonth() + 1) - publishMonth,
-              dayOffset = curTime.getDate() - publishDay,
-              hoursOffset = curTime.getHours() - publishMinute,
-              minutesOffset = curTime.getMinutes() - publishSecond;
-          if (monthOffset > 0){
-            timeDesc = monthOffset/12 >= 1 ? parseInt(monthOffset/12, 10) + ' 年前' : monthOffset + ' 个月前';
+          var publishDate = new Date(article.archiveTime)
+          var offsetMicroSeconds = curTime - publishDate
+          var yearOffset = parseInt((offsetMicroSeconds/1000) / 60 / 60 / 24 / 365),
+              monthOffset = parseInt((offsetMicroSeconds/1000) / 60 / 60 / 24 / 30),
+              dayOffset = parseInt((offsetMicroSeconds/1000) / 60 / 60 / 24),
+              hoursOffset = parseInt((offsetMicroSeconds/1000) / 60 / 60),
+              minutesOffset = parseInt((offsetMicroSeconds/1000) / 60);
+              secondsOffset = parseInt(offsetMicroSeconds/1000)
+          if (yearOffset > 0){
+            timeDesc = yearOffset + ' 年前';
+          }else if (monthOffset > 0){
+            timeDesc = monthOffset + ' 个月前';
           }else if (dayOffset > 0){
             timeDesc = dayOffset + ' 天前';
           }else if (hoursOffset > 0){
@@ -156,7 +158,7 @@ module.exports = {
           }else if (minutesOffset > 0){
             timeDesc = minutesOffset + ' 分钟前';
           }else{
-            timeDesc = '30秒前';
+            timeDesc = secondsOffset + ' 秒前';
           }
         }
 
