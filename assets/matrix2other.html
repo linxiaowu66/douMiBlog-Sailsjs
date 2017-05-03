@@ -95,13 +95,9 @@
 <body>
   <div class="container">
     <div class="container-input">
-      <textarea class="transform-input" rows="6" cols="70">
-        rotate(45deg)
-        translate(10px, 20px)
-        scale(1.5, 0.8)
-        skew(45deg, 30deg)
+      <textarea class="transform-input" rows="3" cols="70">rotate(45deg);translate(10px, 20px);scale(1.5, 0.8);skew(45deg, 30deg)
       </textarea>
-      <textarea class="matrix-output" cols="70" rows="1" ></textarea>
+      <textarea class="matrix-output" cols="100" rows="1" ></textarea>
       <button id="generate" class="btn-generate" type="button">生成</button>
     </div>
     <div class="container-preview">
@@ -110,80 +106,19 @@
   </div>
   <script>
     $(document).ready(function(){
-      const props = ['transform','-moz-transform','-ms-transform','-o-transform','-webkit-transform']
       const transformInput = $('.transform-input')
       const matrixOutput = $('.matrix-output')
       const demoBox = $('.demo-box')
 
-      function camelize( str ) {
-        return ( typeof str == 'string') ? str.toLowerCase().replace( /(-[a-z])/g, (bit) => bit.toUpperCase().replace( '-', '' )) : str
+      function calculate() {
+        const val = transformInput.val().replace(/;/g, ' ').trim()
+        demoBox.css('transform', val)
+        const computed = window.getComputedStyle
+        const cssValue = computed(document.getElementsByClassName('demo-box')[0], null).getPropertyValue('transform')
+        // 因为浏览器会将你的变换属性值计算成为matrix属性，所以我们这边先让demo-box变形，然后取其计算得到的值即可
+        matrixOutput.val(cssValue)
       }
-      function getCSSValue( el, prop ) {
-        const computed = window.getComputedStyle;
-        if ( el.currentStyle ) {
-          getCSSValue = function( el, prop ) {
-            return el.currentStyle[camelize( prop )];
-          }
-        } else if ( computed ) {
-          getCSSValue = function( el, prop ) {
-            return computed( el, null ).getPropertyValue( prop );
-          }
-        } else {
-          getCSSValue = function() {
-            return false;
-          }
-        }
-        return getCSSValue( el, prop );
-      }
-      function addInlineStyle( el, property, value ) {
-        try {
-          el.style[property] = value;
-          el.style[camelize( property )] = value;
-        } catch( e ){
-          return valse;
-        }
-        return true;
-      }
-	  	function calculate() {
-        const val = transformInput.val().replace(, '' )
-        var v
-        if ( prop == UNDEFINED ) {
-          v = props.length;
-          while ( v-- ) {
-            if ( addInlineStyle( demoBox, props[v], val ) ) {
-              if ( !! getCSSValue( demoBox, props[v] ) ) {
-                prop = props[v];
-                break;
-              }
-            }
-          }
-        }
-        if ( prop !== UNDEFINED ) {
-          calculate = function() {
-            var val = transformInput.val().replace( ';', '' ), v;
-            // set it
-            addInlineStyle( el, prop, val );
-
-            // get it back
-            val = getCSSValue( el, prop );
-            if ( val.match('e') ) {
-              val = val.replace(/matrix\((.*)\)/,'$1').split(',');
-              v = val.length;
-              while ( v-- ) {
-                val[v] = val[v].replace(/\s/,'');
-                if ( val[v].match('e') ) {
-                  val[v] = 0;
-                }
-              }
-              val = 'matrix(' + val.join(', ') + ')';
-            }
-            // set it
-            matrixOutput.value = val;
-          }
-          calculate();
-        }
-      }
-      $('#generate').on('click', () => {
+      $('#generate').on('click', function () {
         calculate()
       })
     })
