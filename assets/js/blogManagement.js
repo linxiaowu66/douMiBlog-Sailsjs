@@ -59,6 +59,7 @@ define(['jquery','bootstrap', 'markdown','highlight','hashchange', 'katex'], fun
 
     });
     var totalItemsCount = 0;
+    var currentPage = 1
 
     $('.content-scroll').scroll(function (){
 
@@ -66,10 +67,7 @@ define(['jquery','bootstrap', 'markdown','highlight','hashchange', 'katex'], fun
       * it indicates that we had reached the bottom*/
       if ($(this).scrollTop() + $(this).height() >= $(this).get(0).scrollHeight){
 
-        var currentItems = Math.ceil($(this).get(0).scrollHeight / $('.blogIndex li').outerHeight());
-
-        var currentPage = Math.ceil(currentItems / 10);
-        if ((currentItems >= totalItemsCount) && (currentPage != 1)){
+        if (totalItemsCount / 10 < (currentPage + 1)){
           //console.log('nothing to fetch');
           return;
         }
