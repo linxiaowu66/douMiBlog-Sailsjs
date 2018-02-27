@@ -77,7 +77,7 @@ define(['jquery','bootstrap', 'markdown','highlight','hashchange', 'katex'], fun
         $.get(url)
           .done(function(data, status, xhr){
             totalItemsCount = data.count;
-
+            currentPage++
             $.map(data.articleList,function(article){
               var ele = "<a href='#" + article.id + "' data-set='" + article.id + "' class='blogIndex'>" +
                 "<li>" +
