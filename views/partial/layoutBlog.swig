@@ -182,6 +182,7 @@
                 <div class = 'tag-cloud'>
                   <a href='http://mollychin.com/'>凯风的博客</a>
                   <a href='http://www.myronliu.com/'>myron</a>
+                  <a href='http://ztktct.tk'>通哥的博客</a>
                 </div>
               </div>
             </aside>
