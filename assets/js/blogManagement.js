@@ -67,7 +67,7 @@ define(['jquery','bootstrap', 'markdown','highlight','hashchange', 'katex'], fun
       * it indicates that we had reached the bottom*/
       if ($(this).scrollTop() + $(this).height() >= $(this).get(0).scrollHeight){
 
-        if (totalItemsCount / 10 < (currentPage + 1)){
+        if (totalItemsCount / 10 < (currentPage + 1) && currentPage !== 1){
           //console.log('nothing to fetch');
           return;
         }

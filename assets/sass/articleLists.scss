@@ -83,7 +83,7 @@
   100% { -webkit-transform: rotate(10deg); }
 }
 
-@-webkit-keyframes swing /* Safari 和 Chrome */
+@-webkit-keyframes swing /* Safari Chrome */
 {
   0% { -webkit-transform: rotate(10deg); }
   50% { -webkit-transform: rotate(-10deg); }
@@ -110,7 +110,7 @@
   100% { right: 10% }
 }
 
-@-webkit-keyframes slide /* Safari 和 Chrome */
+@-webkit-keyframes slide /* Safari Chrome */
 {
   0% { right: 10% }
   50% { right: 25% }
