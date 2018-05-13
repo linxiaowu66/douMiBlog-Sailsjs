@@ -75,6 +75,16 @@
         <span>29&nbsp;&nbsp;周三</span>
       </div>
     </div>
+    <div class='update-log'>
+      <h3>迁移网站到https，删掉些功能，添加新东西</h3>
+      <p>05月12号，升级网站到https</p>
+      <p>05月13号，增加[关于豆米](https://blog.5udou.cn/aboutDouMi)页面</p>
+      <p>05月13号，增加[米喳简历](https://blog.5udou.cn/resume/mizha)页面</p>
+      <div class='update-time'>
+        <span>2018/05</span>
+        <span>13&nbsp;&nbsp;周日</span>
+      </div>
+    </div>
   </section>
 </main>
 {% endblock %}
