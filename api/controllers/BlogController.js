@@ -180,6 +180,9 @@ module.exports = {
         article.archiveDay = article.archiveTime.substr(8, 2);
         article.archiveMonth = months[parseInt(article.archiveTime.substr(5, 2)) - 1];
 
+        // 替换所有的http//: 为//:满足https的改造
+        article.previewText = article.previewText.replace(/http:\/\//ig, '//')
+
         return res.view('articleShow',
         {
           categories: categories,

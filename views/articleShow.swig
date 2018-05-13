@@ -42,7 +42,7 @@
         <span class='glyphicon glyphicon-link'><a href='https://www.5udou.cn'>https://www.5udou.cn</a></span>
       </div>
     </section>
-    <section class='share'>
+    <!-- <section class='share'>
       <h4>分享此博文</h4>
       <div class='bdsharebuttonbox bdshare-button-style1-24' data-bd-bind='1470122130117'>
         <a href='#' class='bds_more' data-cmd='more'></a>
@@ -51,7 +51,7 @@
         <a href='#' class='bds_douban' data-cmd='douban' title='分享到豆瓣网'></a>
         <a href='#' class='bds_renren' data-cmd='renren' title='分享到人人网'></a></div>
       <script>window._bd_share_config={'common':{'bdSnsKey':{},'bdText':'','bdMini':'2','bdMiniList':false,'bdPic':'','bdStyle':'1','bdSize':'24'},'share':{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-    </section>
+    </section> -->
   </footer>
   <div id='disqus_thread'>
     评论正在加载，请稍后...
