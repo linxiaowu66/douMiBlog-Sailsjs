@@ -1,0 +1,121 @@
+body{
+  height: 100%;
+  max-height: 100%;
+  font-family: "Helvetica Neue", "Helvetica", "Lucida Grande", "Arial", "Hiragino Sans GB", "Microsoft Yahei", "WenQuanYi Micro Hei", "sans-serif";
+  letter-spacing: 0.01rem;
+  font-size: 1.8rem;
+  line-height: 1.75em;
+  color: #3A4145;
+  -webkit-font-feature-settings: 'kern' 1;
+  -moz-font-feature-settings: 'kern' 1;
+  -o-font-feature-settings: 'kern' 1;
+  text-rendering: geometricPrecision;
+}
+.wrapper{
+  width: 90%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding-top: 50px;
+  .personal-info{
+    position: relative;
+    margin: 6rem 0 3rem 0;
+    padding: 6rem 0 0 0;
+    border-top: #EBF2F6 2px solid;
+    text-align: center;
+    .author-image{
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      display: block;
+      position: absolute;
+      top: -60px;
+      left: 50%;
+      margin-left: -54px;
+      width: 120px;
+      height: 120px;
+      border-radius: 100%;
+      overflow: hidden;
+      padding: 6px;
+      background: #fff;
+      z-index: 2;
+      box-shadow: #E7EEF2 0 0 0 1px;
+      .img {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-image: url(https://weddingimage.oss-cn-hangzhou.aliyuncs.com/weddingPhotos/062.jpg);
+        background-size: cover;
+        background-position: center center;
+        border-radius: 100%;
+      }
+    }
+    .name{
+      color: #464c5b;
+      font-size: 30px;
+    }
+    .summary{
+      color: #657180;
+      font-size: 14px;
+    }
+    .another{
+      span{
+        line-height: 12px;
+        padding-right: 14px;
+        margin-right: 8px;
+        font-size: 14px;
+        color: #9ea7b4
+      }
+    }
+  }
+  .experiment{
+    position: relative;
+    margin: 6rem 0 3rem 0;
+    padding: 3rem 0 0 0;
+    border-top: #EBF2F6 2px solid;
+    .title{
+      box-sizing: border-box;
+      display: block;
+      position: absolute;
+      top: -22px;
+      left: 50%;
+      margin-left: -54px;
+      overflow: hidden;
+      padding: 6px;
+      background: #fff;
+      z-index: 2;
+      p{
+        font-size: 24px;
+      }
+    }
+    .dianwoda{
+      .company{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        span:first-child{
+          font-weight: 700;
+          font-size: 1.2em;
+          line-height: 2em;
+          color: #212529;
+        }
+        span:last-child{
+          font-size: 1em;
+          color: #adb5bd;
+        }
+      }
+      .project{
+        .name{
+          font-size: 1em;
+          color: #495057;
+        }
+        ul{
+          li{
+            color: #868e96;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}

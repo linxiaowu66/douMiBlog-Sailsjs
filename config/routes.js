@@ -181,7 +181,13 @@ module.exports.routes = {
     view: 'aboutDouMi',
   },
 
+  'GET /resume/mizha': {
+    view: 'miZhaResume',
+  },
 
+  'GET /resume/yangyu': {
+    view: 'yangYuResume',
+  },
 
   /***************************************************************************
   *                                                                          *
