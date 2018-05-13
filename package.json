@@ -7,6 +7,7 @@
   "dependencies": {
     "bcryptjs": "^2.3.0",
     "bluebird": "^3.4.1",
+    "ejs": "^2.6.1",
     "grunt": "^1.0.1",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-coffee": "^1.0.0",
@@ -26,6 +27,7 @@
     "katex": "^0.7.1",
     "lodash": "^4.16.4",
     "marked-katex": "^0.3.8",
+    "moment": "^2.22.1",
     "node-schedule": "^1.1.1",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
