@@ -9,7 +9,7 @@
 
 {% block content %}
 <header class='title'>
-  <a href='http://www.5udou.cn'>5udou.cn</a>
+  <a href='https://www.5udou.cn'>5udou.cn</a>
 </header>
 <section class='wrapper'>
 
@@ -22,7 +22,7 @@
       <p>豆米目前生活在“上有天堂，下有苏杭”的杭州，美不胜收的美景之地也收获着甜蜜恩爱的生活。豆米热爱前端，热爱互联网，豆米是洋芋(土豆-豆)和米喳(米)的简称。</p>
       <div class='author-meta'>
         <span class='glyphicon glyphicon-map-marker'>杭州</span>
-        <span class='glyphicon glyphicon-link'><a href='http://www.5udou.cn'>http://www.5udou.cn</a></span>
+        <span class='glyphicon glyphicon-link'><a href='https://www.5udou.cn'>https://www.5udou.cn</a></span>
       </div>
     </section>
   </div>

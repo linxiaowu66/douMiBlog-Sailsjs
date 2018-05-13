@@ -39,7 +39,7 @@
       <p>豆米目前生活在“上有天堂，下有苏杭”的杭州，美不胜收的美景之地也收获着甜蜜恩爱的生活。豆米热爱前端，热爱互联网，豆米是洋芋(土豆-豆)和米喳(米)的简称。</p>
       <div class='author-meta'>
         <span class='glyphicon glyphicon-map-marker'>杭州</span>
-        <span class='glyphicon glyphicon-link'><a href='http://www.5udou.cn'>http://www.5udou.cn</a></span>
+        <span class='glyphicon glyphicon-link'><a href='https://www.5udou.cn'>https://www.5udou.cn</a></span>
       </div>
     </section>
     <section class='share'>
@@ -50,7 +50,7 @@
         <a href='#' class='bds_weixin' data-cmd='weixin' title='分享到微信'></a>
         <a href='#' class='bds_douban' data-cmd='douban' title='分享到豆瓣网'></a>
         <a href='#' class='bds_renren' data-cmd='renren' title='分享到人人网'></a></div>
-      <script>window._bd_share_config={'common':{'bdSnsKey':{},'bdText':'','bdMini':'2','bdMiniList':false,'bdPic':'','bdStyle':'1','bdSize':'24'},'share':{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+      <script>window._bd_share_config={'common':{'bdSnsKey':{},'bdText':'','bdMini':'2','bdMiniList':false,'bdPic':'','bdStyle':'1','bdSize':'24'},'share':{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
     </section>
   </footer>
   <div id='disqus_thread'>
@@ -69,7 +69,7 @@
   *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
 
   var disqus_config = function () {
-    this.page.url = 'http://blog.5udou.cn/blog/{{article.slug}}';  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.url = 'https://blog.5udou.cn/blog/{{article.slug}}';  // Replace PAGE_URL with your page's canonical URL variable
     this.page.identifier = '{{ article.slug }}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
   };
 

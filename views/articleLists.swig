@@ -33,7 +33,7 @@
       </p>
     </div>
     <div class='comment-count'>
-       <a href='http://blog.5udou.cn/blog/{{ article.slug }}#disqus_thread'></a>
+       <a href='https://blog.5udou.cn/blog/{{ article.slug }}#disqus_thread'></a>
     </div>
     </article>
   {% endfor %}
