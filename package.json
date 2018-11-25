@@ -1,7 +1,7 @@
 {
-  "name": "douMiBlog",
+  "name": "doumiblog-sailsjs",
   "private": false,
-  "version": "1.1.4",
+  "version": "1.2.0",
   "description": "a blog platform which is based on the Sails web framwork",
   "keywords": [],
   "dependencies": {

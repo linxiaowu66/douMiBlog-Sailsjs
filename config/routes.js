@@ -199,4 +199,38 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
+  'GET /api/blog/list/hottest' : {
+    controller: 'Home',
+    action: 'fetchHottestArticle'
+  },
+
+  'GET /api/blog/list': {
+    controller: 'Blog',
+    action: 'fetchArticleList'
+  },
+
+  'GET /api/website/statistics': {
+    controller: 'Common',
+    action: 'fetchWebsiteStat'
+  },
+
+  'GET /api/website/changelog': {
+    controller: 'Common',
+    action: 'fetchWebsiteChangelog'
+  },
+
+  'GET /api/blog/archive/list': {
+    controller: 'Blog',
+    action: 'fetchBlogArchiveList'
+  },
+
+  'GET /api/blog/category/list': {
+    controller: 'Blog',
+    action: 'fetchBlogCatList'
+  },
+
+  'GET /api/blog/tags/list': {
+    controller: 'Blog',
+    action: 'fetchBlogTagsList'
+  }
 };
