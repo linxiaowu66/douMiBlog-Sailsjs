@@ -1,268 +1,188 @@
-// 文章查询顺序：以创建时间逆序
-FIND_ORDER = 'createdAt desc';
-// 文章每页条目数
-FIND_PER_PAGE = 5;
+const { fetchArticlesByUser, fetchArticlesByArchive, fetchArticlesByTag, fetchArticlesByCat ,fetchArticleDetail, fetchArticleList, fetchHottestArticles, fetchCatList, fetchTagsList, fetchArchiveList } = require('../services/BlogService')
+const { fetchBlogStatistics, updateWebsiteStat } = require('../services/CommonService')
 
-function matchString(){
-  var now = new Date();
-  //Format the current time to year/month/day
-  var matchString = '';
-  matchString = '' + now.getFullYear();
-  matchString += ((now.getMonth() + 1) < 10) ? ('-0' + (now.getMonth() + 1)) : ('-' + (now.getMonth() + 1));
-  matchString += (now.getDate() < 10) ? ('-0' + now.getDate()) : ('-' + now.getDate());
 
-  return matchString;
-}
 
 module.exports = {
+  fetchArticleList: async function(req, res) {
+    try {
+    const { currentPage } = req.query
 
-  index: function (req, res){
+    const result = await fetchArticleList(currentPage)
+
+      return res.json({
+        status: 1,
+        result
+      })
+    } catch(err) {
+      sails.log.error('fetch article list error: ', err)
+      return res.status(200).json({
+        status: 0,
+        msg: '系统出错，请稍后重试'
+      })
+    }
+  },
+  fetchBlogArchiveList: async function(req, res) {
+    try {
+      const result = await fetchArchiveList()
+
+      return res.json({
+        status: 1,
+        result
+      })
+    } catch(err) {
+      sails.log.error('fetch blog archives error: ', err)
+      return res.status(200).json({
+        status: 0,
+        msg: '系统出错，请稍后重试'
+      })
+    }
+  },
+  fetchBlogCatList: async function(req, res) {
+    try {
+      const result = await fetchCatList()
+
+      return res.json({
+        status: 1,
+        result
+      })
+    } catch(err) {
+      sails.log.error('fetch blog categories error: ', err)
+      return res.status(200).json({
+        status: 0,
+        msg: '系统出错，请稍后重试'
+      })
+    }
+  },
+  fetchBlogTagsList: async function(req, res) {
+    try {
+      const result = await fetchTagsList()
+
+      return res.json({
+        status: 1,
+        result
+      })
+    } catch(err) {
+      sails.log.error('fetch blog tags error: ', err)
+      return res.status(200).json({
+        status: 0,
+        msg: '系统出错，请稍后重试'
+      })
+    }
+  },
+  index: async function (req, res){
     // 获得当前需要加载第几页
     var page = req.param('page') ? parseInt(req.param('page')) : 1;
-    var reqIp = '';
-    Article.find({
-      sort: FIND_ORDER,
-      where: {articleStatus:"published"}
-    }).paginate({page: page, limit: FIND_PER_PAGE})
-      .then(function (articles) {
-        // 每篇文章转换
-        // 查找分类,及标签
-        return [
-          articles,
-          Article.count({where: {articleStatus:"published"}}),
-          Category.find().populate('articles',{where: {articleStatus:"published"}}),
-          Tags.find().populate('articles',{where: {articleStatus:"published"}}),
-          Archive.find().populate('articles',{where: {articleStatus:"published"}}),
-          Article.find({ where: { articleStatus: 'published' }, sort: 'pageViewsCount DESC', limit: 10 }),
-          Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString()}}}),
-          Statistics.findOne({key: 0})
-        ];
-      })
-      .spread(function (articles,numOfArticles, categories, tags, archives, hotterArticles, newArticlesToday, statistics) {
 
-        var archiveArray = [];
-        for (var index = 0; index < archives.length; index++){
-          var year = archives[index].archiveTime.substr(0,4);
-          var month = archives[index].archiveTime.substr(5,2);
-          var newFormat = year + "年" + month + "月";
+    const [articleObj, hotterArticles, statistics, cats, tags, archives] = await Promise.all([
+      fetchArticleList(page),
+      fetchHottestArticles(10),
+      fetchBlogStatistics(),
+      fetchCatList(),
+      fetchTagsList(),
+      fetchArchiveList()
+    ])
+    const result = {
+      ...articleObj,
+      ...statistics,
+      hotterArticles,
+      categories: cats,
+      tags,
+      archives
+    }
 
-          var archive = {
-            oldArchiveTime: archives[index].archiveTime,
-            archiveTime: newFormat,
-            numOfArticles: archives[index].articles.length
-          };
+    updateWebsiteStat(statistics, req)
+    return res.view(
+      'articleLists',
+      result
+    );
+  },
 
-          archiveArray.push(archive);
-        }
+  showOneArticle: async function (req, res){
+    try {
+      var articleUrl = req.param('url');
 
-        if (req.headers['x-real-ip'] === undefined){
-          reqIp = req.ip;
-        }else{
-          reqIp = req.headers['x-real-ip'];
-        }
-        //console.log(statistics)
-        if (statistics.todayVisitIps.indexOf(reqIp) === -1) {
-          var newVisitCounts = statistics.totalVisitCounts + 1;
-          var newTodayCounts = statistics.todayVisitCounts + 1;
-          statistics.todayVisitIps.push(reqIp);
+      const [article, hotterArticles, statistics, cats, tags, archives] = await Promise.all([
+        fetchArticleDetail(articleUrl),
+        fetchHottestArticles(10),
+        fetchBlogStatistics(),
+        fetchCatList(),
+        fetchTagsList(),
+        fetchArchiveList()
+      ])
+      let reqIp = ''
+      if (req.headers['x-real-ip'] === undefined){
+        reqIp = req.ip;
+      }else{
+        reqIp = req.headers['x-real-ip'];
+      }
+      //  如果用户的IP地址不在该文章的访客列表中,那么就认为该用户对于
+      //  这篇文章来说是新的阅读者，注意文章的访客列表每天清空一次
+      if (article && article.pageViews.indexOf(reqIp) === -1){
 
-          Statistics.update({key: 0}, {
-            totalVisitCounts: newVisitCounts,
-            todayVisitCounts: newTodayCounts,
-            todayVisitIps: statistics.todayVisitIps
-          }).exec(function(err, record){
-            if(err){
-              console.log(err);
-            }else{
-              //console.log(record);
-            }
-          });
-        }
+        article.pageViews.push(reqIp);
 
-        return res.view(
-          'articleLists',
+        Article.update(article.id,
           {
-            articles: articles.map(function(item){item.archiveTime = item.archiveTime.substr(0, 10);  return item;}),
-            categories: categories,
-            tags: tags,
-            archives: archiveArray,
-            currentPage: page,
-            pageUrl: '/blog/page',
-            pageNum: Math.ceil(numOfArticles/FIND_PER_PAGE),
-            breadcrumb: [],
-            hotterArticles: hotterArticles,
-            numOfArticles: numOfArticles,
-            newArticlesToday: newArticlesToday.length,
-            totalVisitCounts: statistics.totalVisitCounts + 1,
-            todayVisitCounts: statistics.todayVisitCounts + 1
-          });
-      });
-  },
-
-  showOneArticle: function (req, res){
-    var articleUrl = req.param('url'),
-        reqIp = '';
-
-    Article.findOne({slug: articleUrl})
-      .then(function(article){
-
-        return [
-          article,
-          Category.find().populate('articles',{where: {articleStatus:"published"}}),
-          Tags.find().populate('articles',{where: {articleStatus:"published"}}),
-          Archive.find().populate('articles',{where: {articleStatus:"published"}}),
-          Article.find({ where: { articleStatus: 'published' }, sort: 'pageViewsCount DESC', limit: 10 }),
-          Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString()}}}),
-          Statistics.findOne({key: 0}),
-          Article.count({where: {articleStatus:"published"}}),
-        ];
-      }).spread(function(article, categories, tags, archives,hotterArticles, newArticlesToday, statistics,numOfArticles){
-        var archiveArray = [];
-        for (var index = 0; index < archives.length; index++){
-          var year = archives[index].archiveTime.substr(0,4);
-          var month = archives[index].archiveTime.substr(5,2);
-          var newFormat = year + "年" + month + "月";
-
-          var archive = {
-            oldArchiveTime: archives[index].archiveTime,
-            archiveTime: newFormat,
-            numOfArticles: archives[index].articles.length
-          };
-
-          archiveArray.push(archive);
-        }
-
-        if (req.headers['x-real-ip'] === undefined){
-          reqIp = req.ip;
-        }else{
-          reqIp = req.headers['x-real-ip'];
-        }
-        //  如果用户的IP地址不在该文章的访客列表中,那么就认为该用户对于
-        //  这篇文章来说是新的阅读者，注意文章的访客列表每天清空一次
-        if (article && article.pageViews.indexOf(reqIp) === -1){
-
-          article.pageViews.push(reqIp);
-
-          Article.update(article.id,
-            {
-             pageViews: article.pageViews,
-             pageViewsCount: article.pageViewsCount + 1
-            }
-          ).exec(function(err, article){
-            if(err){
-              console.log(err);
-            }else{
-              //console.log(record);
-            }
-          });
-          // 如果访问该文章的用户IP不在全局访问列表中，那么就认为该用户是网站
-          // 的新用户, 注意该全局访问IP表也是每天清空一次
-          if (statistics.todayVisitIps.indexOf(reqIp) === -1) {
-            var newVisitCounts = statistics.totalVisitCounts + 1;
-            var newTodayCounts = statistics.todayVisitCounts + 1;
-            statistics.todayVisitIps.push(reqIp);
-
-            Statistics.update({key: 0}, {
-              totalVisitCounts: newVisitCounts,
-              todayVisitCounts: newTodayCounts,
-              todayVisitIps: statistics.todayVisitIps
-            }).exec(function(err, record){
-              if(err){
-                console.log(err);
-              }else{
-                //console.log(record);
-              }
-            });
+          pageViews: article.pageViews,
+          pageViewsCount: article.pageViewsCount + 1
           }
-        }
-        var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-        // 改造显示归档时间
-        article.archiveDay = article.archiveTime.substr(8, 2);
-        article.archiveMonth = months[parseInt(article.archiveTime.substr(5, 2)) - 1];
-
-        // 替换所有的http//: 为//:满足https的改造
-        article.previewText = article.previewText.replace(/http:\/\//ig, '//')
-
-        return res.view('articleShow',
-        {
-          categories: categories,
-          tags: tags,
-          archives: archiveArray,
-          article: article,
-          breadcrumb: [article.title],
-          hotterArticles: hotterArticles,
-          numOfArticles: numOfArticles,
-          newArticlesToday: newArticlesToday.length,
-          totalVisitCounts: statistics.totalVisitCounts,
-          todayVisitCounts: statistics.todayVisitCounts
+        ).exec(function(err, article){
+          if(err){
+            console.log(err);
+          }else{
+            //console.log(record);
+          }
         });
-      }).catch(function(err){
-        console.error('crash occur at showOneArticle: ', articleUrl);
-        console.error('error code: ', err);
-        return res.send('获取文章分类失败,请联系管理员。');
-      });
+        // 如果访问该文章的用户IP不在全局访问列表中，那么就认为该用户是网站
+        // 的新用户, 注意该全局访问IP表也是每天清空一次
+        updateWebsiteStat(statistics, req)
+      }
+
+      const result = {
+        article,
+        ...statistics,
+        hotterArticles,
+        categories: cats,
+        breadcrumb: [article.title],
+        tags,
+        archives
+      }
+      return res.view('articleShow', result);
+    } catch(err) {
+      console.error('crash occur at showOneArticle: ', articleUrl);
+      console.error('error code: ', err);
+      return res.send('获取文章分类失败,请联系管理员。');
+    }
   },
-  showOneCategory: function (req, res){
+  showOneCategory: async function (req, res){
     // 获得当前需要加载第几页
     var page = req.param('page') ? req.param('page') : 1;
     var queryCategory = req.param('url');
     try{
-      Category.findOne({name: queryCategory}).populate('articles',{
-        where: {
-          articleStatus:"published"
-        },
-        sort: FIND_ORDER,
-        limit: FIND_PER_PAGE,
-        skip: (page - 1) * FIND_PER_PAGE
-      }).then(function (categories) {
-        var now = new Date();
-        //Format the current time to year/month/day
-        return [
-          categories.articles,
-          Category.find({name: queryCategory}).populate('articles',{where: {articleStatus:"published" }}),
-          Category.find().populate('articles',{where: {articleStatus:"published"}}),
-          Tags.find().populate('articles',{where: {articleStatus:"published"}}),
-          Archive.find().populate('articles',{where: {articleStatus:"published"}}),
-          Article.find({ where: { articleStatus: 'published' }, sort: 'pageViewsCount DESC', limit: 10 }),
-          Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString()}}}),
-          Statistics.findOne({key: 0}),
-          Article.count({where: {articleStatus:"published"}})
-        ];
-      }).spread(function (articles,totalQueryArticles, categories, tags, archives,hotterArticles, newArticlesToday, statistics,numOfArticles) {
-
-        var archiveArray = [];
-        for (var index = 0; index < archives.length; index++){
-          var year = archives[index].archiveTime.substr(0,4);
-          var month = archives[index].archiveTime.substr(5,2);
-          var newFormat = year + "年" + month + "月";
-
-          var archive = {
-            oldArchiveTime: archives[index].archiveTime,
-            archiveTime: newFormat,
-            numOfArticles: archives[index].articles.length
-          };
-
-          archiveArray.push(archive);
-        }
-
-        return res.view(
-          'articleLists',
-          {
-            articles: articles.map(function(item){item.archiveTime = item.archiveTime.substr(0, 10);  return item;}),
-            categories: categories,
-            tags: tags,
-            archives: archiveArray,
-            currentPage: page,
-            pageUrl: '/blog/category/' + queryCategory + '/page',
-            pageNum: Math.ceil(totalQueryArticles[0].articles.length/FIND_PER_PAGE),
-            breadcrumb: ['分类', queryCategory],
-            hotterArticles: hotterArticles,
-            numOfArticles: numOfArticles,
-            newArticlesToday: newArticlesToday.length,
-            totalVisitCounts: statistics.totalVisitCounts,
-            todayVisitCounts: statistics.todayVisitCounts
-          });
-      });
+      const [articleObj, hotterArticles, statistics, cats, tags, archives] = await Promise.all([
+        fetchArticlesByCat(queryCategory, page),
+        fetchHottestArticles(10),
+        fetchBlogStatistics(),
+        fetchCatList(),
+        fetchTagsList(),
+        fetchArchiveList()
+      ])
+      const result = {
+        articles: articleObj.articles.map(function(item){item.archiveTime = item.archiveTime.substr(0, 10);  return item;}),
+        ...statistics,
+        hotterArticles,
+        categories: cats,
+        breadcrumb: ['分类', queryCategory],
+        pageUrl: '/blog/category/' + queryCategory + '/page',
+        pageNum: Math.ceil(articleObj.totalQueryArticles[0].articles.length/5),
+        tags,
+        archives
+      }
+      return res.view(
+        'articleLists',
+        result
+      );
     }catch(err){
       console.error('crash occur at showOneCategory: ', page, queryCategory);
       console.error('error code: ', err);
@@ -270,202 +190,111 @@ module.exports = {
     }
   },
 
-  showOneTag: function (req, res){
+  showOneTag: async function (req, res){
     // 获得当前需要加载第几页
     var page = req.param('page') ? req.param('page') : 1;
     var queryTag = req.param('url');
 
-    Tags.findOne({name: queryTag}).populate('articles',{
-      where: {
-        articleStatus:"published"
-      },
-      sort: FIND_ORDER,
-      limit: 5,
-      skip: (page - 1) * FIND_PER_PAGE
-    }).then(function (tags) {
-      return [
-        tags.articles,
-        Tags.find({name: queryTag}).populate('articles',{where: {articleStatus:"published" }}),
-        Category.find().populate('articles',{where: {articleStatus:"published"}}),
-        Tags.find().populate('articles',{where: {articleStatus:"published"}}),
-        Archive.find().populate('articles',{where: {articleStatus:"published"}}),
-        Article.find({ where: { articleStatus: 'published' }, sort: 'pageViewsCount DESC', limit: 10 }),
-        Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString()}}}),
-        Statistics.findOne({key: 0}),
-        Article.count({where: {articleStatus:"published"}})
-      ];
-    }).spread(function (articles, totalQueryArticles, categories, tags, archives,hotterArticles, newArticlesToday, statistics,numOfArticles) {
-
-      var archiveArray = [];
-      for (var index = 0; index < archives.length; index++){
-        var year = archives[index].archiveTime.substr(0,4);
-        var month = archives[index].archiveTime.substr(5,2);
-        var newFormat = year + "年" + month + "月";
-
-        var archive = {
-          oldArchiveTime: archives[index].archiveTime,
-          archiveTime: newFormat,
-          numOfArticles: archives[index].articles.length
-        };
-
-        archiveArray.push(archive);
+    try{
+      const [articleObj, hotterArticles, statistics, cats, tags, archives] = await Promise.all([
+        fetchArticlesByTag(queryTag, page),
+        fetchHottestArticles(10),
+        fetchBlogStatistics(),
+        fetchCatList(),
+        fetchTagsList(),
+        fetchArchiveList()
+      ])
+      const result = {
+        articles: articleObj.articles.map(function(item){item.archiveTime = item.archiveTime.substr(0, 10);  return item;}),
+        ...statistics,
+        hotterArticles,
+        categories: cats,
+        breadcrumb: ['标签', queryTag],
+        pageUrl: '/blog/tag/' + queryTag + '/page',
+        pageNum: Math.ceil(articleObj.totalQueryArticles[0].articles.length/5),
+        tags,
+        archives
       }
-
       return res.view(
         'articleLists',
-        {
-          articles: articles.map(function(item){item.archiveTime = item.archiveTime.substr(0, 10);  return item;}),
-          categories: categories,
-          tags: tags,
-          archives: archiveArray,
-          currentPage: page,
-          pageUrl: '/blog/tag/' + queryTag + '/page',
-          pageNum: Math.ceil(totalQueryArticles[0].articles.length/FIND_PER_PAGE),
-          breadcrumb: ['标签', queryTag],
-          hotterArticles: hotterArticles,
-          numOfArticles: numOfArticles,
-          newArticlesToday: newArticlesToday.length,
-          totalVisitCounts: statistics.totalVisitCounts,
-          todayVisitCounts: statistics.todayVisitCounts
-        });
-    }).catch(function(err){
+        result
+      );
+    }catch(err){
       console.error('crash occur at showOneTag: ', page, queryTag);
       console.error('error code: ', err);
-      return res.send('获取文章分类失败,请联系管理员。');
-    });
+      return res.send('获取文章标签失败,请联系管理员。');
+    }
   },
 
-  showOneArchive: function (req, res){
+  showOneArchive: async function (req, res){
 
     var page = req.param('page') ? req.param('page') : 1;
     var queryArchive = req.param('url');
 
-    Archive.findOne({archiveTime: queryArchive}).populate('articles',{
-      where: {
-        articleStatus:"published"
-      },
-      sort: FIND_ORDER,
-      limit: FIND_PER_PAGE,
-      skip: (page - 1) * FIND_PER_PAGE
-    }).then(function (archives) {
-      var now = new Date();
-      //Format the current time to year/month/day
-      return [
-        archives.articles,
-        Archive.find({archiveTime: queryArchive}).populate('articles',{where: {articleStatus:"published" }}),
-        Category.find().populate('articles',{where: {articleStatus:"published"}}),
-        Tags.find().populate('articles',{where: {articleStatus:"published"}}),
-        Archive.find().populate('articles',{where: {articleStatus:"published"}}),
-        Article.find({ where: { articleStatus: 'published' }, sort: 'pageViewsCount DESC', limit: 10 }),
-        Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString()}}}),
-        Statistics.findOne({key: 0}),
-        Article.count({where: {articleStatus:"published"}})
-      ];
-    }).spread(function (articles, totalQueryArticles, categories, tags, archives,hotterArticles, newArticlesToday, statistics,numOfArticles) {
-
-      var archiveArray = [];
-      for (var index = 0; index < archives.length; index++){
-        var year = archives[index].archiveTime.substr(0,4);
-        var month = archives[index].archiveTime.substr(5,2);
-        var newFormat = year + "年" + month + "月";
-
-        var archive = {
-          oldArchiveTime: archives[index].archiveTime,
-          archiveTime: newFormat,
-          numOfArticles: archives[index].articles.length
-        };
-
-        archiveArray.push(archive);
+    try{
+      const [articleObj, hotterArticles, statistics, cats, tags, archives] = await Promise.all([
+        fetchArticlesByArchive(queryArchive, page),
+        fetchHottestArticles(10),
+        fetchBlogStatistics(),
+        fetchCatList(),
+        fetchTagsList(),
+        fetchArchiveList()
+      ])
+      const result = {
+        articles: articleObj.articles.map(function(item){item.archiveTime = item.archiveTime.substr(0, 10);  return item;}),
+        ...statistics,
+        hotterArticles,
+        categories: cats,
+        breadcrumb: ['归档', queryArchive],
+        pageUrl: '/blog/archive/' + queryArchive + '/page',
+        pageNum: Math.ceil(articleObj.totalQueryArticles[0].articles.length/5),
+        tags,
+        archives
       }
-
       return res.view(
         'articleLists',
-        {
-          articles: articles.map(function(item){item.archiveTime = item.archiveTime.substr(0, 10);  return item;}),
-          categories: categories,
-          tags: tags,
-          archives: archiveArray,
-          currentPage: page,
-          pageUrl: '/blog/archive/' + queryArchive + '/page',
-          pageNum: Math.ceil(totalQueryArticles[0].articles.length/FIND_PER_PAGE),
-          breadcrumb: ['归档', queryArchive],
-          hotterArticles: hotterArticles,
-          numOfArticles: numOfArticles,
-          newArticlesToday: newArticlesToday.length,
-          totalVisitCounts: statistics.totalVisitCounts,
-          todayVisitCounts: statistics.todayVisitCounts
-        });
-    }).catch(function(err){
+        result
+      );
+    }catch(err){
       console.error('crash occur at showOneArchive: ', page, queryArchive);
       console.error('error code: ', err);
-      return res.send('获取文章分类失败,请联系管理员。');
-    });
+      return res.send('获取文章归档失败,请联系管理员。');
+    }
   },
-  showOneUser: function(req, res){
+  showOneUser: async function(req, res){
     var page = req.param('page') ? req.param('page') : 1;
 
     var queryUser = req.param('url');
 
-    User.findOne({fullname: queryUser}).populate('articles',{
-      where: {
-        articleStatus:"published"
-      },
-      sort: FIND_ORDER,
-      limit: FIND_PER_PAGE,
-      skip: (page - 1) * FIND_PER_PAGE
-    }).then(function (users) {
-      var now = new Date();
-      //Format the current time to year/month/day
-      return [
-        users.articles,
-        User.find({fullname: queryUser}).populate('articles',{where: {articleStatus:"published" }}),
-        Category.find().populate('articles',{where: {articleStatus:"published"}}),
-        Tags.find().populate('articles',{where: {articleStatus:"published"}}),
-        Archive.find().populate('articles',{where: {articleStatus:"published"}}),
-        Article.find({ where: { articleStatus: 'published' }, sort: 'pageViewsCount DESC', limit: 10 }),
-        Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString()}}}),
-        Statistics.findOne({key: 0}),
-        Article.count({where: {articleStatus:"published"}})
-      ];
-    }).spread(function (articles, totalQueryArticles, categories, tags, archives,hotterArticles, newArticlesToday, statistics,numOfArticles) {
-
-      var archiveArray = [];
-      for (var index = 0; index < archives.length; index++){
-        var year = archives[index].archiveTime.substr(0,4);
-        var month = archives[index].archiveTime.substr(5,2);
-        var newFormat = year + "年" + month + "月";
-
-        var archive = {
-          oldArchiveTime: archives[index].archiveTime,
-          archiveTime: newFormat,
-          numOfArticles: archives[index].articles.length
-        };
-
-        archiveArray.push(archive);
+    try{
+      const [articleObj, hotterArticles, statistics, cats, tags, archives] = await Promise.all([
+        fetchArticlesByUser(queryUser, page),
+        fetchHottestArticles(10),
+        fetchBlogStatistics(),
+        fetchCatList(),
+        fetchTagsList(),
+        fetchArchiveList()
+      ])
+      const result = {
+        articles: articleObj.articles.map(function(item){item.archiveTime = item.archiveTime.substr(0, 10);  return item;}),
+        ...statistics,
+        hotterArticles,
+        categories: cats,
+        breadcrumb: ['作者', queryUser],
+        pageUrl: '/blog/user/' + queryUser + '/page',
+        pageNum: Math.ceil(articleObj.totalQueryArticles[0].articles.length/5),
+        tags,
+        archives
       }
-
       return res.view(
         'articleLists',
-        {
-          articles: articles.map(function(item){item.archiveTime = item.archiveTime.substr(0, 10);  return item;}),
-          categories: categories,
-          tags: tags,
-          archives: archiveArray,
-          currentPage: page,
-          pageUrl: '/blog/user/' + queryUser + '/page',
-          pageNum: Math.ceil(totalQueryArticles[0].articles.length/FIND_PER_PAGE),
-          breadcrumb: ['作者', queryUser],
-          hotterArticles: hotterArticles,
-          numOfArticles: numOfArticles,
-          newArticlesToday: newArticlesToday.length,
-          totalVisitCounts: statistics.totalVisitCounts,
-          todayVisitCounts: statistics.todayVisitCounts
-        });
-    }).catch(function(err){
+        result
+      );
+    }catch(err){
       console.error('crash occur at showOneUser: ', page, queryUser);
       console.error('error code: ', err);
-      return res.send('获取文章分类失败,请联系管理员。');
-    });
+      return res.send('获取文章作者失败,请联系管理员。');
+    }
   },
 
   showSearch: function(req, res){
