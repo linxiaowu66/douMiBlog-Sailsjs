@@ -10,21 +10,21 @@ module.exports = {
 
   attributes: {
     totalVisitCounts: {
-      type: 'integer',
+      type: 'number',
       defaultsTo: 0
     },
     todayVisitCounts: {
-      type: 'integer',
+      type: 'number',
       defaultsTo: 0
     },
     todayVisitIps: {
-      type: 'Array',
+      type: 'json',
+      columnType: 'array',
       defaultsTo: []
     },
     key: {
-      type: 'integer',
+      type: 'number',
       defaultsTo: 0
     }
   },
 };
-

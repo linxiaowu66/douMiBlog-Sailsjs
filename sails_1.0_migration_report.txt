@@ -1,0 +1,70 @@
+██████╗ ███████╗██████╗  ██████╗ ██████╗ ████████╗
+██╔══██╗██╔════╝██╔══██╗██╔═══██╗██╔══██╗╚══██╔══╝
+██████╔╝█████╗  ██████╔╝██║   ██║██████╔╝   ██║   
+██╔══██╗██╔══╝  ██╔═══╝ ██║   ██║██╔══██╗   ██║   
+██║  ██║███████╗██║     ╚██████╔╝██║  ██║   ██║   
+╚═╝  ╚═╝╚══════╝╚═╝      ╚═════╝ ╚═╝  ╚═╝   ╚═╝   
+                                                  
+==================================================
+
+This report highlights various issues that may need to be addressed before your app will work with Sails 1.0.
+After implementing these suggestions, some good next steps are:
+* Address the issues in this report, and run the updater again with --reportOnly to regenerate the report.
+  Repeat until there are no more issues!
+* Review the full migration guide at: https://github.com/balderdashy/sails-docs/blob/1.0/upgrading/To1.0.md
+* Attempt to lift and run your app with Sails 1.0.
+* See http://sailsjs.com/support for support options!
+
+
+┌┐ ┬  ┬ ┬┌─┐┌─┐┬─┐┬┌┐┌┌┬┐┌─┐  ┌─┐┌─┐┌┐┌┌─┐┬┌─┐
+├┴┐│  │ │├┤ ├─┘├┬┘││││ │ └─┐  │  │ ││││├┤ ││ ┬
+└─┘┴─┘└─┘└─┘┴  ┴└─┴┘└┘ ┴ └─┘  └─┘└─┘┘└┘└  ┴└─┘
+
+In Sails 1.0, the `actions` blueprint routes are turned _off_ by default.
+This is a change from v0.12.x, so if you're relying on Sails to create
+a route for each of your custom controller actions automatically, be sure
+to set `actions` to `true` in your config/blueprints.js file.
+
+┬  ┬┬┌─┐┬ ┬  ┌─┐┌┐┌┌─┐┬┌┐┌┌─┐┌─┐
+└┐┌┘│├┤ │││  ├┤ ││││ ┬││││├┤ └─┐
+ └┘ ┴└─┘└┴┘  └─┘┘└┘└─┘┴┘└┘└─┘└─┘
+
+It looks like you're using the `[object Object]` view engine.
+Configuration for view engines has changed in Sails 1.0, so you'll want to
+update your `config/views.js` file accordingly.
+
+See http://bit.ly/sails_migration_views for more info.
+
+┌┬┐┌─┐┌┬┐┌─┐┌┐ ┌─┐┌─┐┌─┐  ┌─┐┌─┐┌┐┌┌─┐┬┌─┐
+ ││├─┤ │ ├─┤├┴┐├─┤└─┐├┤   │  │ ││││├┤ ││ ┬
+─┴┘┴ ┴ ┴ ┴ ┴└─┘┴ ┴└─┘└─┘  └─┘└─┘┘└┘└  ┴└─┘
+
+In Sails 1.0, the `connections` config has been replaced with `datastores`,
+and the `models.connection` config has been replaced with `models.datastore`.
+It looks like there are still some config files that need to be changed:
+
+* In config/env/production.js:21, change `connection:` to `datastore:`
+
+┌─┐┌┬┐┌┬┐   ┬─┐┌─┐┌┬┐┌─┐┬  ┬┌─┐  ┌─┐┌┐┌┌┬┐  ┌─┐┌─┐┬  ┬┌─┐  ┌┬┐┌─┐┌┬┐┬ ┬┌─┐┌┬┐┌─┐
+├─┤ ││ ││   ├┬┘├┤ ││││ │└┐┌┘├┤   ├─┤│││ ││  └─┐├─┤└┐┌┘├┤   │││├┤  │ ├─┤│ │ ││└─┐
+┴ ┴─┴┘─┴┘┘  ┴└─└─┘┴ ┴└─┘ └┘ └─┘  ┴ ┴┘└┘─┴┘  └─┘┴ ┴ └┘ └─┘  ┴ ┴└─┘ ┴ ┴ ┴└─┘─┴┘└─┘
+
+In Sails 1.0, records no longer support .add() and .remove() for adding and removing
+child records in a collection attribute.  Records also don't support the .save() method.
+Instead, use the model class methods
+`.update()`, `.addToCollection()`, `.removeFromCollection()` and `.replaceCollection()`.
+
+Found the following possible references to `.add()`, `.remove() and `.save()`:
+
+* .remove() in services/articleUtil.js:99
+* .save() in services/articleUtil.js:100
+* .add() in services/articleUtil.js:104
+* .save() in services/articleUtil.js:105
+* .add() in services/articleUtil.js:182
+* .save() in services/articleUtil.js:183
+
+See the reference docs for more info:
+.update(): https://sailsjs.com/docs/reference/waterline/models/update
+.addToCollection(): https://sailsjs.com/docs/reference/waterline/models/addToCollection
+.removeFromCollection(): https://sailsjs.com/docs/reference/waterline/models/removeFromCollection
+.replaceCollection(): https://sailsjs.com/docs/reference/waterline/models/replaceCollection

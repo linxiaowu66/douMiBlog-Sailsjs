@@ -29,8 +29,8 @@ module.exports.views = {
   * https://github.com/balderdashy/sails-wiki/blob/0.9/config.views.md#engine *
   *                                                                           *
   ****************************************************************************/
-  engine : require('./swig'),
-  
+ extension : 'swig',
+
   /****************************************************************************
   *                                                                           *
   * Layouts are simply top-level HTML templates you can use as wrappers for   *

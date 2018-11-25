@@ -10,7 +10,8 @@ module.exports = {
     website: 'string',
     content: 'string',
     createDate: {
-      type: 'datetime'
+      type: 'string',
+      columnType: 'datetime'
     },
     response: {
       model: 'comments',

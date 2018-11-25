@@ -38,14 +38,15 @@ module.exports = {
     },
     articleStatus: {
       type: 'string',
-      enum: ['drafted', 'published'],
+      isIn: ['drafted', 'published'],
       required: true
     },
     pageViews: {
-      type: 'array',
+      type: 'json',
+      columnType: 'array'
     },
     pageViewsCount: {
-      type: 'integer',
+      type: 'number',
       defaultsTo: 0
     },
     author:{
@@ -56,7 +57,8 @@ module.exports = {
       type: 'string'
     },
     tagsArray:  {
-      type: 'array'
+      type: 'json',
+      columnType: 'array'
     },
     /*This parameter is active when the article is in the publish status*/
     archiveTime:{
