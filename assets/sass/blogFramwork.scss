@@ -569,6 +569,20 @@ Breadcrumb navigation Box
   padding: 20px;
   position: relative;
   background-color: #FFF;
+  .archive-name{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    span:nth-child(1) {
+      font-weight: 600;
+      color: #119d55;
+      font-size: 16px;
+    }
+    span:nth-child(2) {
+      color: #119d55;
+      font-size: 16px;
+    }
+  }
   .widget_statistics, .widget_hotter, .widget_archive {
     margin: 0;
     font-size: 1.25em;
@@ -581,7 +595,11 @@ Breadcrumb navigation Box
 --------------------------*/
 
 #archives ul {
-  padding-left: 2px;
+  padding-left: 20px;
+  transition: all .5;
+  &.hidden{
+    height: 0px;
+  }
   li span {
     font-size: .8em;
     padding-left: 5px;

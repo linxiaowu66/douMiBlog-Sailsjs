@@ -74,7 +74,6 @@
     {% endif %}
   </nav>
   {% endif %}
-  <script id='dsq-count-scr' src='//doumiblog2016.disqus.com/count.js' async></script>
+
 </main>
 {% endblock %}
-

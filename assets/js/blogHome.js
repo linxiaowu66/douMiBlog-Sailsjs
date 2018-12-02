@@ -12,6 +12,10 @@ define(['jquery'], function($){
       $('.right-nav-menu').removeClass('open');
     });
 
+    $('#archives .archive-name').click(function(e){
+      $(e.target).next().toggleClass('hidden')
+    })
+
     var Accordion = function(el, multiple) {
       this.el = el || {};
       this.multiple = multiple || false;

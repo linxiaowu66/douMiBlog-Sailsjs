@@ -128,11 +128,19 @@
             <!-- archive Box -->
             <aside id='archives' class='widget'>
               <h4 class='title'>归档</h4>
-              <ul class='widget_archive'>
-                {% for archive in archives %}
-                <li><a href='/blog/archive/{{ archive.oldArchiveTime }}'>{{ archive.archiveTime }}</a><span>({{ archive.numOfArticles}})</span></li>
-                {% endfor %}
-              </ul>
+              {% for year in Object.keys(archives) %}
+              <div>
+                <div class="archive-name">
+                  <span>{{ year + '年'}}</span>
+                  <span class='glyphicon glyphicon-chevron-down down-icon'></span>
+                </div>
+                <ul class='widget_archive hidden'>
+                  {% for archive in archives[year] %}
+                  <li><a href='/blog/archive/{{ archive.oldArchiveTime }}'>{{ archive.archiveTime }}</a><span>({{ archive.numOfArticles}})</span></li>
+                  {% endfor %}
+                </ul>
+              </div>
+              {% endfor %}
             </aside>
             <!-- tags cloud Box -->
             <aside class='widget'>
@@ -229,6 +237,5 @@
 <script type='text/javascript'>
   require(['../js/blogHome']);
 </script>
+<script id='dsq-count-scr' src='//doumiblog2016.disqus.com/count.js' async></script>
 </html>
-
-

@@ -71,7 +71,7 @@ module.exports = {
         if (err) {
           reject(err)
         }
-        var archiveArray = [];
+        var archiveArray = {};
         for (var index = 0; index < archives.length; index++){
           var year = archives[index].archiveTime.substr(0,4);
           var month = archives[index].archiveTime.substr(5,2);
@@ -83,7 +83,7 @@ module.exports = {
             numOfArticles: archives[index].articles.length
           };
 
-          archiveArray.push(archive);
+          archiveArray[year] ? archiveArray[year].push(archive) : archiveArray[year] = [archive];
         }
         resolve(archiveArray)
       })
