@@ -18,7 +18,7 @@ module.exports = {
 
       return res.json({
         status: 1,
-        result
+        data: result
       })
     } catch(err) {
       sails.log.error('fetch hottest articles error: ', err)
