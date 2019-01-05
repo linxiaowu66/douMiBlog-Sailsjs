@@ -70,6 +70,23 @@ module.exports = {
       })
     }
   },
+  fetchBlogDetail: async function(req, res) {
+    try {
+      const { slug } = req.query
+      const result = await fetchArticleDetail(slug)
+
+      return res.json({
+        status: 1,
+        result
+      })
+    } catch(err) {
+      sails.log.error('fetch blog detail error: ', err)
+      return res.status(200).json({
+        status: 0,
+        msg: '系统出错，请稍后重试'
+      })
+    }
+  },
   index: async function (req, res){
     // 获得当前需要加载第几页
     var page = req.param('page') ? parseInt(req.param('page')) : 1;

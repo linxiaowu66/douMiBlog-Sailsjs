@@ -99,12 +99,18 @@ module.exports = {
       desc2: '在<a href="https://www.npmjs.com/package/marked">marked</a>解析器的基础上支持数学公式的编辑，并将修改后的包发布到npm上：<a href="https://www.npmjs.com/package/marked-katex">marked-katex</a>',
       date: '2017/03',
       time: '29&nbsp;&nbsp;周三'
-    },  {
+    }, {
       title: '迁移网站到https，删掉些功能，添加新东西',
       desc1: '05月12号，升级网站到https,05月13号，增加[关于豆米](https://blog.5udou.cn/aboutDouMi)页面',
       desc2: '05月13号，增加[米喳简历](https://blog.5udou.cn/resume/mizha)页面',
       date: '2018/05',
       time: '13&nbsp;&nbsp;周日'
+    }, {
+      title: '抽离controller主逻辑，支持api请求获取数据',
+      desc1: '01月04号，抽离controller的主逻辑，支持api请求，不再单一支持服务端渲染',
+      desc2: '01月05号，新增8个api，覆盖完整博客的请求，为小程序和RN版本提供接口',
+      date: '2019/01',
+      time: '04&nbsp;&nbsp;周六'
     }]
   }
 }

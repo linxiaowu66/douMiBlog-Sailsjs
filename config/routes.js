@@ -209,6 +209,11 @@ module.exports.routes = {
     action: 'fetchArticleList'
   },
 
+  'GET /api/blog/detail': {
+    controller: 'Blog',
+    action: 'fetchBlogDetail'
+  },
+
   'GET /api/website/statistics': {
     controller: 'Common',
     action: 'fetchWebsiteStat'
