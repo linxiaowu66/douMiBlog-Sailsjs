@@ -1,5 +1,5 @@
 const { fetchArticlesByUser, fetchArticlesByArchive, fetchArticlesByTag, fetchArticlesByCat ,fetchArticleDetail, fetchArticleList, fetchHottestArticles, fetchCatList, fetchTagsList, fetchArchiveList } = require('../services/BlogService')
-const { fetchBlogStatistics, updateWebsiteStat } = require('../services/CommonService')
+const { fetchBlogStatistics, updateWebsiteStat, websiteChangelog } = require('../services/CommonService')
 
 
 
@@ -326,49 +326,24 @@ module.exports = {
     }
   },
 
-  aboutSite: function (req, res){
+  aboutSite: async function (req, res){
 
-    async.parallel([
-      function(callback){Category.find().populate('articles',{where: {articleStatus:"published"}}).exec(callback)},
-      function(callback){Tags.find().populate('articles',{where: {articleStatus:"published"}}).exec(callback)},
-      function(callback){Archive.find().populate('articles',{where: {articleStatus:"published"}}).exec(callback)},
-      function(callback){Article.find({ where: { articleStatus: 'published' }, sort: 'pageViewsCount DESC', limit: 10 }).exec(callback)},
-      function(callback){Article.find({where:{articleStatus:'published',archiveTime: {'contains': matchString()}}}).exec(callback)},
-      function(callback){Statistics.findOne({key: 0}).exec(callback)},
-      function(callback){Article.count({where: {articleStatus:"published"}}, callback)}
-    ],function(error, results){
-      /*If any creating model failure, this process
-       should be stop and return the error to client*/
-      if (error){
-        sails.log.error(error);
-        callback(error, null);
-      }else{
-        var archiveArray = [];
-        for (var index = 0; index < results[2].length; index++){
-          var year = results[2][index].archiveTime.substr(0,4);
-          var month = results[2][index].archiveTime.substr(5,2);
-          var newFormat = year + "年" + month + "月";
+    const [hotterArticles, statistics, cats, tags, archives] = await Promise.all([
+      fetchHottestArticles(10),
+      fetchBlogStatistics(),
+      fetchCatList(),
+      fetchTagsList(),
+      fetchArchiveList()
+    ])
 
-          var archive = {
-            oldArchiveTime: results[2][index].archiveTime,
-            archiveTime: newFormat,
-            numOfArticles: results[2][index].articles.length
-          };
-
-          archiveArray.push(archive);
-        }
-        return res.view('aboutSite', {
-          breadcrumb: ['关于本站'],
-          categories: results[0],
-          tags: results[1],
-          archives: archiveArray,
-          hotterArticles: results[3],
-          numOfArticles: results[6],
-          newArticlesToday: results[4].length,
-          totalVisitCounts: results[5].totalVisitCounts,
-          todayVisitCounts: results[5].todayVisitCounts
-        })
-      }
-    });
+    return res.view('aboutSite', {
+      breadcrumb: ['关于本站'],
+      categories: cats,
+      tags: tags,
+      archives: archives,
+      hotterArticles,
+      ...statistics,
+      changeLogs: websiteChangelog()
+    })
   }
 };
