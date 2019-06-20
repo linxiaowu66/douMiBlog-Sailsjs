@@ -190,6 +190,9 @@
                 <div class = 'tag-cloud'>
                   <a href='http://www.myronliu.com/'>myron</a>
                 </div>
+                <div class = 'tag-cloud'>
+                  <a href='http://yoyoyohamapi.me/'>吴晓军</a>
+                </div>
               </div>
             </aside>
           </div>
