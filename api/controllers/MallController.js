@@ -1229,5 +1229,127 @@ module.exports = {
       },
       "errmsg": "成功"
     })
+  },
+  hottestSearch: function(req, res) {
+    return res.json(200, {
+      "errno": 0,
+      "data": {
+        "hotKeywordList": [{
+          "id": 1,
+          "keyword": "母亲节",
+          "url": "",
+          "isHot": true,
+          "isDefault": false,
+          "sortOrder": 100,
+          "addTime": "2018-02-01 00:00:00",
+          "updateTime": "2019-04-18 16:04:15",
+          "deleted": false
+        }, {
+          "id": 3,
+          "keyword": "夏凉被",
+          "url": "",
+          "isHot": true,
+          "isDefault": false,
+          "sortOrder": 100,
+          "addTime": "2018-02-01 00:00:00",
+          "updateTime": "2018-02-01 00:00:00",
+          "deleted": false
+        }, {
+          "id": 4,
+          "keyword": "新品上市",
+          "url": "",
+          "isHot": true,
+          "isDefault": false,
+          "sortOrder": 100,
+          "addTime": "2018-02-01 00:00:00",
+          "updateTime": "2018-02-01 00:00:00",
+          "deleted": false
+        }, {
+          "id": 7,
+          "keyword": "单鞋",
+          "url": "",
+          "isHot": true,
+          "isDefault": true,
+          "sortOrder": 8,
+          "addTime": "2018-02-01 00:00:00",
+          "updateTime": "2018-02-01 00:00:00",
+          "deleted": false
+        }],
+        "historyKeywordList": []
+      },
+      "errmsg": "成功"
+    })
+  },
+  searchGoods: function(req, res) {
+    return res.json(200, {
+      "errno": 0,
+      "data": {
+        "total": 5,
+        "pages": 1,
+        "limit": 20,
+        "page": 1,
+        "list": [{
+          "id": 1023012,
+          "name": "色织华夫格夏凉被",
+          "brief": "凹凸华夫格织法，舒适轻柔",
+          "picUrl": "http://yanxuan.nosdn.127.net/07376e78bf4fb8a5aa8e6a0b1437c3ad.png",
+          "isNew": false,
+          "isHot": false,
+          "counterPrice": 319.00,
+          "retailPrice": 299.00
+        }, {
+          "id": 1027004,
+          "name": "色织六层纱布夏凉被",
+          "brief": "柔软纱布，婴童可用",
+          "picUrl": "http://yanxuan.nosdn.127.net/6252f53aaf36c072b6678f3d8c635132.png",
+          "isNew": false,
+          "isHot": true,
+          "counterPrice": 269.00,
+          "retailPrice": 249.00
+        }, {
+          "id": 1127052,
+          "name": "纯棉水洗色织格夏凉被",
+          "brief": "100%棉填充，透气排汗，双面可用",
+          "picUrl": "http://yanxuan.nosdn.127.net/4f483526cfe3b953f403ae02049df5b9.png",
+          "isNew": false,
+          "isHot": true,
+          "counterPrice": 189.00,
+          "retailPrice": 169.00
+        }, {
+          "id": 1023034,
+          "name": "泡泡纱可水洗夏凉被",
+          "brief": "全棉泡泡纱，柔软亲肤",
+          "picUrl": "http://yanxuan.nosdn.127.net/715899c65c023bb4973fb0466a5b79d6.png",
+          "isNew": false,
+          "isHot": false,
+          "counterPrice": 319.00,
+          "retailPrice": 299.00
+        }, {
+          "id": 1130049,
+          "name": "柔软凉爽天丝麻蚕丝填充夏凉被",
+          "brief": "天然恒温凉感面料，蚕丝美肤透气保护",
+          "picUrl": "http://yanxuan.nosdn.127.net/d88513f85b3617d734bde93af2c766c9.png",
+          "isNew": false,
+          "isHot": false,
+          "counterPrice": 449.00,
+          "retailPrice": 429.00
+        }],
+        "filterCategoryList": [{
+          "id": 1036000,
+          "name": "夏凉",
+          "keywords": "",
+          "desc": "夏凉床品，舒适一夏",
+          "pid": 1005000,
+          "iconUrl": "http://yanxuan.nosdn.127.net/13ff4decdf38fe1a5bde34f0e0cc635a.png",
+          "picUrl": "http://yanxuan.nosdn.127.net/bd17c985bacb9b9ab1ab6e9d66ee343c.png",
+          "level": "L2",
+          "sortOrder": 1,
+          "addTime": "2018-02-01 00:00:00",
+          "updateTime": "2018-02-01 00:00:00",
+          "deleted": false
+        }]
+      },
+      "errmsg": "成功"
+    })
   }
 }
