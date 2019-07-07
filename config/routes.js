@@ -237,5 +237,27 @@ module.exports.routes = {
   'GET /api/blog/tags/list': {
     controller: 'Blog',
     action: 'fetchBlogTagsList'
-  }
+  },
+
+  // 临时的微信小商城
+  'GET /api/mall/goods/count': {
+    controller: 'Mall',
+    action: 'goodsCount'
+  },
+  'GET /api/mall/home/index': {
+    controller: 'Mall',
+    action: 'index'
+  },
+  'GET /api/mall/category/list': {
+    controller: 'Mall',
+    action: 'categories'
+  },
+  'GET /api/mall/category/goods/list': {
+    controller: 'Mall',
+    action: 'goodsForCategory'
+  },
+  'GET /api/mall/goods/detail': {
+    controller: 'Mall',
+    action: 'detail'
+  },
 };
