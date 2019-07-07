@@ -260,4 +260,12 @@ module.exports.routes = {
     controller: 'Mall',
     action: 'detail'
   },
+  'GET /api/mall/search/hottest': {
+    controller: 'Mall',
+    action: 'hottestSearch'
+  },
+  'GET /api/mall/search/result': {
+    controller: 'Mall',
+    action: 'searchGoods'
+  },
 };
