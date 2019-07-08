@@ -248,13 +248,15 @@ module.exports.routes = {
     controller: 'Mall',
     action: 'index'
   },
+  // 获取商品分类列表
   'GET /api/mall/category/list': {
     controller: 'Mall',
     action: 'categories'
   },
-  'GET /api/mall/category/goods/list': {
+  // 根据不同条件获取商品列表
+  'GET /api/mall/goods/list': {
     controller: 'Mall',
-    action: 'goodsForCategory'
+    action: 'goodsList'
   },
   'GET /api/mall/goods/detail': {
     controller: 'Mall',
@@ -262,10 +264,6 @@ module.exports.routes = {
   },
   'GET /api/mall/search/hottest': {
     controller: 'Mall',
-    action: 'hottestSearch'
-  },
-  'GET /api/mall/search/result': {
-    controller: 'Mall',
-    action: 'searchGoods'
-  },
+    action: 'hottestSearchKeywords'
+  }
 };

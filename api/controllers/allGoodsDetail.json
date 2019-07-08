@@ -1,0 +1,122 @@
+{
+  "1000001": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 1000001,
+        "specification": "规格",
+        "value": "七两以上",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }, {
+        "id": 2,
+        "goodsId": 1000001,
+        "specification": "规格",
+        "value": "三至六两",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }, {
+        "id": 3,
+        "goodsId": 1000001,
+        "specification": "规格",
+        "value": "三两以下",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "issue": [{
+      "id": 1,
+      "question": "购买运费如何收取？",
+      "answer": "因为已经是市场最低价，利润不大，所以所有产品都不包邮，敬请谅解。",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-04-16 15:55:39",
+      "deleted": false
+    }, {
+      "id": 2,
+      "question": "使用什么快递发货？",
+      "answer": "海鲜默认使用顺丰快递发货（也支持跨越速运，运费在一定程度上会比顺丰便宜些），配送范围覆盖全国大部分地区",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-04-16 15:55:44",
+      "deleted": false
+    }, {
+      "id": 3,
+      "question": "如何申请退货？",
+      "answer": "自收到商品之日起1日内，如果发现商品存在质量问题，可以联系店长进行办理退货和退款操作",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-04-16 15:55:52",
+      "deleted": false
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 1000001,
+      "attribute": "规格",
+      "value": "组合一：AB面独立弹簧床垫 进口乳胶150*200cm*1+可水洗抗菌防螨丝羽绒枕*2。\n组合二：AB面独立弹簧床垫 进口乳胶180*200cm*1+可水洗抗菌防螨丝羽绒枕*2",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 1000001,
+      "specifications": ["七两以上"],
+      "price": 999.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }, {
+      "id": 2,
+      "goodsId": 1000001,
+      "specifications": ["三至六两"],
+      "price": 1500.00,
+      "number": 198,
+      "url": "quality=90&thumbnail=200x200&imageView",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-06-23 10:19:04",
+      "deleted": false
+    }, {
+      "id": 3,
+      "goodsId": 1000001,
+      "specifications": ["三两以下"],
+      "price": 1000.00,
+      "number": 300,
+      "url": "http://yanxuan.nosdn.127.net/36f64a7161b67e7fb8ea45be32ecfa25.png?quality=90&thumbnail=200x200&imageView",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-06-16 17:18:58",
+      "deleted": false
+    }],
+    "info": {
+      "id": 1000001,
+      "goodsSn": "1000001",
+      "name": "黄翅鱼",
+      "categoryId": 1000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "福建的海鲜明星",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "斤",
+      "counterPrice": 2618.00,
+      "retailPrice": 2598.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><span style=\"\">测试样本</span><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  }
+}
