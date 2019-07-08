@@ -2,6 +2,7 @@ const banner = require('./banner.json')
 const allGoodsList = require('./allGoodsList.json')
 const goodsCats = require('./goodsCats.json')
 const goodsDetail = require('./allGoodsDetail.json')
+const hottestKeys = require('./hottestKeywords.json')
 
 module.exports = {
   index: function (req, res) {
@@ -94,50 +95,7 @@ module.exports = {
   hottestSearchKeywords: function(req, res) {
     return res.json(200, {
       "errno": 0,
-      "data": {
-        "hotKeywordList": [{
-          "id": 1,
-          "keyword": "营养丰富",
-          "url": "",
-          "isHot": true,
-          "isDefault": false,
-          "sortOrder": 100,
-          "addTime": "2018-02-01 00:00:00",
-          "updateTime": "2019-04-18 16:04:15",
-          "deleted": false
-        }, {
-          "id": 3,
-          "keyword": "当季海鲜",
-          "url": "",
-          "isHot": true,
-          "isDefault": false,
-          "sortOrder": 100,
-          "addTime": "2018-02-01 00:00:00",
-          "updateTime": "2018-02-01 00:00:00",
-          "deleted": false
-        }, {
-          "id": 4,
-          "keyword": "容易烹饪",
-          "url": "",
-          "isHot": true,
-          "isDefault": false,
-          "sortOrder": 100,
-          "addTime": "2018-02-01 00:00:00",
-          "updateTime": "2018-02-01 00:00:00",
-          "deleted": false
-        }, {
-          "id": 7,
-          "keyword": "好吃不贵",
-          "url": "",
-          "isHot": true,
-          "isDefault": true,
-          "sortOrder": 8,
-          "addTime": "2018-02-01 00:00:00",
-          "updateTime": "2018-02-01 00:00:00",
-          "deleted": false
-        }],
-        "historyKeywordList": []
-      },
+      "data": hottestKeys,
       "errmsg": "成功"
     })
   }
