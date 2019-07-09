@@ -31,35 +31,13 @@
         "deleted": false
       }]
     }],
-    "issue": [{
-      "id": 1,
-      "question": "购买运费如何收取？",
-      "answer": "因为已经是市场最低价，利润不大，所以所有产品都不包邮，敬请谅解。",
-      "addTime": "2018-02-01 00:00:00",
-      "updateTime": "2019-04-16 15:55:39",
-      "deleted": false
-    }, {
-      "id": 2,
-      "question": "使用什么快递发货？",
-      "answer": "海鲜默认使用顺丰快递发货（也支持跨越速运，运费在一定程度上会比顺丰便宜些），配送范围覆盖全国大部分地区",
-      "addTime": "2018-02-01 00:00:00",
-      "updateTime": "2019-04-16 15:55:44",
-      "deleted": false
-    }, {
-      "id": 3,
-      "question": "如何申请退货？",
-      "answer": "自收到商品之日起1日内，如果发现商品存在质量问题，可以联系店长进行办理退货和退款操作",
-      "addTime": "2018-02-01 00:00:00",
-      "updateTime": "2019-04-16 15:55:52",
-      "deleted": false
-    }],
     "userHasCollect": 0,
     "shareImage": "",
     "attribute": [{
       "id": 870,
       "goodsId": 1000001,
       "attribute": "规格",
-      "value": "组合一：AB面独立弹簧床垫 进口乳胶150*200cm*1+可水洗抗菌防螨丝羽绒枕*2。\n组合二：AB面独立弹簧床垫 进口乳胶180*200cm*1+可水洗抗菌防螨丝羽绒枕*2",
+      "value": "按条包装",
       "addTime": "2018-02-01 00:00:00",
       "updateTime": "2018-02-01 00:00:00",
       "deleted": false
@@ -116,7 +94,2443 @@
       "updateTime": "2019-07-03 17:51:31",
       "deleted": false,
       "buyCount": 23,
-      "detail": "<p><span style=\"\">测试样本</span><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+      "detail": "<p><span style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">黄翅鱼又叫黄翅鱼，是上等鱼，其肉质细嫩，鲜食、盐制均宜。 黄翅鱼肉质细嫩、鲜美，为中型食用鱼，经济价值高，是大陆、港台市场畅销的水产品，已成为中国沿海一带的重要海水养殖对象。中国1980年人工繁殖成功，已可批量生产，这些将会进一步推动黄翅鱼的养殖规模。黄翅鱼肌肉中，鱼肌中各成分的质量分数为粗蛋白21.10%，粗脂肪1.31%，粗灰分1.50%，水分74.40%。干物质中水解氨基酸总量w76.38%，其中必需氨基酸w32.46%，占氨基酸总量的42.5%；呈味氨基酸w32.51%，占氨基酸总量的42.56%。蛋氨酸为第一限制氨基酸，赖氨酸含量(每克氮中)最高，达494mg/g。牛磺酸含量为3040mg/kg。黄翅鱼是一种高蛋白、低脂肪的美味优良食物</span><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "1000002": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 1000002,
+        "specification": "规格",
+        "value": "七两以上",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }, {
+        "id": 2,
+        "goodsId": 1000001,
+        "specification": "规格",
+        "value": "三至六两",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }, {
+        "id": 3,
+        "goodsId": 1000001,
+        "specification": "规格",
+        "value": "三两以下",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 1000001,
+      "attribute": "规格",
+      "value": "按条包装",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 1000001,
+      "specifications": ["七两以上"],
+      "price": 999.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }, {
+      "id": 2,
+      "goodsId": 1000001,
+      "specifications": ["三至六两"],
+      "price": 1500.00,
+      "number": 198,
+      "url": "quality=90&thumbnail=200x200&imageView",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-06-23 10:19:04",
+      "deleted": false
+    }, {
+      "id": 3,
+      "goodsId": 1000001,
+      "specifications": ["三两以下"],
+      "price": 1000.00,
+      "number": 300,
+      "url": "http://yanxuan.nosdn.127.net/36f64a7161b67e7fb8ea45be32ecfa25.png?quality=90&thumbnail=200x200&imageView",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-06-16 17:18:58",
+      "deleted": false
+    }],
+    "info": {
+      "id": 1000002,
+      "goodsSn": "1000002",
+      "name": "海鲈鱼",
+      "categoryId": 1000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "补肾益脾，孕妇必选",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "斤",
+      "counterPrice": 2618.00,
+      "retailPrice": 2598.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">鲈鱼富含蛋白质、维生素A、B族维生素、钙、镁、锌、硒等营养元素；具有补肝肾、益脾胃、化痰止咳之效，对肝肾不足的人有很好的补益作用。</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">鲈鱼还可治胎动不安、产后少乳等症，准妈妈和生产妇女吃鲈鱼是一种既补身、又不会造成营养过剩而导致肥胖的营养食物，是健身补血、健脾益气和益体安康的佳品。</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">鲈鱼血中还有较多的铜元素，铜能维持神经系统的正常的功能并参与数种物质代谢的关键酶的功能发挥，铜元素缺乏的人可食用鲈鱼来补充</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "1000003": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 1000002,
+        "specification": "规格",
+        "value": "黄金带鱼(8两一盒)",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }, {
+        "id": 2,
+        "goodsId": 1000001,
+        "specification": "规格",
+        "value": "黑目带鱼(一斤一盒)",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 1000001,
+      "attribute": "规格",
+      "value": "按盒包装",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 1000001,
+      "specifications": ["黄金带鱼(8两一盒)"],
+      "price": 27.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }, {
+      "id": 2,
+      "goodsId": 1000001,
+      "specifications": ["黑目带鱼(一斤一盒)"],
+      "price": 20.00,
+      "number": 198,
+      "url": "quality=90&thumbnail=200x200&imageView",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-06-23 10:19:04",
+      "deleted": false
+    }],
+    "info": {
+      "id": 1000003,
+      "goodsSn": "1000003",
+      "name": "带鱼",
+      "categoryId": 1000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "好吃不贵，富含DHA和EPA",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "盒",
+      "counterPrice": "30.00",
+      "retailPrice": "27.00",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 2,
+      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">带鱼富含脂肪、蛋白质、维生素A、不饱和脂肪酸、磷、钙、铁、碘等多种营养成分。带鱼性温，味甘，具有暖胃、泽肤、补气、养血、健美以及强心补肾、舒筋活血、消炎化痰、清脑止泻、消除疲劳、提精养神之功效。</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">带鱼富含人体必需的多种矿物元素以及多种维生素，实为老人、儿童、孕产妇的理想滋补食品，尤其适宜气短乏力、久病体虚、血虚头晕、食少羸瘦、营养不良以及皮肤干燥者食用。此外，孕妇吃带鱼有利于胎儿脑组织发育；少儿多吃带鱼有益于提高智力；老人多吃带鱼则可以延缓大脑萎缩、预防老年痴呆；女性多吃带鱼，能使肌肤光滑润泽，长发乌黑，面容更加靓丽。</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">带鱼的DHA和EPA含量高于淡水鱼。DHA是大脑所需的营养物质，对提高记忆力和思考能力十分重要，加之带鱼含有丰富的卵磷脂， 使其较一般淡水鱼更具补脑功能。EPA则俗称血管清道夫，对降低血脂有益。带鱼中丰富的镁元素也对心血管系统有很好的保护作用， 有利于预防高血压、心肌梗死等心血管疾病。</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "1000004": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 1000004,
+        "specification": "规格",
+        "value": "三条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }, {
+        "id": 2,
+        "goodsId": 1000004,
+        "specification": "规格",
+        "value": "六条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 1000004,
+      "attribute": "规格",
+      "value": "按盒包装(每盒8两装)",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 1000004,
+      "specifications": ["三条一盒"],
+      "price": 999.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }, {
+      "id": 2,
+      "goodsId": 1000004,
+      "specifications": ["六条一盒"],
+      "price": 50.00,
+      "number": 198,
+      "url": "quality=90&thumbnail=200x200&imageView",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-06-23 10:19:04",
+      "deleted": false
+    }],
+    "info": {
+      "id": 1000004,
+      "goodsSn": "1000004",
+      "name": "黄花鱼",
+      "categoryId": 1000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "当季海鲜，肉质鲜嫩",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "盒",
+      "counterPrice": 52.00,
+      "retailPrice": 50.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 5,
+      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">黄鱼（黄花鱼又名黄鱼）含有丰富的蛋白质、微量元素和维生素，对人体有很好的补益作用，对体质虚弱和中老年人来说，食用黄鱼会收到很好的食疗效果;</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">黄鱼含有丰富的微量元素硒，能清除人体代谢产生的自由基，能延缓衰老，并对各种癌症有防治功效。</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "1000005": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 1000005,
+        "specification": "规格",
+        "value": "三条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }, {
+        "id": 2,
+        "goodsId": 1000005,
+        "specification": "规格",
+        "value": "六条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 1000005,
+      "attribute": "规格",
+      "value": "按盒包装(每盒8两装)",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 1000005,
+      "specifications": ["三条一盒"],
+      "price": 999.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }, {
+      "id": 2,
+      "goodsId": 1000005,
+      "specifications": ["六条一盒"],
+      "price": 1500.00,
+      "number": 198,
+      "url": "quality=90&thumbnail=200x200&imageView",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-06-23 10:19:04",
+      "deleted": false
+    }],
+    "info": {
+      "id": 1000005,
+      "goodsSn": "1000005",
+      "name": "沙梭鱼",
+      "categoryId": 1000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "当季海鲜，肉质鲜嫩",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "盒",
+      "counterPrice": 2618.00,
+      "retailPrice": 2598.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><span style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">野生沙梭魚的體型不大，常見大小約５—１０公分，魚身瘦長，肉質鮮嫩、清甜，可口好吃，薄薄的魚皮帶點黏唇的口感，是日本料理店的常見料理，非常適合天婦羅或其他油炸料理</span><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "1000006": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 1000006,
+        "specification": "规格",
+        "value": "三条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }, {
+        "id": 2,
+        "goodsId": 1000006,
+        "specification": "规格",
+        "value": "六条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 1000006,
+      "attribute": "规格",
+      "value": "按盒包装(每盒8两装)",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 1000006,
+      "specifications": ["三条一盒"],
+      "price": 999.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }, {
+      "id": 2,
+      "goodsId": 1000006,
+      "specifications": ["六条一盒"],
+      "price": 1500.00,
+      "number": 198,
+      "url": "quality=90&thumbnail=200x200&imageView",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-06-23 10:19:04",
+      "deleted": false
+    }],
+    "info": {
+      "id": 1000006,
+      "goodsSn": "1000006",
+      "name": "鳗鱼",
+      "categoryId": 1000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "口感软嫩，富含不饱和脂肪酸",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "盒",
+      "counterPrice": 2618.00,
+      "retailPrice": 2598.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">鳗鱼富含维生素A和维生素E，含量分别是普通鱼类的60倍和9倍。其中维生素A为牛肉的100倍、猪肉的300倍以上。其他维生素如维生素B1、维生素B2含量同样很丰富。</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">鳗鱼还含有大量的钙质，它的皮、肉都含有丰富的胶原蛋白。</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "1000007": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 1000007,
+        "specification": "规格",
+        "value": "三条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }, {
+        "id": 2,
+        "goodsId": 1000007,
+        "specification": "规格",
+        "value": "六条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 1000006,
+      "attribute": "规格",
+      "value": "按盒包装(每盒8两装)",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 1000007,
+      "specifications": ["三条一盒"],
+      "price": 999.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }, {
+      "id": 2,
+      "goodsId": 1000007,
+      "specifications": ["六条一盒"],
+      "price": 1500.00,
+      "number": 198,
+      "url": "quality=90&thumbnail=200x200&imageView",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-06-23 10:19:04",
+      "deleted": false
+    }],
+    "info": {
+      "id": 1000007,
+      "goodsSn": "1000007",
+      "name": "龙利鱼",
+      "categoryId": 1000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "口感软嫩，富含不饱和脂肪酸",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "盒",
+      "counterPrice": 2618.00,
+      "retailPrice": 2598.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">龙利鱼中的欧米加-3脂肪酸，可以抑制眼睛里的自由基，防止新血管的形成，降低晶体炎症的发生</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">龙利鱼的脂肪中含有不饱和脂肪酸，具有抗动脉粥样硬化的功效，对防治心脑血管疾病和增强记忆颇有益处。</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "1000008": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 1000008,
+        "specification": "规格",
+        "value": "三条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }, {
+        "id": 2,
+        "goodsId": 1000008,
+        "specification": "规格",
+        "value": "六条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 1000008,
+      "attribute": "规格",
+      "value": "按盒包装(每盒8两装)",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 1000008,
+      "specifications": ["三条一盒"],
+      "price": 999.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }, {
+      "id": 2,
+      "goodsId": 1000008,
+      "specifications": ["六条一盒"],
+      "price": 1500.00,
+      "number": 198,
+      "url": "quality=90&thumbnail=200x200&imageView",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-06-23 10:19:04",
+      "deleted": false
+    }],
+    "info": {
+      "id": 1000008,
+      "goodsSn": "1000008",
+      "name": "银鱼",
+      "categoryId": 1000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "高蛋白、低脂肪，补钙首选",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "盒",
+      "counterPrice": 2618.00,
+      "retailPrice": 2598.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">保健安胎：银鱼富含蛋白质和必需氨基酸，营养价值很高，特别是银鱼炒蛋这道菜能滋阴润燥、养血安胎，尤其对孕早期有流产史的孕妇来说，是很好的保健安胎食品，同时也有益于胎儿的神经系统和骨骼系统的发育。</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">2、增强免疫力：银鱼营养丰富，具有高蛋白、低脂肪之特点。并认为银鱼不去鳍、骨，属“整体性食物”，营养完全，利于人体增进免疫功能和长寿。</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "1000009": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 1000009,
+        "specification": "规格",
+        "value": "斤",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 1000009,
+      "attribute": "规格",
+      "value": "按条包装(重量不定)",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 1000009,
+      "specifications": ["斤"],
+      "price": 30.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }],
+    "info": {
+      "id": 1000009,
+      "goodsSn": "1000009",
+      "name": "金昌鱼",
+      "categoryId": 1000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "好吃不贵，益气养血、柔筋利骨",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "斤",
+      "counterPrice": 32.00,
+      "retailPrice": 30.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">它富含蛋白质及其他多种营养成分，具有益气养血、柔筋利骨之功效。对治疗消化不良、脾虚泄泻、贫血、筋骨酸病等有一定的功效；</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">它属于高蛋白、低脂肪的鱼类，青少年和儿童多吃本鱼有助于生长发育、提高智力</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "1000010": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 1000010,
+        "specification": "规格",
+        "value": "一斤一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 1000010,
+      "attribute": "规格",
+      "value": "按盒包装(每盒一斤装)",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 1000010,
+      "specifications": ["一斤一盒"],
+      "price": 35.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }],
+    "info": {
+      "id": 1000010,
+      "goodsSn": "1000010",
+      "name": "小鲨鱼",
+      "categoryId": 1000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "营养丰富，具有抗癌作用，因为小，所以污染也少,与酸菜煮汤吃最适宜",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "盒",
+      "counterPrice": 40.00,
+      "retailPrice": 35.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">滋补身体：鲨鱼肉是一种滋补功效特别出色中肉类食材，它不但含有蛋白质和脂肪，还含有大量的胶原蛋白与多种无机盐以及维生素和脂肪酸，平时人们食用以后能快速把这些营养成分吸收和利用，能有效缓解身体虚弱，也能提高身体素质。</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">鲨鱼是世界上唯一不会得癌症的生物，它身体内含有的多种微量元素，对癌细胞生成有明显抑制作用，平时人们经常食用鲨鱼肉也能起到防癌抗癌的重要作用。另外鲨鱼肉对人类的关节炎以及干癣和红斑狼疮等多种常见病也有一定预防作用。鲨鱼肉还能增强体质、健脑益智，也能提高视力，预防干眼病和夜盲症的发生。</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "2000001": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 2000001,
+        "specification": "规格",
+        "value": "三条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }, {
+        "id": 2,
+        "goodsId": 2000001,
+        "specification": "规格",
+        "value": "六条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 2000001,
+      "attribute": "规格",
+      "value": "按盒包装(每盒8两装)",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 2000001,
+      "specifications": ["三条一盒"],
+      "price": 999.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }, {
+      "id": 2,
+      "goodsId": 2000001,
+      "specifications": ["六条一盒"],
+      "price": 1500.00,
+      "number": 198,
+      "url": "quality=90&thumbnail=200x200&imageView",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-06-23 10:19:04",
+      "deleted": false
+    }],
+    "info": {
+      "id": 2000001,
+      "goodsSn": "2000001",
+      "name": "白对虾",
+      "categoryId": 2000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "肉质甜美，好吃不贵",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "盒",
+      "counterPrice": 2618.00,
+      "retailPrice": 2598.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">白对虾营养丰富，且其肉质松软，易消化，对身体虚弱以及病后需要调养的人是极好的食物；</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">白对虾中含有丰富的镁，镁对心脏活动具有重要的调节作用，能很好的保护心血管系统，它可减少血液中胆固醇含量，防止动脉硬化，同时还能扩张冠状动脉，有利于预防高血压及心肌梗死；</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "2000002": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 2000002,
+        "specification": "规格",
+        "value": "一盒八两",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 2000002,
+      "attribute": "规格",
+      "value": "按盒包装(每盒8两装)",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 2000002,
+      "specifications": ["一盒八两"],
+      "price": 35.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }],
+    "info": {
+      "id": 2000002,
+      "goodsSn": "2000002",
+      "name": "剑虾(哈氏仿对虾)",
+      "categoryId": 2000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "壳薄肉嫩味美",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "盒",
+      "counterPrice": 37.00,
+      "retailPrice": 35.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">养颜护肤：增强皮肤张力、消除皱纹的功效</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">化痰止咳：对咽喉部有良好的湿润和物理治疗作用，有利于局部炎症治愈，并能解除局部痒感，从而阻断咳嗽反射。</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "2000003": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 2000003,
+        "specification": "规格",
+        "value": "一盒八两",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 2000003,
+      "attribute": "规格",
+      "value": "按盒包装(每盒8两装)",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 2000003,
+      "specifications": ["一盒八两"],
+      "price": 25.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }],
+    "info": {
+      "id": 2000003,
+      "goodsSn": "2000003",
+      "name": "樱花虾",
+      "categoryId": 2000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "口感软嫩，富含不饱和脂肪酸",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "盒",
+      "counterPrice": 28.00,
+      "retailPrice": 25.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">白对虾营养丰富，且其肉质松软，易消化，对身体虚弱以及病后需要调养的人是极好的食物；</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">白对虾中含有丰富的镁，镁对心脏活动具有重要的调节作用，能很好的保护心血管系统，它可减少血液中胆固醇含量，防止动脉硬化，同时还能扩张冠状动脉，有利于预防高血压及心肌梗死；</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "2000004": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 2000004,
+        "specification": "规格",
+        "value": "一盒八两",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 2000004,
+      "attribute": "规格",
+      "value": "按盒包装(每盒8两装)",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 2000004,
+      "specifications": ["一盒八两"],
+      "price": 30.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }],
+    "info": {
+      "id": 2000004,
+      "goodsSn": "2000004",
+      "name": "草虾(黑虎虾)",
+      "categoryId": 2000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "富含虾青素，肉质弹牙",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "盒",
+      "counterPrice": 35.00,
+      "retailPrice": 30.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><span style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">黑虎虾富含蛋白质、钙、维生素E、维生素B2、镁、不饱和酸等营养物质，肉质鲜美松软，易消化，对身体虚弱以及病后需要调养的人是极好的食物。对小儿、孕妇尤有补益功效，又其对心脏活动具有重要的调节作用，能很好的保护心血管系统，减少血液中胆固醇含量，防止动脉硬化，扩张冠状动脉，有利于预防高血压及心肌梗死</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "2000005": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 2000005,
+        "specification": "规格",
+        "value": "三条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }, {
+        "id": 2,
+        "goodsId": 2000005,
+        "specification": "规格",
+        "value": "六条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 2000005,
+      "attribute": "规格",
+      "value": "按盒包装(每盒8两装)",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 2000005,
+      "specifications": ["三条一盒"],
+      "price": 999.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }, {
+      "id": 2,
+      "goodsId": 2000005,
+      "specifications": ["六条一盒"],
+      "price": 1500.00,
+      "number": 198,
+      "url": "quality=90&thumbnail=200x200&imageView",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-06-23 10:19:04",
+      "deleted": false
+    }],
+    "info": {
+      "id": 2000005,
+      "goodsSn": "2000005",
+      "name": "斑节虾",
+      "categoryId": 2000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "营养丰富，富含虾青素",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "盒",
+      "counterPrice": 2618.00,
+      "retailPrice": 2598.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">斑节虾除了和普通虾一样外，其虾青素的含量较普通虾大约高20%。食用斑节虾要注意的是虾与部分水果同时吃时应注重，虾含有比较丰富的蛋白质和钙等营养物质，若与含有鞣酸的水果如柿子、山楂、石榴、葡萄等同吃，不仅会降低蛋白质的营养价值，而且鞣酸和钙结合形成鞣酸钙后刺激胃肠，惹起不适，出现呕吐、头晕、腹泻腹痛等症状。海鲜与上述水果同吃，至多间隔2小时。</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "3000001": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 3000001,
+        "specification": "规格",
+        "value": "一斤",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 3000001,
+      "attribute": "规格",
+      "value": "论斤卖，规格一斤不等",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 3000001,
+      "specifications": ["一斤"],
+      "price": 150.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }],
+    "info": {
+      "id": 3000001,
+      "goodsSn": "3000001",
+      "name": "红鲟(锯缘青蟹)",
+      "categoryId": 3000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "营养丰富，含有多种单不饱和与多不饱和脂肪酸",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "斤",
+      "counterPrice": 160.00,
+      "retailPrice": 150.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">壮腰壮阳：促进性功能、生精助育。含丰富的锌，锌是形成睾丸激素的重要物质，也是女性生殖器官分泌润滑液不可缺少的元素。强精益气，提高精液质量，增强精子活力。适用于治疗肾阳虚所致的阳痿、腰痛、小便频数及补五脏之气不足。适用于男子性功能障碍、遗精、阳痿</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">安神除烦：镁和钙共同作用可用来放松肌肉和神经，从而使身心放松，避免紧张不安、焦躁易怒。帮助入睡。碳水化合物可以补充大脑消耗的葡萄糖，缓解脑部葡萄糖供养不足而出现的疲惫、易怒、头晕、失眠、夜间出汗、注意力涣散、健忘、极度口渴、沮丧、化紊乱，甚至出现幻觉</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "3000002": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 3000002,
+        "specification": "规格",
+        "value": "一斤",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 3000002,
+      "attribute": "规格",
+      "value": "论斤卖，规格每只一斤以下",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 3000002,
+      "specifications": ["一斤"],
+      "price": 30.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }],
+    "info": {
+      "id": 3000002,
+      "goodsSn": "3000002",
+      "name": "扁蟹",
+      "categoryId": 3000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "好吃不贵，肉多可口",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "斤",
+      "counterPrice": 35.00,
+      "retailPrice": 30.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><span style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">含有丰富的蛋白质，较少的脂肪和碳水化合物，含有丰富的钙、磷、钾、钠、镁、硒等微量元素。</span><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "3000003": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 3000003,
+        "specification": "规格",
+        "value": "三斤装",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 3000003,
+      "attribute": "规格",
+      "value": "三斤整卖",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 3000003,
+      "specifications": ["三斤装"],
+      "price": 235.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }],
+    "info": {
+      "id": 3000003,
+      "goodsSn": "3000003",
+      "name": "螃蟹",
+      "categoryId": 3000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "老少皆宜，蛋白质含量超高",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "斤",
+      "counterPrice": 260.00,
+      "retailPrice": 235.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">螃蟹还有抗结核作用，吃蟹对结核病的康复大有补益。</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">螃蟹有清热解毒、补骨添髓、养筋活血、通经络、利肢节、续绝伤、滋肝阴、充胃液之功效。对于淤血、损伤、黄疸、腰腿酸痛和风湿性关节炎等疾病有一定的食疗效果。</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "3000004": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 3000004,
+        "specification": "规格",
+        "value": "八两一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 3000004,
+      "attribute": "规格",
+      "value": "按盒包装(每盒8两装)",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 3000004,
+      "specifications": ["八两一盒"],
+      "price": 35.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }],
+    "info": {
+      "id": 3000004,
+      "goodsSn": "3000004",
+      "name": "蟹脚肉",
+      "categoryId": 1000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "容易烹饪, 营养丰富",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "盒",
+      "counterPrice": 37.00,
+      "retailPrice": 35.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">螃蟹还有抗结核作用，吃蟹对结核病的康复大有补益。</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">螃蟹有清热解毒、补骨添髓、养筋活血、通经络、利肢节、续绝伤、滋肝阴、充胃液之功效。对于淤血、损伤、黄疸、腰腿酸痛和风湿性关节炎等疾病有一定的食疗效果。</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "4000001": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 4000001,
+        "specification": "规格",
+        "value": "八两一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 4000001,
+      "attribute": "规格",
+      "value": "按盒包装(每盒8两装)",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 4000001,
+      "specifications": ["八两一盒"],
+      "price": 50.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }],
+    "info": {
+      "id": 4000001,
+      "goodsSn": "4000001",
+      "name": "鱿鱼",
+      "categoryId": 1000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "东山特色，又名叫做小管，肉质Q弹",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "盒",
+      "counterPrice": 53.00,
+      "retailPrice": 50.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">防治贫血：鱿鱼富含钙、磷、铁元素，利于骨骼发育和造血，能有效治疗贫血。含有的多肽和硒等微量元素有抗病毒防辐射的作用。</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">预防糖尿病：促进胰岛素的分泌，对糖尿病有预防的作用，促进肝脏的解毒作用，预防有酒精肝引起的肝脏功能损害，所以鱿鱼作为下酒菜是再合适不过的了。</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "4000002": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 4000002,
+        "specification": "规格",
+        "value": "三条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }, {
+        "id": 2,
+        "goodsId": 4000002,
+        "specification": "规格",
+        "value": "六条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 4000002,
+      "attribute": "规格",
+      "value": "按盒包装(每盒8两装)",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 4000002,
+      "specifications": ["三条一盒"],
+      "price": 999.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }, {
+      "id": 2,
+      "goodsId": 4000002,
+      "specifications": ["六条一盒"],
+      "price": 1500.00,
+      "number": 198,
+      "url": "quality=90&thumbnail=200x200&imageView",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-06-23 10:19:04",
+      "deleted": false
+    }],
+    "info": {
+      "id": 4000002,
+      "goodsSn": "4000002",
+      "name": "墨鱼",
+      "categoryId": 4000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "富含蛋白质，有一定的抗癌功效",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "盒",
+      "counterPrice": 2618.00,
+      "retailPrice": 2598.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><span style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">墨鱼含丰富的蛋白质，壳含碳酸钙、壳角质、粘液质、及少量氯化钠、磷酸钙、镁盐等；墨鱼中的墨汁含有一种粘多糖，实验证实对小鼠有一定的抑癌作用。</span><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "4000003": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 4000003,
+        "specification": "规格",
+        "value": "三条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }, {
+        "id": 2,
+        "goodsId": 4000003,
+        "specification": "规格",
+        "value": "六条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 4000003,
+      "attribute": "规格",
+      "value": "按盒包装(每盒8两装)",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 4000003,
+      "specifications": ["三条一盒"],
+      "price": 999.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }, {
+      "id": 2,
+      "goodsId": 4000003,
+      "specifications": ["六条一盒"],
+      "price": 1500.00,
+      "number": 198,
+      "url": "quality=90&thumbnail=200x200&imageView",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-06-23 10:19:04",
+      "deleted": false
+    }],
+    "info": {
+      "id": 4000003,
+      "goodsSn": "4000003",
+      "name": "章鱼",
+      "categoryId": 4000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "当季海鲜，富含牛磺酸",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "盒",
+      "counterPrice": 2618.00,
+      "retailPrice": 2598.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><span style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">章鱼含有丰富的蛋白质、脂肪、碳水化合物、钙、磷、铁、锌、硒以及维生素E、维生素B、维生素C等营养成分。章鱼富含牛黄酸，能调节血压，适用于高血压、低廊压、动脉硬化、脑血栓、痛疽肿毒等病症。章鱼性平味甘，无毒，可以入药，具有补气养血、收敛生肌的作用，是女性产后补虚、生乳、催乳的滋补佳品。章鱼有增强男子性功能的作用，因为章鱼精氨酸含量较高，而精氨酸是精子形成的必要成分。</span><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "5000001": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 5000001,
+        "specification": "规格",
+        "value": "三条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }, {
+        "id": 2,
+        "goodsId": 5000001,
+        "specification": "规格",
+        "value": "六条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 5000001,
+      "attribute": "规格",
+      "value": "按盒包装(每盒8两装)",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 5000001,
+      "specifications": ["三条一盒"],
+      "price": 999.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }, {
+      "id": 2,
+      "goodsId": 5000001,
+      "specifications": ["六条一盒"],
+      "price": 1500.00,
+      "number": 198,
+      "url": "quality=90&thumbnail=200x200&imageView",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-06-23 10:19:04",
+      "deleted": false
+    }],
+    "info": {
+      "id": 5000001,
+      "goodsSn": "5000001",
+      "name": "鲍鱼",
+      "categoryId": 5000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "胶原蛋白丰富，美白佳品",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "盒",
+      "counterPrice": 2618.00,
+      "retailPrice": 2598.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">鲍鱼肉中能提取一种被称作鲍灵素的生物活性物质，实验表明，它能够提高免疫力，破坏癌细胞代谢过程，能提高抑瘤率，却不损害机体的正常细胞，有保护机体免疫系统的作用。</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">鲍鱼含有丰富的维生素，其中比较特出的是维生素a，维生素a是保护皮肤健康、视力健康以及加强免疫力、促进生长发育的关键营养素。</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "5000002": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 5000002,
+        "specification": "规格",
+        "value": "三条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }, {
+        "id": 2,
+        "goodsId": 5000002,
+        "specification": "规格",
+        "value": "六条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 5000002,
+      "attribute": "规格",
+      "value": "按盒包装(每盒8两装)",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 5000002,
+      "specifications": ["三条一盒"],
+      "price": 999.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }, {
+      "id": 2,
+      "goodsId": 5000002,
+      "specifications": ["六条一盒"],
+      "price": 1500.00,
+      "number": 198,
+      "url": "quality=90&thumbnail=200x200&imageView",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-06-23 10:19:04",
+      "deleted": false
+    }],
+    "info": {
+      "id": 5000002,
+      "goodsSn": "5000002",
+      "name": "海蛎肉(牡蛎)",
+      "categoryId": 5000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "富含牛磺酸(50µmol/g)、锌、硒",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "盒",
+      "counterPrice": 2618.00,
+      "retailPrice": 2598.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">它是含锌最多的天然食品之一（每百克蚝肉含量高达100mg），也就是每天只吃2~3个牡蛎就能提供你全天所需的锌。</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">牡蛎是一种高蛋白、低脂肪、容易消化且营养丰富的食品，含有丰富的甘氨酸和一种名为肝糖原的糖类物质，它们的牡蛎美味的基础。</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "5000003": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 5000003,
+        "specification": "规格",
+        "value": "三条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }, {
+        "id": 2,
+        "goodsId": 5000003,
+        "specification": "规格",
+        "value": "六条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 5000003,
+      "attribute": "规格",
+      "value": "按盒包装(每盒8两装)",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 5000003,
+      "specifications": ["三条一盒"],
+      "price": 999.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }, {
+      "id": 2,
+      "goodsId": 5000003,
+      "specifications": ["六条一盒"],
+      "price": 1500.00,
+      "number": 198,
+      "url": "quality=90&thumbnail=200x200&imageView",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-06-23 10:19:04",
+      "deleted": false
+    }],
+    "info": {
+      "id": 5000003,
+      "goodsSn": "5000003",
+      "name": "扇贝",
+      "categoryId": 5000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "具有降低血清胆固醇作用，口感滑嫩",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "盒",
+      "counterPrice": 2618.00,
+      "retailPrice": 2598.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><span style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">贝类软体动物中，含一种具有降低血清胆固醇作用的代尔太7-胆固醇和24-亚甲基胆固醇，它们兼有抑制胆固醇在肝脏合成和加速排泄胆固醇的独特作用，从而使体内胆固醇下降。它们的功效比常用的降胆固醇的药物谷固醇更强。人们在食用贝类食物后，常有一种清爽宜人的感觉，这对解除一些烦恼症状无疑是有益的。</span><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "5000004": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 5000004,
+        "specification": "规格",
+        "value": "三条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }, {
+        "id": 2,
+        "goodsId": 5000004,
+        "specification": "规格",
+        "value": "六条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 5000004,
+      "attribute": "规格",
+      "value": "按盒包装(每盒8两装)",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 5000004,
+      "specifications": ["三条一盒"],
+      "price": 999.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }, {
+      "id": 2,
+      "goodsId": 5000004,
+      "specifications": ["六条一盒"],
+      "price": 1500.00,
+      "number": 198,
+      "url": "quality=90&thumbnail=200x200&imageView",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-06-23 10:19:04",
+      "deleted": false
+    }],
+    "info": {
+      "id": 5000004,
+      "goodsSn": "5000004",
+      "name": "海瓜子肉(寻氏肌蛤)",
+      "categoryId": 5000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "当季海鲜，味道鲜美，预防三高",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "盒",
+      "counterPrice": 2618.00,
+      "retailPrice": 2598.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">海瓜子不仅味道鲜美，而且还有较高的营养价值。还具有调节血脂、预防心脑血管疾病、平咳喘等功能。</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">海瓜子肉含一种具有降低血清胆固醇作用的代尔太7-胆固醇和24-亚甲基胆固醇。它们兼有抑制胆固醇在肝脏合成和加速排泄胆固醇的独特作用，从而使体内胆固醇下降。</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">现代医学认为，海瓜子肉炖熟食用，一日三次可治糖尿病；海瓜子肉和韭菜经常食用。可治疗阴虚所致的口渴、干咳、心烦、手足心热等症。</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "6000001": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 6000001,
+        "specification": "规格",
+        "value": "三条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }, {
+        "id": 2,
+        "goodsId": 6000001,
+        "specification": "规格",
+        "value": "六条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 6000001,
+      "attribute": "规格",
+      "value": "按盒包装(每盒8两装)",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 6000001,
+      "specifications": ["三条一盒"],
+      "price": 999.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }, {
+      "id": 2,
+      "goodsId": 6000001,
+      "specifications": ["六条一盒"],
+      "price": 1500.00,
+      "number": 198,
+      "url": "quality=90&thumbnail=200x200&imageView",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-06-23 10:19:04",
+      "deleted": false
+    }],
+    "info": {
+      "id": 6000001,
+      "goodsSn": "6000001",
+      "name": "紫菜",
+      "categoryId": 1000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "含有丰富的蛋白质、碳水化合物、不饱和脂肪酸、维生素和矿物质",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "盒",
+      "counterPrice": 2618.00,
+      "retailPrice": 2598.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">紫菜有着很高的营养价值，含有多种人体必需的营养成分。它的蛋白质含量比鲜蘑菇多9倍，每100克紫菜就含蛋白质26.2克。</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">紫菜所含的多糖具有明显增强细胞免疫和体液免疫功能，可促进淋巴细胞转化，提高机体的免疫力；可显著降低进血清胆固醇的总含量；</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "6000002": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 6000002,
+        "specification": "规格",
+        "value": "三条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }, {
+        "id": 2,
+        "goodsId": 6000002,
+        "specification": "规格",
+        "value": "六条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 6000002,
+      "attribute": "规格",
+      "value": "按盒包装(每盒8两装)",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 6000002,
+      "specifications": ["三条一盒"],
+      "price": 999.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }, {
+      "id": 2,
+      "goodsId": 6000002,
+      "specifications": ["六条一盒"],
+      "price": 1500.00,
+      "number": 198,
+      "url": "quality=90&thumbnail=200x200&imageView",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-06-23 10:19:04",
+      "deleted": false
+    }],
+    "info": {
+      "id": 6000002,
+      "goodsSn": "6000002",
+      "name": "海马干",
+      "categoryId": 6000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "经济价值较高的名贵中药，治疗神经系统的疾病更为有效",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "盒",
+      "counterPrice": 2618.00,
+      "retailPrice": 2598.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">在中医学中，海马作为药材和补品，用来治疗哮喘和阳痿，其主要出口国是泰国、印度、菲律宾、越南和墨西哥，中国是最大的干海马市场。</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">中医学认为海马味甘、咸，性温。归肾经、肝经，功效则包括补肾壮阳，散结消肿。</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "6000003": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 6000003,
+        "specification": "规格",
+        "value": "三条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }, {
+        "id": 2,
+        "goodsId": 6000003,
+        "specification": "规格",
+        "value": "六条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 6000003,
+      "attribute": "规格",
+      "value": "按盒包装(每盒8两装)",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 6000003,
+      "specifications": ["三条一盒"],
+      "price": 999.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }, {
+      "id": 2,
+      "goodsId": 6000003,
+      "specifications": ["六条一盒"],
+      "price": 1500.00,
+      "number": 198,
+      "url": "quality=90&thumbnail=200x200&imageView",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-06-23 10:19:04",
+      "deleted": false
+    }],
+    "info": {
+      "id": 6000003,
+      "goodsSn": "6000003",
+      "name": "海蛎干",
+      "categoryId": 6000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "富含牛磺酸(50µmol/g)、锌、硒",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "盒",
+      "counterPrice": 2618.00,
+      "retailPrice": 2598.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><span style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">干牡蛎肉含蛋白质高达45%~57%、脂肪7%~11%、肝糖原19%~38%。此外，还含有多种维生素及牛磺酸和钙、磷、铁、锌等营养成分。其中钙含量接近牛奶，铁含量为牛奶的21倍。</span><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "6000004": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 6000004,
+        "specification": "规格",
+        "value": "三条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }, {
+        "id": 2,
+        "goodsId": 6000004,
+        "specification": "规格",
+        "value": "六条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 6000004,
+      "attribute": "规格",
+      "value": "按盒包装(每盒8两装)",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 6000004,
+      "specifications": ["三条一盒"],
+      "price": 999.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }, {
+      "id": 2,
+      "goodsId": 6000004,
+      "specifications": ["六条一盒"],
+      "price": 1500.00,
+      "number": 198,
+      "url": "quality=90&thumbnail=200x200&imageView",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-06-23 10:19:04",
+      "deleted": false
+    }],
+    "info": {
+      "id": 6000004,
+      "goodsSn": "6000004",
+      "name": "虾皮",
+      "categoryId": 6000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "补钙首选，孩子孕妇首选",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "盒",
+      "counterPrice": 2618.00,
+      "retailPrice": 2598.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">虾皮的营养价值很高，就以衡量营养价值高低的蛋白质含量来说，每100克虾皮含39.3克,大大高于大黄鱼、黄缮、对虾、带鱼、鲳鱼等水产品及牛肉、猪肉、鸡肉等肉制品。</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">虾皮的另一大特点是矿物质数量、种类丰富，除了含有陆生、淡水生物缺少的碘元素，铁、钙、磷的含量也很丰富，每100克虾皮钙和磷的含量为991毫克和582毫克。所以，虾皮素有“钙库”之称。</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">虾皮其实还有一种重要的营养物质---虾青素，虾青素是迄今为止发现的最强的一种抗氧化剂。</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "6000005": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 6000005,
+        "specification": "规格",
+        "value": "三条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }, {
+        "id": 2,
+        "goodsId": 6000005,
+        "specification": "规格",
+        "value": "六条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 6000005,
+      "attribute": "规格",
+      "value": "按盒包装(每盒8两装)",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 6000005,
+      "specifications": ["三条一盒"],
+      "price": 999.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }, {
+      "id": 2,
+      "goodsId": 6000005,
+      "specifications": ["六条一盒"],
+      "price": 1500.00,
+      "number": 198,
+      "url": "quality=90&thumbnail=200x200&imageView",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-06-23 10:19:04",
+      "deleted": false
+    }],
+    "info": {
+      "id": 6000005,
+      "goodsSn": "6000005",
+      "name": "干贝",
+      "categoryId": 6000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "具有降低血清胆固醇作用，口感有嚼劲",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "盒",
+      "counterPrice": 2618.00,
+      "retailPrice": 2598.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">贝类软体动物中，含一种具有降低血清胆固醇作用的代尔太7-胆固醇和24-亚甲基胆固醇，它们兼有抑制胆固醇在肝脏合成和加速排泄胆固醇的独特作用，从而使体内胆固醇下降。它们的功效比常用的降胆固醇的药物谷固醇更强。人们在食用贝类食物后，常有一种清爽宜人的感觉，这对解除一些烦恼症状无疑是有益的。此外干贝含丰富的谷氨酸钠，味道极鲜，与新鲜扇贝相比，腥味大减。</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "6000006": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 6000006,
+        "specification": "规格",
+        "value": "三条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }, {
+        "id": 2,
+        "goodsId": 6000006,
+        "specification": "规格",
+        "value": "六条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 6000006,
+      "attribute": "规格",
+      "value": "按盒包装(每盒8两装)",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 6000006,
+      "specifications": ["三条一盒"],
+      "price": 999.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }, {
+      "id": 2,
+      "goodsId": 6000006,
+      "specifications": ["六条一盒"],
+      "price": 1500.00,
+      "number": 198,
+      "url": "quality=90&thumbnail=200x200&imageView",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-06-23 10:19:04",
+      "deleted": false
+    }],
+    "info": {
+      "id": 6000006,
+      "goodsSn": "6000006",
+      "name": "墨鱼干",
+      "categoryId": 6000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "富含蛋白质，有一定的抗癌功效",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "盒",
+      "counterPrice": 2618.00,
+      "retailPrice": 2598.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">墨鱼味道鲜美，营养丰富，每百克肉含蛋白质13克，脂肪仅0.7克，还含有碳水化合物和维生素A、维生素B族及钙、磷、铁、核黄素等人体所必须的物质。历代医家认为，墨鱼性味甘、咸、平，有滋肝肾、养 血滋阴、益气诸功效。值得一提的是，墨鱼是女性一种颇为理想的保健食品，女子一生不论经、孕、产、乳各期，食用墨鱼皆为有益。</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "6000007": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 6000007,
+        "specification": "规格",
+        "value": "三条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }, {
+        "id": 2,
+        "goodsId": 6000007,
+        "specification": "规格",
+        "value": "六条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 6000007,
+      "attribute": "规格",
+      "value": "按盒包装(每盒8两装)",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 6000007,
+      "specifications": ["三条一盒"],
+      "price": 999.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }, {
+      "id": 2,
+      "goodsId": 6000007,
+      "specifications": ["六条一盒"],
+      "price": 1500.00,
+      "number": 198,
+      "url": "quality=90&thumbnail=200x200&imageView",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-06-23 10:19:04",
+      "deleted": false
+    }],
+    "info": {
+      "id": 6000007,
+      "goodsSn": "6000007",
+      "name": "鱿鱼母干",
+      "categoryId": 6000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "自然烘干，保留最初新鲜风味",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "盒",
+      "counterPrice": 2618.00,
+      "retailPrice": 2598.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">防治贫血：鱿鱼富含钙、磷、铁元素，利于骨骼发育和造血，能有效治疗贫血。含有的多肽和硒等微量元素有抗病毒防辐射的作用。</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">预防糖尿病：促进胰岛素的分泌，对糖尿病有预防的作用，促进肝脏的解毒作用，预防有酒精肝引起的肝脏功能损害，所以鱿鱼作为下酒菜是再合适不过的了。</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+    }
+  },
+  "6000008": {
+    "specificationList": [{
+      "name": "规格",
+      "valueList": [{
+        "id": 1,
+        "goodsId": 6000008,
+        "specification": "规格",
+        "value": "三条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }, {
+        "id": 2,
+        "goodsId": 6000008,
+        "specification": "规格",
+        "value": "六条一盒",
+        "picUrl": "",
+        "addTime": "2018-02-01 00:00:00",
+        "updateTime": "2018-02-01 00:00:00",
+        "deleted": false
+      }]
+    }],
+    "userHasCollect": 0,
+    "shareImage": "",
+    "attribute": [{
+      "id": 870,
+      "goodsId": 6000008,
+      "attribute": "规格",
+      "value": "按盒包装(每盒8两装)",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2018-02-01 00:00:00",
+      "deleted": false
+    }],
+    "productList": [{
+      "id": 1,
+      "goodsId": 6000008,
+      "specifications": ["三条一盒"],
+      "price": 999.00,
+      "number": 100,
+      "url": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 18:49:14",
+      "deleted": false
+    }, {
+      "id": 2,
+      "goodsId": 6000008,
+      "specifications": ["六条一盒"],
+      "price": 1500.00,
+      "number": 198,
+      "url": "quality=90&thumbnail=200x200&imageView",
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-06-23 10:19:04",
+      "deleted": false
+    }],
+    "info": {
+      "id": 6000008,
+      "goodsSn": "6000008",
+      "name": "海参",
+      "categoryId": 6000000,
+      "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
+      "keywords": "",
+      "brief": "高蛋白，低脂肪，低糖且富含各种人体必需的氨基酸、维生素、必需脂肪酸以及常量和微量元素",
+      "isOnSale": true,
+      "sortOrder": 1,
+      "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
+      "shareUrl": "",
+      "isNew": true,
+      "isHot": false,
+      "unit": "盒",
+      "counterPrice": 2618.00,
+      "retailPrice": 2598.00,
+      "addTime": "2018-02-01 00:00:00",
+      "updateTime": "2019-07-03 17:51:31",
+      "deleted": false,
+      "buyCount": 23,
+      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">海参号称“精氨酸大富翁”。含有8种人体自身不能合成的必需氨基酸，其中精氨酸、赖氨酸含量最为丰富。</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">抗癌护心脏：海参中所含的硒、海参皂苷等能抑制癌细胞的生长与转移,具有明显的抗癌作用。做化疗的人需要经常食用海参。</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
     }
   }
 }

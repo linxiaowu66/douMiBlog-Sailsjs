@@ -11,7 +11,7 @@
   }, {
     "id": 1000002,
     "name": "海鲈鱼",
-    "brief": "水洗亚麻，透气亲肤",
+    "brief": "补肾益脾，孕妇必选",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": true,
@@ -20,7 +20,7 @@
   }, {
     "id": 1000003,
     "name": "带鱼",
-    "brief": "水洗亚麻，透气亲肤",
+    "brief": "好吃不贵，富含DHA和EPA",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": false,
@@ -29,7 +29,7 @@
   }, {
     "id": 1000004,
     "name": "黄花鱼",
-    "brief": "水洗亚麻，透气亲肤",
+    "brief": "当季海鲜，肉质鲜嫩",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": true,
@@ -38,7 +38,7 @@
   }, {
     "id": 1000005,
     "name": "沙梭鱼",
-    "brief": "水洗亚麻，透气亲肤",
+    "brief": "当季海鲜，肉质鲜嫩",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": false,
@@ -47,7 +47,7 @@
   }, {
     "id": 1000006,
     "name": "鳗鱼",
-    "brief": "水洗亚麻，透气亲肤",
+    "brief": "口感软嫩，富含不饱和脂肪酸",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": false,
@@ -56,7 +56,7 @@
   }, {
     "id": 1000007,
     "name": "龙利鱼",
-    "brief": "水洗亚麻，透气亲肤",
+    "brief": "肉质鲜嫩，护眼神鱼",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": false,
@@ -65,7 +65,7 @@
   }, {
     "id": 1000008,
     "name": "银鱼",
-    "brief": "水洗亚麻，透气亲肤",
+    "brief": "高蛋白、低脂肪，补钙首选",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": false,
@@ -74,7 +74,7 @@
   }, {
     "id": 1000009,
     "name": "金昌鱼",
-    "brief": "水洗亚麻，透气亲肤",
+    "brief": "好吃不贵，益气养血、柔筋利骨",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": false,
@@ -83,7 +83,7 @@
   }, {
     "id": 1000010,
     "name": "小鲨鱼",
-    "brief": "水洗亚麻，透气亲肤",
+    "brief": "营养丰富，具有抗癌作用，因为小，所以污染也少",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": false,
@@ -93,7 +93,7 @@
   "2000000": [{
     "id": 2000001,
     "name": "白对虾",
-    "brief": "水洗亚麻，透气亲肤",
+    "brief": "肉质甜美，好吃不贵",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": false,
@@ -101,63 +101,45 @@
     "retailPrice": "45.00-88.00"
   }, {
     "id": 2000002,
-    "name": "鲜虾仁",
-    "brief": "水洗亚麻，透气亲肤",
+    "name": "剑虾",
+    "brief": "壳薄肉嫩味美",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": false,
     "counterPrice": "",
-    "retailPrice": "68.00-73.00"
+    "retailPrice": "45.00-88.00"
   }, {
     "id": 2000003,
-    "name": "凤尾虾",
-    "brief": "水洗亚麻，透气亲肤",
+    "name": "樱花虾",
+    "brief": "待补充",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
-    "isHot": false,
+    "isHot": true,
     "counterPrice": "",
     "retailPrice": "45.00-88.00"
   }, {
     "id": 2000004,
-    "name": "黑节虾",
-    "brief": "水洗亚麻，透气亲肤",
+    "name": "草虾(黑虎虾)",
+    "brief": "富含虾青素，肉质弹牙",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
-    "isHot": true,
+    "isHot": false,
     "counterPrice": "",
     "retailPrice": "45.00-88.00"
   }, {
     "id": 2000005,
-    "name": "草虾",
-    "brief": "水洗亚麻，透气亲肤",
-    "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
-    "isNew": false,
-    "isHot": false,
-    "counterPrice": "",
-    "retailPrice": "45.00-88.00"
-  }, {
-    "id": 2000006,
     "name": "斑节虾",
-    "brief": "水洗亚麻，透气亲肤",
+    "brief": "营养丰富，富含虾青素",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": true,
-    "counterPrice": "",
-    "retailPrice": "45.00-88.00"
-  }, {
-    "id": 2000007,
-    "name": "龙虾",
-    "brief": "水洗亚麻，透气亲肤",
-    "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
-    "isNew": false,
-    "isHot": false,
     "counterPrice": "",
     "retailPrice": "45.00-88.00"
   }],
   "3000000": [{
     "id": 3000001,
-    "name": "红鲟(青蟹)",
-    "brief": "水洗亚麻，透气亲肤",
+    "name": "红鲟(锯缘青蟹)",
+    "brief": "营养丰富，含有多种单不饱和与多不饱和脂肪酸",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": false,
@@ -166,7 +148,7 @@
   }, {
     "id": 3000002,
     "name": "扁蟹",
-    "brief": "水洗亚麻，透气亲肤",
+    "brief": "好吃不贵，肉多可口",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": false,
@@ -175,7 +157,7 @@
   }, {
     "id": 3000003,
     "name": "螃蟹",
-    "brief": "水洗亚麻，透气亲肤",
+    "brief": "老少皆宜，蛋白质含量超高",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": false,
@@ -184,7 +166,7 @@
   }, {
     "id": 3000004,
     "name": "蟹脚肉",
-    "brief": "水洗亚麻，透气亲肤",
+    "brief": "容易烹饪, 营养丰富",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": true,
@@ -194,7 +176,7 @@
   "4000000": [{
     "id": 4000001,
     "name": "鱿鱼",
-    "brief": "水洗亚麻，透气亲肤",
+    "brief": "东山特色，又名叫做小管，肉质Q弹",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": true,
@@ -203,7 +185,7 @@
   }, {
     "id": 4000002,
     "name": "墨鱼",
-    "brief": "水洗亚麻，透气亲肤",
+    "brief": "富含蛋白质，有一定的抗癌功效",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": false,
@@ -212,7 +194,7 @@
   }, {
     "id": 4000003,
     "name": "章鱼",
-    "brief": "水洗亚麻，透气亲肤",
+    "brief": "当季海鲜，富含牛磺酸",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": false,
@@ -222,7 +204,7 @@
   "5000000": [{
     "id": 5000001,
     "name": "鲍鱼",
-    "brief": "水洗亚麻，透气亲肤",
+    "brief": "胶原蛋白丰富，美白佳品",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": false,
@@ -231,7 +213,7 @@
   }, {
     "id": 5000002,
     "name": "海蛎肉(牡蛎)",
-    "brief": "水洗亚麻，透气亲肤",
+    "brief": "富含牛磺酸(50µmol/g)、锌、硒",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": false,
@@ -240,7 +222,7 @@
   }, {
     "id": 5000003,
     "name": "扇贝",
-    "brief": "水洗亚麻，透气亲肤",
+    "brief": "具有降低血清胆固醇作用，口感滑嫩",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": false,
@@ -248,8 +230,8 @@
     "retailPrice": "45.00-88.00"
   }, {
     "id": 5000004,
-    "name": "海瓜子肉",
-    "brief": "水洗亚麻，透气亲肤",
+    "name": "海瓜子肉(寻氏肌蛤)",
+    "brief": "当季海鲜，味道鲜美，预防三高",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": false,
@@ -259,7 +241,7 @@
   "6000000": [{
     "id": 6000001,
     "name": "紫菜",
-    "brief": "水洗亚麻，透气亲肤",
+    "brief": "含有丰富的蛋白质、碳水化合物、不饱和脂肪酸、维生素和矿物质",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": false,
@@ -268,7 +250,7 @@
   }, {
     "id": 6000002,
     "name": "海马干",
-    "brief": "水洗亚麻，透气亲肤",
+    "brief": "经济价值较高的名贵中药，治疗神经系统的疾病更为有效",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": false,
@@ -276,8 +258,8 @@
     "retailPrice": "68.00-73.00"
   }, {
     "id": 6000003,
-    "name": "海带结",
-    "brief": "水洗亚麻，透气亲肤",
+    "name": "海蛎干",
+    "brief": "富含牛磺酸(50µmol/g)、锌、硒",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": false,
@@ -285,8 +267,8 @@
     "retailPrice": "45.00-88.00"
   }, {
     "id": 6000004,
-    "name": "海蛎干",
-    "brief": "水洗亚麻，透气亲肤",
+    "name": "虾皮",
+    "brief": "补钙首选，孩子孕妇首选",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": false,
@@ -294,8 +276,8 @@
     "retailPrice": "45.00-88.00"
   }, {
     "id": 6000005,
-    "name": "虾皮",
-    "brief": "水洗亚麻，透气亲肤",
+    "name": "干贝",
+    "brief": "具有降低血清胆固醇作用，口感有嚼劲",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": false,
@@ -303,8 +285,8 @@
     "retailPrice": "45.00-88.00"
   }, {
     "id": 6000006,
-    "name": "干贝",
-    "brief": "水洗亚麻，透气亲肤",
+    "name": "墨鱼干",
+    "brief": "富含蛋白质，有一定的抗癌功效",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": false,
@@ -312,8 +294,8 @@
     "retailPrice": "45.00-88.00"
   }, {
     "id": 6000007,
-    "name": "巴浪鱼干",
-    "brief": "水洗亚麻，透气亲肤",
+    "name": "鱿鱼母干",
+    "brief": "自然烘干，保留最初新鲜风味",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": false,
@@ -321,35 +303,8 @@
     "retailPrice": "45.00-88.00"
   }, {
     "id": 6000008,
-    "name": "墨鱼干",
-    "brief": "水洗亚麻，透气亲肤",
-    "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
-    "isNew": false,
-    "isHot": false,
-    "counterPrice": "",
-    "retailPrice": "45.00-88.00"
-  }, {
-    "id": 6000009,
-    "name": "鱿鱼母干",
-    "brief": "水洗亚麻，透气亲肤",
-    "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
-    "isNew": false,
-    "isHot": false,
-    "counterPrice": "",
-    "retailPrice": "45.00-88.00"
-  }, {
-    "id": 6000010,
-    "name": "杂虾仁干(野生)",
-    "brief": "水洗亚麻，透气亲肤",
-    "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
-    "isNew": false,
-    "isHot": false,
-    "counterPrice": "",
-    "retailPrice": "45.00-88.00"
-  }, {
-    "id": 6000011,
     "name": "海参",
-    "brief": "水洗亚麻，透气亲肤",
+    "brief": "高蛋白，低脂肪，低糖且富含各种人体必需的氨基酸、维生素、必需脂肪酸以及常量和微量元素",
     "picUrl": "http://yanxuan.nosdn.127.net/8a9ee5ba08929cc9e40b973607d2f633.png",
     "isNew": false,
     "isHot": false,

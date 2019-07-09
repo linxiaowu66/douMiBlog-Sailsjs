@@ -86,9 +86,23 @@ module.exports = {
   },
   detail: function(req, res) {
     const { id } = req.query
+    const detail = goodsDetail[id]
+    detail.issue = [{
+      "id": 1,
+      "question": "购买运费如何收取？",
+      "answer": "因为已经是市场最低价，利润不大，所以所有产品都不包邮，敬请谅解。",
+    }, {
+      "id": 2,
+      "question": "使用什么快递发货？",
+      "answer": "海鲜默认使用顺丰快递发货（也支持跨越速运，运费在一定程度上会比顺丰便宜些），配送范围覆盖全国大部分地区",
+    }, {
+      "id": 3,
+      "question": "如何申请退货？",
+      "answer": "自收到商品之日起1日内，如果发现商品存在质量问题，可以联系店长进行办理退货和退款操作",
+    }]
     return res.json(200, {
       "errno": 0,
-      "data": goodsDetail[id],
+      "data": detail,
       "errmsg": "成功"
     })
   },
