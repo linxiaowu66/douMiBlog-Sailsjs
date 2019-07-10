@@ -28,11 +28,11 @@ module.exports = {
           "id": 2000000
         }, {
           "name": "蟹类",
-          "goodsList": allGoodsList['1000000'].slice(0, 4),
+          "goodsList": allGoodsList['3000000'].slice(0, 4),
           "id": 3000000
         }, {
           "name": "软足类",
-          "goodsList": allGoodsList['1000000'].slice(0, 2),
+          "goodsList": allGoodsList['4000000'].slice(0, 2),
           "id": 4000000
         }]
       },
