@@ -17,6 +17,7 @@ module.exports = {
       "errno": 0,
       "data": {
         "banner": banner,
+        "version": '0',
         "hotGoodsList": hotGoodsList.slice(0, 4),
         "floorGoodsList": [{
           "name": "鱼类",
