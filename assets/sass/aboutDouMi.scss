@@ -93,6 +93,8 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     padding: 10px;
     margin: 10px;
+    position: relative;
+    height: 149px;
     a{
       color: #119d55;
       text-decoration: none;
@@ -107,6 +109,11 @@
       font-size: 1.8rem;
       line-height: 1.75em;
     }
+  }
+  #wechat{
+    position: absolute;
+    right: 0px;
+    top: 0px;
   }
 }
 
