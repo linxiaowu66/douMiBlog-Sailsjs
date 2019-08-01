@@ -51,10 +51,11 @@ module.exports = {
   },
   categories: function(req, res) {
     const { catId } = req.query
+    const currentCategory = goodsCats.filter(cat => cat.id === +catId)
     return res.json(200, {
       "errno": 0,
       "data": {
-        "currentCategory": goodsCats[catId],
+        "currentCategory": currentCategory.length === 1 ? currentCategory[0] : [],
         "brotherCategory": goodsCats
       },
       "errmsg": "成功"

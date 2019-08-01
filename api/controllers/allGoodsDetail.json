@@ -1307,12 +1307,12 @@
       "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">防治贫血：鱿鱼富含钙、磷、铁元素，利于骨骼发育和造血，能有效治疗贫血。含有的多肽和硒等微量元素有抗病毒防辐射的作用。</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">预防糖尿病：促进胰岛素的分泌，对糖尿病有预防的作用，促进肝脏的解毒作用，预防有酒精肝引起的肝脏功能损害，所以鱿鱼作为下酒菜是再合适不过的了。</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
     }
   },
-  "4000003": {
+  "4000002": {
     "specificationList": [{
       "name": "规格",
       "valueList": [{
         "id": 1,
-        "goodsId": 4000003,
+        "goodsId": 4000002,
         "specification": "规格",
         "value": "2只/斤",
         "picUrl": "",
@@ -1325,7 +1325,7 @@
     "shareImage": "",
     "attribute": [{
       "id": 870,
-      "goodsId": 4000003,
+      "goodsId": 4000002,
       "attribute": "规格",
       "value": "按斤卖",
       "addTime": "2018-02-01 00:00:00",
@@ -1334,7 +1334,7 @@
     }],
     "productList": [{
       "id": 1,
-      "goodsId": 4000003,
+      "goodsId": 4000002,
       "specifications": ["2只/斤"],
       "price": 30.00,
       "number": 100,
@@ -1344,8 +1344,8 @@
       "deleted": false
     }],
     "info": {
-      "id": 4000003,
-      "goodsSn": "4000003",
+      "id": 4000002,
+      "goodsSn": "4000002",
       "name": "章鱼",
       "categoryId": 4000000,
       "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
@@ -1527,7 +1527,7 @@
       "categoryId": 5000000,
       "gallery": ["http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg", "http://yanxuan.nosdn.127.net/43e283df216881037b70d8b34f8846d3.jpg", "http://yanxuan.nosdn.127.net/12e41d7e5dabaf9150a8bb45c41cf422.jpg", "http://yanxuan.nosdn.127.net/5c1d28e86ccb89980e6054a49571cdec.jpg"],
       "keywords": "",
-      "brief": "经济价值较高的名贵中药，治疗神经系统的疾病更为有效",
+      "brief": "具有降低血清胆固醇作用，口感滑嫩",
       "isOnSale": true,
       "sortOrder": 1,
       "picUrl": "http://yanxuan.nosdn.127.net/1f67b1970ee20fd572b7202da0ff705d.png",
@@ -1541,7 +1541,7 @@
       "updateTime": "2019-07-03 17:51:31",
       "deleted": false,
       "buyCount": 23,
-      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">在中医学中，海马作为药材和补品，用来治疗哮喘和阳痿，其主要出口国是泰国、印度、菲律宾、越南和墨西哥，中国是最大的干海马市场。</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">中医学认为海马味甘、咸，性温。归肾经、肝经，功效则包括补肾壮阳，散结消肿。</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">贝类软体动物中，含一种具有降低血清胆固醇作用的代尔太7-胆固醇和24-亚甲基胆固醇，它们兼有抑制胆固醇在肝脏合成和加速排泄胆固醇的独特作用，从而使体内胆固醇下降。它们的功效比常用的降胆固醇的药物谷固醇更强。人们在食用贝类食物后，常有一种清爽宜人的感觉，这对解除一些烦恼症状无疑是有益的。</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
     }
   },
   "6000001": {
@@ -1639,7 +1639,7 @@
       "updateTime": "2019-07-03 17:51:31",
       "deleted": false,
       "buyCount": 23,
-      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">虾皮的营养价值很高，就以衡量营养价值高低的蛋白质含量来说，每100克虾皮含39.3克,大大高于大黄鱼、黄缮、对虾、带鱼、鲳鱼等水产品及牛肉、猪肉、鸡肉等肉制品。</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">虾皮的另一大特点是矿物质数量、种类丰富，除了含有陆生、淡水生物缺少的碘元素，铁、钙、磷的含量也很丰富，每100克虾皮钙和磷的含量为991毫克和582毫克。所以，虾皮素有“钙库”之称。</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">虾皮其实还有一种重要的营养物质---虾青素，虾青素是迄今为止发现的最强的一种抗氧化剂。</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
+      "detail": "<p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">虾干的营养价值很高，就以衡量营养价值高低的蛋白质含量来说，每100克虾干含39.3克,大大高于大黄鱼、黄缮、对虾、带鱼、鲳鱼等水产品及牛肉、猪肉、鸡肉等肉制品。</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">虾干的另一大特点是矿物质数量、种类丰富，除了含有陆生、淡水生物缺少的碘元素，铁、钙、磷的含量也很丰富，每100克虾干钙和磷的含量为991毫克和582毫克。所以，虾干素有“钙库”之称。</p><p style=\"background:#FFF;padding:0 31.25rpx 25rpx 31.25rpx;display:inline-block;\">虾干其实还有一种重要的营养物质---虾青素，虾青素是迄今为止发现的最强的一种抗氧化剂。</p><img src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" _src=\"http://yanxuan.nosdn.127.net/355efbcc32981aa3b7869ca07ee47dac.jpg\" style=\"\"/></p>"
     }
   },
   "6000002": {
