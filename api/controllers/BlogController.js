@@ -104,6 +104,7 @@ module.exports = {
       ...statistics,
       hotterArticles,
       categories: cats,
+      currentPage: page,
       tags,
       archives
     }
@@ -192,6 +193,7 @@ module.exports = {
         categories: cats,
         breadcrumb: ['分类', queryCategory],
         pageUrl: '/blog/category/' + queryCategory + '/page',
+        currentPage: page,
         pageNum: Math.ceil(articleObj.totalQueryArticles[0].articles.length/5),
         tags,
         archives
@@ -228,6 +230,7 @@ module.exports = {
         categories: cats,
         breadcrumb: ['标签', queryTag],
         pageUrl: '/blog/tag/' + queryTag + '/page',
+        currentPage: page,
         pageNum: Math.ceil(articleObj.totalQueryArticles[0].articles.length/5),
         tags,
         archives
@@ -264,6 +267,7 @@ module.exports = {
         categories: cats,
         breadcrumb: ['归档', queryArchive],
         pageUrl: '/blog/archive/' + queryArchive + '/page',
+        currentPage: page,
         pageNum: Math.ceil(articleObj.totalQueryArticles[0].articles.length/5),
         tags,
         archives
@@ -299,6 +303,7 @@ module.exports = {
         categories: cats,
         breadcrumb: ['作者', queryUser],
         pageUrl: '/blog/user/' + queryUser + '/page',
+        currentPage: page,
         pageNum: Math.ceil(articleObj.totalQueryArticles[0].articles.length/5),
         tags,
         archives
