@@ -3,8 +3,7 @@
 [![Build Status](https://travis-ci.org/linxiaowu66/douMiBlog-Sailsjs.svg?branch=master)](https://travis-ci.org/linxiaowu66/douMiBlog-Sailsjs)
 [![Coverage Status](https://coveralls.io/repos/github/linxiaowu66/douMiBlogPlatform/badge.svg?branch=master)](https://coveralls.io/github/linxiaowu66/douMiBlogPlatform?branch=master)
 [![Analytics](https://ga-beacon.appspot.com/UA-85522412-2/welcome-page)](https://github.com/igrigorik/ga-beacon)
-[![stable](https://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges))
-
+[![stable](https://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 
 
