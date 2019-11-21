@@ -48,6 +48,18 @@
         <span class='glyphicon glyphicon-link'><a href='https://www.5udou.cn'>https://www.5udou.cn</a></span>
       </div>
     </section>
+    <section class='micro-program'>
+      <h4>小程序关注一波~</h4>
+      <img src='/images/xiaochengxu.jpeg' />
+    </section>
+    <section class='comments'>
+      <h4>关于评论和留言</h4>
+      <p>如果对本文 <a>{{ article.title }}</a> 的内容有疑问，请在下面的评论系统中留言，谢谢。</p>
+    </section>
+    <blockquote class='github'>
+      <p>网站源码：<a href="https://github.com/linxiaowu66/douMiBlog-Sailsjs">linxiaowu66 · 豆米的博客</a></p>
+      <p>Follow：<a href="https://github.com/linxiaowu66">linxiaowu66 · Github</a></p>
+    </blockquote>
     <!-- <section class='share'>
       <h4>分享此博文</h4>
       <div class='bdsharebuttonbox bdshare-button-style1-24' data-bd-bind='1470122130117'>

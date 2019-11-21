@@ -13,7 +13,7 @@
   <meta property="og:title" content="{% block title %}{% endblock %}">
   <meta property="og:description" content="{% block description %}{% endblock %}">
   <meta property="og:url" content="https://blog.5udou.cn/blog/{% block slug %}{% endblock %}">
-  <meta property="og:image" content="../../images/blog-img.jpg">
+  <meta property="og:image" content="/images/blog-img.jpg">
   <title>{% block title %}{% endblock %}</title>
   <script type="application/ld+json">
     {
@@ -21,7 +21,7 @@
     "@type": "Website",
     "publisher": "linxiaowu66",
     "url": "https://blog.5udou.cn/blog/{% block slug %}{% endblock %}",
-    "image": "../../images/blog-img.jpg",
+    "image": "/images/blog-img.jpg",
     "description": "{% block description %}{% endblock %}"
     }
   </script>

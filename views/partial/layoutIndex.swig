@@ -13,14 +13,14 @@
   <meta property="og:title" content="豆米的博客">
   <meta property="og:description" content="豆米博客，用心、用爱、用力拥抱热爱前端">
   <meta property="og:url" content="https://blog.5udou.cn">
-  <meta property="og:image" content="../../images/blog-img.jpg">
+  <meta property="og:image" content="/images/blog-img.jpg">
   <script type="application/ld+json">
     {
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "linxiaowu66",
     "url": "https://blog.5udou.cn",
-    "image": "../../images/blog-img.jpg",
+    "image": "/images/blog-img.jpg",
     "description": "豆米博客，用心、用爱、用力拥抱热爱前端"
     }
   </script>

@@ -135,6 +135,28 @@
     font-size: 1.4rem;
     line-height: 1.75em;
   }
+  .micro-program, .comments{
+    margin-top: 20px;
+    h4 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: #119d55;
+    }
+    a {
+      text-decoration: underline;
+    }
+  }
+  .github{
+    box-sizing: border-box;
+    margin: 1.75rem 0 1.75rem -2.2rem;
+    padding: 0 0 0 1.75rem;
+    // border-left: #4A4A4A 0.4em solid;
+    margin-left: 0;
+    p{
+      margin: 0.8rem 0;
+      font-style: italic;
+    }
+  }
 }
 
 .author-meta {
