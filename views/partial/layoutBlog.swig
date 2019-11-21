@@ -147,7 +147,7 @@
             <aside id='archives' class='widget'>
               <h4 class='title'>归档</h4>
               {% for year in Object.keys(archives) %}
-              <div>
+              <div class="archive-name-wrapper" data-year={{ year }}>
                 <div class="archive-name">
                   <span>{{ year + '年'}}</span>
                   <span class='glyphicon glyphicon-chevron-down down-icon'></span>

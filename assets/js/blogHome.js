@@ -13,7 +13,7 @@ define(['jquery'], function($){
     });
 
     $('#archives .archive-name').click(function(e){
-      $(e.target).next().toggleClass('hidden')
+      $(e.currentTarget).next().toggleClass('hidden')
     })
 
     var Accordion = function(el, multiple) {
