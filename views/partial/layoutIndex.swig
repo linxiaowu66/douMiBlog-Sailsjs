@@ -4,8 +4,26 @@
   <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="Keywords" content="豆米 前端 博客 服务器 生活">
-  <meta name="Description" content="豆米博客，用心、用爱、用力拥抱热爱前端">
+  <meta name="keywords" content="豆米 前端 博客 服务器 生活">
+  <meta name="description" content="豆米博客，用心、用爱、用力拥抱热爱前端">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="referrer" content="origin">
+  <meta property="og:site_name" content="豆米的博客">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="豆米的博客">
+  <meta property="og:description" content="豆米博客，用心、用爱、用力拥抱热爱前端">
+  <meta property="og:url" content="https://blog.5udou.cn">
+  <meta property="og:image" content="../../images/blog-img.jpg">
+  <script type="application/ld+json">
+    {
+    "@context": "http://schema.org",
+    "@type": "Website",
+    "publisher": "linxiaowu66",
+    "url": "https://blog.5udou.cn",
+    "image": "../../images/blog-img.jpg",
+    "description": "豆米博客，用心、用爱、用力拥抱热爱前端"
+    }
+  </script>
   <title>{% block title %}{% endblock %}</title>
 
   {% block style %}

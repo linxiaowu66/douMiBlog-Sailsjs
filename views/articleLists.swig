@@ -32,9 +32,6 @@
         <a href='/blog/{{ article.slug }}' class = 'articleLink'>阅读全文</a>
       </p>
     </div>
-    <div class='comment-count'>
-       <a href='https://blog.5udou.cn/blog/{{ article.slug }}#disqus_thread'></a>
-    </div>
     </article>
   {% endfor %}
   <!-- Pagination Box -->

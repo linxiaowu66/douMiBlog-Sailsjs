@@ -9,18 +9,32 @@
 .blog-date{
   float: left;
   text-align: center;
-  em{
-    display: block;
-    border-top: 2px solid #119d55;
-    font-style: normal;
-    text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  time {
+    em{
+      display: block;
+      border-top: 2px solid #119d55;
+      font-style: normal;
+      text-transform: uppercase;
+    }
+    span{
+      display: block;
+      font-size: 1.75rem;
+      font-weight: 600;
+      line-height: 110%;
+    }
+  }
+  .dot{
+    width: 4px;
+    height: 4px;
+    border-radius: 4px;
+    margin: 0px 5px;
+    background: #119d55;
   }
   span{
-    display: block;
-    font-size: 1.75rem;
-    font-weight: 600;
-    line-height: 110%;
-    }
+    font-size: 1.5rem;
+  }
 }
 .blog-view-count{
   display: inline-block;

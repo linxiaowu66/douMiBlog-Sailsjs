@@ -98,6 +98,7 @@ module.exports = {
         }
         var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         // 改造显示归档时间
+        article.archiveYear = article.archiveTime.substr(0, 4)
         article.archiveDay = article.archiveTime.substr(8, 2);
         article.archiveMonth = months[parseInt(article.archiveTime.substr(5, 2)) - 1];
 

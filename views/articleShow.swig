@@ -2,13 +2,15 @@
 {% extends 'partial/layoutBlog.swig' %}
 
 {% block keywords %}{{ article.tagsArray }}{% endblock %}
-{% block description %}{{ article.digest }}{% endblock %}
+{% block description %}{{ article.content.slice(0, 100) }}{% endblock %}
 {% block title %}{{ article.title }}{% endblock %}
+{% block slug %}{{ article.slug }}{% endblock %}
 
 {% block style %}
 {% parent %}
 <link href='/vender/highlightjs/styles/github.css' rel='stylesheet'>
 <link rel='stylesheet' href='/styles/articleShow.css'>
+<link rel="dns-prefetch" href="https://cdn.bootcss.com" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
 <link href="https://cdn.bootcss.com/gitalk/1.5.0/gitalk.min.css" rel="stylesheet">
 <script src="https://cdn.bootcss.com/gitalk/1.5.0/gitalk.min.js"></script>
@@ -23,6 +25,8 @@
         <span>{{ article.archiveDay }}</span>
         <em>{{ article.archiveMonth }}</em>
       </time>
+      <span class="dot"></span>
+      <span>{{ article.archiveYear}}</span>
     </span>
     <h1 class='post-title'>{{ article.title }}</h1>
   </header>

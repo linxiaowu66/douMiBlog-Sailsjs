@@ -4,9 +4,27 @@
   <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="Keywords" content="{% block keywords %}{% endblock %}">
-  <meta name="Description" content="{% block description %}{% endblock %}">
+  <meta name="keywords" content="{% block keywords %}{% endblock %}">
+  <meta name="description" content="{% block description %}{% endblock %}">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="referrer" content="origin">
+  <meta property="og:site_name" content="豆米的博客">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{% block title %}{% endblock %}">
+  <meta property="og:description" content="{% block description %}{% endblock %}">
+  <meta property="og:url" content="https://blog.5udou.cn/blog/{% block slug %}{% endblock %}">
+  <meta property="og:image" content="../../images/blog-img.jpg">
   <title>{% block title %}{% endblock %}</title>
+  <script type="application/ld+json">
+    {
+    "@context": "http://schema.org",
+    "@type": "Website",
+    "publisher": "linxiaowu66",
+    "url": "https://blog.5udou.cn/blog/{% block slug %}{% endblock %}",
+    "image": "../../images/blog-img.jpg",
+    "description": "{% block description %}{% endblock %}"
+    }
+  </script>
   {% block style %}
     <link rel='stylesheet' href='/vender/bootstrap/dist/css/bootstrap.min.css'>
     <link rel='stylesheet' href='/styles/blogFramwork.css'>
