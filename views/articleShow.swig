@@ -10,6 +10,8 @@
 <link href='/vender/highlightjs/styles/github.css' rel='stylesheet'>
 <link rel='stylesheet' href='/styles/articleShow.css'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+<link href="https://cdn.bootcss.com/gitalk/1.5.0/gitalk.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/gitalk/1.5.0/gitalk.min.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -53,34 +55,23 @@
       <script>window._bd_share_config={'common':{'bdSnsKey':{},'bdText':'','bdMini':'2','bdMiniList':false,'bdPic':'','bdStyle':'1','bdSize':'24'},'share':{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
     </section> -->
   </footer>
-  <div id='disqus_thread'>
-    评论正在加载，请稍后...
-   <br>
-   <br>
-   <strong>注意：</strong>如果长时间无法加载，那么说明你的网络被墙掉了，请使用代理或者VPN访问。
-  </div>
+  <div id="gitalk-container"></div>
+  <script>
+    const gitalk = new Gitalk({
+      clientID: '16018f2091e0cd02d37c',
+      clientSecret: 'c1c36729e8fdb3c309cd6e24939ad047cf904884',
+      repo: 'doumi-blog-comments',
+      owner: 'linxiaowu66',
+      admin: ['linxiaowu66'],
+      id: location.pathname.slice(0, 50),      // Ensure uniqueness and length less than 50
+      distractionFreeMode: false  // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+  </script>
   <aside id="page-top" style="display: block;">
     <a href="#wrapper" class="glyphicon glyphicon-menu-up"></a>
   </aside>
-  <script>
-
-  /**
-  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
-
-  var disqus_config = function () {
-    this.page.url = 'https://blog.5udou.cn/blog/{{article.slug}}';  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = '{{ article.slug }}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-  };
-
-  (function() { // DON'T EDIT BELOW THIS LINE
-     var d = document, s = d.createElement('script');
-     s.src = '//doumiblog2016.disqus.com/embed.js';
-     s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-  })();
-</script>
-<noscript>Please enable JavaScript to view the <a href='https://disqus.com/?ref_noscript'>comments powered by Disqus.</a></noscript>
 </main>
 <script type='text/javascript'>
   require(['../js/articleShow']);

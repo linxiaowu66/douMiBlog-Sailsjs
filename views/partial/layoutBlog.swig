@@ -11,8 +11,8 @@
     <link rel='stylesheet' href='/vender/bootstrap/dist/css/bootstrap.min.css'>
     <link rel='stylesheet' href='/styles/blogFramwork.css'>
   {% endblock %}
-<script type='text/javascript'  src='/js/requirejs/require.min.js'></script>
-<script type='text/javascript'  src='/js/config.js'></script>
+  <script type='text/javascript'  src='/js/requirejs/require.min.js'></script>
+  <script type='text/javascript'  src='/js/config.js'></script>
 </head>
 <body>
 <div id='wrapper'>
@@ -240,5 +240,4 @@
 <script type='text/javascript'>
   require(['../js/blogHome']);
 </script>
-<script id='dsq-count-scr' src='//doumiblog2016.disqus.com/count.js' async></script>
 </html>
