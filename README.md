@@ -111,11 +111,14 @@ $ npm install -g mocha
 **Step 7** In local, you can run 'sails lift' or 'sails console' in the root directory of this project to startup the server. Suppose the port 1337 used by server to listen the connect request, then you can visit the server in
 browser with url 'http://localhost:1337'.
 
-``` Troubleshooting tips:
-You can run 'sails lift --silly', then all detail log will be printed in console. Also for troubleshooting, it is better to use the interactive mode with 'sails conole' ```
+Troubleshooting tips:
+
+```
+You can run 'sails lift --silly', then all detail log will be printed in console. Also for troubleshooting, it is better to use the interactive mode with 'sails conole'
+```
 
 ## TODO
 
-[ ] 标签支持根据标签下文章个数进行大小调整并排序(或者使用云标签的方式)
-[ ] 文章增加每天阅读人数的统计
-[ ] 支持RSS
+  - [ ] 标签支持根据标签下文章个数进行大小调整并排序(或者使用云标签的方式)
+  - [ ] 文章增加每天阅读人数的统计
+  - [ ] 支持RSS
