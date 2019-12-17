@@ -122,3 +122,4 @@ You can run 'sails lift --silly', then all detail log will be printed in console
   - [ ] 标签支持根据标签下文章个数进行大小调整并排序(或者使用云标签的方式)
   - [ ] 文章增加每天阅读人数的统计
   - [ ] 支持RSS
+  - [ ] 文章中的图片支持点击放大查看
