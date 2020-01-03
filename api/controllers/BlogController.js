@@ -12,7 +12,7 @@ module.exports = {
 
       return res.json({
         status: 1,
-        result: { articles: result.articles.map(item => ({ title: item.title, slug: item.slug, tagsArray: item.tagsArray, picture: item.picture, archiveTime: item.archiveTime, previewText: item.previewText })) }
+        result: { articles: result.articles.map(item => ({ title: item.title, slug: item.slug, tagsArray: item.tagsArray, picture: item.picture, archiveTime: item.archiveTime, digest: item.digest })) }
       })
     } catch(err) {
       sails.log.error('fetch article list error: ', err)
