@@ -18,7 +18,7 @@ module.exports = {
 
       return res.json({
         status: 1,
-        data: result
+        data: result.map(item => ({ title: item.title, archiveTime: item.archiveTime, slug: item.slug }))
       })
     } catch(err) {
       sails.log.error('fetch hottest articles error: ', err)
