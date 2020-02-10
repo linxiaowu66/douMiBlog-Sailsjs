@@ -12,8 +12,8 @@
 <link rel='stylesheet' href='/styles/articleShow.css'>
 <link rel="dns-prefetch" href="https://cdn.bootcss.com" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
-<link href="https://cdn.bootcss.com/gitalk/1.5.2/gitalk.min.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/gitalk/1.5.2/gitalk.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/gitalk@1.5.2/dist/gitalk.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.2/dist/gitalk.min.js"></script>
 {% endblock %}
 
 {% block content %}
